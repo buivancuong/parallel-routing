@@ -21,7 +21,7 @@ public:
 
     float getWeight();
     bool getDirected();
-    Vertice
+//    Vertice
 
 };
 

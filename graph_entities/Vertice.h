@@ -13,9 +13,9 @@
 class Vertice {
 
 protected:
-    int vertice_id{};       // id of vertice
+    int verticeId{};       // id of vertice
     bool isCenter{};      // isCenter=True if vertice is center of its block
-    std::string vertice_role;       // role of vertice {switch, router, terminal computer, ...}
+    std::string verticeRole;       // role of vertice {switch, router, terminal computer, ...}
     // below variable is stepwise updated, no have Setter function
     std::vector<std::vector<Vertice> > locality;        // locality of this vertice
     std::map<int, int> localRT;     // Routing table to node on locality.
@@ -23,6 +23,10 @@ protected:
 
 
 public:
+    // below variable is global parameters of Topology, all of them is static variable
+    static int deltaNeighbors;     // neighbor radius
+    static int xBlockSize;     // size of per block follow horizontal
+    static int yBlockSize;     // size of per block follow vertical
     // Constructer & Destructer
     Vertice();
     virtual ~Vertice();
@@ -52,7 +56,7 @@ public:
     void find3Bridges();
     void find4Bridges();
 
-    void handleMissingBridge
+    void handleMissingBridge();
 
 };
 

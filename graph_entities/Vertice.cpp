@@ -10,19 +10,19 @@ Vertice::Vertice() = default;
 
 
 int Vertice::getVerticeID() {
-    return this->vertice_id;
+    return this->verticeId;
 }
 
 std::string Vertice::getVerticeRole() {
-    return this->vertice_role;
+    return this->verticeRole;
 }
 
 void Vertice::setVerticeID(int newID) {
-    this->vertice_id = newID;
+    this->verticeId = newID;
 }
 
 void Vertice::setVerticeRole(std::string newRole) {
-    this->vertice_role = std::move(newRole);
+    this->verticeRole = std::move(newRole);
 }
 
 bool Vertice::getCentered() {
@@ -43,6 +43,10 @@ std::vector<std::list<int> > Vertice::getBlockRT() {
 
 void Vertice::setCentered(bool centered) {
     this->isCenter = centered;
+}
+
+void Vertice::createLocality() {
+
 }
 
 Vertice::~Vertice() = default;
