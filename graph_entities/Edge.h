@@ -16,12 +16,16 @@ protected:
     Vertice vertices[2];
 
 public:
-    explicit Edge(Vertice *vertices);
+    // Constructor & Destructor
+    explicit Edge(int *verticesId);
     virtual ~Edge();
 
+    // Getter & Setter
     float getWeight();
     bool getDirected();
-//    Vertice
+    void setWeight(int newWeight);
+
+
 
 };
 

@@ -11,6 +11,8 @@ CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o: ../graph_entities/Gr
 CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o: ../graph_entities/Vertice.cpp
 CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o: ../graph_entities/Vertice.h
 
+CMakeFiles/parallel_routing.dir/main.cpp.o: ../graph_entities/Edge.h
+CMakeFiles/parallel_routing.dir/main.cpp.o: ../graph_entities/Vertice.h
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../main.cpp
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../utils/VerticeUtils.h
 

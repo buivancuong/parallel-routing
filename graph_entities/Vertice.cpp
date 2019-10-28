@@ -6,7 +6,9 @@
 
 #include <utility>
 
-Vertice::Vertice() = default;
+Vertice::Vertice(int verticeId) {
+    this->verticeId = verticeId;
+}
 
 
 int Vertice::getVerticeID() {
@@ -45,8 +47,22 @@ void Vertice::setCentered(bool centered) {
     this->isCenter = centered;
 }
 
+// Locality = Neighbors + Block
 void Vertice::createLocality() {
+    // Discover Neighbors
+    for (int i = 0; i < Vertice::deltaNeighbors;  ++i) {
+        std::vector<Vertice> higherNeighbors;
+        for (auto &lowerNeighbor : this->locality[i]) {
+            for (auto neighbor : lowerNeighbor.locality[0]) {
+                higherNeighbors.push_back(lowerNeighbor);
+            }
+        }
+        this->locality.push_back(higherNeighbors);
+    }
+    //Discover Block
+    while (true){
 
+    }
 }
 
 Vertice::~Vertice() = default;

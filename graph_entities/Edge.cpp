@@ -5,10 +5,10 @@
 #include "Edge.h"
 
 
-Edge::Edge(Vertice *vertices) {
-    this->vertices[0] = vertices[0];
-    this->vertices[1] = vertices[1];
-}
+//Edge::Edge(int *verticesID) {
+//    this->vertices[0] = Vertice(verticesID[0]);
+//    this->vertices[1] = Vertice(verticesID[1]);
+//}
 
 float Edge::getWeight() {
     return this->weight;

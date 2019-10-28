@@ -28,7 +28,7 @@ public:
     static int xBlockSize;     // size of per block follow horizontal
     static int yBlockSize;     // size of per block follow vertical
     // Constructer & Destructer
-    Vertice();
+    explicit Vertice(int verticeId);
     virtual ~Vertice();
 
     // Getter methods
