@@ -31,7 +31,7 @@ bool Vertice::getCentered() {
     return this->isCenter;
 }
 
-std::vector<std::vector<Vertice> > Vertice::getLocality() {
+std::vector<std::set<Vertice> > Vertice::getLocality() {
     return this->locality;
 }
 
@@ -51,10 +51,12 @@ void Vertice::setCentered(bool centered) {
 void Vertice::createLocality() {
     // Discover Neighbors
     for (int i = 0; i < Vertice::deltaNeighbors;  ++i) {
-        std::vector<Vertice> higherNeighbors;
+        std::set<Vertice> higherNeighbors;
         for (auto &lowerNeighbor : this->locality[i]) {
-            for (auto neighbor : lowerNeighbor.locality[0]) {
-                higherNeighbors.push_back(lowerNeighbor);
+            for (const auto& neighbor : lowerNeighbor.locality[0]) {
+                if (this->locality[i].count(neighbor) > 0) {
+                    higherNeighbors.insert(lowerNeighbor);
+                }
             }
         }
         this->locality.push_back(higherNeighbors);

@@ -12,14 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="add vertice utilities">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_entities/Edge.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Edge.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_entities/Edge.h" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Edge.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph_entities/Vertice.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Vertice.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph_entities/Vertice.h" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Vertice.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/VerticeUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/utils/VerticeUtils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/VerticeUtils.h" beforeDir="false" afterPath="$PROJECT_DIR$/utils/VerticeUtils.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,6 +106,8 @@
       <workItem from="1572098847862" duration="1577000" />
       <workItem from="1572183261961" duration="1100000" />
       <workItem from="1572253915813" duration="6540000" />
+      <workItem from="1572340069271" duration="641000" />
+      <workItem from="1572427835719" duration="3360000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>

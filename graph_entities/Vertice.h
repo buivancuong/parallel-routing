@@ -9,6 +9,7 @@
 #include <vector>
 #include <map>
 #include <list>
+#include <set>
 
 class Vertice {
 
@@ -17,7 +18,7 @@ protected:
     bool isCenter{};      // isCenter=True if vertice is center of its block
     std::string verticeRole;       // role of vertice {switch, router, terminal computer, ...}
     // below variable is stepwise updated, no have Setter function
-    std::vector<std::vector<Vertice> > locality;        // locality of this vertice
+    std::vector<std::set<Vertice> > locality;        // locality of this vertice
     std::map<int, int> localRT;     // Routing table to node on locality.
     std::vector<std::list<int> > blockRT;       // Routing table to blocks
 
@@ -35,7 +36,7 @@ public:
     int getVerticeID();
     bool getCentered();
     std::string getVerticeRole();
-    std::vector<std::vector<Vertice> > getLocality();
+    std::vector<std::set<Vertice> > getLocality();
     std::map<int, int> getLocalRT();
     std::vector<std::list<int> > getBlockRT();
 

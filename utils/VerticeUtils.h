@@ -6,6 +6,9 @@
 #define PARALLEL_ROUTING_VERTICEUTILS_H
 
 
+#include <set>
+#include "../graph_entities/Vertice.h"
+
 class VerticeUtils {
 public:
     VerticeUtils();
@@ -24,6 +27,8 @@ public:
     static int getBlockVertical(int blockID, int yBlockSize, int yTopoSize);
     // method to get center vertice of the block
     static int getCenterVertice(int blockId, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+    // method to get list of vertices of the block
+    static std::set<Vertice>
 };
 
 
