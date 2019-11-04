@@ -54,29 +54,41 @@ void Vertice::createLocality() {
     for (int i = 0; i < Vertice::deltaNeighbors; ++i) {
         std::set<Vertice> higherNeighbors;
         for (auto &lowerNeighbor : this->locality[i]) {
-            for (const auto &neighbor : lowerNeighbor.locality[0]) {
-                if (this->locality[i].count(neighbor) > 0) {
+            for (const Vertice &neighbor : lowerNeighbor.locality[0]) {     // 2 layer reference is not enable to extract datatype
+                if (this->locality[i].count(neighbor) == 0) {
                     higherNeighbors.insert(neighbor);
                 }
             }
         }
         this->locality.push_back(higherNeighbors);
     }
-    //Discover Block
+    //Discover Block \ Neighbors
     int maxGridHop = VerticeUtils::getMaxHopinBlock(this->verticeId, Vertice::xBlockSize, Vertice::yBlockSize,
                                                     Vertice::xTopoSize, Vertice::yTopoSize);
     for (int i = Vertice::deltaNeighbors; i < maxGridHop; ++i) {
         std::set<Vertice> higherNeighbors;
         for (auto &lowerNeighbor : this->locality[i]) {
-            for (const auto &neighbor : lowerNeighbor.locality[0]) {
-                if (this->locality[i].count(neighbor) > 0) {
-                    int itsBlock = VerticeUtils::getVerticeBlock(this->verticeId, Vertice::xBlockSize, Vertice::yBlockSize, Vertice::xTopoSize, Vertice::yTopoSize);
-                    int neighborBlock = VerticeUtils::getVerticeBlock(neighbor.)
-                    higherNeighbors.insert(neighbor);
+            for (const Vertice &neighbor : lowerNeighbor.locality[0]) {     // 2 layer reference is not enable to extract datatype
+                if (this->locality[i].count(neighbor) == 0) {
+                    int itsBlock = VerticeUtils::getVerticeBlock(this->verticeId, Vertice::xBlockSize,
+                                                                 Vertice::yBlockSize, Vertice::xTopoSize,
+                                                                 Vertice::yTopoSize);
+                    int neighborBlock = VerticeUtils::getVerticeBlock(neighbor.verticeId, Vertice::xBlockSize,
+                                                                      Vertice::yBlockSize, Vertice::xTopoSize,
+                                                                      Vertice::yBlockSize);
+                    if (itsBlock == neighborBlock) {
+                        higherNeighbors.insert(neighbor);
+                    }
                 }
             }
         }
+        this->locality.push_back(higherNeighbors);
     }
+}
+
+void Vertice::updateLocalRT() {
+
+
 }
 
 Vertice::~Vertice() = default;

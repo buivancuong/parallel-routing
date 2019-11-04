@@ -51,7 +51,6 @@ public:
     void createLocality();
     void updateLocalRT();
     void updateLocalTable(int destN, int next);
-    void getTreeSPR();
 
     void updateBlockRT(int destB, int next);
     void find1Bridges();
