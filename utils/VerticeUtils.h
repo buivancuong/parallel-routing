@@ -27,8 +27,8 @@ public:
     static int getBlockVertical(int blockID, int yBlockSize, int yTopoSize);
     // method to get center vertice of the block
     static int getCenterVertice(int blockId, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
-    // method to get list of vertices of the block
-    static std::set<Vertice>
+    // method to get max hop-distance to all nodes on same block of the node
+    static int getMaxHopinBlock(int verticeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 };
 
 

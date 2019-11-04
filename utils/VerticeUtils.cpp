@@ -3,6 +3,7 @@
 //
 
 
+#include <stdlib.h>
 #include "VerticeUtils.h"
 
 int VerticeUtils::getVerticeHorizontal(int verticeID, int xTopoSize) {
@@ -35,6 +36,30 @@ int VerticeUtils::getBlockHorizontal(int blockId, int xBlockSize, int xTopoSize)
 int VerticeUtils::getBlockVertical(int blockID, int yBlockSize, int yTopoSize) {
     int numYBlock = (int)(yTopoSize / yBlockSize);
     return (int)(blockID / numYBlock);
+}
+
+int VerticeUtils::getMaxHopinBlock(int verticeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+    int itsBlockID = VerticeUtils::getVerticeBlock(verticeID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+    int blockHorizontal = VerticeUtils::getBlockHorizontal(itsBlockID, xBlockSize, xTopoSize);
+    int blockVertical = VerticeUtils::getBlockVertical(itsBlockID, yBlockSize, yTopoSize);
+    int minHorizontal = xBlockSize * blockHorizontal;
+    int maxHorizontal = minHorizontal + xBlockSize;
+    int minVertical = yBlockSize * blockVertical;
+    int maxVertical = minVertical + yBlockSize;
+    int maxXHop, maxYHop;
+    int verticeHorizontal = VerticeUtils::getVerticeHorizontal(verticeID, xTopoSize);
+    int verticeVertical = VerticeUtils::getVerticeVertical(verticeID, yTopoSize);
+    if (abs(verticeHorizontal - maxHorizontal) > abs(verticeHorizontal - minHorizontal)) {
+        maxXHop = maxHorizontal;
+    } else {
+        maxXHop = minHorizontal;
+    }
+    if (abs(verticeVertical - maxVertical) > abs(verticeVertical - minVertical)) {
+        maxYHop = maxHorizontal;
+    } else {
+        maxYHop = minVertical;
+    }
+    return (maxXHop + maxYHop);
 }
 
 VerticeUtils::~VerticeUtils() = default;

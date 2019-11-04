@@ -3,6 +3,7 @@
 //
 
 #include "Vertice.h"
+#include "../utils/VerticeUtils.h"
 
 #include <utility>
 
@@ -50,20 +51,31 @@ void Vertice::setCentered(bool centered) {
 // Locality = Neighbors + Block
 void Vertice::createLocality() {
     // Discover Neighbors
-    for (int i = 0; i < Vertice::deltaNeighbors;  ++i) {
+    for (int i = 0; i < Vertice::deltaNeighbors; ++i) {
         std::set<Vertice> higherNeighbors;
         for (auto &lowerNeighbor : this->locality[i]) {
-            for (const auto& neighbor : lowerNeighbor.locality[0]) {
+            for (const auto &neighbor : lowerNeighbor.locality[0]) {
                 if (this->locality[i].count(neighbor) > 0) {
-                    higherNeighbors.insert(lowerNeighbor);
+                    higherNeighbors.insert(neighbor);
                 }
             }
         }
         this->locality.push_back(higherNeighbors);
     }
     //Discover Block
-    while (true){
-
+    int maxGridHop = VerticeUtils::getMaxHopinBlock(this->verticeId, Vertice::xBlockSize, Vertice::yBlockSize,
+                                                    Vertice::xTopoSize, Vertice::yTopoSize);
+    for (int i = Vertice::deltaNeighbors; i < maxGridHop; ++i) {
+        std::set<Vertice> higherNeighbors;
+        for (auto &lowerNeighbor : this->locality[i]) {
+            for (const auto &neighbor : lowerNeighbor.locality[0]) {
+                if (this->locality[i].count(neighbor) > 0) {
+                    int itsBlock = VerticeUtils::getVerticeBlock(this->verticeId, Vertice::xBlockSize, Vertice::yBlockSize, Vertice::xTopoSize, Vertice::yTopoSize);
+                    int neighborBlock = VerticeUtils::getVerticeBlock(neighbor.)
+                    higherNeighbors.insert(neighbor);
+                }
+            }
+        }
     }
 }
 
