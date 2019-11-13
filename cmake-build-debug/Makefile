@@ -177,33 +177,6 @@ graph_entities/Graph.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.s
 .PHONY : graph_entities/Graph.cpp.s
 
-graph_entities/Vertice.o: graph_entities/Vertice.cpp.o
-
-.PHONY : graph_entities/Vertice.o
-
-# target to build an object file
-graph_entities/Vertice.cpp.o:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o
-.PHONY : graph_entities/Vertice.cpp.o
-
-graph_entities/Vertice.i: graph_entities/Vertice.cpp.i
-
-.PHONY : graph_entities/Vertice.i
-
-# target to preprocess a source file
-graph_entities/Vertice.cpp.i:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.i
-.PHONY : graph_entities/Vertice.cpp.i
-
-graph_entities/Vertice.s: graph_entities/Vertice.cpp.s
-
-.PHONY : graph_entities/Vertice.s
-
-# target to generate assembly for a file
-graph_entities/Vertice.cpp.s:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.s
-.PHONY : graph_entities/Vertice.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -273,9 +246,6 @@ help:
 	@echo "... graph_entities/Graph.o"
 	@echo "... graph_entities/Graph.i"
 	@echo "... graph_entities/Graph.s"
-	@echo "... graph_entities/Vertice.o"
-	@echo "... graph_entities/Vertice.i"
-	@echo "... graph_entities/Vertice.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -11,19 +11,20 @@
 class Edge {
 
 protected:
-    float weight{};
+    double weight{};
     bool directed{};
-    Vertice vertices[2];
+    std::pair<int, int> points;     // <source, destination>
 
 public:
     // Constructor & Destructor
-    explicit Edge(int *verticesId);
+    explicit Edge(std::pair<int, int> verticesID);
     virtual ~Edge();
 
     // Getter & Setter
-    float getWeight();
+    double getWeight();
     bool getDirected();
-    void setWeight(int newWeight);
+    void setWeight(double newWeight);
+    void setDirected(bool isDirected);
 
 
 

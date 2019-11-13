@@ -24,12 +24,6 @@ protected:
 
 
 public:
-    // below variable is global parameters of Topology, all of them is static variable
-    static int xTopoSize;       // size of Topo follow horizontal
-    static int yTopoSize;       // size of Topo follow vertical
-    static int deltaNeighbors;     // neighbor radius
-    static int xBlockSize;     // size of per block follow horizontal
-    static int yBlockSize;     // size of per block follow vertical
     // Constructer & Destructer
     explicit Vertice(int verticeId);
     virtual ~Vertice();

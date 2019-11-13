@@ -3,7 +3,7 @@
 //
 
 
-#include <stdlib.h>
+#include <cstdlib>
 #include "VerticeUtils.h"
 
 int VerticeUtils::getVerticeHorizontal(int verticeID, int xTopoSize) {

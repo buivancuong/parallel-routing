@@ -56,7 +56,15 @@ void Vertice::createLocality() {
         for (auto &lowerNeighbor : this->locality[i]) {
             for (const Vertice &neighbor : lowerNeighbor.locality[0]) {     // 2 layer reference is not enable to extract datatype
                 if (this->locality[i].count(neighbor) == 0) {
-                    higherNeighbors.insert(neighbor);
+                    int itsBlock = VerticeUtils::getVerticeBlock(this->verticeId, Vertice::xBlockSize,
+                                                                 Vertice::yBlockSize, Vertice::xTopoSize,
+                                                                 Vertice::yTopoSize);
+                    int neighborBlock = VerticeUtils::getVerticeBlock(neighbor.verticeId, Vertice::xBlockSize,
+                                                                      Vertice::yBlockSize, Vertice::xTopoSize,
+                                                                      Vertice::yBlockSize);
+                    if (itsBlock == neighborBlock) {
+                        higherNeighbors.insert(neighbor);
+                    }
                 }
             }
         }
@@ -87,8 +95,9 @@ void Vertice::createLocality() {
 }
 
 void Vertice::updateLocalRT() {
-
-
+    auto *verticeUtils = new VerticeUtils();
+    int vertical = VerticeUtils::getVerticeVertical(this->verticeId, Vertice::yTopoSize);
+    int horizontal = VerticeUtils::getVerticeHorizontal(this->verticeId, Vertice::xTopoSize);
 }
 
 Vertice::~Vertice() = default;
