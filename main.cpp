@@ -2,17 +2,21 @@
 #include <utility>
 #include "./utils/VerticeUtils.h"
 #include "./graph_entities/Edge.h"
+#include "graph_entities/Topo.h"
 
-
+int Topo::xTopoSize = 1;
+int Topo::yTopoSize = 1;
+int Topo::xBlockSize = 1;
+int Topo::yBlockSize = 1;
+int Topo::deltaNeighbors = 1;
+float Topo::nodeLatency = 1;
+float Topo::cableLatency = 1;
 int main() {
 
-    int myInt[] = {1,2,3,5};
-    std::vector<int> myvec (myInt, myInt + sizeof(myInt)/ sizeof(int));
-    for (auto &item : myvec){
-        std::cout << item << std::endl;
-    }
-    std::cout << myvec[0] << std::endl;
 
-    std::cout << "Hello, World!" << std::endl;
+    auto *vertice1 = new Vertice(1);
+    auto *vertice2 = new Vertice(2);
+
+    std::cout << vertice1->getVerticeID() << std::endl;
     return 0;
 }

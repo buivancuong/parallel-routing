@@ -11,17 +11,17 @@
 #include <list>
 #include <set>
 
+//#include "Graph.h"
+
 class Vertice {
 
 protected:
     int verticeId{};       // id of vertice
     bool isCenter{};      // isCenter=True if vertice is center of its block
-    std::string verticeRole;       // role of vertice {switch, router, terminal computer, ...}
     // below variable is stepwise updated, no have Setter function
-    std::vector<std::set<Vertice> > locality;        // locality of this vertice
+    std::vector<std::map<int, Vertice> > locality;        // locality of this vertice:
     std::map<int, int> localRT;     // Routing table to node on locality.
     std::vector<std::list<int> > blockRT;       // Routing table to blocks
-
 
 public:
     // Constructer & Destructer
@@ -31,15 +31,14 @@ public:
     // Getter methods
     int getVerticeID();
     bool getCentered();
-    std::string getVerticeRole();
-    std::vector<std::set<Vertice> > getLocality();
+    std::vector<std::map<int, Vertice> > getLocality();
     std::map<int, int> getLocalRT();
     std::vector<std::list<int> > getBlockRT();
 
     // Setter methods
     void setVerticeID(int newID);
     void setCentered(bool centered);
-    void setVerticeRole(std::string newRole);
+    void addNeighbor(Vertice neighborVertice);
 
     // Stepwise update methods
     void createLocality();

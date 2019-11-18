@@ -4,6 +4,8 @@
 
 #include "Vertice.h"
 #include "../utils/VerticeUtils.h"
+#include "Topo.h"
+#include "Graph.h"
 
 #include <utility>
 
@@ -16,23 +18,15 @@ int Vertice::getVerticeID() {
     return this->verticeId;
 }
 
-std::string Vertice::getVerticeRole() {
-    return this->verticeRole;
-}
-
 void Vertice::setVerticeID(int newID) {
     this->verticeId = newID;
-}
-
-void Vertice::setVerticeRole(std::string newRole) {
-    this->verticeRole = std::move(newRole);
 }
 
 bool Vertice::getCentered() {
     return this->isCenter;
 }
 
-std::vector<std::set<Vertice> > Vertice::getLocality() {
+std::vector<std::map<int, Vertice> > Vertice::getLocality() {
     return this->locality;
 }
 
@@ -51,41 +45,55 @@ void Vertice::setCentered(bool centered) {
 // Locality = Neighbors + Block
 void Vertice::createLocality() {
     // Discover Neighbors
-    for (int i = 0; i < Vertice::deltaNeighbors; ++i) {
-        std::set<Vertice> higherNeighbors;
-        for (auto &lowerNeighbor : this->locality[i]) {
-            for (const Vertice &neighbor : lowerNeighbor.locality[0]) {     // 2 layer reference is not enable to extract datatype
-                if (this->locality[i].count(neighbor) == 0) {
-                    int itsBlock = VerticeUtils::getVerticeBlock(this->verticeId, Vertice::xBlockSize,
-                                                                 Vertice::yBlockSize, Vertice::xTopoSize,
-                                                                 Vertice::yTopoSize);
-                    int neighborBlock = VerticeUtils::getVerticeBlock(neighbor.verticeId, Vertice::xBlockSize,
-                                                                      Vertice::yBlockSize, Vertice::xTopoSize,
-                                                                      Vertice::yBlockSize);
+    for (int i = 0; i < Topo::getDeltaNeighbors() - 1; ++i) {       // counting from 0, not 1
+        std::map<int, Vertice> higherNeighbors;
+        for (std::pair<int, Vertice> lowerNeighbor : this->locality[i]) {       // for each vertice on lower neighbor layer (current neighbor)
+            for (std::pair<int, Vertice> neighbor : lowerNeighbor.second.getLocality()[0]) {     // for each neighbor of each above vertice (new neighbor)
+                if (neighbor.first == this->getVerticeID()) continue;       // neighbor of neighbor is self
+                if (higherNeighbors.count(neighbor.first) != 0) continue;       // mutual neighbor
+                if ((i > 0) and (this->locality[i - 1].count(neighbor.first != 0)))
+                    continue;       // neighbor is existed at inner layer neighbor
+                if (higherNeighbors.count(neighbor.first) ==
+                    0) {     // if new higher neighbor layer is not include new neighbor (
+                    int itsBlock = VerticeUtils::getVerticeBlock(this->verticeId, Topo::getXBlockSize(),
+                                                                 Topo::getYBlockSize(), Topo::getXTopoSize(),
+                                                                 Topo::getYTopoSize());
+                    int neighborBlock = VerticeUtils::getVerticeBlock(neighbor.second.verticeId, Topo::getXBlockSize(),
+                                                                      Topo::getYBlockSize(), Topo::getXTopoSize(),
+                                                                      Topo::getYTopoSize());
                     if (itsBlock == neighborBlock) {
-                        higherNeighbors.insert(neighbor);
+                        higherNeighbors.insert(std::pair<int, Vertice>(neighbor.second.getVerticeID(),
+                                                                       neighbor.second));       // add it into new higher layer neighbor
                     }
                 }
             }
         }
-        this->locality.push_back(higherNeighbors);
+        this->locality.push_back(
+                higherNeighbors);      // push new higher layer neighbor back to locality vector (array)
     }
     //Discover Block \ Neighbors
-    int maxGridHop = VerticeUtils::getMaxHopinBlock(this->verticeId, Vertice::xBlockSize, Vertice::yBlockSize,
-                                                    Vertice::xTopoSize, Vertice::yTopoSize);
-    for (int i = Vertice::deltaNeighbors; i < maxGridHop; ++i) {
-        std::set<Vertice> higherNeighbors;
-        for (auto &lowerNeighbor : this->locality[i]) {
-            for (const Vertice &neighbor : lowerNeighbor.locality[0]) {     // 2 layer reference is not enable to extract datatype
-                if (this->locality[i].count(neighbor) == 0) {
-                    int itsBlock = VerticeUtils::getVerticeBlock(this->verticeId, Vertice::xBlockSize,
-                                                                 Vertice::yBlockSize, Vertice::xTopoSize,
-                                                                 Vertice::yTopoSize);
-                    int neighborBlock = VerticeUtils::getVerticeBlock(neighbor.verticeId, Vertice::xBlockSize,
-                                                                      Vertice::yBlockSize, Vertice::xTopoSize,
-                                                                      Vertice::yBlockSize);
+    int maxGridHop = VerticeUtils::getMaxHopinBlock(this->verticeId, Topo::getXBlockSize(),
+                                                    Topo::getYBlockSize(), Topo::getXTopoSize(),
+                                                    Topo::getYTopoSize());
+    for (int i = Topo::getDeltaNeighbors() - 1; i < maxGridHop - 1; ++i) {
+        std::map<int, Vertice> higherNeighbors;
+        for (std::pair<int, Vertice> lowerNeighbor : this->locality[i]) {
+            for (std::pair<int, Vertice> neighbor : lowerNeighbor.second.getLocality()[0]) {     // 2 layer reference is not enable to extract datatype
+                if (neighbor.first == this->getVerticeID()) continue;       // neighbor of neighbor is self
+                if (higherNeighbors.count(neighbor.first) != 0) continue;       // mutual neighbor
+                if ((i > 0) and (this->locality[i - 1].count(neighbor.first != 0)))
+                    continue;       // neighbor is existed at inner layer neighbor
+                if (higherNeighbors.count(neighbor.first) ==
+                    0) {     // if new higher neighbor layer is not include new neighbor (
+                    int itsBlock = VerticeUtils::getVerticeBlock(this->verticeId, Topo::getXBlockSize(),
+                                                                 Topo::getYBlockSize(), Topo::getXTopoSize(),
+                                                                 Topo::getYTopoSize());
+                    int neighborBlock = VerticeUtils::getVerticeBlock(neighbor.second.verticeId, Topo::getXBlockSize(),
+                                                                      Topo::getYBlockSize(), Topo::getXTopoSize(),
+                                                                      Topo::getYTopoSize());
                     if (itsBlock == neighborBlock) {
-                        higherNeighbors.insert(neighbor);
+                        higherNeighbors.insert(std::pair<int, Vertice>(neighbor.second.getVerticeID(),
+                                                                       neighbor.second));       // add it into new higher layer neighbor
                     }
                 }
             }
@@ -95,9 +103,14 @@ void Vertice::createLocality() {
 }
 
 void Vertice::updateLocalRT() {
-    auto *verticeUtils = new VerticeUtils();
-    int vertical = VerticeUtils::getVerticeVertical(this->verticeId, Vertice::yTopoSize);
-    int horizontal = VerticeUtils::getVerticeHorizontal(this->verticeId, Vertice::xTopoSize);
+    //
 }
+
+void Vertice::addNeighbor(Vertice neighborVertice) {
+    if (this->locality[0].count(neighborVertice.getVerticeID()) == 0) {
+        this->locality[0].insert(std::pair<int, Vertice>(neighborVertice.getVerticeID(), neighborVertice));
+    }
+}
+
 
 Vertice::~Vertice() = default;

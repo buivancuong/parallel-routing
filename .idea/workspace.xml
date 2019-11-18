@@ -12,23 +12,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="create locality">
+      <change afterPath="$PROJECT_DIR$/graph_entities/Graph.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph_entities/Topo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph_entities/Topo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph_entities/Edge.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Edge.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph_entities/Edge.h" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Edge.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_entities/Graph.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_entities/Vertice.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Graph.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph_entities/Graph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Graph.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph_entities/Vertice.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Vertice.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph_entities/Vertice.h" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Vertice.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/VerticeUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/utils/VerticeUtils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,6 +147,21 @@
       <workItem from="1573481208257" duration="5418000" />
       <workItem from="1573529100366" duration="6817000" />
       <workItem from="1573566656552" duration="654000" />
+      <workItem from="1573607106236" duration="22268000" />
+      <workItem from="1573654203807" duration="601000" />
+      <workItem from="1573656270686" duration="604000" />
+      <workItem from="1573694543472" duration="10622000" />
+      <workItem from="1573740503831" duration="615000" />
+      <workItem from="1573779604522" duration="5565000" />
+      <workItem from="1573793363317" duration="4000000" />
+      <workItem from="1573829828009" duration="1816000" />
+      <workItem from="1573868132106" duration="6701000" />
+      <workItem from="1573909025286" duration="77000" />
+      <workItem from="1573909120058" duration="4824000" />
+      <workItem from="1574042376204" duration="6974000" />
+      <workItem from="1574075829704" duration="1527000" />
+      <workItem from="1574079506280" duration="2563000" />
+      <workItem from="1574083866804" duration="9724000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>

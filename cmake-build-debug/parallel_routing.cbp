@@ -96,6 +96,18 @@
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Graph.h">
 			<Option target="parallel_routing"/>
 		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Topo.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Topo.h">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Vertice.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Vertice.h">
+			<Option target="parallel_routing"/>
+		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/main.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>

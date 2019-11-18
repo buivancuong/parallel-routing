@@ -3,19 +3,37 @@
 
 CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o: ../graph_entities/Edge.cpp
 CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o: ../graph_entities/Edge.h
+CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o: ../graph_entities/Graph.h
+CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o: ../graph_entities/Topo.h
 CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o: ../graph_entities/Vertice.h
+CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o: ../utils/VerticeUtils.h
 
+CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o: ../graph_entities/Edge.h
 CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o: ../graph_entities/Graph.cpp
 CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o: ../graph_entities/Graph.h
+CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o: ../graph_entities/Vertice.h
 
+CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o: ../graph_entities/Edge.h
+CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o: ../graph_entities/Graph.h
+CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o: ../graph_entities/Topo.cpp
+CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o: ../graph_entities/Topo.h
+CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o: ../graph_entities/Vertice.h
+
+CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o: ../graph_entities/Edge.h
+CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o: ../graph_entities/Graph.h
+CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o: ../graph_entities/Topo.h
 CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o: ../graph_entities/Vertice.cpp
 CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o: ../graph_entities/Vertice.h
+CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o: ../utils/VerticeUtils.h
 
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../graph_entities/Edge.h
+CMakeFiles/parallel_routing.dir/main.cpp.o: ../graph_entities/Graph.h
+CMakeFiles/parallel_routing.dir/main.cpp.o: ../graph_entities/Topo.h
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../graph_entities/Vertice.h
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../main.cpp
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../utils/VerticeUtils.h
 
+CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o: ../graph_entities/Vertice.h
 CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o: ../utils/VerticeUtils.cpp
 CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o: ../utils/VerticeUtils.h
 

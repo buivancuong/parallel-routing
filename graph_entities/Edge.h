@@ -12,22 +12,21 @@ class Edge {
 
 protected:
     double weight{};
-    bool directed{};
-    std::pair<int, int> points;     // <source, destination>
+    std::pair<int, int> points;     // <sourceID, destinationID>
 
 public:
     // Constructor & Destructor
     explicit Edge(std::pair<int, int> verticesID);
-    virtual ~Edge();
+    explicit Edge(Edge *edge);
+    ~Edge();
 
     // Getter & Setter
     double getWeight();
-    bool getDirected();
+    std::pair<int, int> getPoints();
     void setWeight(double newWeight);
-    void setDirected(bool isDirected);
 
-
-
+    // Compare Edge(source-dest) = Edge(dest-source)
+    static bool isExistEdges(const Edge& firstEdge, const Edge& secondEdge);
 };
 
 
