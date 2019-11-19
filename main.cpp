@@ -17,6 +17,6 @@ int main() {
     auto *vertice1 = new Vertice(1);
     auto *vertice2 = new Vertice(2);
 
-    std::cout << vertice1->getVerticeID() << std::endl;
+    std::cout << "clgt " << sizeof(vertice1) << std::endl;
     return 0;
 }
