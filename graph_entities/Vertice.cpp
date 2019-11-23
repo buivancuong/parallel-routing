@@ -151,7 +151,10 @@ void Vertice::updateLocalRT() {
             }
         }
         // Edit traceMap follow current fixed Vertice
-        for (std::pair<int, Vertice> neighbor : )
+        for (std::pair<int, Vertice> neighbor : this->locality[0]) {
+            std::map<int, std::pair<std::pair<double, int>, bool> >::iterator iterator = traceMap.find(neighbor.first);
+
+        }
 
     }
 }
