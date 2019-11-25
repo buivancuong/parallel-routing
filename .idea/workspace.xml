@@ -12,8 +12,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="create locality">
+      <change afterPath="$PROJECT_DIR$/graph/Graph.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph/Graph.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_entities/Vertice.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph_entities/Vertice.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph_entities/Edge.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph_entities/Edge.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph_entities/Graph.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph_entities/Graph.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph_entities/Topo.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph_entities/Topo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph_entities/Vertice.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph_entities/Vertice.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/VerticeUtils.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/VerticeUtils.h" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +160,10 @@
       <workItem from="1574176836410" duration="1406000" />
       <workItem from="1574212004513" duration="4834000" />
       <workItem from="1574242416531" duration="503000" />
-      <workItem from="1574480786511" duration="904000" />
+      <workItem from="1574480786511" duration="1079000" />
+      <workItem from="1574482107517" duration="987000" />
+      <workItem from="1574645590476" duration="1885000" />
+      <workItem from="1574687253339" duration="7702000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>

@@ -123,113 +123,32 @@ parallel_routing/fast:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/build
 .PHONY : parallel_routing/fast
 
-graph_entities/Edge.o: graph_entities/Edge.cpp.o
+graph/Graph.o: graph/Graph.cpp.o
 
-.PHONY : graph_entities/Edge.o
-
-# target to build an object file
-graph_entities/Edge.cpp.o:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o
-.PHONY : graph_entities/Edge.cpp.o
-
-graph_entities/Edge.i: graph_entities/Edge.cpp.i
-
-.PHONY : graph_entities/Edge.i
-
-# target to preprocess a source file
-graph_entities/Edge.cpp.i:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.i
-.PHONY : graph_entities/Edge.cpp.i
-
-graph_entities/Edge.s: graph_entities/Edge.cpp.s
-
-.PHONY : graph_entities/Edge.s
-
-# target to generate assembly for a file
-graph_entities/Edge.cpp.s:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.s
-.PHONY : graph_entities/Edge.cpp.s
-
-graph_entities/Graph.o: graph_entities/Graph.cpp.o
-
-.PHONY : graph_entities/Graph.o
+.PHONY : graph/Graph.o
 
 # target to build an object file
-graph_entities/Graph.cpp.o:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o
-.PHONY : graph_entities/Graph.cpp.o
+graph/Graph.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o
+.PHONY : graph/Graph.cpp.o
 
-graph_entities/Graph.i: graph_entities/Graph.cpp.i
+graph/Graph.i: graph/Graph.cpp.i
 
-.PHONY : graph_entities/Graph.i
-
-# target to preprocess a source file
-graph_entities/Graph.cpp.i:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.i
-.PHONY : graph_entities/Graph.cpp.i
-
-graph_entities/Graph.s: graph_entities/Graph.cpp.s
-
-.PHONY : graph_entities/Graph.s
-
-# target to generate assembly for a file
-graph_entities/Graph.cpp.s:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.s
-.PHONY : graph_entities/Graph.cpp.s
-
-graph_entities/Topo.o: graph_entities/Topo.cpp.o
-
-.PHONY : graph_entities/Topo.o
-
-# target to build an object file
-graph_entities/Topo.cpp.o:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o
-.PHONY : graph_entities/Topo.cpp.o
-
-graph_entities/Topo.i: graph_entities/Topo.cpp.i
-
-.PHONY : graph_entities/Topo.i
+.PHONY : graph/Graph.i
 
 # target to preprocess a source file
-graph_entities/Topo.cpp.i:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.i
-.PHONY : graph_entities/Topo.cpp.i
+graph/Graph.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/Graph.cpp.i
+.PHONY : graph/Graph.cpp.i
 
-graph_entities/Topo.s: graph_entities/Topo.cpp.s
+graph/Graph.s: graph/Graph.cpp.s
 
-.PHONY : graph_entities/Topo.s
-
-# target to generate assembly for a file
-graph_entities/Topo.cpp.s:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.s
-.PHONY : graph_entities/Topo.cpp.s
-
-graph_entities/Vertice.o: graph_entities/Vertice.cpp.o
-
-.PHONY : graph_entities/Vertice.o
-
-# target to build an object file
-graph_entities/Vertice.cpp.o:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o
-.PHONY : graph_entities/Vertice.cpp.o
-
-graph_entities/Vertice.i: graph_entities/Vertice.cpp.i
-
-.PHONY : graph_entities/Vertice.i
-
-# target to preprocess a source file
-graph_entities/Vertice.cpp.i:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.i
-.PHONY : graph_entities/Vertice.cpp.i
-
-graph_entities/Vertice.s: graph_entities/Vertice.cpp.s
-
-.PHONY : graph_entities/Vertice.s
+.PHONY : graph/Graph.s
 
 # target to generate assembly for a file
-graph_entities/Vertice.cpp.s:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.s
-.PHONY : graph_entities/Vertice.cpp.s
+graph/Graph.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/Graph.cpp.s
+.PHONY : graph/Graph.cpp.s
 
 main.o: main.cpp.o
 
@@ -258,33 +177,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-utils/VerticeUtils.o: utils/VerticeUtils.cpp.o
-
-.PHONY : utils/VerticeUtils.o
-
-# target to build an object file
-utils/VerticeUtils.cpp.o:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o
-.PHONY : utils/VerticeUtils.cpp.o
-
-utils/VerticeUtils.i: utils/VerticeUtils.cpp.i
-
-.PHONY : utils/VerticeUtils.i
-
-# target to preprocess a source file
-utils/VerticeUtils.cpp.i:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.i
-.PHONY : utils/VerticeUtils.cpp.i
-
-utils/VerticeUtils.s: utils/VerticeUtils.cpp.s
-
-.PHONY : utils/VerticeUtils.s
-
-# target to generate assembly for a file
-utils/VerticeUtils.cpp.s:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.s
-.PHONY : utils/VerticeUtils.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -294,24 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... parallel_routing"
 	@echo "... edit_cache"
-	@echo "... graph_entities/Edge.o"
-	@echo "... graph_entities/Edge.i"
-	@echo "... graph_entities/Edge.s"
-	@echo "... graph_entities/Graph.o"
-	@echo "... graph_entities/Graph.i"
-	@echo "... graph_entities/Graph.s"
-	@echo "... graph_entities/Topo.o"
-	@echo "... graph_entities/Topo.i"
-	@echo "... graph_entities/Topo.s"
-	@echo "... graph_entities/Vertice.o"
-	@echo "... graph_entities/Vertice.i"
-	@echo "... graph_entities/Vertice.s"
+	@echo "... graph/Graph.o"
+	@echo "... graph/Graph.i"
+	@echo "... graph/Graph.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... utils/VerticeUtils.o"
-	@echo "... utils/VerticeUtils.i"
-	@echo "... utils/VerticeUtils.s"
 .PHONY : help
 
 

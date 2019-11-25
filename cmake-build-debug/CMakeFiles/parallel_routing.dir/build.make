@@ -70,92 +70,32 @@ CMakeFiles/parallel_routing.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/main.cpp -o CMakeFiles/parallel_routing.dir/main.cpp.s
 
-CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
-CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o: ../graph_entities/Vertice.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Vertice.cpp
+CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
+CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o: ../graph/Graph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.cpp
 
-CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Vertice.cpp > CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.i
+CMakeFiles/parallel_routing.dir/graph/Graph.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/graph/Graph.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.cpp > CMakeFiles/parallel_routing.dir/graph/Graph.cpp.i
 
-CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Vertice.cpp -o CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.s
-
-CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
-CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o: ../graph_entities/Edge.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Edge.cpp
-
-CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Edge.cpp > CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.i
-
-CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Edge.cpp -o CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.s
-
-CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
-CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o: ../utils/VerticeUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/VerticeUtils.cpp
-
-CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/VerticeUtils.cpp > CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.i
-
-CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/VerticeUtils.cpp -o CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.s
-
-CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
-CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o: ../graph_entities/Graph.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Graph.cpp
-
-CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Graph.cpp > CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.i
-
-CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Graph.cpp -o CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.s
-
-CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
-CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o: ../graph_entities/Topo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Topo.cpp
-
-CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Topo.cpp > CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.i
-
-CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph_entities/Topo.cpp -o CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.s
+CMakeFiles/parallel_routing.dir/graph/Graph.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/graph/Graph.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.cpp -o CMakeFiles/parallel_routing.dir/graph/Graph.cpp.s
 
 # Object files for target parallel_routing
 parallel_routing_OBJECTS = \
 "CMakeFiles/parallel_routing.dir/main.cpp.o" \
-"CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o" \
-"CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o" \
-"CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o" \
-"CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o" \
-"CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o"
+"CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o"
 
 # External object files for target parallel_routing
 parallel_routing_EXTERNAL_OBJECTS =
 
 parallel_routing: CMakeFiles/parallel_routing.dir/main.cpp.o
-parallel_routing: CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o
-parallel_routing: CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o
-parallel_routing: CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o
-parallel_routing: CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o
-parallel_routing: CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o
+parallel_routing: CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/build.make
 parallel_routing: CMakeFiles/parallel_routing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable parallel_routing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable parallel_routing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/parallel_routing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
