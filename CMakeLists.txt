@@ -3,4 +3,4 @@ project(parallel_routing)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(parallel_routing main.cpp graph/Graph.cpp graph/Graph.h)
+add_executable(parallel_routing main.cpp graph/Graph.cpp graph/Graph.h routing/RoutingAlgorithm.h routing/DijkstraAlgorithm.cpp routing/DijkstraAlgorithm.h graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h graph/smallworld/SmallWorld2DTorus.cpp graph/smallworld/SmallWorld2DTorus.h routing/CORRADistributed.cpp routing/CORRADistributed.h node/Node.cpp node/Node.h utils/CORRAUtils.cpp utils/CORRAUtils.h node/Edge.cpp node/Edge.h experiment/CORRADistributedExperiment.cpp experiment/CORRADistributedExperiment.h)

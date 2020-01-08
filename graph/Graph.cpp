@@ -6,6 +6,7 @@
 
 #include "Graph.h"
 #include <queue>
+#include <iostream>
 
 Graph::Graph() {
     this->numVertices = 0;
@@ -35,6 +36,12 @@ void Graph::addVertex(int vertexID) {
 }
 
 void Graph::addEdge(int sourceID, int destID, float weight) {
+    if (weight == 0) return;
+    if (sourceID == 1 or destID == 1) {
+        if (weight != 1) {
+            std::cout << "add random link " << sourceID << " " << destID << " " << weight << std::endl;
+        }
+    }
     this->numEdges++;
     this->adjList[sourceID].insert(std::pair<int, float>(destID, weight));
     this->adjList[destID].insert(std::pair<int, float>(sourceID, weight));
@@ -60,7 +67,7 @@ std::map<int, std::pair<float, int> > Graph::Dijkstra(int sourceID) {
         // Check if all candidate is INFTY
         for (std::pair<const int, bool> iterator : visited) {
             if (!iterator.second) {
-                if ((currentVertexID == -1 ) or (trace[iterator.first].first) < trace[currentVertexID].first) {
+                if ((currentVertexID == -1 ) or (trace[iterator.first].first < trace[currentVertexID].first)) {
                     currentVertexID = iterator.first;
                 }
             }
