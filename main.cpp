@@ -5,9 +5,9 @@
 #include "node/Node.h"
 
 int main() {
-    int xTopoSize = 64;
-    int yTopoSize = 64;
-    int deltaNeighbor = 8;
+    int xTopoSize = 16;
+    int yTopoSize = 16;
+    int deltaNeighbor = 6;
     std::vector<float> alphas = {1.6, 2};
 
     int xBlockSize, yBlockSize;
@@ -26,13 +26,14 @@ int main() {
 
     std::map<int, Node> nodeList;
     for (int i = 0; i < xTopoSize * yTopoSize; ++i) {
-        Node node(i);
-        nodeList.insert(std::pair<int, Node>(i, node));
+        Node *node = new Node(i);
+        nodeList.insert(std::pair<int, Node>(i, *node));
     }
 
-    for (std::pair<int, std::map<int, float> > sourceNode : topo.getAdjList()) {
+
+    for (const std::pair<int, std::map<int, float> > sourceNode : topo.getAdjList()) {
         std::cout << "Node " << sourceNode.first << std::endl;
-        for (std::pair<int, float> neighbor : sourceNode.second) {
+        for (const std::pair<int, float> neighbor : sourceNode.second) {
             if (neighbor.second == 1) {
                 std::cout << "add near " << neighbor.first << std::endl;
                 nodeList[sourceNode.first].addNearNeighbors(nodeList[neighbor.first]);

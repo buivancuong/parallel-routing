@@ -293,22 +293,22 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="576" y="201" key="#Inspections/32.21.1888.1059@32.21.1888.1059" timestamp="1578225342490" />
-    <state width="1846" height="207" key="GridCell.Tab.0.bottom" timestamp="1578394587707">
+    <state width="1846" height="267" key="GridCell.Tab.0.bottom" timestamp="1578496984025">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="207" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1578394587707" />
-    <state width="1846" height="207" key="GridCell.Tab.0.center" timestamp="1578394587706">
+    <state width="1846" height="267" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1578496984025" />
+    <state width="1846" height="267" key="GridCell.Tab.0.center" timestamp="1578496984024">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="207" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1578394587706" />
-    <state width="1846" height="207" key="GridCell.Tab.0.left" timestamp="1578394587704">
+    <state width="1846" height="267" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1578496984024" />
+    <state width="1846" height="267" key="GridCell.Tab.0.left" timestamp="1578496984024">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="207" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1578394587704" />
-    <state width="1846" height="207" key="GridCell.Tab.0.right" timestamp="1578394587706">
+    <state width="1846" height="267" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1578496984024" />
+    <state width="1846" height="267" key="GridCell.Tab.0.right" timestamp="1578496984024">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="207" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578394587706" />
+    <state width="1846" height="267" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578496984024" />
     <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578518143876">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -321,10 +321,10 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="725" y="186" key="refactoring.ChangeSignatureDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1578291825410" />
-    <state x="639" y="246" key="run.anything.popup" timestamp="1578493396206">
+    <state x="639" y="246" key="run.anything.popup" timestamp="1578496683629">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="639" y="246" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1578493396206" />
+    <state x="639" y="246" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1578496683629" />
     <state x="639" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1578379343076">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>

@@ -37,11 +37,6 @@ void Graph::addVertex(int vertexID) {
 
 void Graph::addEdge(int sourceID, int destID, float weight) {
     if (weight == 0) return;
-    if (sourceID == 1 or destID == 1) {
-        if (weight != 1) {
-            std::cout << "add random link " << sourceID << " " << destID << " " << weight << std::endl;
-        }
-    }
     this->numEdges++;
     this->adjList[sourceID].insert(std::pair<int, float>(destID, weight));
     this->adjList[destID].insert(std::pair<int, float>(sourceID, weight));
