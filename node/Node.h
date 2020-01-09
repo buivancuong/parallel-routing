@@ -13,35 +13,35 @@ class Node {
 private:
     int nodeID{};
     bool isCenterNode{};
-    std::map<int, Node> nearNeighbors;
-    std::map<int, Node> farNeighbors;
-    std::vector<std::map<int, Node> > locality;
+    std::map<int, Node*> nearNeighbors;
+    std::map<int, Node*> farNeighbors;
+    std::vector<std::map<int, Node*> > locality;
     std::map<int, std::pair<int, double> > localRT;
     std::map<int, std::pair<double, int> > traceMap;        // <nodeID, <distance, prevNodeID> >
     std::map<int, int> bridgeRT;        // <destBlockID, nextNodeID>
-    std::map<int, std::vector<std::vector<std::pair<int, Node> > > > bridgeList;        // B2B: <destBlockID, [bridge, bridge, ...]>, (bridge = [<int, Node>])
-    std::vector<std::vector<std::pair<int, Node> > > ownBridges;        // [bridge], bridge = [<int, Node>]
+    std::map<int, std::vector<std::vector<std::pair<int, Node*> > > > bridgeList;        // B2B: <destBlockID, [bridge, bridge, ...]>, (bridge = [<int, Node>])
+    std::vector<std::vector<std::pair<int, Node*> > > ownBridges;        // [bridge], bridge = [<int, Node>]
 
-    void addOwnBridge(const std::vector<std::pair<int, Node> >& newOwnBridge);
-    static bool checkBridge(const std::vector<std::pair<int, Node> >& bridge);
-    static double getBridgeLatency(const std::vector<std::pair<int, Node> >& bridge, int xTopoSize);
-    std::pair<int, Node> getCenterNode(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+    void addOwnBridge(const std::vector<std::pair<int, Node*> >& newOwnBridge);
+    static bool checkBridge(const std::vector<std::pair<int, Node*> >& bridge);
+    static double getBridgeLatency(const std::vector<std::pair<int, Node*> >& bridge, int xTopoSize);
+    std::pair<int, Node*> getCenterNode(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 
 public:
     Node();
     explicit Node(int nodeID);
     ~Node();
 
-    std::vector<std::map<int, Node> > getLocality();
-    std::map<int, std::vector<std::vector<std::pair<int, Node> > > > getBridgeList();
+    std::vector<std::map<int, Node*> > getLocality();
+    std::map<int, std::vector<std::vector<std::pair<int, Node*> > > > getBridgeList();
     int getNodeID();
-    std::map<int, Node> getNearNeighbors();
-    std::map<int, Node> getFarNeighbors() const;
-    void addNearNeighbors(Node nearNeighbor);
-    void addFarNeighbors(Node farNeighbor);
-    std::vector<std::vector<std::pair<int, Node> > > getOwnBridges();
-    void updateBridgeList(std::vector<std::pair<int, Node> > bridge, int xBlockSize, int yBlockSize, int xTopoSize);
-    std::vector<std::pair<int, Node> > localShortestPath(int destID);
+    std::map<int, Node*> getNearNeighbors();
+    std::map<int, Node*> getFarNeighbors() const;
+    void addNearNeighbors(Node *nearNeighbor);
+    void addFarNeighbors(Node *farNeighbor);
+    std::vector<std::vector<std::pair<int, Node*> > > getOwnBridges();
+    void updateBridgeList(std::vector<std::pair<int, Node*> > bridge, int xBlockSize, int yBlockSize, int xTopoSize);
+    std::vector<std::pair<int, Node*> > localShortestPath(int destID);
 
     // first, select neighbors in nearNeighbors and farNeighbors to put into first layer in locality
     void prepareLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSze, int yTopoSize);
@@ -60,7 +60,7 @@ public:
     // next, after received all bridges that has broadcasted from the other Node, check missing brides status 
     void handleMissingBridge(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
     // this function supports broadcasting the found missing bridge to each other Node in own @locality
-    void broadcastMissingBridge(const std::vector<std::pair<int, Node> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize);
+    void broadcastMissingBridge(const std::vector<std::pair<int, Node*> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize);
     // at last, from full bridges list in @bridgeList, each Node update own block routing table 
     void updateBlockTable(int destBlockID, int nextNodeID, double latency, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 };

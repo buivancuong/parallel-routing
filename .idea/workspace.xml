@@ -12,57 +12,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="create locality">
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph/smallworld/GridGraph.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DGrid.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DTorus.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/routing/DijkstraAlgorithm.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiment/CORRADistributedExperiment.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiment/CORRADistributedExperiment.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/smallworld/GridGraph.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/smallworld/GridGraph.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/smallworld/SmallWorld2DGrid.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/smallworld/SmallWorld2DGrid.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/smallworld/SmallWorld2DTorus.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/smallworld/SmallWorld2DTorus.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/Edge.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/Edge.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/Node.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/Node.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routing/CORRADistributed.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routing/CORRADistributed.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routing/DijkstraAlgorithm.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routing/DijkstraAlgorithm.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routing/RoutingAlgorithm.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/CORRAUtils.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/CORRAUtils.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/buglog.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph_entities/Edge.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph_entities/Graph.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph_entities/Topo.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph_entities/Vertice.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph/smallworld/GridGraph.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph/smallworld/GridGraph.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/utils/VerticeUtils.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/node/Node.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/node/Node.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/Graph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/Graph.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/smallworld/GridGraph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/smallworld/GridGraph.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/Node.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/node/Node.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/Node.h" beforeDir="false" afterPath="$PROJECT_DIR$/node/Node.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +208,9 @@
       <workItem from="1578360706086" duration="418000" />
       <workItem from="1578367594913" duration="10222000" />
       <workItem from="1578396785136" duration="1728000" />
-      <workItem from="1578518141301" duration="292000" />
+      <workItem from="1578518141301" duration="7596000" />
+      <workItem from="1578500646269" duration="1603000" />
+      <workItem from="1578532690381" duration="16184000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>
@@ -293,26 +255,42 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="576" y="201" key="#Inspections/32.21.1888.1059@32.21.1888.1059" timestamp="1578225342490" />
-    <state width="1846" height="267" key="GridCell.Tab.0.bottom" timestamp="1578496984025">
+    <state width="1846" height="684" key="GridCell.Tab.0.bottom" timestamp="1578562386879">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="267" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1578496984025" />
-    <state width="1846" height="267" key="GridCell.Tab.0.center" timestamp="1578496984024">
+    <state width="1846" height="684" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1578562386879" />
+    <state width="1846" height="684" key="GridCell.Tab.0.center" timestamp="1578562386878">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="267" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1578496984024" />
-    <state width="1846" height="267" key="GridCell.Tab.0.left" timestamp="1578496984024">
+    <state width="1846" height="684" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1578562386878" />
+    <state width="1846" height="684" key="GridCell.Tab.0.left" timestamp="1578562386877">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="267" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1578496984024" />
-    <state width="1846" height="267" key="GridCell.Tab.0.right" timestamp="1578496984024">
+    <state width="1846" height="684" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1578562386877" />
+    <state width="1846" height="684" key="GridCell.Tab.0.right" timestamp="1578562386878">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="267" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578496984024" />
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578518143876">
+    <state width="1846" height="684" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578562386878" />
+    <state width="1846" height="469" key="GridCell.Tab.1.bottom" timestamp="1578539173386">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1578518143876" />
+    <state width="1846" height="469" key="GridCell.Tab.1.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1578539173386" />
+    <state width="1846" height="469" key="GridCell.Tab.1.center" timestamp="1578539173385">
+      <screen x="32" y="21" width="1888" height="1059" />
+    </state>
+    <state width="1846" height="469" key="GridCell.Tab.1.center/32.21.1888.1059@32.21.1888.1059" timestamp="1578539173385" />
+    <state width="1846" height="469" key="GridCell.Tab.1.left" timestamp="1578539173385">
+      <screen x="32" y="21" width="1888" height="1059" />
+    </state>
+    <state width="1846" height="469" key="GridCell.Tab.1.left/32.21.1888.1059@32.21.1888.1059" timestamp="1578539173385" />
+    <state width="1846" height="469" key="GridCell.Tab.1.right" timestamp="1578539173386">
+      <screen x="32" y="21" width="1888" height="1059" />
+    </state>
+    <state width="1846" height="469" key="GridCell.Tab.1.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578539173386" />
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578532703093">
+      <screen x="32" y="21" width="1888" height="1059" />
+    </state>
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1578532703093" />
     <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1577196825077">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -321,10 +299,10 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="725" y="186" key="refactoring.ChangeSignatureDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1578291825410" />
-    <state x="639" y="246" key="run.anything.popup" timestamp="1578496683629">
+    <state x="639" y="246" key="run.anything.popup" timestamp="1578553914201">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="639" y="246" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1578496683629" />
+    <state x="639" y="246" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1578553914201" />
     <state x="639" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1578379343076">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
