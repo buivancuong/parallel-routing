@@ -5,9 +5,9 @@
 #include "node/Node.h"
 
 int main() {
-    int xTopoSize = 64;
-    int yTopoSize = 64;
-    int deltaNeighbor = 8;
+    int xTopoSize = 16;
+    int yTopoSize = 16;
+    int deltaNeighbor = 3;
     std::vector<float> alphas = {1.6, 2};
 
     int xBlockSize, yBlockSize;
@@ -54,14 +54,14 @@ int main() {
     std::cout << "*******************************" << std::endl;
     std::cout << std::endl;
 
-//    std::cout << "Create the Locality" << std::endl;
-//    for (std::pair<int, Node*> node: nodeList) {
-//        std::cout << "nodeiD " << node.first << std::endl;
-//        node.second->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
-//        std::cout << std::endl;
-//    }
-//    std::cout << "*******************************" << std::endl;
-//    std::cout << std::endl;
+    std::cout << "Create the Locality" << std::endl;
+    for (std::pair<int, Node*> node: nodeList) {
+        std::cout << "nodeiD " << node.first << std::endl;
+        node.second->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        std::cout << std::endl;
+    }
+    std::cout << "*******************************" << std::endl;
+    std::cout << std::endl;
 
 
 

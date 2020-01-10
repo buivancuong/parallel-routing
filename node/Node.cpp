@@ -17,9 +17,10 @@ Node::Node(int nodeID) {
 
 void Node::createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     // Discovery Neighbors
+    std::cout << "Discover Neighbors" << std::endl;
     for (int i = 0; i < deltaNeighbor - 1; ++i) {       // Counting from 0, not 1
         std::map<int, Node*> higherNeighbors;
-        for (std::pair<int, Node*> lowerNeighbor : this->locality[i]) {      // for each vertice on lower neighbor layer (current neighbor)
+        for (std::pair<int, Node*> lowerNeighbor : this->locality[i]) {      // for each vertex on lower neighbor layer (current neighbor)
             for (const std::pair<int, Node*> neighbor : lowerNeighbor.second->getLocality()[0]) {       // for each neighbor of each above vertice (new neighbor)
                 if (neighbor.first == this->nodeID) continue;       // neighbor of neighbor is self
                 if (higherNeighbors.count(neighbor.first)) continue;        // mutual neighbor
@@ -27,6 +28,7 @@ void Node::createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int
                 if (!higherNeighbors.count(neighbor.first)){        // if new higher neighbor layer is not include new neighbor
                     if (CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSize) <= deltaNeighbor) {
                         higherNeighbors.insert(neighbor);       // add new neighbor into new higher layer neighbor
+                        std::cout << "add neighbor " << neighbor.first << std::endl;
                     }
                 }
             }
@@ -34,8 +36,9 @@ void Node::createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int
         this->locality.push_back(higherNeighbors);
     }
     // Discover Block \sub Neighbors
+    std::cout << "Discover Block sub Neighbor" << std::endl;
     // Extract max grid-hop for the left Node in the Block
-    int maxGridHop = CORRAUtils::getMaxHopinBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+    int maxGridHop = CORRAUtils::getMaxHopinBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
     for (int i = deltaNeighbor - 1; i < maxGridHop; ++i) {
         std::map<int, Node*> higherNeighbors;
         for (std::pair<int, Node*> lowerNeighbor : this->locality[i]) {
@@ -49,12 +52,14 @@ void Node::createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int
                     int neighborBloclk = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
                     if (thisBlock == neighborBloclk) {      // if same block with this node, add to locality
                         higherNeighbors.insert(neighbor);
+                        std::cout << "add block " << neighbor.first << std::endl;
                     }
                 }
             }
         }
         this->locality.push_back(higherNeighbors);
     }
+    std::cout << "Done nodeID " << this->nodeID << std::endl;
 }
 
 std::vector<std::map<int, Node*> > Node::getLocality() {
@@ -175,23 +180,27 @@ void Node::addFarNeighbors(Node *farNeighbor) {
 }
 
 void Node::prepareLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSze, int yTopoSize) {
-    this->locality.emplace_back();
+    this->locality.emplace_back();      // create the null (placeholder) first element for this->locality
+    // first, add the grid neighbors in this->nearNeighbors to this->locality[0]
     for (std::pair<int, Node*> neighbor : this->nearNeighbors) {
         this->locality[0].insert(neighbor);
-        std::cout << "insert near neighbor " << neighbor.first << std::endl;
+        std::cout << "insert grid neighbor " << neighbor.first << std::endl;
     }
+    // last, add the random link neighbors in this->farNeighbors to this->locality[0]
     for (std::pair<int, Node*> neighbor : this->farNeighbors) {
-        int gridDistance = CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSze);
-        if (gridDistance <= deltaNeighbor) continue;
-
+        int gridDistance = CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSze);      // check grid distance between this node and its random link neighbor
+        if (gridDistance <= deltaNeighbor) {        // if distance < deltaNeighbor (random link neighbor is inside of deltaNeighbors
+            this->locality[0].insert(neighbor);
+            std::cout << "insert far neighbor inside of Neighbors " << neighbor.first << std::endl;
+            continue;
+        }       // else, check blockID of this->nodeID and random link neighbor nodeID
         int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSze);
         int neighborBlock = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSze);
-        if (thisBlock == neighborBlock) {
+        if (thisBlock == neighborBlock) {       // if both of 2 Node is same block
             this->locality[0].insert(neighbor);
-            std::cout << "insert far neighbor " << neighbor.first << std::endl;
-        } else {
-            std::cout << "co far random link" << std::endl;
-        }
+            std::cout << "insert far neighbor insize of Block " << neighbor.first << std::endl;
+            continue;
+        }       // else, continue
     }
 }
 

@@ -24,11 +24,11 @@ public:
     // method to get horizontal of the block
     static int getBlockHorizontal(int blockId, int xBlockSize, int xTopoSize);
     // method to get vertical of the block
-    static int getBlockVertical(int blockID, int yBlockSize, int yTopoSize);
+    static int getBlockVertical(int blockID, int xBlockSize, int xTopoSize);
     // method to get center vertice of the block
     static int getCenterVertex(int blockId, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
     // method to get max hop-distance to all nodes on same block of the node
-    static int getMaxHopinBlock(int nodeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+    static int getMaxHopinBlock(int nodeID, int xBlockSize, int yBlockSize, int xTopoSize);
 };
 
 

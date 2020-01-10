@@ -13,8 +13,8 @@ class Node {
 private:
     int nodeID{};
     bool isCenterNode{};
-    std::map<int, Node*> nearNeighbors;
-    std::map<int, Node*> farNeighbors;
+    std::map<int, Node*> nearNeighbors;     // grid neighbors
+    std::map<int, Node*> farNeighbors;      // random link neighbors
     std::vector<std::map<int, Node*> > locality;
     std::map<int, std::pair<int, double> > localRT;
     std::map<int, std::pair<double, int> > traceMap;        // <nodeID, <distance, prevNodeID> >

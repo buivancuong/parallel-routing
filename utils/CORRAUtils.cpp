@@ -32,38 +32,38 @@ int CORRAUtils::getBlockHorizontal(int blockId, int xBlockSize, int xTopoSize) {
     return blockId % numXBlock;
 }
 
-int CORRAUtils::getBlockVertical(int blockID, int yBlockSize, int yTopoSize) {
-    int numYBlock = (int)(yTopoSize / yBlockSize);
-    return (int)(blockID / numYBlock);
+int CORRAUtils::getBlockVertical(int blockID, int xBlockSize, int xTopoSize) {
+    int numXBlock = (int)(xTopoSize / xBlockSize);
+    return (int)(blockID / numXBlock);
 }
 
-int CORRAUtils::getMaxHopinBlock(int nodeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+int CORRAUtils::getMaxHopinBlock(int nodeID, int xBlockSize, int yBlockSize, int xTopoSize) {
     int itsBlockID = CORRAUtils::getNodeBlock(nodeID, xBlockSize, yBlockSize, xTopoSize);
     int blockHorizontal = CORRAUtils::getBlockHorizontal(itsBlockID, xBlockSize, xTopoSize);
-    int blockVertical = CORRAUtils::getBlockVertical(itsBlockID, yBlockSize, yTopoSize);
+    int blockVertical = CORRAUtils::getBlockVertical(itsBlockID, xBlockSize, xTopoSize);
     int minHorizontal = xBlockSize * blockHorizontal;
-    int maxHorizontal = minHorizontal + xBlockSize;
+    int maxHorizontal = minHorizontal + xBlockSize - 1;
     int minVertical = yBlockSize * blockVertical;
-    int maxVertical = minVertical + yBlockSize;
+    int maxVertical = minVertical + yBlockSize - 1;
     int maxXHop, maxYHop;
-    int verticeHorizontal = CORRAUtils::getNodeHorizontal(nodeID, xTopoSize);
-    int verticeVertical = CORRAUtils::getNodeVertical(nodeID, xTopoSize);
-    if (abs(verticeHorizontal - maxHorizontal) > abs(verticeHorizontal - minHorizontal)) {
-        maxXHop = maxHorizontal;
+    int vertexHorizontal = CORRAUtils::getNodeHorizontal(nodeID, xTopoSize);
+    int vertexVertical = CORRAUtils::getNodeVertical(nodeID, xTopoSize);
+    if (abs(vertexHorizontal - maxHorizontal) > abs(vertexHorizontal - minHorizontal)) {
+        maxXHop = abs(vertexHorizontal - maxHorizontal);
     } else {
-        maxXHop = minHorizontal;
+        maxXHop = abs(vertexHorizontal - minHorizontal);
     }
-    if (abs(verticeVertical - maxVertical) > abs(verticeVertical - minVertical)) {
-        maxYHop = maxHorizontal;
+    if (abs(vertexVertical - maxVertical) > abs(vertexVertical - minVertical)) {
+        maxYHop = abs(vertexVertical - maxHorizontal);
     } else {
-        maxYHop = minVertical;
+        maxYHop = abs(vertexVertical - minVertical);
     }
     return (maxXHop + maxYHop);
 }
 
 int CORRAUtils::getGridHop(int sourceID, int destID, int xTopoSize) {
-    int sourceRow = sourceID / xTopoSize;
-    int destRow = destID / xTopoSize;
+    int sourceRow = (int) (sourceID / xTopoSize);
+    int destRow = (int)(destID / xTopoSize);
     int sourceCol = sourceID % xTopoSize;
     int destCol = destID % xTopoSize;
     return abs(sourceRow - destRow) + abs(sourceCol - destCol);
