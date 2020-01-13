@@ -68,7 +68,6 @@ void GridGraph::generateFixedDegree(const std::vector<float> &alphas) {
             std::srand((int) time(0));
             int randomIndex = std::rand() % (vertexList.size() - 1);
             int randomSource = vertexList[randomIndex];
-            vertexList.erase(std::remove(vertexList.begin(), vertexList.end(), randomSource), vertexList.end());
             int randomDest = 0;
             // candidate list to create random link
             std::set<int> candidates;
@@ -113,6 +112,7 @@ void GridGraph::generateFixedDegree(const std::vector<float> &alphas) {
             if (!randomDest) continue;
             this->addEdge(randomSource, randomDest, (float)this->getGridHop(randomSource, randomDest));
             std::cout << "add random link " << randomSource << " to " << randomDest << " weight " << (float)this->getGridHop(randomSource, randomDest) << std::endl;
+            vertexList.erase(std::remove(vertexList.begin(), vertexList.end(), randomSource), vertexList.end());
             vertexList.erase(std::remove(vertexList.begin(), vertexList.end(), randomDest), vertexList.end());
         }
     }

@@ -32,6 +32,9 @@ public:
     explicit Node(int nodeID);
     ~Node();
 
+    void setCentered(bool centered);
+    bool getCentered();
+
     std::vector<std::map<int, Node*> > getLocality();
     std::map<int, std::vector<std::vector<std::pair<int, Node*> > > > getBridgeList();
     int getNodeID();
@@ -62,7 +65,7 @@ public:
     // this function supports broadcasting the found missing bridge to each other Node in own @locality
     void broadcastMissingBridge(const std::vector<std::pair<int, Node*> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize);
     // at last, from full bridges list in @bridgeList, each Node update own block routing table 
-    void updateBlockTable(int destBlockID, int nextNodeID, double latency, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+    void updateBlockTable(int numBlock, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 };
 
 

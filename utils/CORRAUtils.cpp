@@ -54,7 +54,7 @@ int CORRAUtils::getMaxHopinBlock(int nodeID, int xBlockSize, int yBlockSize, int
         maxXHop = abs(vertexHorizontal - minHorizontal);
     }
     if (abs(vertexVertical - maxVertical) > abs(vertexVertical - minVertical)) {
-        maxYHop = abs(vertexVertical - maxHorizontal);
+        maxYHop = abs(vertexVertical - maxVertical);
     } else {
         maxYHop = abs(vertexVertical - minVertical);
     }
