@@ -13,10 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="create locality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buglog.md" beforeDir="false" afterPath="$PROJECT_DIR$/buglog.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
@@ -223,6 +220,7 @@
       <workItem from="1578922662171" duration="16715000" />
       <workItem from="1578964480224" duration="4480000" />
       <workItem from="1578982296370" duration="2065000" />
+      <workItem from="1578996262759" duration="1588000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>
@@ -268,22 +266,22 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="576" y="201" key="#Inspections/32.21.1888.1059@32.21.1888.1059" timestamp="1578225342490" />
-    <state width="1846" height="834" key="GridCell.Tab.0.bottom" timestamp="1578984361432">
+    <state width="1846" height="834" key="GridCell.Tab.0.bottom" timestamp="1578996760828">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="834" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1578984361432" />
-    <state width="1846" height="834" key="GridCell.Tab.0.center" timestamp="1578984361429">
+    <state width="1846" height="834" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1578996760828" />
+    <state width="1846" height="834" key="GridCell.Tab.0.center" timestamp="1578996760828">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="834" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1578984361429" />
-    <state width="1846" height="834" key="GridCell.Tab.0.left" timestamp="1578984361428">
+    <state width="1846" height="834" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1578996760828" />
+    <state width="1846" height="834" key="GridCell.Tab.0.left" timestamp="1578996760827">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="834" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1578984361428" />
-    <state width="1846" height="834" key="GridCell.Tab.0.right" timestamp="1578984361432">
+    <state width="1846" height="834" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1578996760827" />
+    <state width="1846" height="834" key="GridCell.Tab.0.right" timestamp="1578996760828">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="834" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578984361432" />
+    <state width="1846" height="834" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578996760828" />
     <state width="1846" height="312" key="GridCell.Tab.1.bottom" timestamp="1578939394024">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -300,10 +298,10 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state width="1846" height="312" key="GridCell.Tab.1.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578939394024" />
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578982295673">
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578996264648">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1578982295673" />
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1578996264648" />
     <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1577196825077">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>

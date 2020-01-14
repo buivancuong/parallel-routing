@@ -177,6 +177,14 @@ void createLocality(int startNodeID, int endNodeID, int deltaNeighbor, int xBloc
     }
 }
 
+void createLocalRouting(int startNodeID, int endNodeID, int xTopoSize, int yTopoSize) {
+    std::cout << "Parallelizing Create the Routing table on Locality procedure" << std::endl;
+    for (int i = startNodeID; i <= endNodeID; ++i) {
+        std::cout << "nodeID " << i << std::endl;
+        nodeList[i]->createLocalRouting(xTopoSize, yTopoSize);
+    }
+}
+
 
 int main() {
 
@@ -252,6 +260,17 @@ int main() {
     thread33.join();
     thread34.join();
 
+
+    std::cout << "Create the Routing table on Local" << std::endl;
+    std::thread thread41 (createLocalRouting, 0, 1023, xTopoSize, yTopoSize);
+    std::thread thread42 (createLocalRouting, 2014, 2047, xTopoSize, yTopoSize);
+    std::thread thread43 (createLocalRouting, 2048, 3071, xTopoSize, yTopoSize);
+    std::thread thread44 (createLocalRouting, 3072, 4095, xTopoSize, yTopoSize);
+
+    thread41.join();
+    thread42.join();
+    thread43.join();
+    thread44.join();
 
 
     return 0;
