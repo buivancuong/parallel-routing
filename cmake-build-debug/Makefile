@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/99/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/100/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/99/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/100/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /media/cuongbv/Data/Project/Research/InterNetwork/parallel-ro
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/99/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/100/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/99/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/100/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -176,6 +176,33 @@ graph/Graph.s: graph/Graph.cpp.s
 graph/Graph.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/Graph.cpp.s
 .PHONY : graph/Graph.cpp.s
+
+graph/fattree/FatTree.o: graph/fattree/FatTree.cpp.o
+
+.PHONY : graph/fattree/FatTree.o
+
+# target to build an object file
+graph/fattree/FatTree.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o
+.PHONY : graph/fattree/FatTree.cpp.o
+
+graph/fattree/FatTree.i: graph/fattree/FatTree.cpp.i
+
+.PHONY : graph/fattree/FatTree.i
+
+# target to preprocess a source file
+graph/fattree/FatTree.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.i
+.PHONY : graph/fattree/FatTree.cpp.i
+
+graph/fattree/FatTree.s: graph/fattree/FatTree.cpp.s
+
+.PHONY : graph/fattree/FatTree.s
+
+# target to generate assembly for a file
+graph/fattree/FatTree.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.s
+.PHONY : graph/fattree/FatTree.cpp.s
 
 graph/smallworld/GridGraph.o: graph/smallworld/GridGraph.cpp.o
 
@@ -435,6 +462,9 @@ help:
 	@echo "... graph/Graph.o"
 	@echo "... graph/Graph.i"
 	@echo "... graph/Graph.s"
+	@echo "... graph/fattree/FatTree.o"
+	@echo "... graph/fattree/FatTree.i"
+	@echo "... graph/fattree/FatTree.s"
 	@echo "... graph/smallworld/GridGraph.o"
 	@echo "... graph/smallworld/GridGraph.i"
 	@echo "... graph/smallworld/GridGraph.s"

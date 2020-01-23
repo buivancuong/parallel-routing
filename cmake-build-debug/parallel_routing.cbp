@@ -96,6 +96,12 @@
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h">
 			<Option target="parallel_routing"/>
 		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.h">
+			<Option target="parallel_routing"/>
+		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>

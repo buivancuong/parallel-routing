@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.o"
   "CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o"
+  "CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o"
   "CMakeFiles/parallel_routing.dir/graph/smallworld/GridGraph.cpp.o"
   "CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DGrid.cpp.o"
   "CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DTorus.cpp.o"

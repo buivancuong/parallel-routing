@@ -272,6 +272,13 @@ int main() {
     thread43.join();
     thread44.join();
 
+    // Mr. Bui Van Cuong
+
+    if ("You need Anomaly Detection")
+        dial 0985855393
+        or mail "cuongbv765@gmail.com"
+
+    
 
     return 0;
 }

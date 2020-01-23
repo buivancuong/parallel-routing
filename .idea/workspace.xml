@@ -12,10 +12,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="create locality">
+      <change afterPath="$PROJECT_DIR$/graph/fattree/FatTree.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph/fattree/FatTree.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buglog.md" beforeDir="false" afterPath="$PROJECT_DIR$/buglog.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +234,13 @@
       <workItem from="1578922662171" duration="16715000" />
       <workItem from="1578964480224" duration="4480000" />
       <workItem from="1578982296370" duration="2065000" />
-      <workItem from="1578996262759" duration="1588000" />
+      <workItem from="1578996262759" duration="3360000" />
+      <workItem from="1579076137700" duration="35000" />
+      <workItem from="1579158241442" duration="1039000" />
+      <workItem from="1579419326144" duration="749000" />
+      <workItem from="1579746725239" duration="602000" />
+      <workItem from="1579750347605" duration="5488000" />
+      <workItem from="1579763315558" duration="8310000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>
@@ -266,22 +286,22 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="576" y="201" key="#Inspections/32.21.1888.1059@32.21.1888.1059" timestamp="1578225342490" />
-    <state width="1846" height="834" key="GridCell.Tab.0.bottom" timestamp="1578996760828">
+    <state width="1846" height="834" key="GridCell.Tab.0.bottom" timestamp="1578999876106">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="834" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1578996760828" />
-    <state width="1846" height="834" key="GridCell.Tab.0.center" timestamp="1578996760828">
+    <state width="1846" height="834" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1578999876106" />
+    <state width="1846" height="834" key="GridCell.Tab.0.center" timestamp="1578999876105">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="834" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1578996760828" />
-    <state width="1846" height="834" key="GridCell.Tab.0.left" timestamp="1578996760827">
+    <state width="1846" height="834" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1578999876105" />
+    <state width="1846" height="834" key="GridCell.Tab.0.left" timestamp="1578999876104">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="834" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1578996760827" />
-    <state width="1846" height="834" key="GridCell.Tab.0.right" timestamp="1578996760828">
+    <state width="1846" height="834" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1578999876104" />
+    <state width="1846" height="834" key="GridCell.Tab.0.right" timestamp="1578999876105">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="834" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578996760828" />
+    <state width="1846" height="834" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578999876105" />
     <state width="1846" height="312" key="GridCell.Tab.1.bottom" timestamp="1578939394024">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -298,10 +318,10 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state width="1846" height="312" key="GridCell.Tab.1.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578939394024" />
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578996264648">
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1579763324866">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1578996264648" />
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1579763324866" />
     <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1577196825077">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>

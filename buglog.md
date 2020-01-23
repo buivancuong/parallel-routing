@@ -15,8 +15,9 @@ ta nên tạo ra 1 biến trung gian ```localityOfLowerNeighbor``` trung vùng n
 
 * Lỗi này gây ra do sử dụng thuần variable cho các đối tượng của các class. Khắc phục bằng cách sử dụng pointer (con trỏ) thay cho variable.
 * Lỗi này cũng có thể đi kèm với việc chương trình bị treo, khi debug sẽ gặp tín hiệu **SIGSTOP** từ OS. Đây là lỗi không thể ```try catch```,
-do đó, bắt buộc phải dựa vào debuger để tìm ra dòng lệnh gây infinity loop. 
-
+mà là chính OS gửi tín hiệu yêu cầu stop process đang chạy (chương trình). Do đó, bắt buộc phải dựa vào debuger để tìm ra dòng lệnh gây infinity loop. 
+* Lưu ý, khi sử dụng debuger, khi chọn **Step Info** trong những scope sẽ xảy ra hiện tượng cursor chạy ngược từ dưới lên trên
+khi chạy xong lệnh cuối cùng trong Scope. Đây là hiện tượng các biến trong Stack Memory tự giải phóng bộ nhớ khi **out of scope**, là hiện tượng bình thường.
 
 #### 3. CLION không cho phép chạy đa luồng vì khi build gặp lỗi **```undefined reference to pthread_create```**.
 
