@@ -123,6 +123,12 @@
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/main.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/CORRANode.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/CORRANode.h">
+			<Option target="parallel_routing"/>
+		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/Edge.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
@@ -147,6 +153,12 @@
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/routing/DijkstraAlgorithm.h">
 			<Option target="parallel_routing"/>
 		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/routing/FatTreeRoutingAlgorithm.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/routing/FatTreeRoutingAlgorithm.h">
+			<Option target="parallel_routing"/>
+		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/routing/RoutingAlgorithm.h">
 			<Option target="parallel_routing"/>
 		</Unit>
@@ -154,6 +166,12 @@
 			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.h">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.h">
 			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/CMakeLists.txt">

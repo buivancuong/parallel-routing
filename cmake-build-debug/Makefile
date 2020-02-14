@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/100/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/103/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/100/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/103/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /media/cuongbv/Data/Project/Research/InterNetwork/parallel-ro
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/100/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/103/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/100/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/103/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -312,6 +312,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+node/CORRANode.o: node/CORRANode.cpp.o
+
+.PHONY : node/CORRANode.o
+
+# target to build an object file
+node/CORRANode.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.o
+.PHONY : node/CORRANode.cpp.o
+
+node/CORRANode.i: node/CORRANode.cpp.i
+
+.PHONY : node/CORRANode.i
+
+# target to preprocess a source file
+node/CORRANode.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.i
+.PHONY : node/CORRANode.cpp.i
+
+node/CORRANode.s: node/CORRANode.cpp.s
+
+.PHONY : node/CORRANode.s
+
+# target to generate assembly for a file
+node/CORRANode.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.s
+.PHONY : node/CORRANode.cpp.s
+
 node/Edge.o: node/Edge.cpp.o
 
 .PHONY : node/Edge.o
@@ -420,6 +447,33 @@ routing/DijkstraAlgorithm.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/routing/DijkstraAlgorithm.cpp.s
 .PHONY : routing/DijkstraAlgorithm.cpp.s
 
+routing/FatTreeRoutingAlgorithm.o: routing/FatTreeRoutingAlgorithm.cpp.o
+
+.PHONY : routing/FatTreeRoutingAlgorithm.o
+
+# target to build an object file
+routing/FatTreeRoutingAlgorithm.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.o
+.PHONY : routing/FatTreeRoutingAlgorithm.cpp.o
+
+routing/FatTreeRoutingAlgorithm.i: routing/FatTreeRoutingAlgorithm.cpp.i
+
+.PHONY : routing/FatTreeRoutingAlgorithm.i
+
+# target to preprocess a source file
+routing/FatTreeRoutingAlgorithm.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.i
+.PHONY : routing/FatTreeRoutingAlgorithm.cpp.i
+
+routing/FatTreeRoutingAlgorithm.s: routing/FatTreeRoutingAlgorithm.cpp.s
+
+.PHONY : routing/FatTreeRoutingAlgorithm.s
+
+# target to generate assembly for a file
+routing/FatTreeRoutingAlgorithm.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.s
+.PHONY : routing/FatTreeRoutingAlgorithm.cpp.s
+
 utils/CORRAUtils.o: utils/CORRAUtils.cpp.o
 
 .PHONY : utils/CORRAUtils.o
@@ -446,6 +500,33 @@ utils/CORRAUtils.s: utils/CORRAUtils.cpp.s
 utils/CORRAUtils.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/CORRAUtils.cpp.s
 .PHONY : utils/CORRAUtils.cpp.s
+
+utils/FatTreeUtils.o: utils/FatTreeUtils.cpp.o
+
+.PHONY : utils/FatTreeUtils.o
+
+# target to build an object file
+utils/FatTreeUtils.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o
+.PHONY : utils/FatTreeUtils.cpp.o
+
+utils/FatTreeUtils.i: utils/FatTreeUtils.cpp.i
+
+.PHONY : utils/FatTreeUtils.i
+
+# target to preprocess a source file
+utils/FatTreeUtils.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.i
+.PHONY : utils/FatTreeUtils.cpp.i
+
+utils/FatTreeUtils.s: utils/FatTreeUtils.cpp.s
+
+.PHONY : utils/FatTreeUtils.s
+
+# target to generate assembly for a file
+utils/FatTreeUtils.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.s
+.PHONY : utils/FatTreeUtils.cpp.s
 
 # Help Target
 help:
@@ -477,6 +558,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... node/CORRANode.o"
+	@echo "... node/CORRANode.i"
+	@echo "... node/CORRANode.s"
 	@echo "... node/Edge.o"
 	@echo "... node/Edge.i"
 	@echo "... node/Edge.s"
@@ -489,9 +573,15 @@ help:
 	@echo "... routing/DijkstraAlgorithm.o"
 	@echo "... routing/DijkstraAlgorithm.i"
 	@echo "... routing/DijkstraAlgorithm.s"
+	@echo "... routing/FatTreeRoutingAlgorithm.o"
+	@echo "... routing/FatTreeRoutingAlgorithm.i"
+	@echo "... routing/FatTreeRoutingAlgorithm.s"
 	@echo "... utils/CORRAUtils.o"
 	@echo "... utils/CORRAUtils.i"
 	@echo "... utils/CORRAUtils.s"
+	@echo "... utils/FatTreeUtils.o"
+	@echo "... utils/FatTreeUtils.i"
+	@echo "... utils/FatTreeUtils.s"
 .PHONY : help
 
 

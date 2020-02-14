@@ -12,12 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="create locality">
-      <change afterPath="$PROJECT_DIR$/graph/fattree/FatTree.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graph/fattree/FatTree.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/CORRANode.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/CORRANode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routing/FatTreeRoutingAlgorithm.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routing/FatTreeRoutingAlgorithm.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/FatTreeUtils.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/FatTreeUtils.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buglog.md" beforeDir="false" afterPath="$PROJECT_DIR$/buglog.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
@@ -30,7 +33,9 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/fattree/FatTree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/fattree/FatTree.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/fattree/FatTree.h" beforeDir="false" afterPath="$PROJECT_DIR$/graph/fattree/FatTree.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +87,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -111,6 +117,7 @@
         </serviceView>
       </list>
     </option>
+    <option name="showServicesTree" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -240,7 +247,25 @@
       <workItem from="1579419326144" duration="749000" />
       <workItem from="1579746725239" duration="602000" />
       <workItem from="1579750347605" duration="5488000" />
-      <workItem from="1579763315558" duration="8310000" />
+      <workItem from="1579763315558" duration="20503000" />
+      <workItem from="1579858974155" duration="1455000" />
+      <workItem from="1579868155994" duration="3310000" />
+      <workItem from="1579960506269" duration="1590000" />
+      <workItem from="1580003235937" duration="2593000" />
+      <workItem from="1580711018438" duration="1045000" />
+      <workItem from="1580738744745" duration="601000" />
+      <workItem from="1580782409042" duration="3894000" />
+      <workItem from="1580796436319" duration="603000" />
+      <workItem from="1580823197837" duration="964000" />
+      <workItem from="1580868206953" duration="633000" />
+      <workItem from="1581000080086" duration="1492000" />
+      <workItem from="1581126269450" duration="5728000" />
+      <workItem from="1581264650746" duration="1530000" />
+      <workItem from="1581334734211" duration="1802000" />
+      <workItem from="1581511719963" duration="601000" />
+      <workItem from="1581559393306" duration="3329000" />
+      <workItem from="1581598536683" duration="5204000" />
+      <workItem from="1581646755268" duration="1221000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>
@@ -318,25 +343,37 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state width="1846" height="312" key="GridCell.Tab.1.right/32.21.1888.1059@32.21.1888.1059" timestamp="1578939394024" />
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1579763324866">
+    <state x="485" y="174" key="SettingsEditor" timestamp="1581586377644">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1579763324866" />
+    <state x="485" y="174" key="SettingsEditor/32.21.1888.1059@32.21.1888.1059" timestamp="1581586377644" />
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1581646755680">
+      <screen x="32" y="21" width="1888" height="1059" />
+    </state>
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1581646755680" />
     <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1577196825077">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/32.21.1888.1059@32.21.1888.1059" timestamp="1577196825077" />
+    <state x="741" y="413" width="700" height="296" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1581585967734">
+      <screen x="32" y="21" width="1888" height="1059" />
+    </state>
+    <state x="741" y="413" width="700" height="296" key="org.intellij.images.editor.actions.BackgroundImageDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1581585967734" />
+    <state x="624" y="256" width="700" height="530" key="recent.locations.popup" timestamp="1581586048582">
+      <screen x="32" y="21" width="1888" height="1059" />
+    </state>
+    <state x="624" y="256" width="700" height="530" key="recent.locations.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1581586048582" />
     <state x="725" y="186" key="refactoring.ChangeSignatureDialog" timestamp="1578291825410">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="725" y="186" key="refactoring.ChangeSignatureDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1578291825410" />
-    <state x="639" y="246" width="672" height="677" key="run.anything.popup" timestamp="1578969815036">
+    <state x="639" y="246" width="672" height="677" key="run.anything.popup" timestamp="1581585745631">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="639" y="246" width="672" height="677" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1578969815036" />
-    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1578637102533">
+    <state x="639" y="246" width="672" height="677" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1581585745631" />
+    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1581586268923">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1578637102533" />
+    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1581586268923" />
   </component>
 </project>

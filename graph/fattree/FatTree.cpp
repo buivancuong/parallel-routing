@@ -18,24 +18,24 @@ FatTree::FatTree(int k) : Graph() {
     }
     // constructs parameters of Fat tree
     this->paramK = k;
-    this->numCoreSwitchs = k * k / 4;
+    this->numCoreSwitch = k * k / 4;
     this->numPods = k;
-    this->numSwithPerPod = k;
-    this->numServers = k * k * k / 4;
-    this->numVertices = this->numCoreSwitchs + this->numSwithPerPod + this->numServers;
+    this->numSwitchPerPod = k;
+    this->totalServers = k * k * k / 4;
+    this->numVertices = this->numCoreSwitch + this->numSwitchPerPod + this->totalServers;
     // create adjList and build Addresses
     this->addCoreToAgg();
     this->addAggToEdge();
     this->addEdgeToServer();
-    this->buildAddresses();
+//    this->buildAddresses();
 
 }
 
 void FatTree::addCoreToAgg() {
-    for (int core = 0; core < this->numCoreSwitchs; ++core) {
+    for (int core = 0; core < this->numCoreSwitch; ++core) {
         for (int pod = 0; pod < this->numPods; ++pod) {
-            int offset = (int)(core / (int)(this->numSwithPerPod / 2));
-            int agg = this->numCoreSwitchs + (int) (this->numSwithPerPod / 2) * pod + offset;
+            int offset = (int)(core / (int)(this->numSwitchPerPod / 2));
+            int agg = this->numCoreSwitch + (int) (this->numSwitchPerPod / 2) * pod + offset;
             this->addEdge(core, agg);
         }
     }
@@ -43,10 +43,23 @@ void FatTree::addCoreToAgg() {
 
 void FatTree::addAggToEdge() {
     for (int pod = 0; pod < this->numPods; ++pod) {
-        for (int numAgg = 0; numAgg < (int)(this->numSwithPerPod / 2); ++numAgg) {
-            int agg = this->numCoreSwitchs + (int)(this->numSwithPerPod / 2) * pod + numAgg;
-            for (int numEdge = 0; numEdge < (int)(this->numSwithPerPod / 2); ++numEdge) {
-                int egg =
+        for (int numAgg = 0; numAgg < (int)(this->numSwitchPerPod / 2); ++numAgg) {
+            int agg = this->numCoreSwitch + (int)(this->numSwitchPerPod / 2) * pod + numAgg;
+            for (int numEdge = 0; numEdge < (int)(this->numSwitchPerPod / 2); ++numEdge) {
+                int edge = this->numCoreSwitch + (int)(this->numSwitchPerPod / 2) * this->numPods + (int)(this->numSwitchPerPod / 2) * pod + numEdge;
+                this->addEdge(agg, edge);
+            }
+        }
+    }
+}
+
+void FatTree::addEdgeToServer() {
+    for (int pod = 0; pod < this->numPods; ++pod) {
+        for (int numEdge = 0; numEdge < (int)(this->numSwitchPerPod / 2); ++numEdge) {
+            int edge = this->numCoreSwitch + (int)(this->numSwitchPerPod / 2) * this->numPods + (int)(this->numSwitchPerPod / 2) * pod + numEdge;
+            for (int numServer = 0; numServer < (int)(this->paramK / 2); ++numServer) {
+                int server = this->numCoreSwitch + this->numSwitchPerPod * this->numPods + (int)(this->numSwitchPerPod / 2) * numEdge + (int)(this->paramK / 2) * (int)(this->paramK / 2) * pod + numServer;
+                this->addEdge(edge, server);
             }
         }
     }
@@ -57,7 +70,7 @@ int FatTree::getK() {
 }
 
 int FatTree::getNumCoreSwitch() {
-    return this->numCoreSwitchs;
+    return this->numCoreSwitch;
 }
 
 int FatTree::getNumPods() {
@@ -65,11 +78,12 @@ int FatTree::getNumPods() {
 }
 
 int FatTree::getNumSwitchPerPod() {
-    return this->numSwithPerPod;
+    return this->numSwitchPerPod;
 }
 
 int FatTree::getNumServers() {
-    return this->numServers;
+    return this->totalServers;
 }
+
 
 FatTree::FatTree() = default;
