@@ -94,18 +94,18 @@ void Node::updateLocalRT(int destNodeID, int nextNodeID, double latency) {
     this->localRT.insert(std::pair<int, std::pair<int, double> >(destNodeID, nextNode));
 }
 
-void Node::createLocalRouting(int xTopoSize, int yTopoSize) {
+void Node::createLocalRouting(int xTopoSize) {
     // trace map to reverse Dijkstra shortest path from each other nodes to this->nodeID
     std::map<int, bool> visited;        // <nodeID, visited>
     std::map<int, Node*> localityList;
-    // Add this node and all of locality to traceMap
+    // Add this node and all of locality to localTraceMap
     // Add this node
     std::pair<double, int> this_dist_prev(0, this->nodeID);
     std::pair<int, std::pair<double, int> > thisNode(this->nodeID, this_dist_prev);
     this->traceMap.insert(thisNode);
     visited.insert(std::pair<int, bool>(this->nodeID, true));
     localityList.insert(std::pair<int, Node*>(this->nodeID, this));
-    // Add each other nodes on this->locality to traceMap
+    // Add each other nodes on this->locality to localTraceMap
     for (int i = 0; i < this->locality.size(); ++i) {
         std::cout << "locality size " << this->locality.size() << std::endl;
         std::map<int, Node*> temp (this->locality[i]);
@@ -114,19 +114,17 @@ void Node::createLocalRouting(int xTopoSize, int yTopoSize) {
                 std::pair<double, int> dist_prev(CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSize), this->nodeID);
                 std::pair<int, std::pair<double, int> > neighborNode(neighbor.first, dist_prev);
                 this->traceMap.insert(neighborNode);
-                visited.insert(std::pair<int, bool>(neighbor.first, false));
-                localityList.insert(neighbor);
             } else {        // non real neighbor
                 std::pair<double, int> dist_prev(INFTY, -1);
                 std::pair<int, std::pair<double, int> > neighborNode(neighbor.first, dist_prev);
                 this->traceMap.insert(neighborNode);
-                visited.insert(std::pair<int, bool>(neighbor.first, false));
-                localityList.insert(neighbor);
             }
+            visited.insert(std::pair<int, bool>(neighbor.first, false));
+            localityList.insert(neighbor);
         }
     }
-    // Dijkstra Algorithm to construct traceMap and visited state
-    std::cout << "traceMap size " << this->traceMap.size() << std::endl;
+    // Dijkstra Algorithm to construct localTraceMap and visited state
+    std::cout << "localTraceMap size " << this->traceMap.size() << std::endl;
     std::cout << "locality list size " << localityList.size() << std::endl;
     for (std::pair<int, Node*> node : localityList) {
         std::cout << "nodeID " << node.first << std::endl;
@@ -162,7 +160,7 @@ void Node::createLocalRouting(int xTopoSize, int yTopoSize) {
             }
         }
     }
-//    std::map<int, std::pair<double, int> > tempTraceMap (this->traceMap);
+//    std::map<int, std::pair<double, int> > tempTraceMap (this->localTraceMap);
     for (std::pair<int, std::pair<double, int> > neighbor : this->traceMap) {
         std::cout << "vao trong " << neighbor.first << std::endl;
         if (neighbor.first != this->nodeID) {
@@ -331,7 +329,6 @@ void Node::handleMissingBridge(int xBlockSize, int yBlockSize, int xTopoSize, in
             }
         }
     }
-    std::cout << "Deo lam j a" << std::endl;
 }
 
 double Node::getBridgeLatency(const std::vector<std::pair<int, Node*> >& bridge, int xTopoSize) {
@@ -382,8 +379,9 @@ std::pair<int, Node*> Node::getCenterNode(int xBlockSize, int yBlockSize, int xT
     }
 }
 
-void Node::updateBlockTable(int numBlock, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+void Node::updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+    int numBlock = CORRAUtils::getTotalBlocks(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     for (int blockID = 0; blockID < numBlock; ++blockID) {
         std::cout << "block " << blockID << std::endl;
         if (blockID == thisBlock) continue;     // only update Block Routing Table to each other blocks

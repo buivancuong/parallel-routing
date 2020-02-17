@@ -2,7 +2,13 @@
 // Created by cuongbv on 03/02/2020.
 //
 
+
+#define INFTY 999999999
+#define NODE_LATENCY 10
+#define CABLE_LATENCY 1
+
 #include <set>
+#include <iostream>
 #include "CORRANode.h"
 #include "../utils/CORRAUtils.h"
 
@@ -106,7 +112,7 @@ void CORRANode::findBR1() {
 }
 
 void CORRANode::findBRn(int n) {
-    if (n < 2) return;      // BR1 was found already in Node::findBR1(); we need start find from BR2
+    if (n != 2) return;      // BR1 was found already in Node::findBR1(); we need start find from BR2
     for (int i = 2; i <= n; ++i) {      // procedure for type of BRi; BR1 was found already in Node::findBR1();
         // Find new bridge BRi via endpoint of BR_i-1, (add random link to the existed bridge to create a new bridge)
         std::vector<std::vector<std::pair<int, CORRANode*> > > temp (this->ownBridges);
@@ -123,6 +129,140 @@ void CORRANode::findBRn(int n) {
             }
         }
     }
+}
+
+void CORRANode::createLocalRouting(int xTopoSize) {
+    // trace map to reverse Dijkstra shortest path from each other nodes to this->nodeID
+    std::map<int, bool> visited;        // <nodeID, visited>
+    std::map<int, CORRANode*> localityList;
+    // Add this node and all of locality to localTraceMap
+    // Add this node
+    std::pair<double, int> this_dist_prev(0, this->nodeID);
+    std::pair<int, std::pair<double, int> > thisNode(this->nodeID, this_dist_prev);
+    this->localTraceMap.insert(thisNode);
+    visited.insert(std::pair<int, bool>(this->nodeID, true));
+    localityList.insert(std::pair<int, CORRANode*>(this->nodeID, this));
+    // Add each other nodes on this->locality to localTraceMap
+    for (int i = 0; i < this->locality.size(); ++i) {
+        std::cout << "locality size " << this->locality.size() << std::endl;
+        std::map<int, CORRANode*> temp (this->locality[i]);
+        for (std::pair<int, CORRANode*> neighbor : temp) {
+            if (i == 0) {       // first layer real neighbor
+                std::pair<double, int> dist_prev(CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSize), this->nodeID);
+                std::pair<int, std::pair<double, int> > neighborNode(neighbor.first, dist_prev);
+                this->localTraceMap.insert(neighborNode);
+            } else {        // non real neighbor
+                std::pair<double, int> dist_prev(INFTY, -1);
+                std::pair<int, std::pair<double, int> > neighborNode(neighbor.first, dist_prev);
+                this->localTraceMap.insert(neighborNode);
+            }
+            visited.insert(std::pair<int, bool>(neighbor.first, false));
+            localityList.insert(neighbor);
+        }
+    }
+    // Dijkstra Algorithm to construct localTraceMap and visited state
+    std::cout << "localTraceMap size " << this->localTraceMap.size() << std::endl;
+    std::cout << "locality list size " << localityList.size() << std::endl;
+    for (std::pair<int, CORRANode*> node : localityList) {
+        std::cout << "nodeID " << node.first << std::endl;
+    }
+    for (int i = 0; i < this->localTraceMap.size(); ++i) {
+        int currentNodeID = -1;
+        // Check if all candidate is INFTY, and find new current Node
+        for (std::pair<int, bool> iterator : visited){
+            if (!iterator.second) {
+                if ((currentNodeID == -1) or (this->localTraceMap[iterator.first].first < this->localTraceMap[currentNodeID].first))
+                    currentNodeID = iterator.first;
+            }
+        }
+        if (this->localTraceMap[currentNodeID].first == INFTY) break;
+        if (currentNodeID == -1) {
+            this->localTraceMap.erase(-1);
+            break;
+        };
+        //Perform a Dijkstra iteration
+        visited[currentNodeID] = true;
+        std::cout << "currentID " << currentNodeID << std::endl;
+        std::map<int, CORRANode*> temp (localityList[currentNodeID]->getLocality()[0]);
+        for (std::pair<int, CORRANode*> neighbor : temp) {
+            if (localityList.count(neighbor.first)) {
+                if (!visited[neighbor.first]) {
+                    int destID = neighbor.first;
+                    double distance = CORRAUtils::getGridHop(currentNodeID, destID, xTopoSize);
+                    if (this->localTraceMap[currentNodeID].first + distance + NODE_LATENCY < this->localTraceMap[destID].first) {
+                        this->localTraceMap[destID].first = this->localTraceMap[currentNodeID].first + distance + NODE_LATENCY;
+                        this->localTraceMap[destID].second = currentNodeID;
+                    }
+                }
+            }
+        }
+    }
+//    std::map<int, std::pair<double, int> > tempTraceMap (this->localTraceMap);
+    for (std::pair<int, std::pair<double, int> > neighbor : this->localTraceMap) {
+        std::cout << "vao trong " << neighbor.first << std::endl;
+        if (neighbor.first != this->nodeID) {
+            localityList[neighbor.first]->updateLocalRT(this->nodeID, neighbor.second.second, neighbor.second.first);
+        }
+    }
+}
+
+void CORRANode::updateLocalRT(int destNodeID, int nextNodeID, double latency) {
+    std::pair<int, double> nextNode(nextNodeID, latency);
+    this->localRT.insert(std::pair<int, std::pair<int, double> >(destNodeID, nextNode));
+}
+
+void CORRANode::broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize) {
+    for (const std::map<int, CORRANode*>& localLayer : this->locality) {
+        for (std::pair<int, CORRANode*> neighbor : localLayer) {
+            for (const std::vector<std::pair<int, CORRANode*> >& bridge : this->ownBridges) {
+                neighbor.second->updateBridgeList(bridge, xBlockSize, yBlockSize, xTopoSize);
+            }
+        }
+    }
+}
+
+void CORRANode::updateBridgeList(std::vector<std::pair<int, CORRANode *> > bridge, int xBlockSize, int yBlockSize, int xTopoSize) {
+    int destBlockID = CORRAUtils::getNodeBlock(bridge.back().first, xBlockSize, yBlockSize, xTopoSize);
+    if (this->bridgeList[destBlockID].empty()) {
+        this->bridgeList[destBlockID].emplace_back(bridge);
+    }
+}
+
+std::map<int, std::pair<float, int> > CORRANode::getGlobalTraceMap() {
+    return this->globalTraceMap;
+}
+
+void CORRANode::createGlobalTraceMap(Graph globalGraph) {
+    this->globalTraceMap = globalGraph.Dijkstra(this->nodeID);
+}
+
+void CORRANode::updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+    int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+    int numBlock = CORRAUtils::getTotalBlocks(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+    for (int blockID = 0; blockID < numBlock; ++blockID) {
+        if (blockID == thisBlock) continue;
+        if (this->bridgeList[blockID].empty()) {
+            // SPR
+            int centerNode = CORRAUtils::getCenterVertex(blockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+            int nextNodeID = this->getNextNodeID(centerNode);
+            this->blockRT.insert(std::pair<int, int>(blockID, nextNodeID));
+            continue;
+        }       // else, has bridge
+        std::vector<std::pair<int, CORRANode*> > bridge = this->bridgeList[blockID][0];
+        int next = this->localRT[bridge[0].first].first;
+        this->blockRT.insert(std::pair<int, int>(blockID, next));
+    }
+}
+
+int CORRANode::getNextNodeID(int destID) {
+    if (this->globalTraceMap[destID].second == this->nodeID) {
+        return destID;
+    }
+    int prevID = this->globalTraceMap[destID].second;
+    while (prevID != this->nodeID) {
+        prevID = this->globalTraceMap[destID].second;
+    }
+    return prevID;
 }
 
 CORRANode::~CORRANode() = default;

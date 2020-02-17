@@ -69,6 +69,10 @@ int CORRAUtils::getGridHop(int sourceID, int destID, int xTopoSize) {
     return abs(sourceRow - destRow) + abs(sourceCol - destCol);
 }
 
+int CORRAUtils::getTotalBlocks(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+    return (int)(xTopoSize / xBlockSize) * (int)(yTopoSize / yBlockSize);
+}
+
 CORRAUtils::~CORRAUtils() = default;
 
 CORRAUtils::CORRAUtils() = default;

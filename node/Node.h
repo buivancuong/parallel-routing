@@ -51,7 +51,7 @@ public:
     // next, from first layer of locality, each Node create own locality by itself
     void createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
     // next, after get correct locality, each Node update local routing table for the other Nodes in own locality
-    void createLocalRouting(int xTopoSize, int yTopoSize);
+    void createLocalRouting(int xTopoSize);
     // this function supports update to own local routing table
     void updateLocalRT(int destNodeID, int nextNodeID, double latency);
     // next, find all BR1 from this Node (random links), save bridge to @ownBridges
@@ -65,7 +65,7 @@ public:
     // this function supports broadcasting the found missing bridge to each other Node in own @locality
     void broadcastMissingBridge(const std::vector<std::pair<int, Node*> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize);
     // at last, from full bridges list in @bridgeList, each Node update own block routing table 
-    void updateBlockTable(int numBlock, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+    void updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 };
 
 

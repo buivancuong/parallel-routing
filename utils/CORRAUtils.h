@@ -29,6 +29,8 @@ public:
     static int getCenterVertex(int blockId, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
     // method to get max hop-distance to all nodes on same block of the node
     static int getMaxHopinBlock(int nodeID, int xBlockSize, int yBlockSize, int xTopoSize);
+    // method to get number of blocks on Grid Graph
+    static int getTotalBlocks(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 };
 
 

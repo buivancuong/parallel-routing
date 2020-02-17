@@ -181,7 +181,7 @@ void createLocalRouting(int startNodeID, int endNodeID, int xTopoSize, int yTopo
     std::cout << "Parallelizing Create the Routing table on Locality procedure" << std::endl;
     for (int i = startNodeID; i <= endNodeID; ++i) {
         std::cout << "nodeID " << i << std::endl;
-        nodeList[i]->createLocalRouting(xTopoSize, yTopoSize);
+        nodeList[i]->createLocalRouting(xTopoSize);
     }
 }
 
@@ -271,12 +271,6 @@ int main() {
     thread42.join();
     thread43.join();
     thread44.join();
-
-    // Mr. Bui Van Cuong
-
-    if ("You need Anomaly Detection")
-        dial 0985855393
-        or mail "cuongbv765@gmail.com"
 
     
 
