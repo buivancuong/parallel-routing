@@ -57,7 +57,7 @@ public:
     // next, after get all BRn (from this Node), broadcast bridges in @ownBridges to each other Node in onw @locality
     void broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize);
     // next, after received all bridges that has broadcasted from the other Node, create this->globalTraceMap for missing bridges
-    void createGlobalTraceMap(Graph globalGraph);
+    void createGlobalTraceMap(Graph *globalGraph);
     // last, update this->blockRT
     void updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 

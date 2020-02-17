@@ -366,6 +366,33 @@ node/Edge.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/Edge.cpp.s
 .PHONY : node/Edge.cpp.s
 
+node/FatTreeNode.o: node/FatTreeNode.cpp.o
+
+.PHONY : node/FatTreeNode.o
+
+# target to build an object file
+node/FatTreeNode.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.o
+.PHONY : node/FatTreeNode.cpp.o
+
+node/FatTreeNode.i: node/FatTreeNode.cpp.i
+
+.PHONY : node/FatTreeNode.i
+
+# target to preprocess a source file
+node/FatTreeNode.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.i
+.PHONY : node/FatTreeNode.cpp.i
+
+node/FatTreeNode.s: node/FatTreeNode.cpp.s
+
+.PHONY : node/FatTreeNode.s
+
+# target to generate assembly for a file
+node/FatTreeNode.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.s
+.PHONY : node/FatTreeNode.cpp.s
+
 node/Node.o: node/Node.cpp.o
 
 .PHONY : node/Node.o
@@ -392,6 +419,33 @@ node/Node.s: node/Node.cpp.s
 node/Node.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/Node.cpp.s
 .PHONY : node/Node.cpp.s
+
+node/TZNode.o: node/TZNode.cpp.o
+
+.PHONY : node/TZNode.o
+
+# target to build an object file
+node/TZNode.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o
+.PHONY : node/TZNode.cpp.o
+
+node/TZNode.i: node/TZNode.cpp.i
+
+.PHONY : node/TZNode.i
+
+# target to preprocess a source file
+node/TZNode.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/TZNode.cpp.i
+.PHONY : node/TZNode.cpp.i
+
+node/TZNode.s: node/TZNode.cpp.s
+
+.PHONY : node/TZNode.s
+
+# target to generate assembly for a file
+node/TZNode.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/TZNode.cpp.s
+.PHONY : node/TZNode.cpp.s
 
 routing/CORRADistributed.o: routing/CORRADistributed.cpp.o
 
@@ -564,9 +618,15 @@ help:
 	@echo "... node/Edge.o"
 	@echo "... node/Edge.i"
 	@echo "... node/Edge.s"
+	@echo "... node/FatTreeNode.o"
+	@echo "... node/FatTreeNode.i"
+	@echo "... node/FatTreeNode.s"
 	@echo "... node/Node.o"
 	@echo "... node/Node.i"
 	@echo "... node/Node.s"
+	@echo "... node/TZNode.o"
+	@echo "... node/TZNode.i"
+	@echo "... node/TZNode.s"
 	@echo "... routing/CORRADistributed.o"
 	@echo "... routing/CORRADistributed.i"
 	@echo "... routing/CORRADistributed.s"

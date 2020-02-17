@@ -232,8 +232,8 @@ std::map<int, std::pair<float, int> > CORRANode::getGlobalTraceMap() {
     return this->globalTraceMap;
 }
 
-void CORRANode::createGlobalTraceMap(Graph globalGraph) {
-    this->globalTraceMap = globalGraph.Dijkstra(this->nodeID);
+void CORRANode::createGlobalTraceMap(Graph *globalGraph) {
+    this->globalTraceMap = globalGraph->Dijkstra(this->nodeID);
 }
 
 void CORRANode::updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {

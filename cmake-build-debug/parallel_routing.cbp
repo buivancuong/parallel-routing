@@ -135,10 +135,22 @@
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/Edge.h">
 			<Option target="parallel_routing"/>
 		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.h">
+			<Option target="parallel_routing"/>
+		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/Node.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/Node.h">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/TZNode.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/TZNode.h">
 			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/routing/CORRADistributed.cpp">
