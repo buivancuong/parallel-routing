@@ -12,10 +12,10 @@ FatTree::FatTree(int k) : Graph() {
         std::cout << "k must be even" << std::endl;
         return;
     }
-    if (k > 256) {
-        std::cout << "k must be less than  256" << std::endl;
-        return;
-    }
+//    if (k > 256) {
+//        std::cout << "k must be less than  256" << std::endl;
+//        return;
+//    }
     // constructs parameters of Fat tree
     this->paramK = k;
     this->numCoreSwitch = k * k / 4;

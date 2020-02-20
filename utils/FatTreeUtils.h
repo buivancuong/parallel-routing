@@ -6,6 +6,8 @@
 #define PARALLEL_ROUTING_FATTREEUTILS_H
 
 
+#include <bits/stat.h>
+
 class FatTreeUtils {
 
 public:
@@ -19,6 +21,8 @@ public:
     static bool isInPod(int nodeID, int numCoreSwitch, int numPods, int numSwitchPerPod);
 
     static int getPod(int nodeID, int numCoreSwitch, int numPods, int numSwitchPerPod);
+    static int addressToNodeID(int* address, int numCoreSwitch, int numPods, int numSwitchPerPod);
+    static int* nodeIDToAddress(int nodeID, int numCoreSwitch, int numPods, int numSwitchPerPod);
 
 };
 

@@ -11,9 +11,9 @@
 class FatTree : public Graph{
 private:
     int paramK{};     // number of ports per switch
-    int numCoreSwitch{};     // number of Core Switchs (root core)
+    int numCoreSwitch{};     // number of Core Switch (root core)
     int numPods{};        // number of Pod (consist Agg Switch and Edge Switch)
-    int numSwitchPerPod{};     // number of switchs (include both of Agg and Edge) on 1 pod
+    int numSwitchPerPod{};     // number of switch (include both of Agg and Edge) on 1 pod
     int totalServers{};     // total of servers below Edge layer
     // methods to add edges on Fat tree
     void addCoreToAgg();
