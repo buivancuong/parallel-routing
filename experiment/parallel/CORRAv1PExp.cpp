@@ -104,55 +104,55 @@ CORRAv1PExp::CORRAv1PExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTop
 void CORRAv1PExp::createNodeList(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
         auto *node = new CORRANode(i);
-        nodeList.insert(std::pair<int, CORRANode*>(i, node));
+        this->nodeList.insert(std::pair<int, CORRANode*>(i, node));
     }
 }
 
 void CORRAv1PExp::createNearFarNeighbors(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        nodeList[i]->prepareLocality(deltaNeighbor, xTopoSize, yTopoSize);
+        this->nodeList[i]->prepareLocality(deltaNeighbor, xTopoSize, yTopoSize);
     }
 }
 
 void CORRAv1PExp::createLocality(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        nodeList[i]->createLocality(deltaNeighbor, xTopoSize, yTopoSize);
+        this->nodeList[i]->createLocality(deltaNeighbor, xTopoSize, yTopoSize);
     }
 }
 
 void CORRAv1PExp::createLocalRouting(int startNodeID, int endNodeID, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        nodeList[i]->createLocalRouting(xTopoSize);
+        this->nodeList[i]->createLocalRouting(xTopoSize);
     }
 }
 
 void CORRAv1PExp::findBR1(int startNodeID, int endNodeID) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        nodeList[i]->findBR1();
+        this->nodeList[i]->findBR1();
     }
 }
 
 void CORRAv1PExp::findBRn(int startNodeID, int endNodeID, int n) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        nodeList[i]->findBRn(n);
+        this->nodeList[i]->findBRn(n);
     }
 }
 
 void CORRAv1PExp::broadcastLocalBridge(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        nodeList[i]->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize);
+        this->nodeList[i]->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize);
     }
 }
 
 void CORRAv1PExp::createGlobalTraceMap(int startNodeID, int endNodeID, Graph *topo) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        nodeList[i]->createGlobalTraceMap(topo);
+        this->nodeList[i]->createGlobalTraceMap(topo);
     }
 }
 
 void CORRAv1PExp::updateBlockTable(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        nodeList[i]->updateBlockTable(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        this->nodeList[i]->updateBlockTable(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 }
 
