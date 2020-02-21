@@ -6,8 +6,6 @@
 #define PARALLEL_ROUTING_FATTREEUTILS_H
 
 
-#include <bits/stat.h>
-
 class FatTreeUtils {
 
 public:

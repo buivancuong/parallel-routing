@@ -34,21 +34,20 @@ void TZNode::createTraceMap(Graph *globalGraph) {
     this->traceMap = globalGraph->Dijkstra(this->nodeID);
 }
 
-void TZNode::extractClosetLandmark() {
+void TZNode::extractClosetLandmark(std::map<int, TZNode*> *landmarks) {
     if (this->isLandmark) return;
-    if (TZNode::landmarks->empty()) return;
 
-    this->setClosetLandmark(TZNode::landmarks->begin()->first);
-    for (std::pair<int, TZNode*> landmark : *TZNode::landmarks) {
+    this->setClosetLandmark(landmarks->begin()->first);
+    for (std::pair<int, TZNode*> landmark : *landmarks) {
         if (this->traceMap[this->closetLandmark].first > this->traceMap[landmark.first].first) {
             this->setClosetLandmark(landmark.first);
         }
     }
 }
 
-void TZNode::extractCluster() {
+void TZNode::extractCluster(std::map<int, TZNode*> *nodeList) {
     this->cluster.clear();
-    for (std::pair<int, TZNode*> node : *TZNode::nodeList) {
+    for (std::pair<int, TZNode*> node : *nodeList) {
         if (node.first == this->nodeID) continue;
         if (this->traceMap[node.first].first < node.second->getTraceMap()[node.second->getClosetLandmark()].first) {
             this->cluster.insert(node);

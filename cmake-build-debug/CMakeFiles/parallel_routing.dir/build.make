@@ -187,22 +187,9 @@ CMakeFiles/parallel_routing.dir/node/Edge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/node/Edge.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/Edge.cpp -o CMakeFiles/parallel_routing.dir/node/Edge.cpp.s
 
-CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
-CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.o: ../experiment/CORRADistributedExperiment.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/CORRADistributedExperiment.cpp
-
-CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/CORRADistributedExperiment.cpp > CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.i
-
-CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/CORRADistributedExperiment.cpp -o CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.s
-
 CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
 CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o: ../graph/fattree/FatTree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.cpp
 
 CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.i: cmake_force
@@ -215,7 +202,7 @@ CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.s: cmake_force
 
 CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
 CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o: ../utils/FatTreeUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.cpp
 
 CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.i: cmake_force
@@ -228,7 +215,7 @@ CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.s: cmake_force
 
 CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
 CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.o: ../routing/FatTreeRoutingAlgorithm.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/routing/FatTreeRoutingAlgorithm.cpp
 
 CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.i: cmake_force
@@ -241,7 +228,7 @@ CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.s: cmake_for
 
 CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
 CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.o: ../node/CORRANode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/CORRANode.cpp
 
 CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.i: cmake_force
@@ -254,7 +241,7 @@ CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.s: cmake_force
 
 CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
 CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o: ../node/TZNode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/TZNode.cpp
 
 CMakeFiles/parallel_routing.dir/node/TZNode.cpp.i: cmake_force
@@ -267,7 +254,7 @@ CMakeFiles/parallel_routing.dir/node/TZNode.cpp.s: cmake_force
 
 CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
 CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.o: ../node/FatTreeNode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.cpp
 
 CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.i: cmake_force
@@ -277,6 +264,32 @@ CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.i: cmake_force
 CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.cpp -o CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.s
+
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o: ../experiment/serial/CORRAv1SExp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv1SExp.cpp
+
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv1SExp.cpp > CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.i
+
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv1SExp.cpp -o CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.s
+
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o: ../experiment/parallel/CORRAv1PExp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv1PExp.cpp
+
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv1PExp.cpp > CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.i
+
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv1PExp.cpp -o CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.s
 
 # Object files for target parallel_routing
 parallel_routing_OBJECTS = \
@@ -290,13 +303,14 @@ parallel_routing_OBJECTS = \
 "CMakeFiles/parallel_routing.dir/node/Node.cpp.o" \
 "CMakeFiles/parallel_routing.dir/utils/CORRAUtils.cpp.o" \
 "CMakeFiles/parallel_routing.dir/node/Edge.cpp.o" \
-"CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.o" \
 "CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o" \
 "CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o" \
 "CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.o" \
 "CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.o" \
 "CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o" \
-"CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.o"
+"CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.o" \
+"CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o" \
+"CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o"
 
 # External object files for target parallel_routing
 parallel_routing_EXTERNAL_OBJECTS =
@@ -311,16 +325,17 @@ parallel_routing: CMakeFiles/parallel_routing.dir/routing/CORRADistributed.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/node/Node.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/utils/CORRAUtils.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/node/Edge.cpp.o
-parallel_routing: CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.o
+parallel_routing: CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o
+parallel_routing: CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/build.make
 parallel_routing: CMakeFiles/parallel_routing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable parallel_routing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable parallel_routing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/parallel_routing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

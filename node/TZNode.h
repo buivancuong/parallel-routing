@@ -19,8 +19,6 @@ private:
 
 
 public:
-    static std::map<int, TZNode*> *landmarks;
-    static std::map<int, TZNode*> *nodeList;
 
     TZNode();
     explicit TZNode(int nodeID);
@@ -37,9 +35,9 @@ public:
     // first, create traceMap to get single source Dijkstra shortest path from this->nodeID
     void createTraceMap(Graph *globalGraph);
     // extract closetLandmark
-    void extractClosetLandmark();
+    void extractClosetLandmark(std::map<int, TZNode*> *landmarks);
     // extract cluster set of this->nodeID
-    void extractCluster();
+    void extractCluster(std::map<int, TZNode*> *nodeList);
 
 };
 

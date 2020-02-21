@@ -123,32 +123,59 @@ parallel_routing/fast:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/build
 .PHONY : parallel_routing/fast
 
-experiment/CORRADistributedExperiment.o: experiment/CORRADistributedExperiment.cpp.o
+experiment/parallel/CORRAv1PExp.o: experiment/parallel/CORRAv1PExp.cpp.o
 
-.PHONY : experiment/CORRADistributedExperiment.o
+.PHONY : experiment/parallel/CORRAv1PExp.o
 
 # target to build an object file
-experiment/CORRADistributedExperiment.cpp.o:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.o
-.PHONY : experiment/CORRADistributedExperiment.cpp.o
+experiment/parallel/CORRAv1PExp.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o
+.PHONY : experiment/parallel/CORRAv1PExp.cpp.o
 
-experiment/CORRADistributedExperiment.i: experiment/CORRADistributedExperiment.cpp.i
+experiment/parallel/CORRAv1PExp.i: experiment/parallel/CORRAv1PExp.cpp.i
 
-.PHONY : experiment/CORRADistributedExperiment.i
+.PHONY : experiment/parallel/CORRAv1PExp.i
 
 # target to preprocess a source file
-experiment/CORRADistributedExperiment.cpp.i:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.i
-.PHONY : experiment/CORRADistributedExperiment.cpp.i
+experiment/parallel/CORRAv1PExp.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.i
+.PHONY : experiment/parallel/CORRAv1PExp.cpp.i
 
-experiment/CORRADistributedExperiment.s: experiment/CORRADistributedExperiment.cpp.s
+experiment/parallel/CORRAv1PExp.s: experiment/parallel/CORRAv1PExp.cpp.s
 
-.PHONY : experiment/CORRADistributedExperiment.s
+.PHONY : experiment/parallel/CORRAv1PExp.s
 
 # target to generate assembly for a file
-experiment/CORRADistributedExperiment.cpp.s:
-	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/CORRADistributedExperiment.cpp.s
-.PHONY : experiment/CORRADistributedExperiment.cpp.s
+experiment/parallel/CORRAv1PExp.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.s
+.PHONY : experiment/parallel/CORRAv1PExp.cpp.s
+
+experiment/serial/CORRAv1SExp.o: experiment/serial/CORRAv1SExp.cpp.o
+
+.PHONY : experiment/serial/CORRAv1SExp.o
+
+# target to build an object file
+experiment/serial/CORRAv1SExp.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o
+.PHONY : experiment/serial/CORRAv1SExp.cpp.o
+
+experiment/serial/CORRAv1SExp.i: experiment/serial/CORRAv1SExp.cpp.i
+
+.PHONY : experiment/serial/CORRAv1SExp.i
+
+# target to preprocess a source file
+experiment/serial/CORRAv1SExp.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.i
+.PHONY : experiment/serial/CORRAv1SExp.cpp.i
+
+experiment/serial/CORRAv1SExp.s: experiment/serial/CORRAv1SExp.cpp.s
+
+.PHONY : experiment/serial/CORRAv1SExp.s
+
+# target to generate assembly for a file
+experiment/serial/CORRAv1SExp.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.s
+.PHONY : experiment/serial/CORRAv1SExp.cpp.s
 
 graph/Graph.o: graph/Graph.cpp.o
 
@@ -591,9 +618,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... parallel_routing"
 	@echo "... edit_cache"
-	@echo "... experiment/CORRADistributedExperiment.o"
-	@echo "... experiment/CORRADistributedExperiment.i"
-	@echo "... experiment/CORRADistributedExperiment.s"
+	@echo "... experiment/parallel/CORRAv1PExp.o"
+	@echo "... experiment/parallel/CORRAv1PExp.i"
+	@echo "... experiment/parallel/CORRAv1PExp.s"
+	@echo "... experiment/serial/CORRAv1SExp.o"
+	@echo "... experiment/serial/CORRAv1SExp.i"
+	@echo "... experiment/serial/CORRAv1SExp.s"
 	@echo "... graph/Graph.o"
 	@echo "... graph/Graph.i"
 	@echo "... graph/Graph.s"
