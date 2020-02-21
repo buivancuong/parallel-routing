@@ -25,9 +25,18 @@ public:
 
     void createLocalRouting(int startNodeID, int endNodeID, int xTopoSize, int yTopoSize);
 
+    void findBR1(int startNodeID, int endNodeID);
+
+    void findBRn(int startNodeID, int endNodeID, int n = 2);
+
+    void broadcastLocalBridge(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize);
+
+    void createGlobalTraceMap(int startNodeID, int endNodeID, Graph *topo);
+
+    void updateBlockTable(int startNodeID, int endNodeID, int BlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 
     CORRAv1PExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize, int deltaNeighbor, const std::vector<float>& alphas, int numSubThread);
-
+    ~CORRAv1PExp();
 };
 
 

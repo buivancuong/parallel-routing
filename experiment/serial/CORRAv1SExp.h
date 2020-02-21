@@ -10,7 +10,7 @@
 
 class CORRAv1SExp {
 public:
-    CORRAv1SExp(int BlockSize, int yBlockSize, int xTopoSize, int yTopoSize, int deltaNeighbor , const std::vector<float>& alphas);
+    CORRAv1SExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize, int deltaNeighbor , const std::vector<float>& alphas);
     ~CORRAv1SExp();
 };
 
