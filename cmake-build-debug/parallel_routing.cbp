@@ -96,6 +96,12 @@
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv2PExp.h">
 			<Option target="parallel_routing"/>
 		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/TZPExp.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/TZPExp.h">
+			<Option target="parallel_routing"/>
+		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv1SExp.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
@@ -106,6 +112,12 @@
 			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv2SExp.h">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/TZSExp.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/TZSExp.h">
 			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.cpp">
@@ -202,6 +214,12 @@
 			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.h">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.cpp">
+			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.h">
 			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/CMakeLists.txt">

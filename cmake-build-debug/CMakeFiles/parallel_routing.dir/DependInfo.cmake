@@ -6,8 +6,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv1PExp.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o"
   "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv2PExp.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o"
+  "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/TZPExp.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o"
   "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv1SExp.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o"
   "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv2SExp.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o"
+  "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/TZSExp.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o"
   "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o"
   "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o"
   "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/graph/smallworld/GridGraph.cpp.o"
@@ -24,6 +26,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/routing/FatTreeRoutingAlgorithm.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/routing/FatTreeRoutingAlgorithm.cpp.o"
   "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/utils/CORRAUtils.cpp.o"
   "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o"
+  "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.cpp" "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

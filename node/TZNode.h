@@ -17,7 +17,6 @@ private:
     std::map<int, std::pair<float, int> > traceMap;
     std::map<int, TZNode*> cluster;
 
-
 public:
 
     TZNode();
@@ -27,6 +26,7 @@ public:
     int getNodeID();
     int getClosetLandmark();
     std::map<int, std::pair<float, int> > getTraceMap();
+    std::map<int, TZNode*> getCluster();
     bool isLandmarkNode();
     void setIsLandMark();
     void setClosetLandmark(int landmarkNodeID);
@@ -35,9 +35,9 @@ public:
     // first, create traceMap to get single source Dijkstra shortest path from this->nodeID
     void createTraceMap(Graph *globalGraph);
     // extract closetLandmark
-    void extractClosetLandmark(std::map<int, TZNode*> *landmarks);
+    void extractClosetLandmark(std::map<int, TZNode*> landmarks);
     // extract cluster set of this->nodeID
-    void extractCluster(std::map<int, TZNode*> *nodeList);
+    void extractCluster(std::map<int, TZNode*> nodeList);
 
 };
 

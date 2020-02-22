@@ -317,6 +317,45 @@ CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.s: cmake_for
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv2PExp.cpp -o CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.s
 
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o: ../experiment/serial/TZSExp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/TZSExp.cpp
+
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/TZSExp.cpp > CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.i
+
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/TZSExp.cpp -o CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.s
+
+CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
+CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o: ../utils/TZUtils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.cpp
+
+CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.cpp > CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.i
+
+CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.cpp -o CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.s
+
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o: CMakeFiles/parallel_routing.dir/flags.make
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o: ../experiment/parallel/TZPExp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/TZPExp.cpp
+
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/TZPExp.cpp > CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.i
+
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/TZPExp.cpp -o CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.s
+
 # Object files for target parallel_routing
 parallel_routing_OBJECTS = \
 "CMakeFiles/parallel_routing.dir/main.cpp.o" \
@@ -338,7 +377,10 @@ parallel_routing_OBJECTS = \
 "CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o" \
 "CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o" \
 "CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o" \
-"CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o"
+"CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o" \
+"CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o" \
+"CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o" \
+"CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o"
 
 # External object files for target parallel_routing
 parallel_routing_EXTERNAL_OBJECTS =
@@ -363,9 +405,12 @@ parallel_routing: CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.
 parallel_routing: CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o
+parallel_routing: CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o
+parallel_routing: CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o
+parallel_routing: CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o
 parallel_routing: CMakeFiles/parallel_routing.dir/build.make
 parallel_routing: CMakeFiles/parallel_routing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable parallel_routing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX executable parallel_routing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/parallel_routing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

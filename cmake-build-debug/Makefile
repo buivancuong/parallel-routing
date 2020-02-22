@@ -177,6 +177,33 @@ experiment/parallel/CORRAv2PExp.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.s
 .PHONY : experiment/parallel/CORRAv2PExp.cpp.s
 
+experiment/parallel/TZPExp.o: experiment/parallel/TZPExp.cpp.o
+
+.PHONY : experiment/parallel/TZPExp.o
+
+# target to build an object file
+experiment/parallel/TZPExp.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o
+.PHONY : experiment/parallel/TZPExp.cpp.o
+
+experiment/parallel/TZPExp.i: experiment/parallel/TZPExp.cpp.i
+
+.PHONY : experiment/parallel/TZPExp.i
+
+# target to preprocess a source file
+experiment/parallel/TZPExp.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.i
+.PHONY : experiment/parallel/TZPExp.cpp.i
+
+experiment/parallel/TZPExp.s: experiment/parallel/TZPExp.cpp.s
+
+.PHONY : experiment/parallel/TZPExp.s
+
+# target to generate assembly for a file
+experiment/parallel/TZPExp.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.s
+.PHONY : experiment/parallel/TZPExp.cpp.s
+
 experiment/serial/CORRAv1SExp.o: experiment/serial/CORRAv1SExp.cpp.o
 
 .PHONY : experiment/serial/CORRAv1SExp.o
@@ -230,6 +257,33 @@ experiment/serial/CORRAv2SExp.s: experiment/serial/CORRAv2SExp.cpp.s
 experiment/serial/CORRAv2SExp.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.s
 .PHONY : experiment/serial/CORRAv2SExp.cpp.s
+
+experiment/serial/TZSExp.o: experiment/serial/TZSExp.cpp.o
+
+.PHONY : experiment/serial/TZSExp.o
+
+# target to build an object file
+experiment/serial/TZSExp.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o
+.PHONY : experiment/serial/TZSExp.cpp.o
+
+experiment/serial/TZSExp.i: experiment/serial/TZSExp.cpp.i
+
+.PHONY : experiment/serial/TZSExp.i
+
+# target to preprocess a source file
+experiment/serial/TZSExp.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.i
+.PHONY : experiment/serial/TZSExp.cpp.i
+
+experiment/serial/TZSExp.s: experiment/serial/TZSExp.cpp.s
+
+.PHONY : experiment/serial/TZSExp.s
+
+# target to generate assembly for a file
+experiment/serial/TZSExp.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.s
+.PHONY : experiment/serial/TZSExp.cpp.s
 
 graph/Graph.o: graph/Graph.cpp.o
 
@@ -663,6 +717,33 @@ utils/FatTreeUtils.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.s
 .PHONY : utils/FatTreeUtils.cpp.s
 
+utils/TZUtils.o: utils/TZUtils.cpp.o
+
+.PHONY : utils/TZUtils.o
+
+# target to build an object file
+utils/TZUtils.cpp.o:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o
+.PHONY : utils/TZUtils.cpp.o
+
+utils/TZUtils.i: utils/TZUtils.cpp.i
+
+.PHONY : utils/TZUtils.i
+
+# target to preprocess a source file
+utils/TZUtils.cpp.i:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.i
+.PHONY : utils/TZUtils.cpp.i
+
+utils/TZUtils.s: utils/TZUtils.cpp.s
+
+.PHONY : utils/TZUtils.s
+
+# target to generate assembly for a file
+utils/TZUtils.cpp.s:
+	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.s
+.PHONY : utils/TZUtils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -678,12 +759,18 @@ help:
 	@echo "... experiment/parallel/CORRAv2PExp.o"
 	@echo "... experiment/parallel/CORRAv2PExp.i"
 	@echo "... experiment/parallel/CORRAv2PExp.s"
+	@echo "... experiment/parallel/TZPExp.o"
+	@echo "... experiment/parallel/TZPExp.i"
+	@echo "... experiment/parallel/TZPExp.s"
 	@echo "... experiment/serial/CORRAv1SExp.o"
 	@echo "... experiment/serial/CORRAv1SExp.i"
 	@echo "... experiment/serial/CORRAv1SExp.s"
 	@echo "... experiment/serial/CORRAv2SExp.o"
 	@echo "... experiment/serial/CORRAv2SExp.i"
 	@echo "... experiment/serial/CORRAv2SExp.s"
+	@echo "... experiment/serial/TZSExp.o"
+	@echo "... experiment/serial/TZSExp.i"
+	@echo "... experiment/serial/TZSExp.s"
 	@echo "... graph/Graph.o"
 	@echo "... graph/Graph.i"
 	@echo "... graph/Graph.s"
@@ -732,6 +819,9 @@ help:
 	@echo "... utils/FatTreeUtils.o"
 	@echo "... utils/FatTreeUtils.i"
 	@echo "... utils/FatTreeUtils.s"
+	@echo "... utils/TZUtils.o"
+	@echo "... utils/TZUtils.i"
+	@echo "... utils/TZUtils.s"
 .PHONY : help
 
 
