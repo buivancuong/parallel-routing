@@ -19,6 +19,8 @@ public:
 
     void buildTable(int startNodeID, int endNodeID, int numCoreSwitch, int numPods, int numSwitchPerPod);
 
+    FatTreePExp(int paramK, int numSubThread);
+
 };
 
 
