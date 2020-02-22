@@ -106,3 +106,5 @@ TZPExp::TZPExp(int xTopoSize, int yTopoSize, int deltaNeighbor, const std::vecto
 
 }
 
+TZPExp::~TZPExp() = default;
+

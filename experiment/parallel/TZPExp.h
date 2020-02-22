@@ -25,7 +25,7 @@ public:
     void extractCluster(int startNodeID, int endNodeID);
 
     TZPExp(int xTopoSize, int yTopoSize, int deltaNeighbor, const std::vector<float>& alphas, int numSubThread);
-
+    ~TZPExp();
 };
 
 
