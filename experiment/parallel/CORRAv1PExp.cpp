@@ -9,7 +9,8 @@
 
 CORRAv1PExp::CORRAv1PExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize, int deltaNeighbor, const std::vector<float> &alphas, int numSubThread) {
     auto *topo = new SmallWorld2DGrid(yTopoSize, xTopoSize, alphas);
-    int subSet = (int)(xTopoSize * yTopoSize / numSubThread) + 1;
+    int subSet = (int)(xTopoSize * yTopoSize / numSubThread);
+    if (xTopoSize * yTopoSize - numSubThread * subSet != 0) subSet++;
     int partition[numSubThread + 1];
     int start = 0;
     partition[0] = 0;
@@ -39,6 +40,7 @@ CORRAv1PExp::CORRAv1PExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTop
     threads.clear();
     for (int i = 0; i < numSubThread; ++i) {
         std::thread thread(&CORRAv1PExp::createLocality, this, partition[i], partition[i + 1], deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        std::cout << "Here " << i << std::endl;
         threads.push_back(std::move(thread));
     }
     for (auto &thread : threads) {

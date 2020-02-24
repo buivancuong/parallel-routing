@@ -12,8 +12,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/experiment/parallel/FatTreePExp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/parallel/FatTreePExp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment/parallel/FatTreePExp.h" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/parallel/FatTreePExp.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/parallel/CORRAv1PExp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/parallel/CORRAv1PExp.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/Graph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/Graph.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/smallworld/GridGraph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/smallworld/GridGraph.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +266,10 @@
       <workItem from="1582247375126" duration="3247000" />
       <workItem from="1582255048997" duration="19812000" />
       <workItem from="1582292971629" duration="149000" />
-      <workItem from="1582293146732" duration="16570000" />
+      <workItem from="1582293146732" duration="16932000" />
+      <workItem from="1582354389898" duration="6381000" />
+      <workItem from="1582360789147" duration="5801000" />
+      <workItem from="1582554187612" duration="13723000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>
@@ -311,50 +323,62 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="576" y="201" key="#Inspections/32.21.1888.1059@32.21.1888.1059" timestamp="1578225342490" />
+    <state x="868" y="285" width="434" height="503" key="#xdebugger.XInspectDialog" timestamp="1582577105412">
+      <screen x="32" y="21" width="1888" height="1059" />
+    </state>
+    <state x="868" y="285" width="434" height="503" key="#xdebugger.XInspectDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1582577105412" />
+    <state x="739" y="236" key="#xdebugger.evaluate" timestamp="1582576393421">
+      <screen x="32" y="21" width="1888" height="1059" />
+    </state>
+    <state x="739" y="236" key="#xdebugger.evaluate/32.21.1888.1059@32.21.1888.1059" timestamp="1582576393421" />
     <state x="529" y="128" key="CommitChangelistDialog2" timestamp="1582337612711">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="529" y="128" key="CommitChangelistDialog2/32.21.1888.1059@32.21.1888.1059" timestamp="1582337612711" />
-    <state width="1846" height="313" key="GridCell.Tab.0.bottom" timestamp="1582276897057">
+    <state width="437" height="486" key="DebuggerActiveHint" timestamp="1582573949023">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="313" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1582276897057" />
-    <state width="1846" height="313" key="GridCell.Tab.0.center" timestamp="1582276897055">
+    <state width="437" height="486" key="DebuggerActiveHint/32.21.1888.1059@32.21.1888.1059" timestamp="1582573949023" />
+    <state width="1846" height="313" key="GridCell.Tab.0.bottom" timestamp="1582581660536">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="313" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1582276897055" />
-    <state width="1846" height="313" key="GridCell.Tab.0.left" timestamp="1582276897054">
+    <state width="1846" height="313" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1582581660536" />
+    <state width="1846" height="313" key="GridCell.Tab.0.center" timestamp="1582581660536">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="313" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1582276897054" />
-    <state width="1846" height="313" key="GridCell.Tab.0.right" timestamp="1582276897056">
+    <state width="1846" height="313" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1582581660536" />
+    <state width="1846" height="313" key="GridCell.Tab.0.left" timestamp="1582581660535">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="313" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1582276897056" />
-    <state width="1846" height="312" key="GridCell.Tab.1.bottom" timestamp="1582276520785">
+    <state width="1846" height="313" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1582581660535" />
+    <state width="1846" height="313" key="GridCell.Tab.0.right" timestamp="1582581660536">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="312" key="GridCell.Tab.1.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1582276520785" />
-    <state width="1846" height="312" key="GridCell.Tab.1.center" timestamp="1582276520785">
+    <state width="1846" height="313" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1582581660536" />
+    <state width="1846" height="312" key="GridCell.Tab.1.bottom" timestamp="1582577108829">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="312" key="GridCell.Tab.1.center/32.21.1888.1059@32.21.1888.1059" timestamp="1582276520785" />
-    <state width="1846" height="312" key="GridCell.Tab.1.left" timestamp="1582276520785">
+    <state width="1846" height="312" key="GridCell.Tab.1.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1582577108829" />
+    <state width="1846" height="312" key="GridCell.Tab.1.center" timestamp="1582577108829">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="312" key="GridCell.Tab.1.left/32.21.1888.1059@32.21.1888.1059" timestamp="1582276520785" />
-    <state width="1846" height="312" key="GridCell.Tab.1.right" timestamp="1582276520785">
+    <state width="1846" height="312" key="GridCell.Tab.1.center/32.21.1888.1059@32.21.1888.1059" timestamp="1582577108829" />
+    <state width="1846" height="312" key="GridCell.Tab.1.left" timestamp="1582577108829">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="312" key="GridCell.Tab.1.right/32.21.1888.1059@32.21.1888.1059" timestamp="1582276520785" />
+    <state width="1846" height="312" key="GridCell.Tab.1.left/32.21.1888.1059@32.21.1888.1059" timestamp="1582577108829" />
+    <state width="1846" height="312" key="GridCell.Tab.1.right" timestamp="1582577108829">
+      <screen x="32" y="21" width="1888" height="1059" />
+    </state>
+    <state width="1846" height="312" key="GridCell.Tab.1.right/32.21.1888.1059@32.21.1888.1059" timestamp="1582577108829" />
     <state x="575" y="147" key="SettingsEditor" timestamp="1582293552112">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="575" y="147" key="SettingsEditor/32.21.1888.1059@32.21.1888.1059" timestamp="1582293552112" />
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1582293151274">
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1582554188086">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1582293151274" />
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1582554188086" />
     <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1577196825077">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -383,5 +407,19 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="639" y="234" width="672" height="678" key="search.everywhere.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1582293159557" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="this-&gt;nodeList.size()" language="ObjectiveC" />
+        <watch expression="this-&gt;nodeList" language="ObjectiveC" />
+        <watch expression="this-&gt;nodeList" language="ObjectiveC" />
+        <watch expression="this-&gt;nodeList[0]-&gt;getNodeID()" language="ObjectiveC" />
+        <watch expression="topo-&gt;getAdjList().size()" language="ObjectiveC" />
+        <watch expression="corraNodeList.size()" language="ObjectiveC" />
+        <watch expression="corraNodeList" language="ObjectiveC" />
+        <watch expression="nodeList" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

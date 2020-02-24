@@ -9,6 +9,28 @@ CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/CORRANode.h
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv2PExp.cpp
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv2PExp.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/Node.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/FatTreePExp.cpp.o
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/FatTreePExp.cpp
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/FatTreePExp.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/TZPExp.cpp
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/TZPExp.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/TZNode.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.h
 CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv1SExp.cpp
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv1SExp.h
@@ -16,6 +38,28 @@ CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.h
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/CORRANode.h
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv2SExp.cpp
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv2SExp.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/Node.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.h
+CMakeFiles/parallel_routing.dir/experiment/serial/FatTreeSExp.cpp.o
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/FatTreeSExp.cpp
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/FatTreeSExp.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.h
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/TZSExp.cpp
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/TZSExp.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/TZNode.h
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.h
 CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.cpp
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
@@ -38,13 +82,10 @@ CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DTorus.cpp.o
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DTorus.cpp
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DTorus.h
 CMakeFiles/parallel_routing.dir/main.cpp.o
- /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv1PExp.h
- /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv1SExp.h
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.h
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/main.cpp
- /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/CORRANode.h
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/Node.h
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.h
 CMakeFiles/parallel_routing.dir/node/CORRANode.cpp.o
@@ -88,3 +129,6 @@ CMakeFiles/parallel_routing.dir/utils/CORRAUtils.cpp.o
 CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.cpp
  /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.h
+CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.cpp
+ /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.h

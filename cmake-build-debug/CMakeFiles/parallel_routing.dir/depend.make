@@ -9,12 +9,56 @@ CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o: ../graph/
 CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o: ../node/CORRANode.h
 CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv1PExp.cpp.o: ../utils/CORRAUtils.h
 
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o: ../experiment/parallel/CORRAv2PExp.cpp
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o: ../experiment/parallel/CORRAv2PExp.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o: ../graph/Graph.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o: ../graph/smallworld/GridGraph.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o: ../graph/smallworld/SmallWorld2DGrid.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o: ../node/Node.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/CORRAv2PExp.cpp.o: ../utils/CORRAUtils.h
+
+CMakeFiles/parallel_routing.dir/experiment/parallel/FatTreePExp.cpp.o: ../experiment/parallel/FatTreePExp.cpp
+CMakeFiles/parallel_routing.dir/experiment/parallel/FatTreePExp.cpp.o: ../experiment/parallel/FatTreePExp.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/FatTreePExp.cpp.o: ../graph/Graph.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/FatTreePExp.cpp.o: ../graph/fattree/FatTree.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/FatTreePExp.cpp.o: ../node/FatTreeNode.h
+
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o: ../experiment/parallel/TZPExp.cpp
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o: ../experiment/parallel/TZPExp.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o: ../graph/Graph.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o: ../graph/smallworld/GridGraph.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o: ../graph/smallworld/SmallWorld2DGrid.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o: ../node/TZNode.h
+CMakeFiles/parallel_routing.dir/experiment/parallel/TZPExp.cpp.o: ../utils/TZUtils.h
+
 CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o: ../experiment/serial/CORRAv1SExp.cpp
 CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o: ../experiment/serial/CORRAv1SExp.h
 CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o: ../graph/Graph.h
 CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o: ../graph/smallworld/GridGraph.h
 CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o: ../graph/smallworld/SmallWorld2DGrid.h
 CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv1SExp.cpp.o: ../node/CORRANode.h
+
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o: ../experiment/serial/CORRAv2SExp.cpp
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o: ../experiment/serial/CORRAv2SExp.h
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o: ../graph/Graph.h
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o: ../graph/smallworld/GridGraph.h
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o: ../graph/smallworld/SmallWorld2DGrid.h
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o: ../node/Node.h
+CMakeFiles/parallel_routing.dir/experiment/serial/CORRAv2SExp.cpp.o: ../utils/CORRAUtils.h
+
+CMakeFiles/parallel_routing.dir/experiment/serial/FatTreeSExp.cpp.o: ../experiment/serial/FatTreeSExp.cpp
+CMakeFiles/parallel_routing.dir/experiment/serial/FatTreeSExp.cpp.o: ../experiment/serial/FatTreeSExp.h
+CMakeFiles/parallel_routing.dir/experiment/serial/FatTreeSExp.cpp.o: ../graph/Graph.h
+CMakeFiles/parallel_routing.dir/experiment/serial/FatTreeSExp.cpp.o: ../graph/fattree/FatTree.h
+CMakeFiles/parallel_routing.dir/experiment/serial/FatTreeSExp.cpp.o: ../node/FatTreeNode.h
+
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o: ../experiment/serial/TZSExp.cpp
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o: ../experiment/serial/TZSExp.h
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o: ../graph/Graph.h
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o: ../graph/smallworld/GridGraph.h
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o: ../graph/smallworld/SmallWorld2DGrid.h
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o: ../node/TZNode.h
+CMakeFiles/parallel_routing.dir/experiment/serial/TZSExp.cpp.o: ../utils/TZUtils.h
 
 CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o: ../graph/Graph.cpp
 CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o: ../graph/Graph.h
@@ -37,13 +81,10 @@ CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DTorus.cpp.o: ../gra
 CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DTorus.cpp.o: ../graph/smallworld/SmallWorld2DTorus.cpp
 CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DTorus.cpp.o: ../graph/smallworld/SmallWorld2DTorus.h
 
-CMakeFiles/parallel_routing.dir/main.cpp.o: ../experiment/parallel/CORRAv1PExp.h
-CMakeFiles/parallel_routing.dir/main.cpp.o: ../experiment/serial/CORRAv1SExp.h
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../graph/Graph.h
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../graph/smallworld/GridGraph.h
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../graph/smallworld/SmallWorld2DGrid.h
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../main.cpp
-CMakeFiles/parallel_routing.dir/main.cpp.o: ../node/CORRANode.h
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../node/Node.h
 CMakeFiles/parallel_routing.dir/main.cpp.o: ../utils/CORRAUtils.h
 
@@ -87,4 +128,7 @@ CMakeFiles/parallel_routing.dir/utils/CORRAUtils.cpp.o: ../utils/CORRAUtils.h
 
 CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o: ../utils/FatTreeUtils.cpp
 CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o: ../utils/FatTreeUtils.h
+
+CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o: ../utils/TZUtils.cpp
+CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o: ../utils/TZUtils.h
 

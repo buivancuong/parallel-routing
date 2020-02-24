@@ -37,12 +37,14 @@ void Graph::addVertex(int vertexID) {
 
 void Graph::addEdge(int sourceID, int destID, float weight) {
     if (weight == 0) return;
+    if (sourceID == destID) return;
     this->numEdges++;
     this->adjList[sourceID].insert(std::pair<int, float>(destID, weight));
     this->adjList[destID].insert(std::pair<int, float>(sourceID, weight));
 }
 
 std::map<int, std::pair<float, int> > Graph::Dijkstra(int sourceID) {
+    std::cout << "Dijkstra " << sourceID << std::endl;
     // Initialize start status
     std::map<int, std::pair<float, int> > trace;
     std::map<int, bool> visited;
