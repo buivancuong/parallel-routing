@@ -8,15 +8,18 @@
 
 #include <map>
 #include "../../node/Node.h"
+#include "../../graph/Graph.h"
 
 class CORRAv2PExp {
 private:
-    std::map<int, Node*> corraNodeList;
+    std::map<int, Node*> corra2NodeList;
 
 public:
     void createNodeList(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 
-    void createNearFarNeighbors(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize,int yTopoSize);
+    void addNearFarNeighbors(int startNodeID, int endNodeID, Graph *graph);
+
+    void prepareLocality(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 
     void createLocality(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize,int yTopoSize);
 

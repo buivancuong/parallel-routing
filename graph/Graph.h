@@ -31,7 +31,7 @@ public:
     void addEdge(int sourceID, int destID, float weight = 1);
 
     // Default Dijkstra shortest path routing from specifix sourceID
-    std::map<int, std::pair<float, int> > Dijkstra(int sourceID);       // <destID, <distance, previousID> >
+    std::map<int, std::pair<float, int> > Dijkstra(int sourceID, float nodeLatency = 100);       // <destID, <distance, previousID> >
 
 };
 

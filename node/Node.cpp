@@ -3,7 +3,7 @@
 //
 
 #define INFTY 999999999
-#define NODE_LATENCY 10
+#define NODE_LATENCY 100
 #define CABLE_LATENCY 1
 
 #include <algorithm>
@@ -142,7 +142,7 @@ void Node::createLocalRouting(int xTopoSize) {
         if (currentNodeID == -1) {
             this->traceMap.erase(-1);
             break;
-        };
+        }
         //Perform a Dijkstra iteration
         visited[currentNodeID] = true;
         std::cout << "currentID " << currentNodeID << std::endl;

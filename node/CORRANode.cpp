@@ -46,11 +46,11 @@ std::map<int, CORRANode *> CORRANode::getFarNeighbors() {
     return this->farNeighbors;
 }
 
-void CORRANode::addNearNeighbor(CORRANode *nearNeighbor) {
+void CORRANode::addNearNeighbors(CORRANode *nearNeighbor) {
     this->nearNeighbors.insert(std::pair<int, CORRANode*>(nearNeighbor->getNodeID(), nearNeighbor));
 }
 
-void CORRANode::addFarNeighbor(CORRANode *farNeighbor) {
+void CORRANode::addFarNeighbors(CORRANode *farNeighbor) {
     this->farNeighbors.insert(std::pair<int, CORRANode*>(farNeighbor->getNodeID(), farNeighbor));
 }
 
@@ -111,7 +111,7 @@ void CORRANode::findBR1() {
     }
 }
 
-void CORRANode::findBRn(int n) {
+void CORRANode::findToBRn(int n) {
     if (n != 2) return;      // BR1 was found already in Node::findBR1(); we need start find from BR2
     for (int i = 2; i <= n; ++i) {      // procedure for type of BRi; BR1 was found already in Node::findBR1();
         // Find new bridge BRi via endpoint of BR_i-1, (add random link to the existed bridge to create a new bridge)
@@ -233,18 +233,22 @@ std::map<int, std::pair<float, int> > CORRANode::getGlobalTraceMap() {
 }
 
 void CORRANode::createGlobalTraceMap(Graph *globalGraph) {
-    this->globalTraceMap = globalGraph->Dijkstra(this->nodeID);
+    if (this->isCenterNode) {
+        std::cout << "Dijkstra " << this->nodeID << std::endl;
+        this->globalTraceMap = globalGraph->Dijkstra(this->nodeID);
+    }
 }
 
-void CORRANode::updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+void CORRANode::updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize, std::map<int, CORRANode*> corra1NodeList) {
     int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
     int numBlock = CORRAUtils::getTotalBlocks(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     for (int blockID = 0; blockID < numBlock; ++blockID) {
         if (blockID == thisBlock) continue;
         if (this->bridgeList[blockID].empty()) {
             // SPR
-            int centerNode = CORRAUtils::getCenterVertex(blockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
-            int nextNodeID = this->getNextNodeID(centerNode);
+            int centerDestNode = CORRAUtils::getCenterVertex(blockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+            std::map<int, std::pair<float, int> > trace = corra1NodeList[centerDestNode]->getGlobalTraceMap();
+            int nextNodeID = trace[this->nodeID].first;
             this->blockRT.insert(std::pair<int, int>(blockID, nextNodeID));
             continue;
         }       // else, has bridge
@@ -263,6 +267,18 @@ int CORRANode::getNextNodeID(int destID) {
         prevID = this->globalTraceMap[destID].second;
     }
     return prevID;
+}
+
+bool CORRANode::getCentered() {
+    return this->isCenterNode;
+}
+
+void CORRANode::setCentered(bool centered) {
+    this->isCenterNode = centered;
+}
+
+std::vector<std::vector<std::pair<int, CORRANode *> > > CORRANode::getOwnBridges() {
+    return this->ownBridges;
 }
 
 CORRANode::~CORRANode() = default;

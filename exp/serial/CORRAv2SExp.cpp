@@ -9,7 +9,7 @@
 
 CORRAv2SExp::CORRAv2SExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize, int deltaNeighbor, const std::vector<float> &alphas) {
     auto *topo = new SmallWorld2DGrid(yTopoSize, xTopoSize, alphas);
-    std::map<int, Node*> corraNodeList;
+    std::map<int, Node*> corra2NodeList;
 
     for (int i = 0; i < xTopoSize * yTopoSize; ++i) {
         Node *node = new Node(i);
@@ -18,48 +18,48 @@ CORRAv2SExp::CORRAv2SExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTop
         if (centerVertex == i) {
             node->setCentered(true);
         }
-        corraNodeList.insert(std::pair<int, Node*>(i, node));
+        corra2NodeList.insert(std::pair<int, Node*>(i, node));
     }
 
     for (std::pair<int, std::map<int, float> > sourceNode : topo->getAdjList()) {
         for (std::pair<int, float> neighbor: sourceNode.second) {
             if (neighbor.second == 1) {
-                corraNodeList[sourceNode.first]->addNearNeighbors(corraNodeList[neighbor.first]);
+                corra2NodeList[sourceNode.first]->addNearNeighbors(corra2NodeList[neighbor.first]);
             } else {
-                corraNodeList[sourceNode.first]->addFarNeighbors(corraNodeList[neighbor.first]);
+                corra2NodeList[sourceNode.first]->addFarNeighbors(corra2NodeList[neighbor.first]);
             }
         }
     }
 
-    for (std::pair<int, Node*> corraNode : corraNodeList) {
+    for (std::pair<int, Node*> corraNode : corra2NodeList) {
         corraNode.second->prepareLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 
-    for (std::pair<int, Node*> corraNode : corraNodeList) {
+    for (std::pair<int, Node*> corraNode : corra2NodeList) {
         corraNode.second->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 
-    for (std::pair<int, Node*> corraNode : corraNodeList) {
+    for (std::pair<int, Node*> corraNode : corra2NodeList) {
         corraNode.second->createLocalRouting(xTopoSize);
     }
 
-    for (std::pair<int, Node*> corraNode : corraNodeList) {
+    for (std::pair<int, Node*> corraNode : corra2NodeList) {
         corraNode.second->findBR1();
     }
 
-    for (std::pair<int, Node*> corraNode : corraNodeList) {
+    for (std::pair<int, Node*> corraNode : corra2NodeList) {
         corraNode.second->findToBRn(4);
     }
 
-    for (std::pair<int, Node*> corraNode : corraNodeList) {
+    for (std::pair<int, Node*> corraNode : corra2NodeList) {
         corraNode.second->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize);
     }
 
-    for (std::pair<int, Node*> corraNode : corraNodeList) {
+    for (std::pair<int, Node*> corraNode : corra2NodeList) {
         corraNode.second->handleMissingBridge(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 
-    for (std::pair<int, Node*> corraNode : corraNodeList) {
+    for (std::pair<int, Node*> corraNode : corra2NodeList) {
         corraNode.second->updateBlockTable(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 }

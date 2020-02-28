@@ -13,6 +13,7 @@
 class CORRANode {
 private:
     int nodeID{};
+    bool isCenterNode{};
     std::map<int, CORRANode*> nearNeighbors;
     std::map<int, CORRANode*> farNeighbors;
     std::vector<std::map<int, CORRANode*> > locality;
@@ -31,16 +32,20 @@ public:
     explicit CORRANode(int nodeID);
     ~CORRANode();
 
+    bool getCentered();
+    void setCentered(bool centered);
+
     std::vector<std::map<int, CORRANode*> > getLocality();
     std::map<int, std::vector<std::vector<std::pair<int, CORRANode*> > > > getBridgeList();
     int getNodeID();
     std::map<int, std::pair<float, int> > getGlobalTraceMap();
     std::map<int, CORRANode*> getNearNeighbors();
     std::map<int, CORRANode*> getFarNeighbors();
-    void addNearNeighbor(CORRANode *nearNeighbor);
-    void addFarNeighbor(CORRANode *farNeighbor);
+    void addNearNeighbors(CORRANode *nearNeighbor);
+    void addFarNeighbors(CORRANode *farNeighbor);
     void updateBridgeList(std::vector<std::pair<int, CORRANode*> > bridge, int xBlockSize, int yBlockSize, int xTopoSize);
     int getNextNodeID(int destID);
+    std::vector<std::vector<std::pair<int, CORRANode*> > > getOwnBridges();
 
     // first, select neighbors in nearNeighbors and farNeighbors to put into first layer in locality
     void prepareLocality(int deltaNeighbor, int xTopoSize, int yTopoSize);
@@ -53,13 +58,13 @@ public:
     // next, find all BR1 from this Node (random links), save bridge to @ownBridges
     void findBR1();
     // next, find BR2 (n = 2) from this Node, save bridge to @ownBridges
-    void findBRn(int n = 2);
+    void findToBRn(int n = 2);
     // next, after get all BRn (from this Node), broadcast bridges in @ownBridges to each other Node in onw @locality
     void broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize);
     // next, after received all bridges that has broadcasted from the other Node, create this->globalTraceMap for missing bridges
     void createGlobalTraceMap(Graph *globalGraph);
     // last, update this->blockRT
-    void updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+    void updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize, std::map<int, CORRANode*> corra1NodeList);
 
 };
 

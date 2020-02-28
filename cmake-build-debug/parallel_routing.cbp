@@ -17,11 +17,11 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="rebuild_cache">
+			<Target title="edit_cache">
 				<Option working_dir="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -73,70 +73,121 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
+			<Target title="rebuild_cache">
 				<Option working_dir="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="corra_v1_serial">
+				<Option output="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/corra_v1_serial" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 corra_v1_serial"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="corra_v1_serial/fast">
+				<Option output="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/corra_v1_serial" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 corra_v1_serial/fast"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv1PExp.cpp">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/parallel/CORRAv1PExp.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv1PExp.h">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/parallel/CORRAv1PExp.h">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv2PExp.cpp">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/parallel/CORRAv2PExp.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/CORRAv2PExp.h">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/parallel/CORRAv2PExp.h">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/FatTreePExp.cpp">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/parallel/FatTreePExp.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/FatTreePExp.h">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/parallel/FatTreePExp.h">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/TZPExp.cpp">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/parallel/TZPExp.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/parallel/TZPExp.h">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/parallel/TZPExp.h">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv1SExp.cpp">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/serial/CORRAv1SExp.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv1SExp.h">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/serial/CORRAv1SExp.h">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv2SExp.cpp">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/serial/CORRAv2SExp.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/CORRAv2SExp.h">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/serial/CORRAv2SExp.h">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/FatTreeSExp.cpp">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/serial/FatTreeSExp.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/FatTreeSExp.h">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/serial/FatTreeSExp.h">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/TZSExp.cpp">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/serial/TZSExp.cpp">
 			<Option target="parallel_routing"/>
 		</Unit>
-		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/serial/TZSExp.h">
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/exp/serial/TZSExp.h">
 			<Option target="parallel_routing"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/corra_v1/corra_v1_serial.cpp">
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.cpp">
 			<Option target="parallel_routing"/>
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h">
 			<Option target="parallel_routing"/>
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.cpp">
 			<Option target="parallel_routing"/>
@@ -146,15 +197,19 @@
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.cpp">
 			<Option target="parallel_routing"/>
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.h">
 			<Option target="parallel_routing"/>
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.cpp">
 			<Option target="parallel_routing"/>
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h">
 			<Option target="parallel_routing"/>
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DTorus.cpp">
 			<Option target="parallel_routing"/>
@@ -167,9 +222,11 @@
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/CORRANode.cpp">
 			<Option target="parallel_routing"/>
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/CORRANode.h">
 			<Option target="parallel_routing"/>
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/Edge.cpp">
 			<Option target="parallel_routing"/>
@@ -218,9 +275,11 @@
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.cpp">
 			<Option target="parallel_routing"/>
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.h">
 			<Option target="parallel_routing"/>
+			<Option target="corra_v1_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.cpp">
 			<Option target="parallel_routing"/>

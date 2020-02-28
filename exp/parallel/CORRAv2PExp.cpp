@@ -29,7 +29,16 @@ CORRAv2PExp::CORRAv2PExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTop
 
     threads.clear();
     for (int i = 0; i < numSubThread; ++i) {
-        std::thread thread(&CORRAv2PExp::createNearFarNeighbors, this, partition[i], partition[i + 1], deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        std::thread thread(&CORRAv2PExp::addNearFarNeighbors, this, partition[i], partition[i + 1], topo);
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
+        thread.join();
+    }
+
+    threads.clear();
+    for (int i = 0; i < numSubThread; ++i) {
+        std::thread thread(&CORRAv2PExp::prepareLocality, this, partition[i], partition[i + 1], deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
         threads.push_back(std::move(thread));
     }
     for (auto &thread : threads) {
@@ -101,62 +110,76 @@ CORRAv2PExp::CORRAv2PExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTop
 }
 
 void CORRAv2PExp::createNodeList(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
-    for (int i = startNodeID; i <= endNodeID; ++i) {
+    for (int i = startNodeID; i < endNodeID; ++i) {
         Node *node = new Node(i);
         int nodeBlock = CORRAUtils::getNodeBlock(i, xBlockSize, yBlockSize, xTopoSize);
         int centerVertex = CORRAUtils::getCenterVertex(nodeBlock, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
         if (centerVertex == i) {
             node->setCentered(true);
         }
-        this->corraNodeList.insert(std::pair<int, Node *>(i, node));
+        this->corra2NodeList.insert(std::pair<int, Node *>(i, node));
     }
 }
 
-void CORRAv2PExp::createNearFarNeighbors(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
-    for (int i = startNodeID; i <= endNodeID; ++i) {
-        this->corraNodeList[i]->prepareLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+void CORRAv2PExp::addNearFarNeighbors(int startNodeID, int endNodeID, Graph *graph) {
+    for (int i = startNodeID; i < endNodeID; ++i) {
+        for (std::pair<int, std::map<int, float> > source : graph->getAdjList()) {
+            for (std::pair<int, float> neighbor : source.second) {
+                if (neighbor.second == 1) {
+                    corra2NodeList[source.first]->addNearNeighbors(corra2NodeList[neighbor.first]);
+                } else {
+                    corra2NodeList[source.first]->addFarNeighbors(corra2NodeList[neighbor.first]);
+                }
+            }
+        }
+    }
+}
+
+void CORRAv2PExp::prepareLocality(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+    for (int i = startNodeID; i < endNodeID; ++i) {
+        this->corra2NodeList[i]->prepareLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 }
 
 void CORRAv2PExp::createLocality(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
-    for (int i = startNodeID; i <= endNodeID; ++i) {
-        this->corraNodeList[i]->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+    for (int i = startNodeID; i < endNodeID; ++i) {
+        this->corra2NodeList[i]->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 }
 
 void CORRAv2PExp::createLocalRouting(int startNodeID, int endNodeID, int xTopoSize, int yTopoSize) {
-    for (int i = startNodeID; i <= endNodeID; ++i) {
-        this->corraNodeList[i]->createLocalRouting(xTopoSize);
+    for (int i = startNodeID; i < endNodeID; ++i) {
+        this->corra2NodeList[i]->createLocalRouting(xTopoSize);
     }
 }
 
 void CORRAv2PExp::findBR1(int startNodeID, int endNodeID) {
-    for (int i = startNodeID; i <= endNodeID; ++i) {
-        this->corraNodeList[i]->findBR1();
+    for (int i = startNodeID; i < endNodeID; ++i) {
+        this->corra2NodeList[i]->findBR1();
     }
 }
 
 void CORRAv2PExp::findBRn(int startNodeID, int endNodeID, int n) {
-    for (int i = startNodeID; i <= endNodeID; ++i) {
-        this->corraNodeList[i]->findToBRn(n);
+    for (int i = startNodeID; i < endNodeID; ++i) {
+        this->corra2NodeList[i]->findToBRn(n);
     }
 }
 
 void CORRAv2PExp::broadcastLocalBridge(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize) {
-    for (int i = startNodeID; i <= endNodeID; ++i) {
-        this->corraNodeList[i]->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize);
+    for (int i = startNodeID; i < endNodeID; ++i) {
+        this->corra2NodeList[i]->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize);
     }
 }
 
 void CORRAv2PExp::handleMissingBridge(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        this->corraNodeList[i]->handleMissingBridge(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        this->corra2NodeList[i]->handleMissingBridge(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 }
 
 void CORRAv2PExp::updateBlockTable(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        this->corraNodeList[i]->updateBlockTable(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        this->corra2NodeList[i]->updateBlockTable(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 }
 

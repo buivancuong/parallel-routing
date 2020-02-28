@@ -11,6 +11,14 @@ SmallWorld2DGrid::SmallWorld2DGrid(int numRow, int numCol, const std::vector<flo
     }
     this->alphas = alphas;
     this->generateFixedDegree(this->alphas);
+    for (std::pair<int, std::map<int, float> > vertex : this->adjList) {
+        std::map<int, float> temp = vertex.second;
+        for (std::pair<int, float> neighbor : temp) {
+            if (neighbor.first == vertex.first){
+                this->adjList[vertex.first].erase(neighbor.first);
+            }
+        }
+    }
 }
 
 void SmallWorld2DGrid::addGridEdge(int currentVertex) {
