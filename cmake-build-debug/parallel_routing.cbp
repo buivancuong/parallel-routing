@@ -17,11 +17,67 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tz_parallel">
+				<Option output="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/tz_parallel" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 tz_parallel"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tz_parallel/fast">
+				<Option output="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/tz_parallel" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 tz_parallel/fast"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -257,11 +313,47 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
+			<Target title="tz_serial">
+				<Option output="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/tz_serial" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug"/>
-				<Option type="4"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 tz_serial"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tz_serial/fast">
+				<Option output="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/tz_serial" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 tz_serial/fast"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -328,19 +420,29 @@
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/corra_v2/corra_v2_serial.cpp">
 			<Option target="corra_v2_serial"/>
 		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_parallel.cpp">
+			<Option target="tz_parallel"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_serial.cpp">
+			<Option target="tz_serial"/>
+		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.cpp">
+			<Option target="tz_parallel"/>
 			<Option target="corra_v1_serial"/>
 			<Option target="parallel_routing"/>
 			<Option target="corra_v2_serial"/>
 			<Option target="corra_v1_parallel"/>
 			<Option target="corra_v2_parallel"/>
+			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h">
+			<Option target="tz_parallel"/>
 			<Option target="corra_v1_serial"/>
 			<Option target="parallel_routing"/>
 			<Option target="corra_v2_serial"/>
 			<Option target="corra_v1_parallel"/>
 			<Option target="corra_v2_parallel"/>
+			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.cpp">
 			<Option target="parallel_routing"/>
@@ -349,32 +451,40 @@
 			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.cpp">
+			<Option target="tz_parallel"/>
 			<Option target="corra_v1_serial"/>
 			<Option target="parallel_routing"/>
 			<Option target="corra_v2_serial"/>
 			<Option target="corra_v1_parallel"/>
 			<Option target="corra_v2_parallel"/>
+			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.h">
+			<Option target="tz_parallel"/>
 			<Option target="corra_v1_serial"/>
 			<Option target="parallel_routing"/>
 			<Option target="corra_v2_serial"/>
 			<Option target="corra_v1_parallel"/>
 			<Option target="corra_v2_parallel"/>
+			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.cpp">
+			<Option target="tz_parallel"/>
 			<Option target="corra_v1_serial"/>
 			<Option target="parallel_routing"/>
 			<Option target="corra_v2_serial"/>
 			<Option target="corra_v1_parallel"/>
 			<Option target="corra_v2_parallel"/>
+			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h">
+			<Option target="tz_parallel"/>
 			<Option target="corra_v1_serial"/>
 			<Option target="parallel_routing"/>
 			<Option target="corra_v2_serial"/>
 			<Option target="corra_v1_parallel"/>
 			<Option target="corra_v2_parallel"/>
+			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DTorus.cpp">
 			<Option target="parallel_routing"/>
@@ -418,10 +528,14 @@
 			<Option target="corra_v2_parallel"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/TZNode.cpp">
+			<Option target="tz_parallel"/>
 			<Option target="parallel_routing"/>
+			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/TZNode.h">
+			<Option target="tz_parallel"/>
 			<Option target="parallel_routing"/>
+			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/routing/CORRADistributed.cpp">
 			<Option target="parallel_routing"/>
@@ -465,10 +579,14 @@
 			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.cpp">
+			<Option target="tz_parallel"/>
 			<Option target="parallel_routing"/>
+			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.h">
+			<Option target="tz_parallel"/>
 			<Option target="parallel_routing"/>
+			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

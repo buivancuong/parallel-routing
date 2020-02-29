@@ -6,19 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/corra_v1/corra_v1_parallel.cpp
+/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_serial.cpp
+vector
+-
+list
+-
 cmath
 -
-thread
+iostream
 -
-mutex
--
-../../node/CORRANode.h
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/CORRANode.h
 ../../graph/smallworld/SmallWorld2DGrid.h
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h
-../../utils/CORRAUtils.h
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.h
+../../node/TZNode.h
+/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/TZNode.h
+../../utils/TZUtils.h
+/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.h
 
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
 map
@@ -38,15 +40,13 @@ vector
 GridGraph.h
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.h
 
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/CORRANode.h
-vector
--
+/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/TZNode.h
 map
 -
 ../graph/Graph.h
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
 
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.h
-set
+/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.h
+list
 -
 

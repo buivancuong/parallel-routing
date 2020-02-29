@@ -37,7 +37,7 @@ public:
     // extract closetLandmark
     void extractClosetLandmark(std::map<int, TZNode*> landmarks);
     // extract cluster set of this->nodeID
-    void extractCluster(std::map<int, TZNode*> nodeList);
+    void extractCluster(const std::map<int, TZNode*>& nodeList);
 
 };
 

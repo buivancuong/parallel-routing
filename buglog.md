@@ -29,3 +29,17 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pthread")
 ```
 
+#### 4. Sử dụng MUTEX để quản lý việc truy cập vào những vùng tài nguyên bị tác động song song.
+```$xslt
+std::mutex mutex;
+```
+Đặt khóa mutex vào trước và sau câu lệnh tác động đến vùng nhớ dùng chung giữa các thread của chương trình.
+```$xslt
+std::mutex mutex;
+std::map<int, Node*> nodeList;
+Node *node = new Node(i);
+mutex.lock();
+nodeList.insert(std::pair<int, Node*>(i, node));
+mutex.unlock();
+```
+

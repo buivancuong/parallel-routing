@@ -4,11 +4,13 @@
 
 #include <cmath>
 #include <thread>
+#include <mutex>
 #include "../../node/CORRANode.h"
 #include "../../graph/smallworld/SmallWorld2DGrid.h"
 #include "../../utils/CORRAUtils.h"
 
 std::map<int, CORRANode*> corra1NodeList;
+std::mutex mutex;
 
 void createNodeList(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
@@ -18,7 +20,9 @@ void createNodeList(int startNodeID, int endNodeID, int xBlockSize, int yBlockSi
         if (centerVertex == i) {
             corraNode->setCentered(true);
         }
+        mutex.lock();
         corra1NodeList.insert(std::pair<int, CORRANode*>(i, corraNode));
+        mutex.unlock();
     }
 }
 
@@ -28,9 +32,13 @@ void addNearFarNeighbors(int startNodeID, int endNodeID, Graph *graph) {
         for (std::pair<int, float> neighbor : source) {
             if (corra1NodeList[neighbor.first] == nullptr) continue;
             if (neighbor.second == 1) {
+                mutex.lock();
                 corra1NodeList[i]->addNearNeighbors(corra1NodeList[neighbor.first]);
+                mutex.unlock();
             } else {
+                mutex.lock();
                 corra1NodeList[i]->addFarNeighbors(corra1NodeList[neighbor.first]);
+                mutex.unlock();
             }
         }
     }
@@ -130,6 +138,82 @@ int main() {
         threads.push_back(std::move(std::thread(addNearFarNeighbors, partition[i], partition[i+1], smallWorld2DGrid)));
     }
     for (std::thread &thread : threads) {
+        thread.join();
+    }
+
+    threads.clear();
+    threads.reserve(numSubThread);
+    for (int i = 0; i < numSubThread; ++i) {
+//        threads.emplace_back(&CORRAv1PExp::prepareLocality, this, partition[i], partition[i + 1], deltaNeighbor, xTopoSize, yTopoSize);
+        std::thread thread(prepareLocality, partition[i], partition[i + 1], deltaNeighbor, xTopoSize, yTopoSize);
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
+        thread.join();
+    }
+
+    threads.clear();
+    threads.reserve(numSubThread);
+    for (int i = 0; i < numSubThread; ++i) {
+        std::thread thread(createLocality, partition[i], partition[i + 1], deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
+        thread.join();
+    }
+
+    threads.clear();
+    for (int i = 0; i < numSubThread; ++i) {
+        std::thread thread(createLocalRouting, partition[i], partition[i + 1], xTopoSize, yTopoSize);
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
+        thread.join();
+    }
+
+    threads.clear();
+    for (int i = 0; i < numSubThread; ++i) {
+        std::thread thread(findBR1, partition[i], partition[i + 1]);
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
+        thread.join();
+    }
+
+    threads.clear();
+    for (int i = 0; i < numSubThread; ++i) {
+        std::thread thread(findBRn, partition[i], partition[i + 1], 2);
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
+        thread.join();
+    }
+
+    threads.clear();
+    for (int i = 0; i < numSubThread; ++i) {
+        std::thread thread(broadcastLocalBridge, partition[i], partition[i + 1], xBlockSize, yBlockSize, xTopoSize);
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
+        thread.join();
+    }
+
+    threads.clear();
+    for (int i = 0; i < numSubThread; ++i) {
+        std::thread thread(createGlobalTraceMap, partition[i], partition[i + 1], smallWorld2DGrid);
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
+        thread.join();
+    }
+
+    threads.clear();
+    for (int i = 0; i < numSubThread; ++i) {
+        std::thread thread(updateBlockTable, partition[i], partition[i + 1], xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
         thread.join();
     }
 

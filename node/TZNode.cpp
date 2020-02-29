@@ -2,6 +2,7 @@
 // Created by cuongbv on 17/02/2020.
 //
 
+#include <iostream>
 #include "TZNode.h"
 
 TZNode::TZNode() = default;
@@ -32,6 +33,7 @@ bool TZNode::isLandmarkNode() {
 }
 
 void TZNode::createTraceMap(Graph *globalGraph) {
+    std::cout << "create Dijktra " << this->nodeID << std::endl;
     this->traceMap = globalGraph->Dijkstra(this->nodeID);
 }
 
@@ -41,16 +43,18 @@ void TZNode::extractClosetLandmark(std::map<int, TZNode*> landmarks) {
     this->setClosetLandmark(landmarks.begin()->first);
     for (std::pair<int, TZNode*> landmark : landmarks) {
         if (this->traceMap[this->closetLandmark].first > this->traceMap[landmark.first].first) {
+            std::cout << "closet landmark of " << this->nodeID << " is " << landmark.first << std::endl;
             this->setClosetLandmark(landmark.first);
         }
     }
 }
 
-void TZNode::extractCluster(std::map<int, TZNode*> nodeList) {
+void TZNode::extractCluster(const std::map<int, TZNode*>& nodeList) {
     this->cluster.clear();
     for (std::pair<int, TZNode*> node : nodeList) {
         if (node.first == this->nodeID) continue;
         if (this->traceMap[node.first].first < node.second->getTraceMap()[node.second->getClosetLandmark()].first) {
+            std::cout << "cluster of " << this->nodeID << " chua them " << node.first << std::endl;
             this->cluster.insert(node);
         }
     }

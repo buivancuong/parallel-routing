@@ -21,13 +21,25 @@ add_executable(corra_v1_parallel experiment/corra_v1/corra_v1_parallel.cpp
         utils/CORRAUtils.cpp utils/CORRAUtils.h)
 add_executable(corra_v2_serial experiment/corra_v2/corra_v2_serial.cpp
         graph/Graph.cpp graph/Graph.h
-        graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
-        graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
+            graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
+            graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
         node/Node.cpp node/Node.h
         utils/CORRAUtils.cpp utils/CORRAUtils.h)
 add_executable(corra_v2_parallel experiment/corra_v2/corra_v2_parallel.cpp
         graph/Graph.cpp graph/Graph.h
-        graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
-        graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
+            graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
+            graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
         node/Node.cpp node/Node.h
         utils/CORRAUtils.cpp utils/CORRAUtils.h)
+add_executable(tz_serial experiment/tz/tz_serial.cpp
+        graph/Graph.cpp graph/Graph.h
+            graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
+            graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
+        node/TZNode.cpp node/TZNode.h
+        utils/TZUtils.cpp utils/TZUtils.h)
+add_executable(tz_parallel experiment/tz/tz_parallel.cpp
+        graph/Graph.cpp graph/Graph.h
+            graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
+            graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
+        node/TZNode.cpp node/TZNode.h
+        utils/TZUtils.cpp utils/TZUtils.h)

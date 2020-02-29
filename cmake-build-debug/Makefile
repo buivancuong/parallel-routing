@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /media/cuongbv/Data/Project/Research/InterNetwork/parallel-ro
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/103/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/snap/clion/103/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -109,6 +109,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named tz_parallel
+
+# Build rule for target.
+tz_parallel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tz_parallel
+.PHONY : tz_parallel
+
+# fast build rule for target.
+tz_parallel/fast:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/build
+.PHONY : tz_parallel/fast
 
 #=============================================================================
 # Target rules for targets named corra_v1_serial
@@ -174,6 +187,19 @@ corra_v2_parallel: cmake_check_build_system
 corra_v2_parallel/fast:
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/build
 .PHONY : corra_v2_parallel/fast
+
+#=============================================================================
+# Target rules for targets named tz_serial
+
+# Build rule for target.
+tz_serial: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tz_serial
+.PHONY : tz_serial
+
+# fast build rule for target.
+tz_serial/fast:
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/build
+.PHONY : tz_serial/fast
 
 exp/parallel/CORRAv1PExp.o: exp/parallel/CORRAv1PExp.cpp.o
 
@@ -499,17 +525,73 @@ experiment/corra_v2/corra_v2_serial.cpp.s:
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/experiment/corra_v2/corra_v2_serial.cpp.s
 .PHONY : experiment/corra_v2/corra_v2_serial.cpp.s
 
+experiment/tz/tz_parallel.o: experiment/tz/tz_parallel.cpp.o
+
+.PHONY : experiment/tz/tz_parallel.o
+
+# target to build an object file
+experiment/tz/tz_parallel.cpp.o:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/experiment/tz/tz_parallel.cpp.o
+.PHONY : experiment/tz/tz_parallel.cpp.o
+
+experiment/tz/tz_parallel.i: experiment/tz/tz_parallel.cpp.i
+
+.PHONY : experiment/tz/tz_parallel.i
+
+# target to preprocess a source file
+experiment/tz/tz_parallel.cpp.i:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/experiment/tz/tz_parallel.cpp.i
+.PHONY : experiment/tz/tz_parallel.cpp.i
+
+experiment/tz/tz_parallel.s: experiment/tz/tz_parallel.cpp.s
+
+.PHONY : experiment/tz/tz_parallel.s
+
+# target to generate assembly for a file
+experiment/tz/tz_parallel.cpp.s:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/experiment/tz/tz_parallel.cpp.s
+.PHONY : experiment/tz/tz_parallel.cpp.s
+
+experiment/tz/tz_serial.o: experiment/tz/tz_serial.cpp.o
+
+.PHONY : experiment/tz/tz_serial.o
+
+# target to build an object file
+experiment/tz/tz_serial.cpp.o:
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/experiment/tz/tz_serial.cpp.o
+.PHONY : experiment/tz/tz_serial.cpp.o
+
+experiment/tz/tz_serial.i: experiment/tz/tz_serial.cpp.i
+
+.PHONY : experiment/tz/tz_serial.i
+
+# target to preprocess a source file
+experiment/tz/tz_serial.cpp.i:
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/experiment/tz/tz_serial.cpp.i
+.PHONY : experiment/tz/tz_serial.cpp.i
+
+experiment/tz/tz_serial.s: experiment/tz/tz_serial.cpp.s
+
+.PHONY : experiment/tz/tz_serial.s
+
+# target to generate assembly for a file
+experiment/tz/tz_serial.cpp.s:
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/experiment/tz/tz_serial.cpp.s
+.PHONY : experiment/tz/tz_serial.cpp.s
+
 graph/Graph.o: graph/Graph.cpp.o
 
 .PHONY : graph/Graph.o
 
 # target to build an object file
 graph/Graph.cpp.o:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/Graph.cpp.o
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/Graph.cpp.o
 .PHONY : graph/Graph.cpp.o
 
 graph/Graph.i: graph/Graph.cpp.i
@@ -518,11 +600,13 @@ graph/Graph.i: graph/Graph.cpp.i
 
 # target to preprocess a source file
 graph/Graph.cpp.i:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/Graph.cpp.i
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/Graph.cpp.i
 .PHONY : graph/Graph.cpp.i
 
 graph/Graph.s: graph/Graph.cpp.s
@@ -531,11 +615,13 @@ graph/Graph.s: graph/Graph.cpp.s
 
 # target to generate assembly for a file
 graph/Graph.cpp.s:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/Graph.cpp.s
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/Graph.cpp.s
 .PHONY : graph/Graph.cpp.s
 
 graph/fattree/FatTree.o: graph/fattree/FatTree.cpp.o
@@ -571,11 +657,13 @@ graph/smallworld/GridGraph.o: graph/smallworld/GridGraph.cpp.o
 
 # target to build an object file
 graph/smallworld/GridGraph.cpp.o:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/smallworld/GridGraph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/smallworld/GridGraph.cpp.o
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/smallworld/GridGraph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/smallworld/GridGraph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/smallworld/GridGraph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/smallworld/GridGraph.cpp.o
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/smallworld/GridGraph.cpp.o
 .PHONY : graph/smallworld/GridGraph.cpp.o
 
 graph/smallworld/GridGraph.i: graph/smallworld/GridGraph.cpp.i
@@ -584,11 +672,13 @@ graph/smallworld/GridGraph.i: graph/smallworld/GridGraph.cpp.i
 
 # target to preprocess a source file
 graph/smallworld/GridGraph.cpp.i:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/smallworld/GridGraph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/smallworld/GridGraph.cpp.i
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/smallworld/GridGraph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/smallworld/GridGraph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/smallworld/GridGraph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/smallworld/GridGraph.cpp.i
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/smallworld/GridGraph.cpp.i
 .PHONY : graph/smallworld/GridGraph.cpp.i
 
 graph/smallworld/GridGraph.s: graph/smallworld/GridGraph.cpp.s
@@ -597,11 +687,13 @@ graph/smallworld/GridGraph.s: graph/smallworld/GridGraph.cpp.s
 
 # target to generate assembly for a file
 graph/smallworld/GridGraph.cpp.s:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/smallworld/GridGraph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/smallworld/GridGraph.cpp.s
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/smallworld/GridGraph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/smallworld/GridGraph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/smallworld/GridGraph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/smallworld/GridGraph.cpp.s
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/smallworld/GridGraph.cpp.s
 .PHONY : graph/smallworld/GridGraph.cpp.s
 
 graph/smallworld/SmallWorld2DGrid.o: graph/smallworld/SmallWorld2DGrid.cpp.o
@@ -610,11 +702,13 @@ graph/smallworld/SmallWorld2DGrid.o: graph/smallworld/SmallWorld2DGrid.cpp.o
 
 # target to build an object file
 graph/smallworld/SmallWorld2DGrid.cpp.o:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/smallworld/SmallWorld2DGrid.cpp.o
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DGrid.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/smallworld/SmallWorld2DGrid.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.o
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/smallworld/SmallWorld2DGrid.cpp.o
 .PHONY : graph/smallworld/SmallWorld2DGrid.cpp.o
 
 graph/smallworld/SmallWorld2DGrid.i: graph/smallworld/SmallWorld2DGrid.cpp.i
@@ -623,11 +717,13 @@ graph/smallworld/SmallWorld2DGrid.i: graph/smallworld/SmallWorld2DGrid.cpp.i
 
 # target to preprocess a source file
 graph/smallworld/SmallWorld2DGrid.cpp.i:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/smallworld/SmallWorld2DGrid.cpp.i
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DGrid.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/smallworld/SmallWorld2DGrid.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.i
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/smallworld/SmallWorld2DGrid.cpp.i
 .PHONY : graph/smallworld/SmallWorld2DGrid.cpp.i
 
 graph/smallworld/SmallWorld2DGrid.s: graph/smallworld/SmallWorld2DGrid.cpp.s
@@ -636,11 +732,13 @@ graph/smallworld/SmallWorld2DGrid.s: graph/smallworld/SmallWorld2DGrid.cpp.s
 
 # target to generate assembly for a file
 graph/smallworld/SmallWorld2DGrid.cpp.s:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/smallworld/SmallWorld2DGrid.cpp.s
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/smallworld/SmallWorld2DGrid.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/smallworld/SmallWorld2DGrid.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.s
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/smallworld/SmallWorld2DGrid.cpp.s
 .PHONY : graph/smallworld/SmallWorld2DGrid.cpp.s
 
 graph/smallworld/SmallWorld2DTorus.o: graph/smallworld/SmallWorld2DTorus.cpp.o
@@ -823,7 +921,9 @@ node/TZNode.o: node/TZNode.cpp.o
 
 # target to build an object file
 node/TZNode.cpp.o:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/node/TZNode.cpp.o
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/TZNode.cpp.o
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/node/TZNode.cpp.o
 .PHONY : node/TZNode.cpp.o
 
 node/TZNode.i: node/TZNode.cpp.i
@@ -832,7 +932,9 @@ node/TZNode.i: node/TZNode.cpp.i
 
 # target to preprocess a source file
 node/TZNode.cpp.i:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/node/TZNode.cpp.i
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/TZNode.cpp.i
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/node/TZNode.cpp.i
 .PHONY : node/TZNode.cpp.i
 
 node/TZNode.s: node/TZNode.cpp.s
@@ -841,7 +943,9 @@ node/TZNode.s: node/TZNode.cpp.s
 
 # target to generate assembly for a file
 node/TZNode.cpp.s:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/node/TZNode.cpp.s
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/TZNode.cpp.s
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/node/TZNode.cpp.s
 .PHONY : node/TZNode.cpp.s
 
 routing/CORRADistributed.o: routing/CORRADistributed.cpp.o
@@ -997,7 +1101,9 @@ utils/TZUtils.o: utils/TZUtils.cpp.o
 
 # target to build an object file
 utils/TZUtils.cpp.o:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/utils/TZUtils.cpp.o
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.o
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/utils/TZUtils.cpp.o
 .PHONY : utils/TZUtils.cpp.o
 
 utils/TZUtils.i: utils/TZUtils.cpp.i
@@ -1006,7 +1112,9 @@ utils/TZUtils.i: utils/TZUtils.cpp.i
 
 # target to preprocess a source file
 utils/TZUtils.cpp.i:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/utils/TZUtils.cpp.i
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.i
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/utils/TZUtils.cpp.i
 .PHONY : utils/TZUtils.cpp.i
 
 utils/TZUtils.s: utils/TZUtils.cpp.s
@@ -1015,7 +1123,9 @@ utils/TZUtils.s: utils/TZUtils.cpp.s
 
 # target to generate assembly for a file
 utils/TZUtils.cpp.s:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/utils/TZUtils.cpp.s
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/TZUtils.cpp.s
+	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/utils/TZUtils.cpp.s
 .PHONY : utils/TZUtils.cpp.s
 
 # Help Target
@@ -1024,13 +1134,15 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... tz_parallel"
 	@echo "... corra_v1_serial"
 	@echo "... parallel_routing"
 	@echo "... corra_v2_serial"
 	@echo "... corra_v1_parallel"
 	@echo "... corra_v2_parallel"
-	@echo "... edit_cache"
+	@echo "... tz_serial"
 	@echo "... exp/parallel/CORRAv1PExp.o"
 	@echo "... exp/parallel/CORRAv1PExp.i"
 	@echo "... exp/parallel/CORRAv1PExp.s"
@@ -1067,6 +1179,12 @@ help:
 	@echo "... experiment/corra_v2/corra_v2_serial.o"
 	@echo "... experiment/corra_v2/corra_v2_serial.i"
 	@echo "... experiment/corra_v2/corra_v2_serial.s"
+	@echo "... experiment/tz/tz_parallel.o"
+	@echo "... experiment/tz/tz_parallel.i"
+	@echo "... experiment/tz/tz_parallel.s"
+	@echo "... experiment/tz/tz_serial.o"
+	@echo "... experiment/tz/tz_serial.i"
+	@echo "... experiment/tz/tz_serial.s"
 	@echo "... graph/Graph.o"
 	@echo "... graph/Graph.i"
 	@echo "... graph/Graph.s"

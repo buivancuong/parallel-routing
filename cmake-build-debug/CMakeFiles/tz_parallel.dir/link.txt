@@ -1,0 +1,1 @@
+/usr/bin/c++   -pthread -g   -pthread CMakeFiles/tz_parallel.dir/experiment/tz/tz_parallel.cpp.o CMakeFiles/tz_parallel.dir/graph/Graph.cpp.o CMakeFiles/tz_parallel.dir/graph/smallworld/GridGraph.cpp.o CMakeFiles/tz_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.o CMakeFiles/tz_parallel.dir/node/TZNode.cpp.o CMakeFiles/tz_parallel.dir/utils/TZUtils.cpp.o  -o tz_parallel 
