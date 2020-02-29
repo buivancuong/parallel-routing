@@ -43,3 +43,13 @@ add_executable(tz_parallel experiment/tz/tz_parallel.cpp
             graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
         node/TZNode.cpp node/TZNode.h
         utils/TZUtils.cpp utils/TZUtils.h)
+add_executable(fat_tree_serial experiment/fat_tree/fat_tree_serial.cpp
+        graph/Graph.cpp graph/Graph.h
+            graph/fattree/FatTree.cpp graph/fattree/FatTree.h
+        node/FatTreeNode.cpp node/FatTreeNode.h
+        utils/FatTreeUtils.cpp utils/FatTreeUtils.h)
+add_executable(fat_tree_parallel experiment/fat_tree/fat_tree_parallel.cpp
+        graph/Graph.cpp graph/Graph.h
+            graph/fattree/FatTree.cpp graph/fattree/FatTree.h
+        node/FatTreeNode.cpp node/FatTreeNode.h
+        utils/FatTreeUtils.cpp utils/FatTreeUtils.h)

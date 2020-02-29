@@ -150,6 +150,19 @@ parallel_routing/fast:
 .PHONY : parallel_routing/fast
 
 #=============================================================================
+# Target rules for targets named fat_tree_parallel
+
+# Build rule for target.
+fat_tree_parallel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fat_tree_parallel
+.PHONY : fat_tree_parallel
+
+# fast build rule for target.
+fat_tree_parallel/fast:
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/build
+.PHONY : fat_tree_parallel/fast
+
+#=============================================================================
 # Target rules for targets named corra_v2_serial
 
 # Build rule for target.
@@ -161,6 +174,19 @@ corra_v2_serial: cmake_check_build_system
 corra_v2_serial/fast:
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/build
 .PHONY : corra_v2_serial/fast
+
+#=============================================================================
+# Target rules for targets named fat_tree_serial
+
+# Build rule for target.
+fat_tree_serial: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fat_tree_serial
+.PHONY : fat_tree_serial
+
+# fast build rule for target.
+fat_tree_serial/fast:
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/build
+.PHONY : fat_tree_serial/fast
 
 #=============================================================================
 # Target rules for targets named corra_v1_parallel
@@ -525,6 +551,60 @@ experiment/corra_v2/corra_v2_serial.cpp.s:
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/experiment/corra_v2/corra_v2_serial.cpp.s
 .PHONY : experiment/corra_v2/corra_v2_serial.cpp.s
 
+experiment/fat_tree/fat_tree_parallel.o: experiment/fat_tree/fat_tree_parallel.cpp.o
+
+.PHONY : experiment/fat_tree/fat_tree_parallel.o
+
+# target to build an object file
+experiment/fat_tree/fat_tree_parallel.cpp.o:
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_parallel.cpp.o
+.PHONY : experiment/fat_tree/fat_tree_parallel.cpp.o
+
+experiment/fat_tree/fat_tree_parallel.i: experiment/fat_tree/fat_tree_parallel.cpp.i
+
+.PHONY : experiment/fat_tree/fat_tree_parallel.i
+
+# target to preprocess a source file
+experiment/fat_tree/fat_tree_parallel.cpp.i:
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_parallel.cpp.i
+.PHONY : experiment/fat_tree/fat_tree_parallel.cpp.i
+
+experiment/fat_tree/fat_tree_parallel.s: experiment/fat_tree/fat_tree_parallel.cpp.s
+
+.PHONY : experiment/fat_tree/fat_tree_parallel.s
+
+# target to generate assembly for a file
+experiment/fat_tree/fat_tree_parallel.cpp.s:
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_parallel.cpp.s
+.PHONY : experiment/fat_tree/fat_tree_parallel.cpp.s
+
+experiment/fat_tree/fat_tree_serial.o: experiment/fat_tree/fat_tree_serial.cpp.o
+
+.PHONY : experiment/fat_tree/fat_tree_serial.o
+
+# target to build an object file
+experiment/fat_tree/fat_tree_serial.cpp.o:
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/experiment/fat_tree/fat_tree_serial.cpp.o
+.PHONY : experiment/fat_tree/fat_tree_serial.cpp.o
+
+experiment/fat_tree/fat_tree_serial.i: experiment/fat_tree/fat_tree_serial.cpp.i
+
+.PHONY : experiment/fat_tree/fat_tree_serial.i
+
+# target to preprocess a source file
+experiment/fat_tree/fat_tree_serial.cpp.i:
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/experiment/fat_tree/fat_tree_serial.cpp.i
+.PHONY : experiment/fat_tree/fat_tree_serial.cpp.i
+
+experiment/fat_tree/fat_tree_serial.s: experiment/fat_tree/fat_tree_serial.cpp.s
+
+.PHONY : experiment/fat_tree/fat_tree_serial.s
+
+# target to generate assembly for a file
+experiment/fat_tree/fat_tree_serial.cpp.s:
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/experiment/fat_tree/fat_tree_serial.cpp.s
+.PHONY : experiment/fat_tree/fat_tree_serial.cpp.s
+
 experiment/tz/tz_parallel.o: experiment/tz/tz_parallel.cpp.o
 
 .PHONY : experiment/tz/tz_parallel.o
@@ -588,7 +668,9 @@ graph/Graph.cpp.o:
 	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/Graph.cpp.o
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/Graph.cpp.o
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/Graph.cpp.o
 	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/Graph.cpp.o
@@ -603,7 +685,9 @@ graph/Graph.cpp.i:
 	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/Graph.cpp.i
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/Graph.cpp.i
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/Graph.cpp.i
 	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/Graph.cpp.i
@@ -618,7 +702,9 @@ graph/Graph.cpp.s:
 	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v1_serial.dir/build.make CMakeFiles/corra_v1_serial.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/Graph.cpp.s
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/graph/Graph.cpp.s
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v1_parallel.dir/build.make CMakeFiles/corra_v1_parallel.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/corra_v2_parallel.dir/build.make CMakeFiles/corra_v2_parallel.dir/graph/Graph.cpp.s
 	$(MAKE) -f CMakeFiles/tz_serial.dir/build.make CMakeFiles/tz_serial.dir/graph/Graph.cpp.s
@@ -631,6 +717,8 @@ graph/fattree/FatTree.o: graph/fattree/FatTree.cpp.o
 # target to build an object file
 graph/fattree/FatTree.cpp.o:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.o
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/graph/fattree/FatTree.cpp.o
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/graph/fattree/FatTree.cpp.o
 .PHONY : graph/fattree/FatTree.cpp.o
 
 graph/fattree/FatTree.i: graph/fattree/FatTree.cpp.i
@@ -640,6 +728,8 @@ graph/fattree/FatTree.i: graph/fattree/FatTree.cpp.i
 # target to preprocess a source file
 graph/fattree/FatTree.cpp.i:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.i
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/graph/fattree/FatTree.cpp.i
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/graph/fattree/FatTree.cpp.i
 .PHONY : graph/fattree/FatTree.cpp.i
 
 graph/fattree/FatTree.s: graph/fattree/FatTree.cpp.s
@@ -649,6 +739,8 @@ graph/fattree/FatTree.s: graph/fattree/FatTree.cpp.s
 # target to generate assembly for a file
 graph/fattree/FatTree.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/graph/fattree/FatTree.cpp.s
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/graph/fattree/FatTree.cpp.s
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/graph/fattree/FatTree.cpp.s
 .PHONY : graph/fattree/FatTree.cpp.s
 
 graph/smallworld/GridGraph.o: graph/smallworld/GridGraph.cpp.o
@@ -862,6 +954,8 @@ node/FatTreeNode.o: node/FatTreeNode.cpp.o
 # target to build an object file
 node/FatTreeNode.cpp.o:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.o
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/node/FatTreeNode.cpp.o
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/node/FatTreeNode.cpp.o
 .PHONY : node/FatTreeNode.cpp.o
 
 node/FatTreeNode.i: node/FatTreeNode.cpp.i
@@ -871,6 +965,8 @@ node/FatTreeNode.i: node/FatTreeNode.cpp.i
 # target to preprocess a source file
 node/FatTreeNode.cpp.i:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.i
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/node/FatTreeNode.cpp.i
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/node/FatTreeNode.cpp.i
 .PHONY : node/FatTreeNode.cpp.i
 
 node/FatTreeNode.s: node/FatTreeNode.cpp.s
@@ -880,6 +976,8 @@ node/FatTreeNode.s: node/FatTreeNode.cpp.s
 # target to generate assembly for a file
 node/FatTreeNode.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/node/FatTreeNode.cpp.s
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/node/FatTreeNode.cpp.s
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/node/FatTreeNode.cpp.s
 .PHONY : node/FatTreeNode.cpp.s
 
 node/Node.o: node/Node.cpp.o
@@ -1075,6 +1173,8 @@ utils/FatTreeUtils.o: utils/FatTreeUtils.cpp.o
 # target to build an object file
 utils/FatTreeUtils.cpp.o:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.o
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/utils/FatTreeUtils.cpp.o
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/utils/FatTreeUtils.cpp.o
 .PHONY : utils/FatTreeUtils.cpp.o
 
 utils/FatTreeUtils.i: utils/FatTreeUtils.cpp.i
@@ -1084,6 +1184,8 @@ utils/FatTreeUtils.i: utils/FatTreeUtils.cpp.i
 # target to preprocess a source file
 utils/FatTreeUtils.cpp.i:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.i
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/utils/FatTreeUtils.cpp.i
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/utils/FatTreeUtils.cpp.i
 .PHONY : utils/FatTreeUtils.cpp.i
 
 utils/FatTreeUtils.s: utils/FatTreeUtils.cpp.s
@@ -1093,6 +1195,8 @@ utils/FatTreeUtils.s: utils/FatTreeUtils.cpp.s
 # target to generate assembly for a file
 utils/FatTreeUtils.cpp.s:
 	$(MAKE) -f CMakeFiles/parallel_routing.dir/build.make CMakeFiles/parallel_routing.dir/utils/FatTreeUtils.cpp.s
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/utils/FatTreeUtils.cpp.s
+	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/utils/FatTreeUtils.cpp.s
 .PHONY : utils/FatTreeUtils.cpp.s
 
 utils/TZUtils.o: utils/TZUtils.cpp.o
@@ -1139,7 +1243,9 @@ help:
 	@echo "... tz_parallel"
 	@echo "... corra_v1_serial"
 	@echo "... parallel_routing"
+	@echo "... fat_tree_parallel"
 	@echo "... corra_v2_serial"
+	@echo "... fat_tree_serial"
 	@echo "... corra_v1_parallel"
 	@echo "... corra_v2_parallel"
 	@echo "... tz_serial"
@@ -1179,6 +1285,12 @@ help:
 	@echo "... experiment/corra_v2/corra_v2_serial.o"
 	@echo "... experiment/corra_v2/corra_v2_serial.i"
 	@echo "... experiment/corra_v2/corra_v2_serial.s"
+	@echo "... experiment/fat_tree/fat_tree_parallel.o"
+	@echo "... experiment/fat_tree/fat_tree_parallel.i"
+	@echo "... experiment/fat_tree/fat_tree_parallel.s"
+	@echo "... experiment/fat_tree/fat_tree_serial.o"
+	@echo "... experiment/fat_tree/fat_tree_serial.i"
+	@echo "... experiment/fat_tree/fat_tree_serial.s"
 	@echo "... experiment/tz/tz_parallel.o"
 	@echo "... experiment/tz/tz_parallel.i"
 	@echo "... experiment/tz/tz_parallel.s"

@@ -22,7 +22,7 @@ FatTree::FatTree(int k) : Graph() {
     this->numPods = k;
     this->numSwitchPerPod = k;
     this->totalServers = k * k * k / 4;
-    this->numVertices = this->numCoreSwitch + this->numSwitchPerPod + this->totalServers;
+    this->numVertices = this->numCoreSwitch + this->numPods * this->numSwitchPerPod + this->totalServers;
     // create adjList and build Addresses
     this->addCoreToAgg();
     this->addAggToEdge();

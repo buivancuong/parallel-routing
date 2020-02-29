@@ -22,9 +22,18 @@ FatTreeNode::FatTreeNode(int nodeID, int numCoreSwitch, int numPods, int numSwit
     this->address[2] = tempAddress[2];
     this->address[3] = tempAddress[3];
 
-    if (this->address[1] == numPods) this->layer = 0;
-    if (this->address[3] != 1) this->layer = 3;
-    if (this->address[2] >= (int)(numPods / 2)) this->layer = 1;
+    if (this->address[1] == numPods) {
+        this->layer = 0;
+        return;
+    }
+    if (this->address[3] != 1) {
+        this->layer = 3;
+        return;
+    }
+    if (this->address[2] >= (int)(numPods / 2)) {
+        this->layer = 1;
+        return;
+    }
     else this->layer = 2;
 }
 

@@ -2,6 +2,7 @@
 // Created by cuongbv on 23/01/2020.
 //
 
+#include <iostream>
 #include "FatTreeUtils.h"
 
 FatTreeUtils::FatTreeUtils() = default;
@@ -42,7 +43,7 @@ int FatTreeUtils::getPod(int nodeID, int numCoreSwitch, int numPods, int numSwit
         return (int)((nodeID - numCoreSwitch) / (int)(numSwitchPerPod / 2));
     }
     if (FatTreeUtils::isEdgeSwitch(nodeID, numCoreSwitch, numPods, numSwitchPerPod)) {
-        return (int)((nodeID - numCoreSwitch - (int)(numSwitchPerPod / 2)) / (int)(numSwitchPerPod / 2));
+        return (int)((nodeID - numCoreSwitch - numPods * (int)(numSwitchPerPod / 2)) / (int)(numSwitchPerPod / 2));
     }
     return -1;
 }
@@ -80,6 +81,7 @@ int* FatTreeUtils::nodeIDToAddress(int nodeID, int numCoreSwitch, int numPods, i
         address[1] = podID;       // pod
         address[3] = 1;       // gateway
         int column = ((nodeID - numPods) % (int)(numPods * numSwitchPerPod / 2)) % (int)(numPods / 2);
+        std::cout << "column " << column << std::endl;
         if (FatTreeUtils::isAggSwitch(nodeID, numCoreSwitch, numPods, numSwitchPerPod)) {
             column += (int) (numPods / 2);
         }       // else is Edge switch

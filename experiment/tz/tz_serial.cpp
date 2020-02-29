@@ -10,9 +10,7 @@
 #include "../../node/TZNode.h"
 #include "../../utils/TZUtils.h"
 
-std::map<int, TZNode*> tzNodeList;
-std::map<int, TZNode*> landmarkSet;
-std::list<int> potentialLandmarkW;
+
 int main() {
     int xTopoSize = 32;
     int yTopoSize = 32;
@@ -36,6 +34,9 @@ int main() {
 
     auto thresholeS = (float)(sqrt(xTopoSize * yTopoSize / log2(xTopoSize * yTopoSize)));
     auto *topo = new SmallWorld2DGrid(yTopoSize, xTopoSize, alphas);
+    std::map<int, TZNode*> tzNodeList;
+    std::map<int, TZNode*> landmarkSet;
+    std::list<int> potentialLandmarkW;
 
     int topoSize = topo->getNumVertices();
     for (int i = 0; i < topoSize; ++i) {
