@@ -57,12 +57,16 @@ void FatTreeNode::buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod
         for (int pod = 0; pod < numPods; ++pod) {
             int aggOffset = this->address[2];
             int agg = numCoreSwitch + pod * (int)(numPods / 2) + aggOffset - 1;
-            int prefix[4];
-            prefix[0] = 10;
-            prefix[1] = pod;
-            prefix[2] = -1;
-            prefix[3] = -1;
-            this->routingTable.emplace_back(std::pair<int*, int>(prefix, agg));
+            int prefixArray[4];
+            prefixArray[0] = 10;
+            prefixArray[1] = pod;
+            prefixArray[2] = -1;
+            prefixArray[3] = -1;
+            std::vector<int> prefix;
+            for (int i : prefixArray) {
+                prefix.push_back(i);
+            }
+            this->routingTable.emplace_back(std::pair<std::vector<int>, int>(prefix, agg));
         }
         return;
     }
@@ -71,44 +75,60 @@ void FatTreeNode::buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod
         // Edge to Server
         for (int serverID = 2; serverID < (int)(numPods / 2) + 2; ++ serverID) {
             int server = numCoreSwitch + numPods * numSwitchPerPod + (int)(numPods * numPods / 4) * this->address[1] + (int)(numPods / 2) * this->address[2] + serverID - 2;
-            int suffix[4];
-            suffix[0] = 10;
-            suffix[1] = this->address[2];
-            suffix[2] = this->address[3];
-            suffix[3] = serverID;
-            this->routingTable.emplace_back(std::pair<int*, int>(suffix, server));
+            int suffixArray[4];
+            suffixArray[0] = 10;
+            suffixArray[1] = this->address[2];
+            suffixArray[2] = this->address[3];
+            suffixArray[3] = serverID;
+            std::vector<int> suffix;
+            for (int i : suffixArray) {
+                suffix.push_back(i);
+            }
+            this->routingTable.emplace_back(std::pair<std::vector<int>, int>(suffix, server));
         }
         // Edge to Agg
         for (int aggID = (int)(numPods / 2); aggID < numPods; ++ aggID) {
             int agg = numCoreSwitch + this->address[1] * (int)(numPods / 2) + this->address[2] - (int)(numPods / 2);
-            int suffix[4];
-            suffix[0] = 10;
-            suffix[1] = -1;
-            suffix[2] = -1;
-            suffix[3] = aggID - (int)(numPods / 2) + 2;
-            this->routingTable.emplace_back(std::pair<int*, int>(suffix, agg));
+            int suffixArray[4];
+            suffixArray[0] = 10;
+            suffixArray[1] = -1;
+            suffixArray[2] = -1;
+            suffixArray[3] = aggID - (int)(numPods / 2) + 2;
+            std::vector<int> suffix;
+            for (int i : suffixArray) {
+                suffix.push_back(i);
+            }
+            this->routingTable.emplace_back(std::pair<std::vector<int>, int>(suffix, agg));
         }
         return;
     } else {        // if this node is Agg
         // Agg to Edge
         for (int edgeID = 0; edgeID < (int)(numPods / 2); ++edgeID) {
             int edge = numCoreSwitch + numPods * (int)(numSwitchPerPod / 2) + this->address[1] * (int)(numPods / 2) + edgeID;
-            int prefix[4];
-            prefix[0] = 10;
-            prefix[1] = this->address[1];
-            prefix[2] = edgeID;
-            prefix[3] = -1;
-            this->routingTable.emplace_back(std::pair<int*, int>(prefix, edge));
+            int prefixArray[4];
+            prefixArray[0] = 10;
+            prefixArray[1] = this->address[1];
+            prefixArray[2] = edgeID;
+            prefixArray[3] = -1;
+            std::vector<int> prefix;
+            for (int i : prefixArray) {
+                prefix.push_back(i);
+            }
+            this->routingTable.emplace_back(std::pair<std::vector<int>, int>(prefix, edge));
         }
         // Agg to Core
         for (int serverSuffix = 2; serverSuffix < (int)(numPods / 2) + 2; ++serverSuffix) {
             int core = (this->address[2] - (int)(numPods / 2)) * (int)(numPods / 2) + serverSuffix - 2;
-            int suffix[4];
-            suffix[0] = -1;
-            suffix[1] = -1;
-            suffix[2] = -1;
-            suffix[3] = serverSuffix;
-            this->routingTable.emplace_back(std::pair<int*, int>(suffix, core));
+            int suffixArray[4];
+            suffixArray[0] = -1;
+            suffixArray[1] = -1;
+            suffixArray[2] = -1;
+            suffixArray[3] = serverSuffix;
+            std::vector<int> suffix;
+            for (int i : suffixArray) {
+                suffix.push_back(i);
+            }
+            this->routingTable.emplace_back(std::pair<std::vector<int>, int>(suffix, core));
         }
         return;
     }

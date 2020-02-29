@@ -24,7 +24,17 @@ set
 ../Graph.h
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
 
+/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.cpp
+iostream
+-
+FatTreeNode.h
+/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.h
+../utils/FatTreeUtils.h
+/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.h
+
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.h
 vector
 -
+
+/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.h
 

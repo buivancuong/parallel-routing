@@ -13,7 +13,7 @@ private:
     int nodeID{};
     int layer{};      // 0 is Root (Core), 1 is Agg, 2 is Edge, 3 is Server
     int address[4]{};     // IP address of node
-    std::vector<std::pair<int*, int> > routingTable;
+    std::vector<std::pair<std::vector<int>, int> > routingTable;
     
 
 public:
