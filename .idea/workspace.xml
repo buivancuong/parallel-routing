@@ -3,14 +3,14 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="parallel_routing" targetName="corra_v1_serial" />
-      <config projectName="parallel_routing" targetName="fat_tree_serial" />
       <config projectName="parallel_routing" targetName="corra_v2_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v1_parallel" />
       <config projectName="parallel_routing" targetName="tz_serial" />
+      <config projectName="parallel_routing" targetName="corra_v1_parallel" />
       <config projectName="parallel_routing" targetName="tz_parallel" />
-      <config projectName="parallel_routing" targetName="fat_tree_parallel" />
+      <config projectName="parallel_routing" targetName="fat_tree_serial" />
       <config projectName="parallel_routing" targetName="corra_v2_serial" />
       <config projectName="parallel_routing" targetName="parallel_routing" />
+      <config projectName="parallel_routing" targetName="fat_tree_parallel" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -19,7 +19,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="" />
+    <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -329,6 +332,7 @@
       <workItem from="1582899863872" duration="10889000" />
       <workItem from="1582943686703" duration="8141000" />
       <workItem from="1582964007756" duration="5076000" />
+      <workItem from="1583056390965" duration="1737000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>
@@ -438,10 +442,10 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="575" y="147" key="SettingsEditor/32.21.1888.1059@32.21.1888.1059" timestamp="1582710665445" />
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1582964008978">
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1583056396067">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1582964008978" />
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1583056396067" />
     <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1577196825077">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -466,10 +470,10 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="639" y="246" width="672" height="677" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1582703930353" />
-    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1582965140497">
+    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1583056695586">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1582965140497" />
+    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1583056695586" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
