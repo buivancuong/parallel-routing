@@ -4,15 +4,20 @@
 
 #include <map>
 #include <thread>
+#include <iostream>
+#include <mutex>
 #include "../../node/FatTreeNode.h"
 #include "../../graph/fattree/FatTree.h"
 
 std::map<int, FatTreeNode*> fatTreeNodeList;
+std::mutex mutex;
 
 void createFatTreeNodeList(int startNodeID, int endNodeID, int numCoreSwitch, int numPods, int numSwitchPerPod) {
     for (int i = startNodeID; i < endNodeID; ++i) {
         auto *fatTreeNode = new FatTreeNode(i, numCoreSwitch, numPods, numSwitchPerPod);
+        mutex.lock();
         fatTreeNodeList.insert(std::pair<int, FatTreeNode*>(i, fatTreeNode));
+        mutex.unlock();
     }
 }
 
@@ -23,8 +28,12 @@ void buildTable(int startNodeID, int endNodeID, int numCoreSwitch, int numPods, 
 }
 
 int main() {
-    int paramK = 100;
+    int paramK = 250;
+
+    auto begin = std::chrono::system_clock::now();
     auto *fatTree = new FatTree(paramK);
+    auto doneTopo = std::chrono::system_clock::now();
+
     int numCoreSwitch = fatTree->getNumCoreSwitch();
     int numPods = fatTree->getNumPods();
     int numSwitchPerPod = fatTree->getNumSwitchPerPod();
@@ -56,6 +65,12 @@ int main() {
     for (auto &thread : threads) {
         thread.join();
     }
+
+    auto doneAlgo = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds1 = doneTopo - begin;
+    std::chrono::duration<double> elapsed_seconds2 = doneAlgo - doneTopo;
+    std::cout << "Create topo on " << elapsed_seconds1.count() << std::endl;
+    std::cout << "Done Algorithm on " << elapsed_seconds2.count() << std::endl;
 
     return 0;
 }

@@ -14,7 +14,7 @@ FatTreeNode::FatTreeNode(int nodeID) {
 }
 
 FatTreeNode::FatTreeNode(int nodeID, int numCoreSwitch, int numPods, int numSwitchPerPod) {
-    std::cout << "Node " << nodeID << std::endl;
+    // std::cout << "Node " << nodeID << std::endl;
     this->nodeID = nodeID;
     this->address[0] = 10;
     int* tempAddress = FatTreeUtils::nodeIDToAddress(nodeID, numCoreSwitch, numPods, numSwitchPerPod);

@@ -41,7 +41,7 @@ int main() {
     int topoSize = topo->getNumVertices();
     for (int i = 0; i < topoSize; ++i) {
         auto *tzNode = new TZNode(i);
-        std::cout << "create node " << tzNode->getNodeID() << std::endl;
+        // std::cout << "create node " << tzNode->getNodeID() << std::endl;
         tzNode->setClosetLandmark(-1);
         tzNodeList.insert(std::pair<int, TZNode*>(i, tzNode));
         potentialLandmarkW.push_back(i);
@@ -68,10 +68,10 @@ int main() {
         potentialLandmarkW.clear();
         for (std::pair<int, TZNode*> tzNode : tzNodeList) {
             if (tzNode.second->getCluster().size() > 4 * tzNodeList.size() / thresholeS) {
-                std::cout << "Potential landmark " << tzNode.first << std::endl;
+                // std::cout << "Potential landmark " << tzNode.first << std::endl;
                 potentialLandmarkW.push_back(tzNode.first);
             } else {
-                std::cout << "deo can xac dinh them landmark" << std:: endl;
+                // std::cout << "deo can xac dinh them landmark" << std:: endl;
             }
         }
     }

@@ -69,7 +69,7 @@ CORRAv1SExp::CORRAv1SExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTop
     }
 
     for (std::pair<int, CORRANode*> corraNode : corra1NodeList) {
-        std::cout << "update node " << corraNode.first << std::endl;
+        // std::cout << "update node " << corraNode.first << std::endl;
         corraNode.second->updateBlockTable(xBlockSize, yBlockSize, xTopoSize, yTopoSize, corra1NodeList);
     }
 }

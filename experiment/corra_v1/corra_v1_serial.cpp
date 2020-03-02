@@ -5,15 +5,16 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <chrono>
 #include "../../graph/smallworld/SmallWorld2DGrid.h"
 #include "../../node/CORRANode.h"
 #include "../../utils/CORRAUtils.h"
 
 std::map<int, CORRANode*> corra1NodeList;
 int main() {
-    int xTopoSize = 32;
-    int yTopoSize = 32;
-    int deltaNeighbor = 3;
+    int xTopoSize = 128;
+    int yTopoSize = 128;
+    int deltaNeighbor = 8;
     std::vector<float> alphas = {1.6, 2};
 
     int xBlockSize, yBlockSize;
@@ -29,7 +30,9 @@ int main() {
     }
     int numBlock = (xTopoSize / xBlockSize) * (yTopoSize / yBlockSize);
 
+    auto begin = std::chrono::system_clock::now();
     auto *smallWorld2DGrid = new SmallWorld2DGrid(yTopoSize, xTopoSize, alphas);
+    auto doneTopo = std::chrono::system_clock::now();
 
     for (int i = 0; i < xTopoSize * yTopoSize; ++i) {
         auto *corraNode = new CORRANode(i);
@@ -87,9 +90,15 @@ int main() {
     }
 
     for (std::pair<int, CORRANode*> corraNode : corra1NodeList) {
-        std::cout << "update node " << corraNode.first << std::endl;
+        // std::cout << "update node " << corraNode.first << std::endl;
         corraNode.second->updateBlockTable(xBlockSize, yBlockSize, xTopoSize, yTopoSize, corra1NodeList);
     }
+
+    auto doneAlgo = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds1 = doneTopo - begin;
+    std::chrono::duration<double> elapsed_seconds2 = doneAlgo - doneTopo;
+    std::cout << "Create topo on " << elapsed_seconds1.count() << std::endl;
+    std::cout << "Done Algorithm on " << elapsed_seconds2.count() << std::endl;
 
     return 0;
 }

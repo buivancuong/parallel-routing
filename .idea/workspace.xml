@@ -20,8 +20,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_parallel.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_parallel.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_parallel.dir/experiment/corra_v1/corra_v1_parallel.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_parallel.dir/experiment/corra_v1/corra_v1_parallel.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_parallel.dir/graph/smallworld/GridGraph.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_parallel.dir/graph/smallworld/GridGraph.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_parallel.dir/node/CORRANode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_parallel.dir/node/CORRANode.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/experiment/corra_v1/corra_v1_serial.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/experiment/corra_v1/corra_v1_serial.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/graph/smallworld/GridGraph.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/graph/smallworld/GridGraph.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/node/CORRANode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/node/CORRANode.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_parallel.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_parallel.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_parallel.dir/experiment/corra_v2/corra_v2_parallel.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_parallel.dir/experiment/corra_v2/corra_v2_parallel.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_parallel.dir/graph/smallworld/GridGraph.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_parallel.dir/graph/smallworld/GridGraph.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_parallel.dir/node/Node.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_parallel.dir/node/Node.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/experiment/corra_v2/corra_v2_serial.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/experiment/corra_v2/corra_v2_serial.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/graph/smallworld/GridGraph.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/graph/smallworld/GridGraph.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/node/Node.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/node/Node.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/corra_v1_parallel" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/corra_v1_parallel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/corra_v1_serial" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/corra_v1_serial" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/corra_v2_parallel" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/corra_v2_parallel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/corra_v2_serial" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/corra_v2_serial" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/fat_tree_parallel" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/fat_tree_parallel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/fat_tree_serial" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/fat_tree_serial" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/parallel/CORRAv1PExp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/exp/parallel/CORRAv1PExp.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp/serial/CORRAv1SExp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/exp/serial/CORRAv1SExp.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_parallel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_parallel.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_serial.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_parallel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_parallel.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_serial.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/fat_tree/fat_tree_parallel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/fat_tree/fat_tree_parallel.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/fat_tree/fat_tree_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/fat_tree/fat_tree_serial.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/tz/tz_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/tz/tz_serial.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/smallworld/GridGraph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/smallworld/GridGraph.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/CORRANode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/node/CORRANode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/FatTreeNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/node/FatTreeNode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/Node.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/node/Node.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/TZNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/node/TZNode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/FatTreeUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/utils/FatTreeUtils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/TZUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/utils/TZUtils.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +372,8 @@
       <workItem from="1582899863872" duration="10889000" />
       <workItem from="1582943686703" duration="8141000" />
       <workItem from="1582964007756" duration="5076000" />
-      <workItem from="1583056390965" duration="1737000" />
+      <workItem from="1583056390965" duration="2140000" />
+      <workItem from="1583112532094" duration="35635000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>
@@ -442,14 +483,14 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="575" y="147" key="SettingsEditor/32.21.1888.1059@32.21.1888.1059" timestamp="1582710665445" />
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1583056396067">
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1583112531777">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1583056396067" />
-    <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1577196825077">
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1583112531777" />
+    <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583137894754">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/32.21.1888.1059@32.21.1888.1059" timestamp="1577196825077" />
+    <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/32.21.1888.1059@32.21.1888.1059" timestamp="1583137894754" />
     <state x="778" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582337669098">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -470,26 +511,12 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="639" y="246" width="672" height="677" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1582703930353" />
-    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1583056695586">
+    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1583116094402">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1583056695586" />
+    <state x="639" y="234" width="672" height="678" key="search.everywhere.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1583116094402" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/experiment/corra_v2/corra_v2_parallel.cpp</url>
-          <line>125</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/experiment/fat_tree/fat_tree_serial.cpp</url>
-          <line>25</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="this-&gt;nodeList.size()" language="ObjectiveC" />

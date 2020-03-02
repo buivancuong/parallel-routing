@@ -107,7 +107,7 @@ void Node::createLocalRouting(int xTopoSize) {
     localityList.insert(std::pair<int, Node*>(this->nodeID, this));
     // Add each other nodes on this->locality to localTraceMap
     for (int i = 0; i < this->locality.size(); ++i) {
-        std::cout << "locality size " << this->locality.size() << std::endl;
+        // std::cout << "locality size " << this->locality.size() << std::endl;
         std::map<int, Node*> temp (this->locality[i]);
         for (std::pair<int, Node*> neighbor : temp) {
             if (i == 0) {       // first layer real neighbor
@@ -124,10 +124,10 @@ void Node::createLocalRouting(int xTopoSize) {
         }
     }
     // Dijkstra Algorithm to construct localTraceMap and visited state
-    std::cout << "localTraceMap size " << this->traceMap.size() << std::endl;
-    std::cout << "locality list size " << localityList.size() << std::endl;
+    // std::cout << "localTraceMap size " << this->traceMap.size() << std::endl;
+    // std::cout << "locality list size " << localityList.size() << std::endl;
     for (std::pair<int, Node*> node : localityList) {
-        std::cout << "nodeID " << node.first << std::endl;
+        // std::cout << "nodeID " << node.first << std::endl;
     }
     for (int i = 0; i < this->traceMap.size(); ++i) {
         int currentNodeID = -1;
@@ -145,7 +145,7 @@ void Node::createLocalRouting(int xTopoSize) {
         }
         //Perform a Dijkstra iteration
         visited[currentNodeID] = true;
-        std::cout << "currentID " << currentNodeID << std::endl;
+        // std::cout << "currentID " << currentNodeID << std::endl;
         std::map<int, Node*> temp (localityList[currentNodeID]->getLocality()[0]);
         for (std::pair<int, Node*> neighbor : temp) {
             if (localityList.count(neighbor.first)) {
@@ -162,7 +162,7 @@ void Node::createLocalRouting(int xTopoSize) {
     }
 //    std::map<int, std::pair<double, int> > tempTraceMap (this->localTraceMap);
     for (std::pair<int, std::pair<double, int> > neighbor : this->traceMap) {
-        std::cout << "vao trong " << neighbor.first << std::endl;
+        // std::cout << "vao trong " << neighbor.first << std::endl;
         if (neighbor.first != this->nodeID) {
             localityList[neighbor.first]->updateLocalRT(this->nodeID, neighbor.second.second, neighbor.second.first);
         }
@@ -184,7 +184,7 @@ void Node::findToBRn(int n) {
         std::vector<std::vector<std::pair<int, Node*> > > temp (this->ownBridges);
         for (std::vector<std::pair<int, Node*> > bridge : temp) {        // for each bridge in ownBridges list
             if (bridge.size() < (i + 1)) {        // finding BRi, the size of lower bridge must be less than i.
-                std::cout << "da vao day " << i << std::endl;
+                // std::cout << "da vao day " << i << std::endl;
                 std::map<int, Node*> tempFar (bridge.back().second->getFarNeighbors());
                 for (std::pair<int, Node*> newEndPoint : tempFar) {       // ++ each far neighbor of current last end poind
                     std::vector<std::pair<int, Node*> > newBridge = bridge;      // clone a new bridge
@@ -223,21 +223,21 @@ void Node::prepareLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, in
     // first, add the grid neighbors in this->nearNeighbors to this->locality[0]
     for (std::pair<int, Node*> neighbor : this->nearNeighbors) {
         this->locality[0].insert(neighbor);
-        std::cout << "insert grid neighbor " << neighbor.first << std::endl;
+        // std::cout << "insert grid neighbor " << neighbor.first << std::endl;
     }
     // last, add the random link neighbors in this->farNeighbors to this->locality[0]
     for (std::pair<int, Node*> neighbor : this->farNeighbors) {
         int gridDistance = CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSze);      // check grid distance between this node and its random link neighbor
         if (gridDistance <= deltaNeighbor) {        // if distance < deltaNeighbor (random link neighbor is inside of deltaNeighbors
             this->locality[0].insert(neighbor);
-            std::cout << "insert far neighbor inside of Neighbors " << neighbor.first << std::endl;
+            // std::cout << "insert far neighbor inside of Neighbors " << neighbor.first << std::endl;
             continue;
         }       // else, check blockID of this->nodeID and random link neighbor nodeID
         int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSze);
         int neighborBlock = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSze);
         if (thisBlock == neighborBlock) {       // if both of 2 Node is same block
             this->locality[0].insert(neighbor);
-            std::cout << "insert far neighbor insize of Block " << neighbor.first << std::endl;
+            // std::cout << "insert far neighbor insize of Block " << neighbor.first << std::endl;
             continue;
         }       // else, continue
     }
@@ -291,7 +291,7 @@ void Node::handleMissingBridge(int xBlockSize, int yBlockSize, int xTopoSize, in
     }
 
     if (!isMissing){
-        std::cout << "Deo missing " << thisBlock << std::endl;
+        // std::cout << "Deo missing " << thisBlock << std::endl;
         return;
     }
     for (int blockID = 0; blockID < thisBlock; ++blockID) {         // explore each block to find not connected blocks
@@ -383,16 +383,16 @@ void Node::updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int y
     int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
     int numBlock = CORRAUtils::getTotalBlocks(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     for (int blockID = 0; blockID < numBlock; ++blockID) {
-        std::cout << "block " << blockID << std::endl;
+        // std::cout << "block " << blockID << std::endl;
         if (blockID == thisBlock) continue;     // only update Block Routing Table to each other blocks
         if (this->bridgeList[blockID].empty()) {        // if still has no bridge to blockID (destBlock), must route to centerNode
             int centerNodeID = CORRAUtils::getCenterVertex(thisBlock, xBlockSize, yBlockSize, xTopoSize, yTopoSize);     // extract nodeID of the centerNode of its blockID
-            std::cout << "center " << centerNodeID << std::endl;
+            // std::cout << "center " << centerNodeID << std::endl;
 //            std::vector<std::pair<int, Node*> > localPath = this->localShortestPath(centerNodeID);       //      extract local shortest path from this->nodeID to centerNode
 //            std::cout << "spr size " << localPath.size() << std::endl;
             int next = this->localRT[centerNodeID].first;
             this->bridgeRT.insert(std::pair<int, int>(blockID, next));        // go forward to centerNode via nextNode
-            std::cout << "van deo co cau " << blockID << std::endl;
+            // std::cout << "van deo co cau " << blockID << std::endl;
             continue;       // continue with next blockID
         }       // else, has bridge to blockID, next code segment will be executed.
 //        std::vector<std::vector<std::pair<int, Node*> > > fullBridgeList;      // declare list of full bridge from this->nodeID to destBlockID
@@ -415,7 +415,7 @@ void Node::updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int y
 //        this->bridgeRT.insert(std::pair<int, int>(blockID, bestBridge[0].first));
 
         std::vector<std::pair<int, Node*> > firstBridge = this->bridgeList[blockID][0];
-        std::cout << "bridge size " << firstBridge.size() << std::endl;
+        // std::cout << "bridge size " << firstBridge.size() << std::endl;
         int next = this->localRT[firstBridge[0].first].first;
         this->bridgeRT.insert(std::pair<int, int>(blockID, next));
    }

@@ -5,6 +5,7 @@
 #include <cmath>
 #include <thread>
 #include <mutex>
+#include <iostream>
 #include "../../node/Node.h"
 #include "../../graph/smallworld/SmallWorld2DGrid.h"
 #include "../../utils/CORRAUtils.h"
@@ -28,17 +29,16 @@ void createNodeList(int startNodeID, int endNodeID, int xBlockSize, int yBlockSi
 
 void addNearFarNeighbors(int startNodeID, int endNodeID, Graph *graph) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        for (std::pair<int, std::map<int, float> > source : graph->getAdjList()) {
-            for (std::pair<int, float> neighbor : source.second) {
-                if (neighbor.second == 1) {
-                    mutex.lock();
-                    corra2NodeList[source.first]->addNearNeighbors(corra2NodeList[neighbor.first]);
-                    mutex.unlock();
-                } else {
-                    mutex.lock();
-                    corra2NodeList[source.first]->addFarNeighbors(corra2NodeList[neighbor.first]);
-                    mutex.unlock();
-                }
+        auto source = graph->getAdjList()[i];
+        for (std::pair<int, float> neighbor : source) {
+            if (neighbor.second == 1) {
+                mutex.lock();
+                corra2NodeList[i]->addNearNeighbors(corra2NodeList[neighbor.first]);
+                mutex.unlock();
+            } else {
+                mutex.lock();
+                corra2NodeList[i]->addFarNeighbors(corra2NodeList[neighbor.first]);
+                mutex.unlock();
             }
         }
     }
@@ -93,9 +93,9 @@ void updateBlockTable(int startNodeID, int endNodeID, int xBlockSize, int yBlock
 }
 
 int main() {
-    int xTopoSize = 32;
-    int yTopoSize = 32;
-    int deltaNeighbor = 3;
+    int xTopoSize = 128;
+    int yTopoSize = 128;
+    int deltaNeighbor = 8;
     std::vector<float> alphas = {1.6, 2};
 
     int xBlockSize, yBlockSize;
@@ -112,7 +112,10 @@ int main() {
     int numBlock = (xTopoSize / xBlockSize) * (yTopoSize / yBlockSize);
     int numSubThread = 4;
 
+    auto begin = std::chrono::system_clock::now();
     auto *smallWorld2DGrid = new SmallWorld2DGrid(yTopoSize, xTopoSize, alphas);
+    auto doneTopo = std::chrono::system_clock::now();
+
     int subSet = (int)(xTopoSize * yTopoSize / numSubThread);
     if (xTopoSize * yTopoSize - numSubThread * subSet != 0) subSet++;
     int partition[numSubThread + 1];
@@ -212,6 +215,12 @@ int main() {
     for (auto &thread : threads) {
         thread.join();
     }
+
+    auto doneAlgo = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds1 = doneTopo - begin;
+    std::chrono::duration<double> elapsed_seconds2 = doneAlgo - doneTopo;
+    std::cout << "Create topo on " << elapsed_seconds1.count() << std::endl;
+    std::cout << "Done Algorithm on " << elapsed_seconds2.count() << std::endl;
 
     return 0;
 }

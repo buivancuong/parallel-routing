@@ -81,7 +81,7 @@ int* FatTreeUtils::nodeIDToAddress(int nodeID, int numCoreSwitch, int numPods, i
         address[1] = podID;       // pod
         address[3] = 1;       // gateway
         int column = ((nodeID - numPods) % (int)(numPods * numSwitchPerPod / 2)) % (int)(numPods / 2);
-        std::cout << "column " << column << std::endl;
+        // std::cout << "column " << column << std::endl;
         if (FatTreeUtils::isAggSwitch(nodeID, numCoreSwitch, numPods, numSwitchPerPod)) {
             column += (int) (numPods / 2);
         }       // else is Edge switch

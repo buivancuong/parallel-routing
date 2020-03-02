@@ -11,24 +11,14 @@ map
 -
 thread
 -
+iostream
+-
+mutex
+-
 ../../node/FatTreeNode.h
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.h
 ../../graph/fattree/FatTree.h
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.h
-
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.cpp
-Graph.h
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
-queue
--
-iostream
--
-chrono
--
-list
--
-algorithm
--
 
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
 map
@@ -36,31 +26,11 @@ map
 set
 -
 
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.cpp
-iostream
--
-FatTree.h
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.h
-
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/fattree/FatTree.h
 ../Graph.h
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h
 
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.cpp
-iostream
--
-FatTreeNode.h
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.h
-../utils/FatTreeUtils.h
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.h
-
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/node/FatTreeNode.h
 vector
 -
-
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.cpp
-FatTreeUtils.h
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.h
-
-/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.h
 

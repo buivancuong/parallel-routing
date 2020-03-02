@@ -30,27 +30,27 @@ CORRAv1PExp::CORRAv1PExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTop
     for (auto &thread : threads) {
         thread.join();
     }
-    std::cout << "Done create Node list" << std::endl;
+    // std::cout << "Done create Node list" << std::endl;
 
     std::map<int, std::map<int, float> > tempAdj = topo->getAdjList();
-    std::cout << "size " << tempAdj.size() << std::endl;
+    // std::cout << "size " << tempAdj.size() << std::endl;
     for (std::pair<int, std::map<int, float> > sourceNode : tempAdj) {
-        std::cout << " * ";
+        // std::cout << " * ";
         std::map<int, float> tempNeighbor = sourceNode.second;
         for (std::pair<int, float> neighbor: tempNeighbor) {
-            std::cout << " ** ";
+            // std::cout << " ** ";
             if (neighbor.second == 1) {
-                std::cout << "node " << sourceNode.first << " neighbor " << neighbor.first << " near ";
-                std::cout << corra1NodeList[neighbor.first]->getNodeID() << std::endl;
+                // std::cout << "node " << sourceNode.first << " neighbor " << neighbor.first << " near ";
+                // std::cout << corra1NodeList[neighbor.first]->getNodeID() << std::endl;
                 corra1NodeList[sourceNode.first]->addNearNeighbors(corra1NodeList[neighbor.first]);
             } else {
-                std::cout << "node " << sourceNode.first << " neighbor " << neighbor.first << " far ";
-                std::cout << corra1NodeList[neighbor.first]->getNodeID() << std::endl;
+                // std::cout << "node " << sourceNode.first << " neighbor " << neighbor.first << " far ";
+                // std::cout << corra1NodeList[neighbor.first]->getNodeID() << std::endl;
                 corra1NodeList[sourceNode.first]->addFarNeighbors(corra1NodeList[neighbor.first]);
             }
         }
     }
-    std::cout << "Done add near far neighbors" << std::endl;
+    // std::cout << "Done add near far neighbors" << std::endl;
 
     std::vector<std::thread> threads2;
     threads2.reserve(numSubThread);
@@ -63,12 +63,12 @@ CORRAv1PExp::CORRAv1PExp(int xBlockSize, int yBlockSize, int xTopoSize, int yTop
         thread.join();
     }
 
-    std::cout << "Den day" << std::endl;
+    // std::cout << "Den day" << std::endl;
     threads.clear();
     threads.reserve(numSubThread);
     for (int i = 0; i < numSubThread; ++i) {
         std::thread thread(&CORRAv1PExp::createLocality, this, partition[i], partition[i + 1], deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
-        std::cout << "Here " << i << std::endl;
+        // std::cout << "Here " << i << std::endl;
         threads.push_back(std::move(thread));
     }
     for (auto &thread : threads) {

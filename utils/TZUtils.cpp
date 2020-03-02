@@ -19,7 +19,7 @@ std::list<int> TZUtils::sampleTZ(std::list<int> potentialLandmarkW, float thresh
     for (int nodeID : potentialLandmarkW) {
         float random = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
         if (random < probability) {
-            std::cout << "new landmark " << nodeID << std::endl;
+            // std::cout << "new landmark " << nodeID << std::endl;
             newLandmarks.push_back(nodeID);
         }
     }

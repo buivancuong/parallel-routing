@@ -144,7 +144,7 @@ void CORRANode::createLocalRouting(int xTopoSize) {
     localityList.insert(std::pair<int, CORRANode*>(this->nodeID, this));
     // Add each other nodes on this->locality to localTraceMap
     for (int i = 0; i < this->locality.size(); ++i) {
-        std::cout << "locality size " << this->locality.size() << std::endl;
+        // std::cout << "locality size " << this->locality.size() << std::endl;
         std::map<int, CORRANode*> temp (this->locality[i]);
         for (std::pair<int, CORRANode*> neighbor : temp) {
             if (i == 0) {       // first layer real neighbor
@@ -161,10 +161,10 @@ void CORRANode::createLocalRouting(int xTopoSize) {
         }
     }
     // Dijkstra Algorithm to construct localTraceMap and visited state
-    std::cout << "localTraceMap size " << this->localTraceMap.size() << std::endl;
-    std::cout << "locality list size " << localityList.size() << std::endl;
+    // std::cout << "localTraceMap size " << this->localTraceMap.size() << std::endl;
+    // std::cout << "locality list size " << localityList.size() << std::endl;
     for (std::pair<int, CORRANode*> node : localityList) {
-        std::cout << "nodeID " << node.first << std::endl;
+        // std::cout << "nodeID " << node.first << std::endl;
     }
     for (int i = 0; i < this->localTraceMap.size(); ++i) {
         int currentNodeID = -1;
@@ -182,7 +182,7 @@ void CORRANode::createLocalRouting(int xTopoSize) {
         };
         //Perform a Dijkstra iteration
         visited[currentNodeID] = true;
-        std::cout << "currentID " << currentNodeID << std::endl;
+        // std::cout << "currentID " << currentNodeID << std::endl;
         std::map<int, CORRANode*> temp (localityList[currentNodeID]->getLocality()[0]);
         for (std::pair<int, CORRANode*> neighbor : temp) {
             if (localityList.count(neighbor.first)) {
@@ -199,7 +199,7 @@ void CORRANode::createLocalRouting(int xTopoSize) {
     }
 //    std::map<int, std::pair<double, int> > tempTraceMap (this->localTraceMap);
     for (std::pair<int, std::pair<double, int> > neighbor : this->localTraceMap) {
-        std::cout << "vao trong " << neighbor.first << std::endl;
+        // std::cout << "vao trong " << neighbor.first << std::endl;
         if (neighbor.first != this->nodeID) {
             localityList[neighbor.first]->updateLocalRT(this->nodeID, neighbor.second.second, neighbor.second.first);
         }
@@ -234,7 +234,7 @@ std::map<int, std::pair<float, int> > CORRANode::getGlobalTraceMap() {
 
 void CORRANode::createGlobalTraceMap(Graph *globalGraph) {
     if (this->isCenterNode) {
-        std::cout << "Dijkstra " << this->nodeID << std::endl;
+        // std::cout << "Dijkstra " << this->nodeID << std::endl;
         this->globalTraceMap = globalGraph->Dijkstra(this->nodeID);
     }
 }

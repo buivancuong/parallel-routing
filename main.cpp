@@ -34,7 +34,7 @@ int main() {
     }
     int numBlock = (xTopoSize / xBlockSize) * (yTopoSize / yBlockSize);
 
-    std::cout << xBlockSize << " " << yBlockSize << std::endl;
+    // std::cout << xBlockSize << " " << yBlockSize << std::endl;
 
     // Create Topology
     auto *corrAv1PExp = new CORRAv1SExp(xBlockSize, yBlockSize, xTopoSize, yTopoSize, deltaNeighbor, alphas);
