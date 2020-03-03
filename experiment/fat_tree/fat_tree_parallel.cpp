@@ -39,7 +39,8 @@ int main() {
     int numSwitchPerPod = fatTree->getNumSwitchPerPod();
 
     int numSubThread = 4;
-    int subSet = (int)(fatTree->getNumVertices() / numSubThread) + 1;
+    int totalSwitch = numCoreSwitch + numPods * numSwitchPerPod;
+    int subSet = (int)(totalSwitch / numSubThread) + 1;
     int partition[numSubThread + 1];
     int start = 0;
     partition[0] = 0;

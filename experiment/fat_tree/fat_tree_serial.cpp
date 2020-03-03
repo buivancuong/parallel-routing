@@ -20,7 +20,8 @@ int main() {
     int numSwitchPerPod = fatTree->getNumSwitchPerPod();
     std::map<int, FatTreeNode*> fatTreeNodeList;
 
-    for (int i = 0; i < fatTree->getNumVertices(); ++i) {
+    int totalSwitch = numCoreSwitch + numPods * numSwitchPerPod;
+    for (int i = 0; i < totalSwitch; ++i) {
         auto *fatTreeNode = new FatTreeNode(i, numCoreSwitch, numPods, numSwitchPerPod);
         fatTreeNodeList.insert(std::pair<int, FatTreeNode*>(i, fatTreeNode));
     }
