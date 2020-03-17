@@ -80,8 +80,30 @@ int main() {
 
     auto doneAlgo = std::chrono::system_clock::now();
 
-    std::fstream routingTableFile;
-    std::string routingTableFileName ("./../experiment/tz/");
+    std::fstream clusterTableFile;
+    std::fstream landmarkTableFile;
+    std::string localTableFileName ("./../experiment/tz/cluster_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize));
+    std::string blockTableFileName ("./../experiment/tz/landmark_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize));
+
+    clusterTableFile.open(localTableFileName.c_str(), std::ios::out);
+    for (std::pair<int, TZNode*> tzNode : tzNodeList) {
+        std::map<int, int> clusterRT = tzNode.second->getClusterRT();
+        for (std::pair<int, int> destNodeID : clusterRT) {
+            std::string row (std::to_string(tzNode.first) + " " + std::to_string(destNodeID.first) + " " + std::to_string(destNodeID.second) + "\n");
+            clusterTableFile << row;
+        }
+    }
+    clusterTableFile.close();
+
+    landmarkTableFile.open(blockTableFileName.c_str(), std::ios::out);
+    for (std::pair<int, TZNode*> tzNode : tzNodeList) {
+        std::map<int, int> landmarkRT = tzNode.second->getLandmarkRT();
+        for (std::pair<int, int> destLandmark : landmarkRT) {
+            std::string row (std::to_string(tzNode.first) + " " + std::to_string(destLandmark.first) + " " + std::to_string(destLandmark.second) + "\n");
+            landmarkTableFile << row;
+        }
+    }
+    landmarkTableFile.close();
 
     std::chrono::duration<double> elapsed_seconds1 = doneTopo - begin;
     std::chrono::duration<double> elapsed_seconds2 = doneAlgo - doneTopo;

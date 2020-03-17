@@ -32,6 +32,8 @@ public:
     bool isLandmarkNode();
     void setIsLandMark();
     void setClosetLandmark(int landmarkNodeID);
+    std::map<int, int> getClusterRT();
+    std::map<int, int> getLandmarkRT();
 
 
     // first, create traceMap to get single source Dijkstra shortest path from this->nodeID
@@ -43,7 +45,7 @@ public:
     // create routing table on own cluster
     void createClusterRT();
     // create routing table to all of landmarks
-    void createLandmarkRT();
+    void createLandmarkRT(const std::map<int, TZNode*>& landmarkSet);
 
 };
 

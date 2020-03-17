@@ -78,8 +78,22 @@ void TZNode::createClusterRT() {
     }
 }
 
-void TZNode::createLandmarkRT() {
+void TZNode::createLandmarkRT(const std::map<int, TZNode*>& landmarkSet) {
+    for (std::pair<int, TZNode*> landmark : landmarkSet) {
+        int nextNodeID = this->traceMap[landmark.first].second;
+        while (nextNodeID != this->nodeID) {
+            nextNodeID = this->traceMap[nextNodeID].second;
+        }
+        this->landmarkRT.insert(std::pair<int, int>(landmark.first, nextNodeID));
+    }
+}
 
+std::map<int, int> TZNode::getClusterRT() {
+    return this->clusterRT;
+}
+
+std::map<int, int> TZNode::getLandmarkRT() {
+    return this->landmarkRT;
 }
 
 TZNode::~TZNode() = default;
