@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <chrono>
+#include <fstream>
 #include "../../graph/fattree/FatTree.h"
 #include "../../node/FatTreeNode.h"
 
@@ -29,9 +30,26 @@ int main() {
     for (std::pair<int, FatTreeNode*> fatTreeNode : fatTreeNodeList) {
         fatTreeNode.second->buildTable(numCoreSwitch, numPods, numSwitchPerPod);
     }
-    // std::cout << "Done" << std::endl;
 
     auto doneAlgo = std::chrono::system_clock::now();
+
+    std::fstream routingTableFile;
+    std::string localTableFileName ("./../experiment/fat_tree/k_" + std::to_string(paramK));
+    routingTableFile.open(localTableFileName.c_str(), std::ios::out);
+    for (std::pair<int, FatTreeNode*> fatTreeNode : fatTreeNodeList) {
+        std::vector<std::pair<std::vector<int>, int> > routingTable = fatTreeNode.second->getRoutingTable();
+        for (std::pair<std::vector<int>, int> destNodeID : routingTable) {
+            std::string row (std::to_string(fatTreeNode.first) + " "
+                + std::to_string(destNodeID.first[0]) + "."
+                + std::to_string(destNodeID.first[1]) + "."
+                + std::to_string(destNodeID.first[2]) + "."
+                + std::to_string(destNodeID.first[3])
+                + " " + std::to_string(destNodeID.second) + "\n");
+            routingTableFile << row;
+        }
+    }
+    routingTableFile.close();
+
     std::chrono::duration<double> elapsed_seconds1 = doneTopo - begin;
     std::chrono::duration<double> elapsed_seconds2 = doneAlgo - doneTopo;
     std::cout << "Create topo on " << elapsed_seconds1.count() << std::endl;

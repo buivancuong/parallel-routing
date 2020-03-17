@@ -6,6 +6,7 @@
 #include <thread>
 #include <mutex>
 #include <iostream>
+#include <fstream>
 #include "../../node/CORRANode.h"
 #include "../../graph/smallworld/SmallWorld2DGrid.h"
 #include "../../utils/CORRAUtils.h"
@@ -94,9 +95,9 @@ void updateBlockTable(int startNodeID, int endNodeID, int xBlockSize, int yBlock
 }
 
 int main() {
-    int xTopoSize = 128;
-    int yTopoSize = 128;
-    int deltaNeighbor = 8;
+    int xTopoSize = 32;
+    int yTopoSize = 32;
+    int deltaNeighbor = 4;
     std::vector<float> alphas = {1.6, 2};
 
     int xBlockSize, yBlockSize;
@@ -110,7 +111,6 @@ int main() {
     } else {
         yBlockSize = (int) sqrt(yTopoSize / 2);
     }
-    int numBlock = (xTopoSize / xBlockSize) * (yTopoSize / yBlockSize);
     int numSubThread = 8;
 
     auto begin = std::chrono::system_clock::now();
@@ -220,8 +220,33 @@ int main() {
     for (auto &thread : threads) {
         thread.join();
     }
-
     auto doneAlgo = std::chrono::system_clock::now();
+
+    std::fstream localTableFile;
+    std::fstream blockTableFile;
+    std::string localTableFileName ("./../experiment/corra_v1/local_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize) + "r" + std::to_string(deltaNeighbor));
+    std::string blockTableFileName ("./../experiment/corra_v1/block_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize) + "r" + std::to_string(deltaNeighbor));
+
+    localTableFile.open(localTableFileName.c_str(), std::ios::out);
+    for (std::pair<int, CORRANode*> corraNode : corra1NodeList) {
+        std::map<int, std::pair<int, double> > localRT = corraNode.second->getLocalRT();
+        for (std::pair<int, std::pair<int, double> > destNodeID : localRT) {
+            std::string row (std::to_string(corraNode.first) + " " + std::to_string(destNodeID.first) + " " + std::to_string(destNodeID.second.first) + "\n");
+            localTableFile << row;
+        }
+    }
+    localTableFile.close();
+
+    blockTableFile.open(blockTableFileName.c_str(), std::ios::out);
+    for (std::pair<int, CORRANode*> corraNode : corra1NodeList) {
+        std::map<int, int> blockRT = corraNode.second->getBlockRT();
+        for (std::pair<int, int> destBlock : blockRT) {
+            std::string row (std::to_string(corraNode.first) + " " + std::to_string(destBlock.first) + " " + std::to_string(destBlock.second) + "\n");
+            blockTableFile << row;
+        }
+    }
+    blockTableFile.close();
+
     std::chrono::duration<double> elapsed_seconds1 = doneTopo - begin;
     std::chrono::duration<double> elapsed_seconds2 = doneAlgo - doneTopo;
     std::cout << "Create topo on " << elapsed_seconds1.count() << std::endl;

@@ -7,14 +7,13 @@
 #include <list>
 #include <thread>
 #include <mutex>
+#include <iostream>
 #include "../../node/TZNode.h"
 #include "../../graph/smallworld/SmallWorld2DGrid.h"
 #include "../../utils/TZUtils.h"
 
 std::map<int, TZNode*> tzNodeList;
 std::mutex mutex;
-//std::map<int, TZNode*> landmarkSet;
-//std::list<int> potentialLandmarkW;
 
 void createTZNodeList(int startNodeID, int endNodeID) {
     for (int i = startNodeID; i < endNodeID; ++i) {
@@ -46,8 +45,7 @@ void extractCluster(int startNodeID, int endNodeID) {
 
 int main() {
     int xTopoSize = 32;
-    int yTopoSize = 32;
-    int deltaNeighbor = 3;
+    int yTopoSize = 64;
     std::vector<float> alphas = {1.6, 2};
 
     int xBlockSize, yBlockSize;
@@ -61,10 +59,15 @@ int main() {
     } else {
         yBlockSize = (int) sqrt(yTopoSize / 2);
     }
-    int numBlock = (xTopoSize / xBlockSize) * (yTopoSize / yBlockSize);
 
     auto thresholeS = (float)(sqrt(xTopoSize * yTopoSize / log2(xTopoSize * yTopoSize)));
+
+
+    auto begin = std::chrono::system_clock::now();
     auto *smallWorld2DGrid = new SmallWorld2DGrid(yTopoSize, xTopoSize, alphas);
+    auto doneTopo = std::chrono::system_clock::now();
+
+
     std::map<int, TZNode*> landmarkSet;
     std::list<int> potentialLandmarkW;
 
@@ -131,6 +134,12 @@ int main() {
             }
         }
     }
+
+    auto doneAlgo = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds1 = doneTopo - begin;
+    std::chrono::duration<double> elapsed_seconds2 = doneAlgo - doneTopo;
+    std::cout << "Create topo on " << elapsed_seconds1.count() << std::endl;
+    std::cout << "Done Algorithm on " << elapsed_seconds2.count() << std::endl;
 
     return 0;
 }

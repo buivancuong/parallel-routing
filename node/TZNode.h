@@ -16,6 +16,8 @@ private:
     int closetLandmark{};
     std::map<int, std::pair<float, int> > traceMap;
     std::map<int, TZNode*> cluster;
+    std::map<int, int> clusterRT;
+    std::map<int, int> landmarkRT;
 
 public:
 
@@ -38,6 +40,10 @@ public:
     void extractClosetLandmark(std::map<int, TZNode*> landmarks);
     // extract cluster set of this->nodeID
     void extractCluster(const std::map<int, TZNode*>& nodeList);
+    // create routing table on own cluster
+    void createClusterRT();
+    // create routing table to all of landmarks
+    void createLandmarkRT();
 
 };
 

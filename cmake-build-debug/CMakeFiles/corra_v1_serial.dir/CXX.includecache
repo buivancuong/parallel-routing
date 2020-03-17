@@ -15,6 +15,10 @@ iostream
 -
 chrono
 -
+fstream
+-
+string
+-
 ../../graph/smallworld/SmallWorld2DGrid.h
 /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h
 ../../node/CORRANode.h

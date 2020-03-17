@@ -24,6 +24,7 @@ public:
 
     int getNodeID();
     int getLayer();
+    std::vector<std::pair<std::vector<int>, int> > getRoutingTable();
     int* getAddress();
 
     void buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod);

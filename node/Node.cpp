@@ -429,6 +429,14 @@ bool Node::getCentered() {
     return this->isCenterNode;
 }
 
+std::map<int, std::pair<int, double> > Node::getLocalRT() {
+    return this->localRT;
+}
+
+std::map<int, int> Node::getBlockRT() {
+    return this->bridgeRT;
+}
+
 Node::Node() = default;
 
 

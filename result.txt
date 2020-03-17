@@ -52,6 +52,9 @@ Thời gian chạy thuật toán.
         4 core: 5.4 - 7
 - Smallworld 2D Grid (2 random link {1.6, 2}):
     x*y = 32*32
+        TZ:
+            serial: 206.1
+            parallel: 64.3
         delta = 4:
             CORRA1:
                 serial: 3.2 - 8.6
@@ -59,9 +62,6 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 1.3 - 1.9
                 4 core: 0.6 - 0.7
-            TZ:
-                serial:
-                4 core:
         delta = 6:
             CORRA1:
                 serial: 6.3 - 11.3
@@ -69,9 +69,6 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 3.8 - 5.6
                 4 core: 1.5 - 1.9
-            TZ:
-                serial:
-                4 core:
         delta = 8:
             CORRA1:
                 serial: 14.4 - 18.1
@@ -79,10 +76,10 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 11.2 - 14.9
                 4 core: 3.4 - 4.3
-            TZ:
-                serial:
-                4 core:
     x*y = 32*64
+        TZ:
+            serial: 1290.1
+            parallel: 424.4
         delta = 4:
             CORRA1:
                 serial: 23.4 - 24.9
@@ -90,9 +87,6 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 6.3 - 6.6
                 4 core: 2.6 - 4.1
-            TZ:
-                serial:
-                4 core:
         delta = 6:
             CORRA1:
                 serial: 17.9 - 27.2
@@ -100,19 +94,12 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 8.4 - 12.8
                 4 core: 4.8 - 5.6
-            TZ:
-                serial:
-                4 core:
         delta = 8:
             CORRA1:
                 serial: 28 - 51.8
                 4 core: 16.7 - 18.4
             CORRA2:
                 serial: 28.7 - 30.8
-                4 core:
-            TZ:
-                serial:
-                4 core:
         delta = 10:
             CORRA1:
                 serial: 63.5 - 68.5
@@ -120,10 +107,10 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 42.5 - 58.9
                 4 core: 19.9 - 20.2
-            TZ:
-                serial:
-                4 core:
     x*y = 64*64
+        TZ:
+            serial:
+            parallel:
         delta = 6:
             CORRA1:
                 serial: 52.4 - 87.9
@@ -131,9 +118,6 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 31.2 - 39.8
                 4 core: 17.9 - 18.7
-            TZ:
-                serial:
-                4 core:
         delta = 8:
             CORRA1:
                 serial: 70.7 - 88.5
@@ -141,20 +125,17 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 45.3 - 61.8
                 4 core: 22.7 - 25.9
-            TZ:
-                serial:
-                4 core:
-        delta = 10:12
+        delta = 10:
             CORRA1:
                 serial: 134.4 - 166.3
                 4 core: 56.9  61.4
             CORRA2:
                 serial: 131.1 - 133.8
                 4 core: 48 - 52.6
-            TZ:
-                serial:
-                4 core:
     x*y = 64*128
+        TZ:
+            serial:
+            parallel:
         delta = 6:
             CORRA1:
                 serial: 105.4 - 146.9
@@ -162,9 +143,6 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 57.3 - 83.4
                 4 core: 52.6 - 53.3
-            TZ:
-                serial:
-                4 core:
         delta = 8:
             CORRA1:
                 serial: 172.1 - 194.2
@@ -172,9 +150,6 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 108.1 - 131.1
                 4 core: 62.4 - 68
-            TZ:
-                serial:
-                4 core:
         delta = 10:
             CORRA1:
                 serial: 229.4 - 333.1
@@ -182,9 +157,6 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 197.9 - 275.5
                 4 core: 99 - 115.6
-            TZ:
-                serial:
-                4 core:
         delta = 12:
             CORRA1:
                 serial: 386.2 - 552.1
@@ -192,10 +164,10 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 400.9 - 545.1
                 4 core: 191.6 - 200.9
-            TZ:
-                serial:
-                4 core:
     x*y = 128*128
+        TZ:
+            serial:
+            parallel:
         delta = 8:
             CORRA1:
                 serial: 5243.8
@@ -203,9 +175,6 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial: 257.1 - 280.3
                 4 core: 185.7 - 201.2
-            TZ:
-                serial:
-                4 core:
         delta = 10:
             CORRA1:
                 serial:
@@ -213,16 +182,10 @@ Thời gian chạy thuật toán.
             CORRA2:
                 serial:
                 4 core:
-            TZ:
-                serial:
-                4 core:
         delta = 12:
             CORRA1:
                 serial:
                 4 core:
             CORRA2:
-                serial:
-                4 core:
-            TZ:
                 serial:
                 4 core:

@@ -134,4 +134,8 @@ void FatTreeNode::buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod
     }
 }
 
+std::vector<std::pair<std::vector<int>, int> > FatTreeNode::getRoutingTable() {
+    return this->routingTable;
+}
+
 FatTreeNode::~FatTreeNode() = default;

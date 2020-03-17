@@ -68,4 +68,18 @@ std::map<int, TZNode*> TZNode::getCluster() {
     return this->cluster;
 }
 
+void TZNode::createClusterRT() {
+    for (std::pair<int, TZNode*> nearNode : this->cluster) {
+        int nextNodeID = this->traceMap[nearNode.first].second;
+        while (nextNodeID != this->nodeID) {
+            nextNodeID = this->traceMap[nextNodeID].second;
+        }
+        this->clusterRT.insert(std::pair<int, int>(nearNode.first, nextNodeID));
+    }
+}
+
+void TZNode::createLandmarkRT() {
+
+}
+
 TZNode::~TZNode() = default;

@@ -281,4 +281,12 @@ std::vector<std::vector<std::pair<int, CORRANode *> > > CORRANode::getOwnBridges
     return this->ownBridges;
 }
 
+std::map<int, std::pair<int, double> > CORRANode::getLocalRT() {
+    return this->localRT;
+}
+
+std::map<int, int> CORRANode::getBlockRT() {
+    return this->blockRT;
+}
+
 CORRANode::~CORRANode() = default;

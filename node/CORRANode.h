@@ -34,6 +34,8 @@ public:
 
     bool getCentered();
     void setCentered(bool centered);
+    std::map<int, std::pair<int, double> > getLocalRT();
+    std::map<int, int> getBlockRT();
 
     std::vector<std::map<int, CORRANode*> > getLocality();
     std::map<int, std::vector<std::vector<std::pair<int, CORRANode*> > > > getBridgeList();
