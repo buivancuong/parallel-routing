@@ -96,4 +96,12 @@ std::map<int, int> TZNode::getLandmarkRT() {
     return this->landmarkRT;
 }
 
+void TZNode::updateClusterRT(int destNodeID, int nextNodeID) {
+    this->clusterRT.insert(std::pair<int, int>(destNodeID, nextNodeID));
+}
+
+void TZNode::updateLandmarkRT(int destLandmarkNodeID, int nextNodeID) {
+    this->landmarkRT.insert(std::pair<int, int>(destLandmarkNodeID, nextNodeID));
+}
+
 TZNode::~TZNode() = default;

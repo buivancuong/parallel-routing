@@ -437,6 +437,10 @@ std::map<int, int> Node::getBlockRT() {
     return this->bridgeRT;
 }
 
+void Node::updateBlockRT(int destBlockID, int nextNodeID) {
+    this->bridgeRT.insert(std::pair<int, int>(destBlockID, nextNodeID));
+}
+
 Node::Node() = default;
 
 

@@ -10,8 +10,10 @@
 #include "../../graph/smallworld/SmallWorld2DGrid.h"
 #include "../../utils/CORRAUtils.h"
 
-std::map<int, Node*> corra2NodeList;
+
 int main() {
+    std::map<int, Node*> corra2NodeList;
+
     int xTopoSize = 128;
     int yTopoSize = 128;
     int deltaNeighbor = 8;

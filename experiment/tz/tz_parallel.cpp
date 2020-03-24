@@ -8,6 +8,7 @@
 #include <thread>
 #include <mutex>
 #include <iostream>
+#include <fstream>
 #include "../../node/TZNode.h"
 #include "../../graph/smallworld/SmallWorld2DGrid.h"
 #include "../../utils/TZUtils.h"
@@ -40,6 +41,18 @@ void extractClosetLandmark(int startNodeID, int endNodeID, const std::map<int, T
 void extractCluster(int startNodeID, int endNodeID) {
     for (int i = startNodeID; i < endNodeID; ++i) {
         tzNodeList[i]->extractCluster(tzNodeList);
+    }
+}
+
+void createClusterRT(int startNodeID, int endNodeID) {
+    for (int i = startNodeID; i < endNodeID; ++i) {
+        tzNodeList[i]->createClusterRT();
+    }
+}
+
+void createLandmarkRT(int startNodeID, int endNodeID, const std::map<int, TZNode*>& landmarkSet) {
+    for (int i = startNodeID; i < endNodeID; ++i) {
+        tzNodeList[i]->createLandmarkRT(landmarkSet);
     }
 }
 
@@ -135,7 +148,53 @@ int main() {
         }
     }
 
+    threads.clear();
+    for (int i = 0; i < numSubThread; ++i) {
+        std::thread thread(createClusterRT, partition[i], partition[i + 1]);
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
+        thread.join();
+    }
+
+    threads.clear();
+    for (int i = 0; i < numSubThread; ++i) {
+        std::thread thread(createLandmarkRT, partition[i], partition[i + 1], landmarkSet);
+        threads.push_back(std::move(thread));
+    }
+    for (auto &thread : threads) {
+        thread.join();
+    }
+
     auto doneAlgo = std::chrono::system_clock::now();
+
+    std::fstream clusterTableFile;
+    std::fstream landmarkTableFile;
+    std::string localTableFileName ("./../experiment/tz/cluster_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize));
+    std::string blockTableFileName ("./../experiment/tz/landmark_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize));
+
+    clusterTableFile.open(localTableFileName.c_str(), std::ios::out);
+    // routing table format on cluster: <currentNodeID destNodeID nextNodeID>
+    for (std::pair<int, TZNode*> tzNode : tzNodeList) {
+        std::map<int, int> clusterRT = tzNode.second->getClusterRT();
+        for (std::pair<int, int> destNodeID : clusterRT) {
+            std::string row (std::to_string(tzNode.first) + " " + std::to_string(destNodeID.first) + " " + std::to_string(destNodeID.second) + "\n");
+            clusterTableFile << row;
+        }
+    }
+    clusterTableFile.close();
+
+    landmarkTableFile.open(blockTableFileName.c_str(), std::ios::out);
+    // routing table to the landmarks: <currentNodeID destLandmarkNodeID nextNdeID>
+    for (std::pair<int, TZNode*> tzNode : tzNodeList) {
+        std::map<int, int> landmarkRT = tzNode.second->getLandmarkRT();
+        for (std::pair<int, int> destLandmark : landmarkRT) {
+            std::string row (std::to_string(tzNode.first) + " " + std::to_string(destLandmark.first) + " " + std::to_string(destLandmark.second) + "\n");
+            landmarkTableFile << row;
+        }
+    }
+    landmarkTableFile.close();
+
     std::chrono::duration<double> elapsed_seconds1 = doneTopo - begin;
     std::chrono::duration<double> elapsed_seconds2 = doneAlgo - doneTopo;
     std::cout << "Create topo on " << elapsed_seconds1.count() << std::endl;

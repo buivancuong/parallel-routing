@@ -12,8 +12,9 @@
 #include "../../node/CORRANode.h"
 #include "../../utils/CORRAUtils.h"
 
-std::map<int, CORRANode*> corra1NodeList;
 int main() {
+    std::map<int, CORRANode*> corra1NodeList;
+
     int xTopoSize = 32;
     int yTopoSize = 32;
     int deltaNeighbor = 4;

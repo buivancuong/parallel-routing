@@ -34,6 +34,8 @@ public:
     void setClosetLandmark(int landmarkNodeID);
     std::map<int, int> getClusterRT();
     std::map<int, int> getLandmarkRT();
+    void updateClusterRT(int destNodeID, int nextNodeID);
+    void updateLandmarkRT(int destLandmarkNodeID, int nextNodeID);
 
 
     // first, create traceMap to get single source Dijkstra shortest path from this->nodeID

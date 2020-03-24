@@ -47,6 +47,7 @@ public:
     std::vector<std::vector<std::pair<int, Node*> > > getOwnBridges();
     void updateBridgeList(std::vector<std::pair<int, Node*> > bridge, int xBlockSize, int yBlockSize, int xTopoSize);
     std::vector<std::pair<int, Node*> > localShortestPath(int destID);
+    void updateBlockRT(int destBlockID, int nextNodeID);
 
     // first, select neighbors in nearNeighbors and farNeighbors to put into first layer in locality
     void prepareLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSze, int yTopoSize);
@@ -55,7 +56,7 @@ public:
     // next, after get correct locality, each Node update local routing table for the other Nodes in own locality
     void createLocalRouting(int xTopoSize);
     // this function supports update to own local routing table
-    void updateLocalRT(int destNodeID, int nextNodeID, double latency);
+    void updateLocalRT(int destNodeID, int nextNodeID, double latency = 0);
     // next, find all BR1 from this Node (random links), save bridge to @ownBridges
     void findBR1();
     // next, find all BR2, BR3, ..., BRn, from this Node, save bridge to @ownBridges

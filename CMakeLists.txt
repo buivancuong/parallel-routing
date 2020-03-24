@@ -30,7 +30,7 @@ add_executable(corra_v1_parallel experiment/corra_v1/corra_v1_parallel.cpp
             graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
             graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
         node/CORRANode.cpp node/CORRANode.h
-        utils/CORRAUtils.cpp utils/CORRAUtils.h)
+        utils/CORRAUtils.cpp utils/CORRAUtils.h experiment/corra_v1/corra_v1_exp_serial.cpp experiment/corra_v1/corra_v1_exp_parallel.cpp)
 add_executable(corra_v2_serial experiment/corra_v2/corra_v2_serial.cpp
         graph/Graph.cpp graph/Graph.h
             graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
@@ -42,7 +42,7 @@ add_executable(corra_v2_parallel experiment/corra_v2/corra_v2_parallel.cpp
             graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
             graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
         node/Node.cpp node/Node.h
-        utils/CORRAUtils.cpp utils/CORRAUtils.h)
+        utils/CORRAUtils.cpp utils/CORRAUtils.h experiment/corra_v2/corra_v2_exp_serial.cpp experiment/corra_v2/corra_v2_exp_parallel.cpp)
 add_executable(tz_serial experiment/tz/tz_serial.cpp
         graph/Graph.cpp graph/Graph.h
             graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
@@ -54,7 +54,7 @@ add_executable(tz_parallel experiment/tz/tz_parallel.cpp
             graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
             graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
         node/TZNode.cpp node/TZNode.h
-        utils/TZUtils.cpp utils/TZUtils.h)
+        utils/TZUtils.cpp utils/TZUtils.h experiment/tz/tz_exp_serial.cpp)
 add_executable(fat_tree_serial experiment/fat_tree/fat_tree_serial.cpp
         graph/Graph.cpp graph/Graph.h
             graph/fattree/FatTree.cpp graph/fattree/FatTree.h

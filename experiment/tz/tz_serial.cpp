@@ -78,6 +78,14 @@ int main() {
         }
     }
 
+    for (std::pair<int, TZNode*> tzNode : tzNodeList) {
+        tzNode.second->createClusterRT();
+    }
+
+    for (std::pair<int, TZNode*> tzNode : tzNodeList) {
+        tzNode.second->createLandmarkRT(landmarkSet);
+    }
+
     auto doneAlgo = std::chrono::system_clock::now();
 
     std::fstream clusterTableFile;

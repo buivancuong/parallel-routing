@@ -289,4 +289,8 @@ std::map<int, int> CORRANode::getBlockRT() {
     return this->blockRT;
 }
 
+void CORRANode::updateBlockRT(int destBlockID, int nextNodeID) {
+    this->blockRT.insert(std::pair<int, int>(destBlockID, nextNodeID));
+}
+
 CORRANode::~CORRANode() = default;
