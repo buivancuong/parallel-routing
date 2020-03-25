@@ -57,6 +57,7 @@ int main() {
         std::list<int> newLandmarks = TZUtils::sampleTZ(potentialLandmarkW, thresholeS);
         for (int landmark : newLandmarks) {
             landmarkSet.insert(std::pair<int, TZNode*>(landmark, tzNodeList[landmark]));
+            tzNodeList[landmark]->setClosetLandmark(landmark);
         }
 
         for (std::pair<int, TZNode*> tzNode : tzNodeList) {
@@ -90,10 +91,13 @@ int main() {
 
     std::fstream clusterTableFile;
     std::fstream landmarkTableFile;
-    std::string localTableFileName ("./../experiment/tz/cluster_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize));
-    std::string blockTableFileName ("./../experiment/tz/landmark_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize));
+    std::fstream closetLandmarksFile;
+    std::string clusterTableFileName ("./../experiment/tz/cluster_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize));
+    std::string landmarkTableFileName ("./../experiment/tz/landmark_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize));
+    std::string closetLandmarksFileName ("./../experiment/tz/closet_" + std::to_string(xTopoSize) + "x" + std::to_string(yTopoSize));
 
-    clusterTableFile.open(localTableFileName.c_str(), std::ios::out);
+    clusterTableFile.open(clusterTableFileName.c_str(), std::ios::out);
+    // row format: <sourceNodeID destInnerClusterNodeID nextNodeID>
     for (std::pair<int, TZNode*> tzNode : tzNodeList) {
         std::map<int, int> clusterRT = tzNode.second->getClusterRT();
         for (std::pair<int, int> destNodeID : clusterRT) {
@@ -103,7 +107,8 @@ int main() {
     }
     clusterTableFile.close();
 
-    landmarkTableFile.open(blockTableFileName.c_str(), std::ios::out);
+    landmarkTableFile.open(landmarkTableFileName.c_str(), std::ios::out);
+    // row format: <sourceNodeID, destLandmarkNodeID, nextNodeID>
     for (std::pair<int, TZNode*> tzNode : tzNodeList) {
         std::map<int, int> landmarkRT = tzNode.second->getLandmarkRT();
         for (std::pair<int, int> destLandmark : landmarkRT) {
@@ -112,6 +117,14 @@ int main() {
         }
     }
     landmarkTableFile.close();
+
+    closetLandmarksFile.open(closetLandmarksFileName.c_str(), std::ios::out);
+    // row format: <sourceNodeID closetLandmark>
+    for (std::pair<int, TZNode*> tzNode : tzNodeList) {
+        std::string row (std::to_string(tzNode.first) + " " + std::to_string(tzNode.second->getClosetLandmark()));
+        closetLandmarksFile << row;
+    }
+    closetLandmarksFile.close();
 
     std::chrono::duration<double> elapsed_seconds1 = doneTopo - begin;
     std::chrono::duration<double> elapsed_seconds2 = doneAlgo - doneTopo;

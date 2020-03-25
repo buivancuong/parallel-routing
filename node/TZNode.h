@@ -12,7 +12,6 @@
 class TZNode {
 private:
     int nodeID{};
-    bool isLandmark{};
     int closetLandmark{};
     std::map<int, std::pair<float, int> > traceMap;
     std::map<int, TZNode*> cluster;
@@ -29,8 +28,6 @@ public:
     int getClosetLandmark();
     std::map<int, std::pair<float, int> > getTraceMap();
     std::map<int, TZNode*> getCluster();
-    bool isLandmarkNode();
-    void setIsLandMark();
     void setClosetLandmark(int landmarkNodeID);
     std::map<int, int> getClusterRT();
     std::map<int, int> getLandmarkRT();

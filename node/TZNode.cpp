@@ -9,11 +9,6 @@ TZNode::TZNode() = default;
 
 TZNode::TZNode(int nodeID) {
     this->nodeID = nodeID;
-    this->isLandmark = false;
-}
-
-void TZNode::setIsLandMark() {
-    this->isLandmark = true;
 }
 
 void TZNode::setClosetLandmark(int landmarkNodeID) {
@@ -28,17 +23,13 @@ int TZNode::getClosetLandmark() {
     return this->closetLandmark;
 }
 
-bool TZNode::isLandmarkNode() {
-    return this->isLandmark;
-}
-
 void TZNode::createTraceMap(Graph *globalGraph) {
     // std::cout << "create Dijktra " << this->nodeID << std::endl;
     this->traceMap = globalGraph->Dijkstra(this->nodeID);
 }
 
 void TZNode::extractClosetLandmark(std::map<int, TZNode*> landmarks) {
-    if (this->isLandmark) return;
+    if (this->closetLandmark == this->nodeID) return;
 
     this->setClosetLandmark(landmarks.begin()->first);
     for (std::pair<int, TZNode*> landmark : landmarks) {
