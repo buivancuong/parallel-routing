@@ -726,6 +726,33 @@ experiment/fat_tree/fat_tree_serial.cpp.s:
 	$(MAKE) -f CMakeFiles/fat_tree_serial.dir/build.make CMakeFiles/fat_tree_serial.dir/experiment/fat_tree/fat_tree_serial.cpp.s
 .PHONY : experiment/fat_tree/fat_tree_serial.cpp.s
 
+experiment/tz/tz_exp_parallel.o: experiment/tz/tz_exp_parallel.cpp.o
+
+.PHONY : experiment/tz/tz_exp_parallel.o
+
+# target to build an object file
+experiment/tz/tz_exp_parallel.cpp.o:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.o
+.PHONY : experiment/tz/tz_exp_parallel.cpp.o
+
+experiment/tz/tz_exp_parallel.i: experiment/tz/tz_exp_parallel.cpp.i
+
+.PHONY : experiment/tz/tz_exp_parallel.i
+
+# target to preprocess a source file
+experiment/tz/tz_exp_parallel.cpp.i:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.i
+.PHONY : experiment/tz/tz_exp_parallel.cpp.i
+
+experiment/tz/tz_exp_parallel.s: experiment/tz/tz_exp_parallel.cpp.s
+
+.PHONY : experiment/tz/tz_exp_parallel.s
+
+# target to generate assembly for a file
+experiment/tz/tz_exp_parallel.cpp.s:
+	$(MAKE) -f CMakeFiles/tz_parallel.dir/build.make CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.s
+.PHONY : experiment/tz/tz_exp_parallel.cpp.s
+
 experiment/tz/tz_exp_serial.o: experiment/tz/tz_exp_serial.cpp.o
 
 .PHONY : experiment/tz/tz_exp_serial.o
@@ -1455,6 +1482,9 @@ help:
 	@echo "... experiment/fat_tree/fat_tree_serial.o"
 	@echo "... experiment/fat_tree/fat_tree_serial.i"
 	@echo "... experiment/fat_tree/fat_tree_serial.s"
+	@echo "... experiment/tz/tz_exp_parallel.o"
+	@echo "... experiment/tz/tz_exp_parallel.i"
+	@echo "... experiment/tz/tz_exp_parallel.s"
 	@echo "... experiment/tz/tz_exp_serial.o"
 	@echo "... experiment/tz/tz_exp_serial.i"
 	@echo "... experiment/tz/tz_exp_serial.s"

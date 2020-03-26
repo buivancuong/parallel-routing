@@ -13,8 +13,8 @@
 int main() {
     std::map<int, CORRANode*> corra1NodeList;
 
-    std::vector<std::pair<int, std::pair<int, int> > > localTableVector;
-    std::vector<std::pair<int, std::pair<int, int> > > blockTableVector;
+    std::map<int, std::vector<std::pair<int, int> > > localTableMap;        // <sourceN, [destN, nextN] >
+    std::map<int, std::vector<std::pair<int, int> > > blockTableMap;     // <sourceN, [destB, nextN] >
     std::map<std::pair<int, int>, std::vector<int> > allPaths;       // < <source, dest>, [vector of path] >
 
     std::fstream localTableFile;
@@ -32,11 +32,10 @@ int main() {
         int sourceNodeID = std::stoi(lineVector[0]);
         int destNodeID = std::stoi(lineVector[1]);
         int nextNodeID = std::stoi(lineVector[2]);
-        std::pair<int, int> dest_next(destNodeID, nextNodeID);
-        std::pair<int, std::pair<int, int> > source_dest(sourceNodeID, dest_next);
-        localTableVector.push_back(source_dest);
+        localTableMap[sourceNodeID].push_back(std::pair<int, int>(destNodeID, nextNodeID));
         lineVector.clear();
     }
+    localTableFile.close();
 
     blockTableFile.open("./../experiment/corra_v1/block_32x32r4", std::ios::in);
     while (!blockTableFile.eof()) {
@@ -47,23 +46,16 @@ int main() {
             lineVector.push_back(string);
         }
         int sourceNodeID = std::stoi(lineVector[0]);
-        int desBlockID = std::stoi(lineVector[1]);
+        int destBlockID = std::stoi(lineVector[1]);
         int nextNodeID = std::stoi(lineVector[2]);
-        std::pair<int, int> destB_nextN(desBlockID, nextNodeID);
-        std::pair<int, std::pair<int, int> > sourceN_destB(sourceNodeID, destB_nextN);
-        blockTableVector.push_back(sourceN_destB);
+        blockTableMap[sourceNodeID].push_back(std::pair<int, int>(destBlockID, nextNodeID));
         lineVector.clear();
     }
+    blockTableFile.close();
 
-    int topoSize = localTableVector.back().first + 1;       // from ID = 0
-    int xTopoSize, yTopoSize;
-    if ((int)(log2(topoSize)) % 2 == 0) {
-        xTopoSize =  (int) sqrt(topoSize);
-        yTopoSize = (int) sqrt(topoSize);
-    } else {
-        xTopoSize = (int) sqrt(topoSize / 2);
-        yTopoSize = (int) (topoSize / xTopoSize);
-    }
+    int xTopoSize = 32;
+    int yTopoSize = 32;
+    int topoSize = xTopoSize * yTopoSize;
     int xBlockSize, yBlockSize;
     if ((int) (log2(xTopoSize)) % 2 == 0) {
         xBlockSize = (int) sqrt(xTopoSize);
@@ -83,19 +75,23 @@ int main() {
     }
 
     // update local routing table
-    for (std::pair<int, std::pair<int, int> > localRecord : localTableVector) {
-        int sourceNodeID = localRecord.first;
-        int destNodeID = localRecord.second.first;
-        int nextNodeID = localRecord.second.second;
-        corra1NodeList[sourceNodeID]->updateLocalRT(destNodeID, nextNodeID);
+    for (std::pair<int, std::vector<std::pair<int, int> > > sourceRecord : localTableMap) {
+        for (std::pair<int, int> record : sourceRecord.second) {
+            int sourceNodeID = sourceRecord.first;
+            int destNodeID = record.first;
+            int nextNodeID = record.second;
+            corra1NodeList[sourceNodeID]->updateLocalRT(destNodeID, nextNodeID);
+        }
     }
 
     // update block routing table
-    for (std::pair<int, std::pair<int, int> > blockRecord : blockTableVector) {
-        int sourceNodeID = blockRecord.first;
-        int destBlockID = blockRecord.second.first;
-        int nextNodeID = blockRecord.second.second;
-        corra1NodeList[sourceNodeID]->updateBlockRT(destBlockID, nextNodeID);
+    for (std::pair<int, std::vector<std::pair<int, int> > > sourceRecord : blockTableMap) {
+        for (std::pair<int, int> record : sourceRecord.second) {
+            int sourceNodeID = sourceRecord.first;
+            int destBlockID = record.first;
+            int nextNodeID = record.second;
+            corra1NodeList[sourceNodeID]->updateBlockRT(destBlockID, nextNodeID);
+        }
     }
 
     // routing with all pairs

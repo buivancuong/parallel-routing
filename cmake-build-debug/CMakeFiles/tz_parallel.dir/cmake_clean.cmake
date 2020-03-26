@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.o"
   "CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.o"
   "CMakeFiles/tz_parallel.dir/experiment/tz/tz_parallel.cpp.o"
   "CMakeFiles/tz_parallel.dir/graph/Graph.cpp.o"

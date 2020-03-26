@@ -5,8 +5,8 @@
       <config projectName="parallel_routing" targetName="corra_v1_serial" />
       <config projectName="parallel_routing" targetName="main" />
       <config projectName="parallel_routing" targetName="corra_v2_parallel" />
-      <config projectName="parallel_routing" targetName="tz_serial" />
       <config projectName="parallel_routing" targetName="corra_v1_parallel" />
+      <config projectName="parallel_routing" targetName="tz_serial" />
       <config projectName="parallel_routing" targetName="tz_parallel" />
       <config projectName="parallel_routing" targetName="fat_tree_parallel" />
       <config projectName="parallel_routing" targetName="corra_v2_serial" />
@@ -21,12 +21,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/experiment/tz/tz_exp_parallel.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_serial.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_serial.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_exp_parallel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_exp_parallel.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_exp_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_exp_serial.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_exp_parallel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_exp_parallel.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_exp_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_exp_serial.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment/tz/tz_exp_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/tz/tz_exp_serial.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment/tz/tz_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/tz/tz_serial.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/TZNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/node/TZNode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/TZNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/node/TZNode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/TZUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/utils/TZUtils.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -379,7 +391,8 @@
       <workItem from="1585032696355" duration="1694000" />
       <workItem from="1585034400274" duration="8456000" />
       <workItem from="1585095889801" duration="2959000" />
-      <workItem from="1585101226403" duration="12604000" />
+      <workItem from="1585101226403" duration="17653000" />
+      <workItem from="1585198693830" duration="10122000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>
@@ -493,10 +506,10 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="575" y="147" key="SettingsEditor/32.21.1888.1059@32.21.1888.1059" timestamp="1582710665445" />
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1585101233687">
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1585198695728">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1585101233687" />
+    <state x="665" y="381" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1585198695728" />
     <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583137894754">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -517,10 +530,10 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="725" y="186" key="refactoring.ChangeSignatureDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1578291825410" />
-    <state x="639" y="246" width="672" height="677" key="run.anything.popup" timestamp="1584947906490">
+    <state x="639" y="246" width="672" height="677" key="run.anything.popup" timestamp="1585130514909">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="639" y="246" width="672" height="677" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1584947906490" />
+    <state x="639" y="246" width="672" height="677" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1585130514909" />
     <state x="639" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1583500546502">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>

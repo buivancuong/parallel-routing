@@ -5,24 +5,23 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-#include <cmath>
 #include <iostream>
 #include "../../node/TZNode.h"
 
 int main() {
     std::map<int, TZNode*> tzNodeList;
 
-    std::vector<std::pair<int, std::pair<int, int> > > clusterTableVector;
-    std::vector<std::pair<int, std::pair<int, int> > > landmarkTableVector;
-    std::vector<std::pair<int, int> > closetLandmarkVector;
+    std::map<int, std::vector<std::pair<int, int> > > clusterTableMap;      // <sourceN, [destN, nextN]>
+    std::map<int, std::vector<std::pair<int, int> > > landmarkTableMap;
+    std::map<int, int> closetLandmarkMap;       // <sourceN, closetLandmarkN>
     std::map<std::pair<int, int>, std::vector<int> > allPaths;
 
     std::fstream clusterTableFile;
     std::fstream landmarkTableFile;
-    std::fstream closetLandmakrsFile;
+    std::fstream closetLandmarksFile;
     std::string lineString;
 
-    clusterTableFile.open("./../experiment/tz/local_32x32", std::ios::in);
+    clusterTableFile.open("./../experiment/tz/cluster_32x32", std::ios::in);
     while (!clusterTableFile.eof()) {
         std::getline(clusterTableFile, lineString);
         std::vector<std::string> lineVector;
@@ -33,14 +32,12 @@ int main() {
         int sourceNodeID = std::stoi(lineVector[0]);
         int destNodeID = std::stoi(lineVector[1]);
         int nextNodeID = std::stoi(lineVector[2]);
-        std::pair<int, int> dest_next(destNodeID, nextNodeID);
-        std::pair<int, std::pair<int, int> > source_dest(sourceNodeID, dest_next);
-        clusterTableVector.push_back(source_dest);
+        clusterTableMap[sourceNodeID].push_back(std::pair<int, int>(destNodeID, nextNodeID));
         lineVector.clear();
     }
     clusterTableFile.close();
 
-    landmarkTableFile.open("./../experiment/tz/block_32x32", std::ios::in);
+    landmarkTableFile.open("./../experiment/tz/landmark_32x32", std::ios::in);
     while (!landmarkTableFile.eof()) {
         std::getline(landmarkTableFile, lineString);
         std::vector<std::string> lineVector;
@@ -49,18 +46,16 @@ int main() {
             lineVector.push_back(string);
         }
         int sourceNodeID = std::stoi(lineVector[0]);
-        int desBlockID = std::stoi(lineVector[1]);
+        int destLandmarkID = std::stoi(lineVector[1]);
         int nextNodeID = std::stoi(lineVector[2]);
-        std::pair<int, int> destB_nextN(desBlockID, nextNodeID);
-        std::pair<int, std::pair<int, int> > sourceN_destB(sourceNodeID, destB_nextN);
-        landmarkTableVector.push_back(sourceN_destB);
+        landmarkTableMap[sourceNodeID].push_back(std::pair<int, int> (destLandmarkID, nextNodeID));
         lineVector.clear();
     }
     landmarkTableFile.close();
 
-    closetLandmakrsFile.open("./../experiment/tz/closet_32x32", std::ios::in);
-    while (!closetLandmakrsFile.eof()) {
-        std::getline(closetLandmakrsFile, lineString);
+    closetLandmarksFile.open("./../experiment/tz/closet_32x32", std::ios::in);
+    while (!closetLandmarksFile.eof()) {
+        std::getline(closetLandmarksFile, lineString);
         std::vector<std::string> lineVector;
         std::istringstream istringstream(lineString);
         for (std::string string; istringstream >> string;) {
@@ -68,45 +63,43 @@ int main() {
         }
         int sourceNodeID = std::stoi(lineVector[0]);
         int closetLandmark = std::stoi(lineVector[1]);
-        closetLandmarkVector.emplace_back(sourceNodeID, closetLandmark);
+        closetLandmarkMap.insert(std::pair<int, int>(sourceNodeID, closetLandmark));
         lineVector.clear();
     }
-    closetLandmakrsFile.close();
+    closetLandmarksFile.close();
 
-    int topoSize = clusterTableVector.back().first + 1;       // from ID = 0
-    int xTopoSize, yTopoSize;
-    if ((int)(log2(topoSize)) % 2 == 0) {
-        xTopoSize =  (int) sqrt(topoSize);
-        yTopoSize = (int) sqrt(topoSize);
-    } else {
-        xTopoSize = (int) sqrt(topoSize / 2);
-        yTopoSize = (int) (topoSize / xTopoSize);
-    }
+    int xTopoSize = 32;
+    int yTopoSize = 32;
+    int topoSize = xTopoSize * yTopoSize;
 
     // create TZ node list
-    for (std::pair<int, int> tz_NodeID_closetLandmark : closetLandmarkVector) {
+    for (std::pair<int, int> tz_NodeID_closetLandmark : closetLandmarkMap) {
         auto *tzNode = new TZNode(tz_NodeID_closetLandmark.first);
         tzNode->setClosetLandmark(tz_NodeID_closetLandmark.second);
         tzNodeList.insert(std::pair<int, TZNode*>(tz_NodeID_closetLandmark.first, tzNode));
     }
 
-    // update local routing table
-    for (std::pair<int, std::pair<int, int> > clusterRecord : clusterTableVector) {
-        int sourceNodeID = clusterRecord.first;
-        int destNodeID = clusterRecord.second.first;
-        int nextNodeID = clusterRecord.second.second;
-        tzNodeList[sourceNodeID]->updateClusterRT(destNodeID, nextNodeID);
+    // update cluster routing table
+    for (std::pair<int, std::vector<std::pair<int, int> > > sourceCluster : clusterTableMap) {
+        for (std::pair<int, int> innerClusterNode : sourceCluster.second) {
+            int sourceNodeID = sourceCluster.first;
+            int destNodeID = innerClusterNode.first;
+            int nextNodeID = innerClusterNode.second;
+            tzNodeList[sourceNodeID]->updateClusterRT(destNodeID, nextNodeID);
+        }
     }
 
-    // update block routing table
-    for (std::pair<int, std::pair<int, int> > landmarkRecord : landmarkTableVector) {
-        int sourceNodeID = landmarkRecord.first;
-        int destBlockID = landmarkRecord.second.first;
-        int nextNodeID = landmarkRecord.second.second;
-        tzNodeList[sourceNodeID]->updateLandmarkRT(destBlockID, nextNodeID);
+    // update landmark routing table
+    for (std::pair<int, std::vector<std::pair<int, int> > > sourceNode : landmarkTableMap) {
+        for (std::pair<int, int> landmark : sourceNode.second) {
+            int sourceNodeID = sourceNode.first;
+            int destLandmarkID = landmark.first;
+            int nextNodeID = landmark.second;
+            tzNodeList[sourceNodeID]->updateLandmarkRT(destLandmarkID, nextNodeID);
+        }
     }
 
-    // routing for all pairs; this is really more f#*kin' complex than its algorithm
+    // routing for all pairs; this implementation is really more f#*kin' complex than its algorithm
     /* 0: not a landmark; 1: is a landmark => (source, dest) = {00, 01, 10, 11}
      *
      * 00:  dest in Cluster of source: (dest in C(source)): routing inner cluster: source --> dest

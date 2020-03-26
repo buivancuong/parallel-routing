@@ -15,8 +15,8 @@
 std::map<int, CORRANode*> corra1NodeList;
 std::mutex mutex;
 
-std::vector<std::pair<int, std::pair<int, int> > > loadLocalRTFile(const std::string& localPathString) {
-    std::vector<std::pair<int, std::pair<int, int> > > localTableVector;
+std::map<int, std::vector<std::pair<int, int> > > loadLocalRTFile(const std::string& localPathString) {
+    std::map<int, std::vector<std::pair<int, int> > > localTableMap;
     std::fstream localRTFile;
     std::string lineString;
     localRTFile.open(localPathString, std::ios::in);
@@ -30,16 +30,15 @@ std::vector<std::pair<int, std::pair<int, int> > > loadLocalRTFile(const std::st
         int sourceNodeID = std::stoi(lineVector[0]);
         int destNodeID = std::stoi(lineVector[1]);
         int nextNodeID = std::stoi(lineVector[2]);
-        std::pair<int, int> dest_next(destNodeID, nextNodeID);
-        std::pair<int, std::pair<int, int> > source_dest(sourceNodeID, dest_next);
-        localTableVector.push_back(source_dest);
+        localTableMap[sourceNodeID].push_back(std::pair<int, int>(destNodeID, nextNodeID));
         lineVector.clear();
     }
-    return localTableVector;
+    localRTFile.close();
+    return localTableMap;
 }
 
-std::vector<std::pair<int, std::pair<int, int> > > loadBlockRTFile(const std::string& blockPathString) {
-    std::vector<std::pair<int, std::pair<int, int> > > blockTableVector;
+std::map<int, std::vector<std::pair<int, int> > > loadBlockRTFile(const std::string& blockPathString) {
+    std::map<int, std::vector<std::pair<int, int> > > blockTableMap;
     std::fstream blockRTFile;
     std::string lineString;
     blockRTFile.open(blockPathString, std::ios::in);
@@ -53,12 +52,11 @@ std::vector<std::pair<int, std::pair<int, int> > > loadBlockRTFile(const std::st
         int sourceNodeID = std::stoi(liveVector[0]);
         int destBlockID = std::stoi(liveVector[1]);
         int nextNodeID = std::stoi(liveVector[2]);
-        std::pair<int, int> destB_nextN(destBlockID, nextNodeID);
-        std::pair<int, std::pair<int, int> > sourceN_destB(sourceNodeID, destB_nextN);
-        blockTableVector.push_back(sourceN_destB);
+        blockTableMap[sourceNodeID].push_back(std::pair<int, int>(destBlockID, nextNodeID));
         liveVector.clear();
     }
-    return blockTableVector;
+    blockRTFile.close();
+    return blockTableMap;
 }
 
 void createNodeList(int startNodeID, int endNodeID) {
@@ -70,25 +68,31 @@ void createNodeList(int startNodeID, int endNodeID) {
     }
 }
 
-void updateLocalRT(int startNodeID, int endNodeID, std::vector<std::pair<int, std::pair<int, int> > > localTableVector) {
+void updateLocalRT(int startNodeID, int endNodeID, std::map<int, std::vector<std::pair<int, int> > > localTableMap) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        int sourceNodeID = i;
-        int destNodeID = localTableVector[i].second.first;
-        int nextNodeID = localTableVector[i].second.second;
-        mutex.lock();
-        corra1NodeList[sourceNodeID]->updateLocalRT(destNodeID, nextNodeID);
-        mutex.unlock();
+        std::vector<std::pair<int, int> > sourceRecord = localTableMap[i];
+        for (std::pair<int, int> record : sourceRecord) {
+            int sourceNodeID = i;
+            int destNodeID = record.first;
+            int nextNodeID = record.second;
+            mutex.lock();
+            corra1NodeList[sourceNodeID]->updateLocalRT(destNodeID, nextNodeID);
+            mutex.unlock();
+        }
     }
 }
 
-void updateBlockRT(int startNodeID, int endNodeID, std::vector<std::pair<int, std::pair<int, int> > > blockTableVector) {
+void updateBlockRT(int startNodeID, int endNodeID, std::map<int, std::vector<std::pair<int, int> > > blockTableMap) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        int sourceNodeID = i;
-        int destBlockID = blockTableVector[i].second.first;
-        int nextNodeID = blockTableVector[i].second.second;
-        mutex.lock();
-        corra1NodeList[sourceNodeID]->updateBlockRT(destBlockID, nextNodeID);
-        mutex.unlock();
+        std::vector<std::pair<int, int> > sourceRecord = blockTableMap[i];
+        for (std::pair<int, int> record : sourceRecord) {
+            int sourceNodeID = i;
+            int destBlockID = record.first;
+            int nextNodeID = record.second;
+            mutex.lock();
+            corra1NodeList[sourceNodeID]->updateBlockRT(destBlockID, nextNodeID);
+            mutex.unlock();
+        }
     }
 }
 
@@ -148,21 +152,15 @@ std::pair<int, double> countingParams(const std::map<std::pair<int, int>, std::v
 
 int main() {
 
-    std::future<std::vector<std::pair<int, std::pair<int, int> > > > loadLocalTableFile = std::async(std::launch::async, loadLocalRTFile, "./../experiment/corra_v1/local_32x32r4");
-    std::vector<std::pair<int, std::pair<int, int> > > localTableVector = loadLocalTableFile.get();
+    std::future<std::map<int, std::vector<std::pair<int, int> > > > loadLocalTableFile = std::async(std::launch::async, loadLocalRTFile, "./../experiment/corra_v1/local_32x32r4");
+    std::map<int, std::vector<std::pair<int, int> > > localTableMap = loadLocalTableFile.get();
 
-    std::future<std::vector<std::pair<int, std::pair<int, int> > > > loadBlockTableFile = std::async(std::launch::async, loadBlockRTFile, "./../experiment/corra_v1/block_32x32r4");
-    std::vector<std::pair<int, std::pair<int, int> > > blockTableVector = loadBlockTableFile.get();
+    std::future<std::map<int, std::vector<std::pair<int, int> > > > loadBlockTableFile = std::async(std::launch::async, loadBlockRTFile, "./../experiment/corra_v1/block_32x32r4");
+    std::map<int, std::vector<std::pair<int, int> > > blockTableMap = loadBlockTableFile.get();
 
-    int topoSize = localTableVector.back().first + 1;       // from ID = 0
-    int xTopoSize, yTopoSize;
-    if ((int)(log2(topoSize)) % 2 == 0) {
-        xTopoSize =  (int) sqrt(topoSize);
-        yTopoSize = (int) sqrt(topoSize);
-    } else {
-        xTopoSize = (int) sqrt(topoSize / 2);
-        yTopoSize = (int) (topoSize / xTopoSize);
-    }
+    int xTopoSize = 32;
+    int yTopoSize = 32;
+    int topoSize = xTopoSize * yTopoSize;
     int xBlockSize, yBlockSize;
     if ((int) (log2(xTopoSize)) % 2 == 0) {
         xBlockSize = (int) sqrt(xTopoSize);
@@ -198,7 +196,7 @@ int main() {
     threads.clear();
     threads.reserve(numSubThread);
     for (int i = 0; i < numSubThread; ++i) {
-        threads.push_back(std::move(std::thread(updateLocalRT, partitionNode[i], partitionNode[i + 1], localTableVector)));
+        threads.push_back(std::move(std::thread(updateLocalRT, partitionNode[i], partitionNode[i + 1], localTableMap)));
     }
     for (std::thread &thread : threads) {
         thread.join();
@@ -207,7 +205,7 @@ int main() {
     threads.clear();
     threads.reserve(numSubThread);
     for (int i = 0; i < numSubThread; ++i) {
-        threads.push_back(std::move(std::thread(updateBlockRT, partitionNode[i], partitionNode[i + 1], blockTableVector)));
+        threads.push_back(std::move(std::thread(updateBlockRT, partitionNode[i], partitionNode[i + 1], blockTableMap)));
     }
     for (std::thread &thread : threads) {
         thread.join();

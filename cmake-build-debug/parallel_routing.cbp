@@ -576,6 +576,9 @@
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/fat_tree/fat_tree_serial.cpp">
 			<Option target="fat_tree_serial"/>
 		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_exp_parallel.cpp">
+			<Option target="tz_parallel"/>
+		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_exp_serial.cpp">
 			<Option target="tz_parallel"/>
 		</Unit>
