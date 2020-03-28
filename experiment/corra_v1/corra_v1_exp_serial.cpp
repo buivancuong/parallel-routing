@@ -13,8 +13,8 @@
 int main() {
     std::map<int, CORRANode*> corra1NodeList;
 
-    std::map<int, std::vector<std::pair<int, int> > > localTableMap;        // <sourceN, [destN, nextN] >
-    std::map<int, std::vector<std::pair<int, int> > > blockTableMap;     // <sourceN, [destB, nextN] >
+    std::map<int, std::vector<std::pair<int, int> > > localTableMap;        // <sourceN, [<destN, nextN>] >
+    std::map<int, std::vector<std::pair<int, int> > > blockTableMap;     // <sourceN, [<destB, nextN>] >
     std::map<std::pair<int, int>, std::vector<int> > allPaths;       // < <source, dest>, [vector of path] >
 
     std::fstream localTableFile;

@@ -570,6 +570,12 @@
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/corra_v2/corra_v2_serial.cpp">
 			<Option target="corra_v2_serial"/>
 		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/fat_tree/fat_tree_exp_parallel.cpp">
+			<Option target="fat_tree_parallel"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/fat_tree/fat_tree_exp_serial.cpp">
+			<Option target="fat_tree_parallel"/>
+		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/fat_tree/fat_tree_parallel.cpp">
 			<Option target="fat_tree_parallel"/>
 		</Unit>
@@ -766,6 +772,9 @@
 			<Option target="tz_parallel"/>
 			<Option target="parallel_routing"/>
 			<Option target="tz_serial"/>
+		</Unit>
+		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/string_utils.hpp">
+			<Option target="parallel_routing"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.o"
+  "CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.o"
   "CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_parallel.cpp.o"
   "CMakeFiles/fat_tree_parallel.dir/graph/Graph.cpp.o"
   "CMakeFiles/fat_tree_parallel.dir/graph/fattree/FatTree.cpp.o"

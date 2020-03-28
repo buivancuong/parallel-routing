@@ -36,6 +36,10 @@ int main() {
     std::fstream routingTableFile;
     std::string localTableFileName ("./../experiment/fat_tree/k_" + std::to_string(paramK));
     routingTableFile.open(localTableFileName.c_str(), std::ios::out);
+    /* Fat Tree routing table format:
+     * <sourceNodeID, addressMask, nextNodeID>
+     * nodeID & ipAddress is correspond to each other: nodeID ~ ipAddress
+     */
     for (std::pair<int, FatTreeNode*> fatTreeNode : fatTreeNodeList) {
         std::vector<std::pair<std::vector<int>, int> > routingTable = fatTreeNode.second->getRoutingTable();
         for (std::pair<std::vector<int>, int> destNodeID : routingTable) {

@@ -672,6 +672,60 @@ experiment/corra_v2/corra_v2_serial.cpp.s:
 	$(MAKE) -f CMakeFiles/corra_v2_serial.dir/build.make CMakeFiles/corra_v2_serial.dir/experiment/corra_v2/corra_v2_serial.cpp.s
 .PHONY : experiment/corra_v2/corra_v2_serial.cpp.s
 
+experiment/fat_tree/fat_tree_exp_parallel.o: experiment/fat_tree/fat_tree_exp_parallel.cpp.o
+
+.PHONY : experiment/fat_tree/fat_tree_exp_parallel.o
+
+# target to build an object file
+experiment/fat_tree/fat_tree_exp_parallel.cpp.o:
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.o
+.PHONY : experiment/fat_tree/fat_tree_exp_parallel.cpp.o
+
+experiment/fat_tree/fat_tree_exp_parallel.i: experiment/fat_tree/fat_tree_exp_parallel.cpp.i
+
+.PHONY : experiment/fat_tree/fat_tree_exp_parallel.i
+
+# target to preprocess a source file
+experiment/fat_tree/fat_tree_exp_parallel.cpp.i:
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.i
+.PHONY : experiment/fat_tree/fat_tree_exp_parallel.cpp.i
+
+experiment/fat_tree/fat_tree_exp_parallel.s: experiment/fat_tree/fat_tree_exp_parallel.cpp.s
+
+.PHONY : experiment/fat_tree/fat_tree_exp_parallel.s
+
+# target to generate assembly for a file
+experiment/fat_tree/fat_tree_exp_parallel.cpp.s:
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.s
+.PHONY : experiment/fat_tree/fat_tree_exp_parallel.cpp.s
+
+experiment/fat_tree/fat_tree_exp_serial.o: experiment/fat_tree/fat_tree_exp_serial.cpp.o
+
+.PHONY : experiment/fat_tree/fat_tree_exp_serial.o
+
+# target to build an object file
+experiment/fat_tree/fat_tree_exp_serial.cpp.o:
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.o
+.PHONY : experiment/fat_tree/fat_tree_exp_serial.cpp.o
+
+experiment/fat_tree/fat_tree_exp_serial.i: experiment/fat_tree/fat_tree_exp_serial.cpp.i
+
+.PHONY : experiment/fat_tree/fat_tree_exp_serial.i
+
+# target to preprocess a source file
+experiment/fat_tree/fat_tree_exp_serial.cpp.i:
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.i
+.PHONY : experiment/fat_tree/fat_tree_exp_serial.cpp.i
+
+experiment/fat_tree/fat_tree_exp_serial.s: experiment/fat_tree/fat_tree_exp_serial.cpp.s
+
+.PHONY : experiment/fat_tree/fat_tree_exp_serial.s
+
+# target to generate assembly for a file
+experiment/fat_tree/fat_tree_exp_serial.cpp.s:
+	$(MAKE) -f CMakeFiles/fat_tree_parallel.dir/build.make CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.s
+.PHONY : experiment/fat_tree/fat_tree_exp_serial.cpp.s
+
 experiment/fat_tree/fat_tree_parallel.o: experiment/fat_tree/fat_tree_parallel.cpp.o
 
 .PHONY : experiment/fat_tree/fat_tree_parallel.o
@@ -1476,6 +1530,12 @@ help:
 	@echo "... experiment/corra_v2/corra_v2_serial.o"
 	@echo "... experiment/corra_v2/corra_v2_serial.i"
 	@echo "... experiment/corra_v2/corra_v2_serial.s"
+	@echo "... experiment/fat_tree/fat_tree_exp_parallel.o"
+	@echo "... experiment/fat_tree/fat_tree_exp_parallel.i"
+	@echo "... experiment/fat_tree/fat_tree_exp_parallel.s"
+	@echo "... experiment/fat_tree/fat_tree_exp_serial.o"
+	@echo "... experiment/fat_tree/fat_tree_exp_serial.i"
+	@echo "... experiment/fat_tree/fat_tree_exp_serial.s"
 	@echo "... experiment/fat_tree/fat_tree_parallel.o"
 	@echo "... experiment/fat_tree/fat_tree_parallel.i"
 	@echo "... experiment/fat_tree/fat_tree_parallel.s"

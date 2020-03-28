@@ -18,7 +18,7 @@ add_executable(parallel_routing main.cpp
         utils/FatTreeUtils.cpp utils/FatTreeUtils.h
         routing/FatTreeRoutingAlgorithm.cpp routing/FatTreeRoutingAlgorithm.h
         node/CORRANode.cpp node/CORRANode.h node/TZNode.cpp node/TZNode.h node/FatTreeNode.cpp node/FatTreeNode.h
-        exp/serial/CORRAv1SExp.cpp exp/serial/CORRAv1SExp.h exp/parallel/CORRAv1PExp.cpp exp/parallel/CORRAv1PExp.h exp/serial/CORRAv2SExp.cpp exp/serial/CORRAv2SExp.h exp/parallel/CORRAv2PExp.cpp exp/parallel/CORRAv2PExp.h exp/serial/TZSExp.cpp exp/serial/TZSExp.h utils/TZUtils.cpp utils/TZUtils.h exp/parallel/TZPExp.cpp exp/parallel/TZPExp.h exp/serial/FatTreeSExp.cpp exp/serial/FatTreeSExp.h exp/parallel/FatTreePExp.cpp exp/parallel/FatTreePExp.h)
+        exp/serial/CORRAv1SExp.cpp exp/serial/CORRAv1SExp.h exp/parallel/CORRAv1PExp.cpp exp/parallel/CORRAv1PExp.h exp/serial/CORRAv2SExp.cpp exp/serial/CORRAv2SExp.h exp/parallel/CORRAv2PExp.cpp exp/parallel/CORRAv2PExp.h exp/serial/TZSExp.cpp exp/serial/TZSExp.h utils/TZUtils.cpp utils/TZUtils.h exp/parallel/TZPExp.cpp exp/parallel/TZPExp.h exp/serial/FatTreeSExp.cpp exp/serial/FatTreeSExp.h exp/parallel/FatTreePExp.cpp exp/parallel/FatTreePExp.h utils/string_utils.hpp)
 add_executable(corra_v1_serial experiment/corra_v1/corra_v1_serial.cpp
         graph/Graph.cpp graph/Graph.h
             graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
@@ -64,6 +64,6 @@ add_executable(fat_tree_parallel experiment/fat_tree/fat_tree_parallel.cpp
         graph/Graph.cpp graph/Graph.h
             graph/fattree/FatTree.cpp graph/fattree/FatTree.h
         node/FatTreeNode.cpp node/FatTreeNode.h
-        utils/FatTreeUtils.cpp utils/FatTreeUtils.h)
+        utils/FatTreeUtils.cpp utils/FatTreeUtils.h experiment/fat_tree/fat_tree_exp_serial.cpp experiment/fat_tree/fat_tree_exp_parallel.cpp)
 
 add_executable(main main.cpp)
