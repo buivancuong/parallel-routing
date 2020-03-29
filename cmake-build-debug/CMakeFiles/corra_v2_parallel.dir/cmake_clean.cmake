@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/corra_v2_parallel.dir/experiment/corra_v2/corra_v2_exp_parallel.cpp.o"
-  "CMakeFiles/corra_v2_parallel.dir/experiment/corra_v2/corra_v2_exp_serial.cpp.o"
   "CMakeFiles/corra_v2_parallel.dir/experiment/corra_v2/corra_v2_parallel.cpp.o"
   "CMakeFiles/corra_v2_parallel.dir/graph/Graph.cpp.o"
   "CMakeFiles/corra_v2_parallel.dir/graph/smallworld/GridGraph.cpp.o"

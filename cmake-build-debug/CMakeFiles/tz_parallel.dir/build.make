@@ -135,32 +135,6 @@ CMakeFiles/tz_parallel.dir/utils/TZUtils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tz_parallel.dir/utils/TZUtils.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/TZUtils.cpp -o CMakeFiles/tz_parallel.dir/utils/TZUtils.cpp.s
 
-CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.o: CMakeFiles/tz_parallel.dir/flags.make
-CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.o: ../experiment/tz/tz_exp_serial.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_exp_serial.cpp
-
-CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_exp_serial.cpp > CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.i
-
-CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_exp_serial.cpp -o CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.s
-
-CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.o: CMakeFiles/tz_parallel.dir/flags.make
-CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.o: ../experiment/tz/tz_exp_parallel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_exp_parallel.cpp
-
-CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_exp_parallel.cpp > CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.i
-
-CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/tz/tz_exp_parallel.cpp -o CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.s
-
 # Object files for target tz_parallel
 tz_parallel_OBJECTS = \
 "CMakeFiles/tz_parallel.dir/experiment/tz/tz_parallel.cpp.o" \
@@ -168,9 +142,7 @@ tz_parallel_OBJECTS = \
 "CMakeFiles/tz_parallel.dir/graph/smallworld/GridGraph.cpp.o" \
 "CMakeFiles/tz_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.o" \
 "CMakeFiles/tz_parallel.dir/node/TZNode.cpp.o" \
-"CMakeFiles/tz_parallel.dir/utils/TZUtils.cpp.o" \
-"CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.o" \
-"CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.o"
+"CMakeFiles/tz_parallel.dir/utils/TZUtils.cpp.o"
 
 # External object files for target tz_parallel
 tz_parallel_EXTERNAL_OBJECTS =
@@ -181,11 +153,9 @@ tz_parallel: CMakeFiles/tz_parallel.dir/graph/smallworld/GridGraph.cpp.o
 tz_parallel: CMakeFiles/tz_parallel.dir/graph/smallworld/SmallWorld2DGrid.cpp.o
 tz_parallel: CMakeFiles/tz_parallel.dir/node/TZNode.cpp.o
 tz_parallel: CMakeFiles/tz_parallel.dir/utils/TZUtils.cpp.o
-tz_parallel: CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_serial.cpp.o
-tz_parallel: CMakeFiles/tz_parallel.dir/experiment/tz/tz_exp_parallel.cpp.o
 tz_parallel: CMakeFiles/tz_parallel.dir/build.make
 tz_parallel: CMakeFiles/tz_parallel.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable tz_parallel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable tz_parallel"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tz_parallel.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

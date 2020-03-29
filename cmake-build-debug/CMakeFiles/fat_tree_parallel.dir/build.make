@@ -122,41 +122,13 @@ CMakeFiles/fat_tree_parallel.dir/utils/FatTreeUtils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fat_tree_parallel.dir/utils/FatTreeUtils.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/FatTreeUtils.cpp -o CMakeFiles/fat_tree_parallel.dir/utils/FatTreeUtils.cpp.s
 
-CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.o: CMakeFiles/fat_tree_parallel.dir/flags.make
-CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.o: ../experiment/fat_tree/fat_tree_exp_serial.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/fat_tree/fat_tree_exp_serial.cpp
-
-CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/fat_tree/fat_tree_exp_serial.cpp > CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.i
-
-CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/fat_tree/fat_tree_exp_serial.cpp -o CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.s
-
-CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.o: CMakeFiles/fat_tree_parallel.dir/flags.make
-CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.o: ../experiment/fat_tree/fat_tree_exp_parallel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.o -c /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/fat_tree/fat_tree_exp_parallel.cpp
-
-CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/fat_tree/fat_tree_exp_parallel.cpp > CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.i
-
-CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/experiment/fat_tree/fat_tree_exp_parallel.cpp -o CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.s
-
 # Object files for target fat_tree_parallel
 fat_tree_parallel_OBJECTS = \
 "CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_parallel.cpp.o" \
 "CMakeFiles/fat_tree_parallel.dir/graph/Graph.cpp.o" \
 "CMakeFiles/fat_tree_parallel.dir/graph/fattree/FatTree.cpp.o" \
 "CMakeFiles/fat_tree_parallel.dir/node/FatTreeNode.cpp.o" \
-"CMakeFiles/fat_tree_parallel.dir/utils/FatTreeUtils.cpp.o" \
-"CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.o" \
-"CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.o"
+"CMakeFiles/fat_tree_parallel.dir/utils/FatTreeUtils.cpp.o"
 
 # External object files for target fat_tree_parallel
 fat_tree_parallel_EXTERNAL_OBJECTS =
@@ -166,11 +138,9 @@ fat_tree_parallel: CMakeFiles/fat_tree_parallel.dir/graph/Graph.cpp.o
 fat_tree_parallel: CMakeFiles/fat_tree_parallel.dir/graph/fattree/FatTree.cpp.o
 fat_tree_parallel: CMakeFiles/fat_tree_parallel.dir/node/FatTreeNode.cpp.o
 fat_tree_parallel: CMakeFiles/fat_tree_parallel.dir/utils/FatTreeUtils.cpp.o
-fat_tree_parallel: CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.o
-fat_tree_parallel: CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_exp_parallel.cpp.o
 fat_tree_parallel: CMakeFiles/fat_tree_parallel.dir/build.make
 fat_tree_parallel: CMakeFiles/fat_tree_parallel.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable fat_tree_parallel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable fat_tree_parallel"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fat_tree_parallel.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
