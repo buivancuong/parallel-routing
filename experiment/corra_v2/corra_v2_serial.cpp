@@ -14,9 +14,9 @@
 int main() {
     std::map<int, Node*> corra2NodeList;
 
-    int xTopoSize = 128;
-    int yTopoSize = 128;
-    int deltaNeighbor = 8;
+    int xTopoSize = 64;
+    int yTopoSize = 64;
+    int deltaNeighbor = 6;
     std::vector<float> alphas = {1.6, 2};
 
     int xBlockSize, yBlockSize;
@@ -57,11 +57,11 @@ int main() {
     }
 
     for (std::pair<int, Node*> corraNode : corra2NodeList) {
-        corraNode.second->prepareLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        corraNode.second->prepareLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize);
     }
 
     for (std::pair<int, Node*> corraNode : corra2NodeList) {
-        corraNode.second->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        corraNode.second->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize);
     }
 
     for (std::pair<int, Node*> corraNode : corra2NodeList) {

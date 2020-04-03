@@ -93,4 +93,8 @@ add_executable(fat_tree_exp_parallel experiment/fat_tree/fat_tree_exp_parallel.c
         node/FatTreeNode.cpp node/FatTreeNode.h
         utils/FatTreeUtils.cpp utils/FatTreeUtils.h)
 
-add_executable(main main.cpp)
+add_executable(main main.cpp
+        graph/Graph.cpp graph/Graph.h
+            graph/smallworld/GridGraph.cpp graph/smallworld/GridGraph.h
+            graph/smallworld/SmallWorld2DGrid.cpp graph/smallworld/SmallWorld2DGrid.h
+        utils/CORRAUtils.cpp utils/CORRAUtils.h)

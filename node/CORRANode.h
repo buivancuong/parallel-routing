@@ -53,7 +53,7 @@ public:
     // first, select neighbors in nearNeighbors and farNeighbors to put into first layer in locality
     void prepareLocality(int deltaNeighbor, int xTopoSize, int yTopoSize);
     // next, from first layer of locality, each Node create own locality by itself
-    void createLocality(int deltaNeighbor, int xTopoSize, int yTopoSize);
+    void createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize);
     // next, after get correct locality, each Node update local routing table for the other Nodes in own locality
     void createLocalRouting(int xTopoSize);
     // this function supports update to own local routing table

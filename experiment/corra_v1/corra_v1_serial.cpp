@@ -15,9 +15,9 @@
 int main() {
     std::map<int, CORRANode*> corra1NodeList;
 
-    int xTopoSize = 32;
-    int yTopoSize = 32;
-    int deltaNeighbor = 4;
+    int xTopoSize = 64;
+    int yTopoSize = 64;
+    int deltaNeighbor = 6;
     std::vector<float> alphas = {1.6, 2};
 
     int xBlockSize, yBlockSize;
@@ -64,7 +64,7 @@ int main() {
 
     // Create the locality fully from the 1-hop neighbors
     for (std::pair<int, CORRANode*> corraNode : corra1NodeList) {
-        corraNode.second->createLocality(deltaNeighbor, xTopoSize, yTopoSize);
+        corraNode.second->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize);
     }
 
     // Create the routing table on the locality

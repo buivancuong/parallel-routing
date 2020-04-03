@@ -54,7 +54,7 @@ void prepareLocality(int startNodeID, int endNodeID, int deltaNeighbor, int xTop
 
 void createLocality(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        corra1NodeList[i]->createLocality(deltaNeighbor, xTopoSize, yTopoSize);
+        corra1NodeList[i]->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize);
     }
 }
 

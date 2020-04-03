@@ -47,13 +47,13 @@ void addNearFarNeighbors(int startNodeID, int endNodeID, Graph *graph) {
 
 void prepareLocality(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        corra2NodeList[i]->prepareLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        corra2NodeList[i]->prepareLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize);
     }
 }
 
 void createLocality(int startNodeID, int endNodeID, int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        corra2NodeList[i]->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+        corra2NodeList[i]->createLocality(deltaNeighbor, xBlockSize, yBlockSize, xTopoSize);
     }
 }
 

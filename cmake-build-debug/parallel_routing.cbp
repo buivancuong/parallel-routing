@@ -869,6 +869,7 @@
 			<Option target="tz_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.cpp">
+			<Option target="main"/>
 			<Option target="tz_serial"/>
 			<Option target="tz_parallel"/>
 			<Option target="corra_v1_exp_parallel"/>
@@ -883,6 +884,7 @@
 			<Option target="tz_exp_parallel"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/Graph.h">
+			<Option target="main"/>
 			<Option target="tz_serial"/>
 			<Option target="tz_parallel"/>
 			<Option target="corra_v1_exp_parallel"/>
@@ -905,6 +907,7 @@
 			<Option target="fat_tree_serial"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.cpp">
+			<Option target="main"/>
 			<Option target="tz_serial"/>
 			<Option target="tz_parallel"/>
 			<Option target="corra_v2_serial"/>
@@ -913,6 +916,7 @@
 			<Option target="corra_v1_parallel"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/GridGraph.h">
+			<Option target="main"/>
 			<Option target="tz_serial"/>
 			<Option target="tz_parallel"/>
 			<Option target="corra_v2_serial"/>
@@ -921,6 +925,7 @@
 			<Option target="corra_v1_parallel"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.cpp">
+			<Option target="main"/>
 			<Option target="tz_serial"/>
 			<Option target="tz_parallel"/>
 			<Option target="corra_v2_serial"/>
@@ -929,6 +934,7 @@
 			<Option target="corra_v1_parallel"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/graph/smallworld/SmallWorld2DGrid.h">
+			<Option target="main"/>
 			<Option target="tz_serial"/>
 			<Option target="tz_parallel"/>
 			<Option target="corra_v2_serial"/>
@@ -988,6 +994,7 @@
 			<Option target="tz_exp_parallel"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.cpp">
+			<Option target="main"/>
 			<Option target="corra_v1_exp_parallel"/>
 			<Option target="corra_v2_serial"/>
 			<Option target="corra_v1_serial"/>
@@ -998,6 +1005,7 @@
 			<Option target="corra_v2_exp_parallel"/>
 		</Unit>
 		<Unit filename="/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/utils/CORRAUtils.h">
+			<Option target="main"/>
 			<Option target="corra_v1_exp_parallel"/>
 			<Option target="corra_v2_serial"/>
 			<Option target="corra_v1_serial"/>

@@ -71,7 +71,7 @@ void CORRANode::prepareLocality(int deltaNeighbor, int xTopoSize, int yTopoSize)
 
 }
 
-void CORRANode::createLocality(int deltaNeighbor, int xTopoSize, int yTopoSize) {
+void CORRANode::createLocality(int deltaNeighbor,int xBlockSize, int yBlockSize, int xTopoSize) {
     // Discovery Neighbors
     for (int i = 0; i < deltaNeighbor - 1; ++i) {       // Counting from 0, not 1
 //        std::cout << "i " << i << std::endl;
@@ -95,6 +95,38 @@ void CORRANode::createLocality(int deltaNeighbor, int xTopoSize, int yTopoSize) 
                         higherNeighbors.insert(neighbor);       // add new neighbor into new higher layer neighbor
 //                        std::cout << "add from neighbor " << neighbor.first << std::endl;
 //                        added.insert(neighbor.first);
+                    }
+                }
+            }
+        }
+        this->locality.push_back(higherNeighbors);
+    }
+    int maxGridHop = CORRAUtils::getMaxHopinBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+//    std::cout << "max grid hop " << maxGridHop << std::endl;
+    for (int i = deltaNeighbor - 1; i < maxGridHop - 2; ++i) {
+//        std::cout << "i " << i << std::endl;
+        std::map<int, CORRANode*> higherNeighbors;
+        for (std::pair<int, CORRANode*> lowerNeighbor : this->locality[i]) {
+            int size = lowerNeighbor.second->getLocality()[0].size();
+//            std::cout << "precheck size " << size << std::endl;
+            std::map<int, CORRANode*> localityOfLowerNeighbor (lowerNeighbor.second->getLocality()[0]);
+            for (std::pair<int, CORRANode*> neighbor : localityOfLowerNeighbor) {
+                --size;
+                if (size < 0) break;
+//                std::cout << "size " << size << std::endl;
+//                std::cout << "check new in block " << neighbor.first << " on lower neighbor " << lowerNeighbor.first << std::endl;
+//                if (added.count(neighbor.first)) continue;
+                if (neighbor.first == this->nodeID) continue;       // neighbor of neighbor is self
+                if (higherNeighbors.count(neighbor.first)) continue;        // mutual neighbor
+                if ((i > 0) and (this->locality[i - 1].count(neighbor.first))) continue;        // neighbor is existed at inner layer neighbor
+                if (!higherNeighbors.count(neighbor.first)){        // if new higher neighbor layer is not include new neighbor
+                    // Check block ID of this node and neighbor Node
+                    int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+                    int neighborBlock = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
+                    if (thisBlock == neighborBlock) {      // if same block with this node, add to locality
+                        higherNeighbors.insert(neighbor);
+//                        added.insert(neighbor.first);
+//                        std::cout << "add from block " << neighbor.first << std::endl;
                     }
                 }
             }

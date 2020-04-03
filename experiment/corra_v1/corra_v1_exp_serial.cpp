@@ -12,6 +12,7 @@
 
 int main() {
     std::map<int, CORRANode*> corra1NodeList;
+    // TODO: checknull at end of file
 
     std::map<int, std::vector<std::pair<int, int> > > localTableMap;        // <sourceN, [<destN, nextN>] >
     std::map<int, std::vector<std::pair<int, int> > > blockTableMap;     // <sourceN, [<destB, nextN>] >
@@ -21,9 +22,10 @@ int main() {
     std::fstream blockTableFile;
     std::string lineString;
 
-    localTableFile.open("./../experiment/corra_v1/local_32x32r4", std::ios::in);
+    localTableFile.open("./../experiment/corra_v1/local_64x64r6", std::ios::in);
     while (!localTableFile.eof()) {
         std::getline(localTableFile, lineString);
+        if (lineString.empty()) break;
         std::vector<std::string> lineVector;
         std::istringstream istringstream(lineString);
         for (std::string string; istringstream >> string;) {
@@ -37,9 +39,10 @@ int main() {
     }
     localTableFile.close();
 
-    blockTableFile.open("./../experiment/corra_v1/block_32x32r4", std::ios::in);
+    blockTableFile.open("./../experiment/corra_v1/block_64x64r6", std::ios::in);
     while (!blockTableFile.eof()) {
         std::getline(blockTableFile, lineString);
+        if (lineString.empty()) break;
         std::vector<std::string> lineVector;
         std::istringstream istringstream(lineString);
         for (std::string string; istringstream >> string;) {
@@ -53,8 +56,8 @@ int main() {
     }
     blockTableFile.close();
 
-    int xTopoSize = 32;
-    int yTopoSize = 32;
+    int xTopoSize = 64;
+    int yTopoSize = 64;
     int topoSize = xTopoSize * yTopoSize;
     int xBlockSize, yBlockSize;
     if ((int) (log2(xTopoSize)) % 2 == 0) {
@@ -100,33 +103,47 @@ int main() {
             std::vector<int> path;
             path.push_back(sourceNodeID);
             // true routing
+            if (destNodeID == 7){
+                std::cout << "check" << std::endl;
+            };
             std::map<int, std::pair<int, double> > sourceLocalRT = corra1NodeList[sourceNodeID]->getLocalRT();
             std::map<int, int> sourceBlockRT = corra1NodeList[sourceNodeID]->getBlockRT();
             if (sourceLocalRT.find(destNodeID) != sourceLocalRT.end()) {        // routing in local
                 int nextNodeID = sourceLocalRT[destNodeID].first;
+//                std::cout << "find next: " << nextNodeID << std::endl;
                 while (nextNodeID != destNodeID) {
                     path.push_back(nextNodeID);
                     nextNodeID = corra1NodeList[nextNodeID]->getLocalRT()[destNodeID].first;
+//                    std::cout << "find next: " << nextNodeID << std::endl;
                 }
             } else {        // routing beyond local
                 int destBlockID = CORRAUtils::getNodeBlock(destNodeID, xBlockSize, yBlockSize, xTopoSize);
                 int nextNodeID = sourceBlockRT[destBlockID];
+//                std::cout << "find next: " << nextNodeID << std::endl;
                 int nextBlockID = CORRAUtils::getNodeBlock(nextNodeID, xBlockSize, yBlockSize, xTopoSize);
                 while (nextBlockID != destBlockID) {
                     path.push_back(nextNodeID);
                     nextNodeID = corra1NodeList[nextNodeID]->getBlockRT()[nextNodeID];
+//                    std::cout << "find next: " << nextNodeID << std::endl;
                     nextBlockID = CORRAUtils::getNodeBlock(nextBlockID, xBlockSize, yBlockSize, xTopoSize);
                 }
                 while (nextNodeID != destNodeID) {
                     path.push_back(nextNodeID);
                     nextNodeID = corra1NodeList[nextNodeID]->getLocalRT()[destNodeID].first;
+//                    std::cout << "find next: " << nextNodeID << std::endl;
                 }
+                // TODO: same block but not in local
             }
             // add the last node
             path.push_back(destNodeID);
             // add path to all-pair path
             std::pair<int, int> source_dest (sourceNodeID, destNodeID);
             allPaths.insert(std::pair<std::pair<int, int>, std::vector<int> >(source_dest, path));
+            std::cout << "path " << sourceNodeID << " to " << destNodeID << ": ";
+            for (int i : path) {
+                std::cout << i << " ";
+            }
+            std::cout << std::endl;
         }
     }
     // counting diameter and average-path-length

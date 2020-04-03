@@ -15,75 +15,142 @@ Node::Node(int nodeID) {
     this->nodeID = nodeID;
 }
 
-void Node::createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
-//    std::set<int> added;
-    // Discovery Neighbors
-//    std::cout << "Discover Neighbors" << std::endl;
-    for (int i = 0; i < deltaNeighbor - 1; ++i) {       // Counting from 0, not 1
-//        std::cout << "i " << i << std::endl;
-        std::map<int, Node*> higherNeighbors;
-        for (std::pair<int, Node*> lowerNeighbor : this->locality[i]) {      // for each vertex on lower neighbor layer (current neighbor)
-            int size = lowerNeighbor.second->getLocality()[0].size();
-//            std::cout << "presize " << size << std::endl;
-            std::map<int, Node*> localityOfLowerNeighbor (lowerNeighbor.second->getLocality()[0]);
-            for (std::pair<int, Node*> neighbor : localityOfLowerNeighbor) {       // for each neighbor of each above vertex (new neighbor)
-                --size;
-                if (size < 0) break;
-//                std::cout << "size " << size << std::endl;
-//                std::cout << "check new in neighbor " << neighbor.first << " on lower neighbor " << lowerNeighbor.first << std::endl;
-//                if (added.count(neighbor.first)) continue;
-                if (this->locality[i].count(neighbor.first)) continue;      // 2 nodes in same layer of locality is connected
-                if (neighbor.first == this->nodeID) continue;       // neighbor of neighbor is self
-                if (higherNeighbors.count(neighbor.first)) continue;        // mutual neighbor
-                if ((i > 0) and (this->locality[i - 1].count(neighbor.first))) continue;        // neighbor is existed at inner layer neighbor
-                if (!higherNeighbors.count(neighbor.first)){        // if new higher neighbor layer is not include new neighbor
-                    if (CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSize) <= deltaNeighbor) {
-                        higherNeighbors.insert(neighbor);       // add new neighbor into new higher layer neighbor
-//                        std::cout << "add from neighbor " << neighbor.first << std::endl;
-//                        added.insert(neighbor.first);
-                    }
-                }
-            }
+void Node::createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize) {
+    std::map<int, Node*> localityMap;
+    localityMap.insert(std::pair<int, Node*>(this->nodeID, this));
+    for (std::pair<int, Node*> neighbor : this->locality[0]) {
+        if (localityMap.find(neighbor.first) == localityMap.end()) {        // neu chua co trong locality List
+            localityMap.insert(neighbor);
         }
-        this->locality.push_back(higherNeighbors);
     }
-    // Discover Block \sub Neighbors
-//    std::cout << "Discover Block sub Neighbor" << std::endl;
-    // Extract max grid-hop for the left Node in the Block
-    int maxGridHop = CORRAUtils::getMaxHopinBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
-//    std::cout << "max grid hop " << maxGridHop << std::endl;
-    for (int i = deltaNeighbor - 1; i < maxGridHop - 2; ++i) {
-//        std::cout << "i " << i << std::endl;
-        std::map<int, Node*> higherNeighbors;
-        for (std::pair<int, Node*> lowerNeighbor : this->locality[i]) {
-            int size = lowerNeighbor.second->getLocality()[0].size();
-//            std::cout << "precheck size " << size << std::endl;
-            std::map<int, Node*> localityOfLowerNeighbor (lowerNeighbor.second->getLocality()[0]);
-            for (std::pair<int, Node*> neighbor : localityOfLowerNeighbor) {
-                --size;
-                if (size < 0) break;
-//                std::cout << "size " << size << std::endl;
-//                std::cout << "check new in block " << neighbor.first << " on lower neighbor " << lowerNeighbor.first << std::endl;
-//                if (added.count(neighbor.first)) continue;
-                if (neighbor.first == this->nodeID) continue;       // neighbor of neighbor is self
-                if (higherNeighbors.count(neighbor.first)) continue;        // mutual neighbor
-                if ((i > 0) and (this->locality[i - 1].count(neighbor.first))) continue;        // neighbor is existed at inner layer neighbor
-                if (!higherNeighbors.count(neighbor.first)){        // if new higher neighbor layer is not include new neighbor
-                    // Check block ID of this node and neighbor Node
-                    int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
-                    int neighborBloclk = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
-                    if (thisBlock == neighborBloclk) {      // if same block with this node, add to locality
+
+    for (int radius = 1; radius < deltaNeighbor; ++radius) {
+        std::map<int, Node*> higherNeighbors;       // vong hang xom ben ngoai
+        std::map<int, Node*> lowerNeighbors = this->locality[radius - 1];      // vong trong, vong truoc do
+        for (std::pair<int, Node*> lowerNeighbor : lowerNeighbors) {
+            std::map<int, Node*> neighborsOfLowerNeighbor = lowerNeighbor.second->getLocality()[0];     // xet cac Node la neighbor cua neighbor
+            for (std::pair<int, Node*> neighbor : neighborsOfLowerNeighbor) {
+                if (localityMap.count(neighbor.first)) continue;        // neu da co trong locality list thi bo qua
+                // con khong thi add
+                int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+                int neighborBlock = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
+                if (thisBlock != neighborBlock) {       // neu khac block
+                    int distance = CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSize);
+                    if (distance <= deltaNeighbor) {        // nhung van trong khoang deltaNeighbor
+//                        std::cout << "distance " << distance << std::endl;
+                        localityMap.insert(neighbor);       // thi add
                         higherNeighbors.insert(neighbor);
-//                        added.insert(neighbor.first);
-//                        std::cout << "add from block " << neighbor.first << std::endl;
+                        continue;
                     }
-                }
+                    continue;
+                }       // con cung block thi duong nhien add, vi chac chan thuoc locality
+                localityMap.insert(neighbor);
+                higherNeighbors.insert(neighbor);
             }
         }
         this->locality.push_back(higherNeighbors);
     }
-//    std::cout << "Done nodeID " << this->nodeID << std::endl;
+
+    int maxGridHop = CORRAUtils::getMaxHopinBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);     // max hop Node co the dat den
+    for (int radius = deltaNeighbor; radius < maxGridHop; ++radius) {
+        std::map<int, Node*> higherNeighbors;       // vong hang xom ben ngoai
+        std::map<int, Node*> lowerNeighbors = this->locality[radius - 1];      // vong trong, vong truoc do
+        for (std::pair<int, Node*> lowerNeighbor : lowerNeighbors) {
+            std::map<int, Node*> neighborsOfLowerNeighbor = lowerNeighbor.second->getLocality()[0];     // xet cac Node la neighbor cua neighbor
+            for (std::pair<int, Node*> neighbor : neighborsOfLowerNeighbor) {
+                if (localityMap.count(neighbor.first)) continue;        // neu da co trong locality list thi bo qua
+                // con khong thi add
+                int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+                int neighborBlock = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
+                if (thisBlock != neighborBlock) {       // neu khac block
+                    int distance = CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSize);
+                    if (distance <= deltaNeighbor) {        // nhung van trong khoang deltaNeighbor
+                        localityMap.insert(neighbor);       // thi add
+                        higherNeighbors.insert(neighbor);
+                        continue;
+                    }
+                    continue;
+                }       // con cung block thi duong nhien add, vi chac chan thuoc locality
+                localityMap.insert(neighbor);
+                higherNeighbors.insert(neighbor);
+            }
+        }
+        this->locality.push_back(higherNeighbors);
+    }
+
 }
+
+//void Node::createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize) {
+////    std::set<int> added;
+//    // Discovery Neighbors
+////    std::cout << "Discover Neighbors" << std::endl;
+//    for (int i = 0; i < deltaNeighbor - 1; ++i) {       // Counting from 0, not 1
+////        std::cout << "i " << i << std::endl;
+//        std::map<int, Node*> higherNeighbors;
+//        for (std::pair<int, Node*> lowerNeighbor : this->locality[i]) {      // for each vertex on lower neighbor layer (current neighbor)
+////            int size = lowerNeighbor.second->getLocality()[0].size();
+////            std::cout << "presize " << size << std::endl;
+//            std::map<int, Node*> localityOfLowerNeighbor = lowerNeighbor.second->getLocality()[0];
+//            for (std::pair<int, Node*> neighbor : localityOfLowerNeighbor) {       // for each neighbor of each above vertex (new neighbor)
+////                --size;
+////                if (size < 0) break;
+////                std::cout << "size " << size << std::endl;
+////                std::cout << "check new in neighbor " << neighbor.first << " on lower neighbor " << lowerNeighbor.first << std::endl;
+////                if (added.count(neighbor.first)) continue;
+//                if (this->locality[i].count(neighbor.first)) continue;      // 2 nodes in same layer of locality is connected
+//                if (neighbor.first == this->nodeID) continue;       // neighbor of neighbor is self
+//                if (higherNeighbors.count(neighbor.first)) continue;        // mutual neighbor
+//                if ((i > 0) and (this->locality[i - 1].count(neighbor.first))) continue;        // neighbor is existed at inner layer neighbor
+//                if (!higherNeighbors.count(neighbor.first)){        // if new higher neighbor layer is not include new neighbor
+//                    if (CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSize) <= deltaNeighbor) {
+//                        higherNeighbors.insert(neighbor);       // add new neighbor into new higher layer neighbor
+////                        if (this->nodeID == 0) std::cout << "add from neighbor " << neighbor.first << std::endl;
+////                        added.insert(neighbor.first);
+//                    }
+//                }
+//            }
+//        }
+//        this->locality.push_back(higherNeighbors);
+//    }
+//    // Discover Block \sub Neighbors
+////    std::cout << "Discover Block sub Neighbor" << std::endl;
+//    // Extract max grid-hop for the left Node in the Block
+//    int maxGridHop = CORRAUtils::getMaxHopinBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+//    for (int i = deltaNeighbor - 1; i < maxGridHop - 1; ++i) {
+////        std::cout << "i " << i << std::endl;
+//        std::map<int, Node*> higherNeighbors;
+//        for (std::pair<int, Node*> lowerNeighbor : this->locality[i]) {
+////            int size = lowerNeighbor.second->getLocality()[0].size();
+////            std::cout << "precheck size " << size << std::endl;
+//            std::map<int, Node*> localityOfLowerNeighbor = lowerNeighbor.second->getLocality()[0];
+//            for (std::pair<int, Node*> neighbor : localityOfLowerNeighbor) {
+////                --size;
+////                if (size < 0) break;
+////                std::cout << "size " << size << std::endl;
+////                std::cout << "check new in block " << neighbor.first << " on lower neighbor " << lowerNeighbor.first << std::endl;
+////                if (added.count(neighbor.first)) continue;
+//                if (this->nodeID == 0 and neighbor.first == 135) {
+//                    std::cout << "135" << std::endl;
+//                }
+//                if (neighbor.first == this->nodeID) continue;       // neighbor of neighbor is self
+//                if (higherNeighbors.count(neighbor.first)) continue;        // mutual neighbor
+//                if ((i > 0) and (this->locality[i - 1].count(neighbor.first))) continue;        // neighbor is existed at inner layer neighbor
+//                if (!higherNeighbors.count(neighbor.first)){        // if new higher neighbor layer is not include new neighbor
+//                    // Check block ID of this node and neighbor Node
+//                    int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+//                    int neighborBloclk = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
+//                    if (thisBlock == neighborBloclk) {      // if same block with this node, add to locality
+//                        higherNeighbors.insert(neighbor);
+////                        added.insert(neighbor.first);
+//                        if (this->nodeID == 0) std::cout << "add from block " << neighbor.first << std::endl;
+//                    }
+//                }
+//            }
+//        }
+//        this->locality.push_back(higherNeighbors);
+//    }
+////    std::cout << "Done nodeID " << this->nodeID << std::endl;
+//}
 
 std::vector<std::map<int, Node*> > Node::getLocality() {
     return this->locality;
@@ -218,7 +285,7 @@ void Node::addFarNeighbors(Node *farNeighbor) {
     this->farNeighbors.insert(std::pair<int, Node*>(farNeighbor->getNodeID(), farNeighbor));
 }
 
-void Node::prepareLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSze, int yTopoSize) {
+void Node::prepareLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSze) {
     this->locality.emplace_back();      // create the null (placeholder) first element for this->locality
     // first, add the grid neighbors in this->nearNeighbors to this->locality[0]
     for (std::pair<int, Node*> neighbor : this->nearNeighbors) {
