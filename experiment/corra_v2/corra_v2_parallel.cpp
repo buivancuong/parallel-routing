@@ -75,9 +75,9 @@ void findBRn(int startNodeID, int endNodeID, int n) {
     }
 }
 
-void broadcastLocalBridge(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize) {
+void broadcastLocalBridge(int startNodeID, int endNodeID, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (int i = startNodeID; i < endNodeID; ++i) {
-        corra2NodeList[i]->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize);
+        corra2NodeList[i]->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 }
 
@@ -192,7 +192,7 @@ int main() {
 
     threads.clear();
     for (int i = 0; i < numSubThread; ++i) {
-        std::thread thread(broadcastLocalBridge, partition[i], partition[i + 1], xBlockSize, yBlockSize, xTopoSize);
+        std::thread thread(broadcastLocalBridge, partition[i], partition[i + 1], xBlockSize, yBlockSize, xTopoSize, yTopoSize);
         threads.push_back(std::move(thread));
     }
     for (auto &thread : threads) {

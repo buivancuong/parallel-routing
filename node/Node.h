@@ -26,6 +26,7 @@ private:
     static bool checkBridge(const std::vector<std::pair<int, Node*> >& bridge);
     static double getBridgeLatency(const std::vector<std::pair<int, Node*> >& bridge, int xTopoSize);
     std::pair<int, Node*> getCenterNode(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+    static int getBridgeCost(std::vector<std::pair<int, Node *> > bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 
 public:
     Node();
@@ -45,7 +46,7 @@ public:
     void addNearNeighbors(Node *nearNeighbor);
     void addFarNeighbors(Node *farNeighbor);
     std::vector<std::vector<std::pair<int, Node*> > > getOwnBridges();
-    void updateBridgeList(std::vector<std::pair<int, Node*> > bridge, int xBlockSize, int yBlockSize, int xTopoSize);
+    void updateBridgeList(std::vector<std::pair<int, Node*> > bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
     std::vector<std::pair<int, Node*> > localShortestPath(int destID);
     void updateBlockRT(int destBlockID, int nextNodeID);
 
@@ -62,11 +63,11 @@ public:
     // next, find all BR2, BR3, ..., BRn, from this Node, save bridge to @ownBridges
     void findToBRn(int n);
     // next, after get all BRn (from this Node), broadcast bridges in @ownBridges to each other Node in onw @locality
-    void broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize);
+    void broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
     // next, after received all bridges that has broadcasted from the other Node, check missing brides status 
     void handleMissingBridge(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
     // this function supports broadcasting the found missing bridge to each other Node in own @locality
-    void broadcastMissingBridge(const std::vector<std::pair<int, Node*> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize);
+    void broadcastMissingBridge(const std::vector<std::pair<int, Node*> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
     // at last, from full bridges list in @bridgeList, each Node update own block routing table 
     void updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 };

@@ -59,7 +59,7 @@ int main() {
 
     // Prepare the locality, add near and far neighbors to the locality
     for (std::pair<int, CORRANode*> corraNode : corra1NodeList) {
-        corraNode.second->prepareLocality(deltaNeighbor, xTopoSize, yTopoSize);
+        corraNode.second->prepareLocality(deltaNeighbor, xTopoSize);
     }
 
     // Create the locality fully from the 1-hop neighbors
@@ -84,7 +84,7 @@ int main() {
 
     // Broadcast bridges to overwhelmed the locality
     for (std::pair<int, CORRANode*> corraNode : corra1NodeList) {
-        corraNode.second->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize);
+        corraNode.second->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 
     for (std::pair<int, CORRANode*> corraNode : corra1NodeList) {
@@ -114,9 +114,13 @@ int main() {
 
     blockTableFile.open(blockTableFileName.c_str(), std::ios::out);
     for (std::pair<int, CORRANode*> corraNode : corra1NodeList) {
-        std::map<int, int> blockRT = corraNode.second->getBlockRT();
-        for (std::pair<int, int> destBlock : blockRT) {
-            std::string row (std::to_string(corraNode.first) + " " + std::to_string(destBlock.first) + " " + std::to_string(destBlock.second) + "\n");
+        std::map<int, std::pair<int, std::vector<int> > > blockRT = corraNode.second->getBlockRT();
+        for (std::pair<int, std::pair<int, std::vector<int> > > destBlock : blockRT) {
+            std::string row (std::to_string(corraNode.first) + " " + std::to_string(destBlock.first) + " " + std::to_string(destBlock.second.first));
+            for (int i : destBlock.second.second) {
+                row += (" " + std::to_string(i));
+            }
+            row += "\n";
             blockTableFile << row;
         }
     }

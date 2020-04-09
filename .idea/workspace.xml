@@ -4,17 +4,17 @@
     <generated>
       <config projectName="parallel_routing" targetName="tz_exp_parallel" />
       <config projectName="parallel_routing" targetName="corra_v1_exp_serial" />
-      <config projectName="parallel_routing" targetName="corra_v2_exp_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v1_exp_parallel" />
-      <config projectName="parallel_routing" targetName="tz_serial" />
-      <config projectName="parallel_routing" targetName="fat_tree_exp_serial" />
-      <config projectName="parallel_routing" targetName="fat_tree_parallel" />
-      <config projectName="parallel_routing" targetName="fat_tree_serial" />
-      <config projectName="parallel_routing" targetName="corra_v2_parallel" />
       <config projectName="parallel_routing" targetName="tz_exp_serial" />
+      <config projectName="parallel_routing" targetName="fat_tree_serial" />
+      <config projectName="parallel_routing" targetName="tz_serial" />
+      <config projectName="parallel_routing" targetName="fat_tree_exp_parallel" />
+      <config projectName="parallel_routing" targetName="corra_v2_exp_parallel" />
+      <config projectName="parallel_routing" targetName="fat_tree_parallel" />
+      <config projectName="parallel_routing" targetName="corra_v2_parallel" />
+      <config projectName="parallel_routing" targetName="corra_v1_exp_parallel" />
       <config projectName="parallel_routing" targetName="tz_parallel" />
       <config projectName="parallel_routing" targetName="corra_v1_parallel" />
-      <config projectName="parallel_routing" targetName="fat_tree_exp_parallel" />
+      <config projectName="parallel_routing" targetName="fat_tree_exp_serial" />
       <config projectName="parallel_routing" targetName="corra_v2_serial" />
       <config projectName="parallel_routing" targetName="corra_v1_serial" />
       <config projectName="parallel_routing" targetName="main" />
@@ -28,52 +28,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/experiment/corra_v1/block_64x64r6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiment/corra_v1/local_64x64r6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiment/corra_v2/block_64x64r6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiment/corra_v2/local_64x64r6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/block_64x64r6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/local_64x64r6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/experiment/corra_v1/corra_v1_exp_serial.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/experiment/corra_v1/corra_v1_exp_serial.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/graph/Graph.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/graph/Graph.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/node/CORRANode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_exp_serial.dir/node/CORRANode.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/experiment/corra_v1/corra_v1_serial.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/experiment/corra_v1/corra_v1_serial.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/graph/Graph.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/graph/Graph.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/node/CORRANode.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v1_serial.dir/node/CORRANode.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/experiment/corra_v2/corra_v2_serial.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/experiment/corra_v2/corra_v2_serial.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/node/Node.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_serial.dir/node/Node.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_exp_serial.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_exp_serial.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_exp_serial.dir/experiment/corra_v2/corra_v2_exp_serial.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_exp_serial.dir/experiment/corra_v2/corra_v2_exp_serial.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_exp_serial.dir/node/Node.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corra_v2_exp_serial.dir/node/Node.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/cmake_clean.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/main.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_exp_parallel.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_exp_parallel.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_exp_serial.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_exp_serial.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_parallel.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_serial.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/tz_serial.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/corra_v1_exp_serial" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/corra_v1_exp_serial" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/corra_v1_serial" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/corra_v1_serial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/corra_v2_serial" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/corra_v2_serial" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/corra_v2_exp_serial" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/corra_v2_exp_serial" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/main" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/main" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/parallel_routing.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment/corra_v1/block_32x32r4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v1/block_64x64r6" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v1/block_64x64r6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_exp_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_exp_serial.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_parallel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_parallel.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v1/corra_v1_serial.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment/corra_v1/local_32x32r4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v1/local_64x64r6" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v1/local_64x64r6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v2/block_64x64r6" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v2/block_64x64r6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_parallel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_parallel.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v2/corra_v2_serial.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment/corra_v2/local_64x64r6" beforeDir="false" afterPath="$PROJECT_DIR$/experiment/corra_v2/local_64x64r6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/Graph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph/Graph.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/CORRANode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/node/CORRANode.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/CORRANode.h" beforeDir="false" afterPath="$PROJECT_DIR$/node/CORRANode.h" afterDir="false" />
@@ -125,6 +109,7 @@
     <property name="DatabaseDriversLRU" value="mongo" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -135,6 +120,9 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/graph/smallworld" />
     </key>
@@ -144,7 +132,7 @@
       <command value="getBlockVertical" />
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.corra_v2_serial">
+  <component name="RunManager" selected="CMake Application.corra_v1_exp_serial">
     <configuration name="corra_v1_exp_parallel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="corra_v1_exp_parallel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="corra_v1_exp_parallel">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -480,7 +468,15 @@
       <workItem from="1585729217576" duration="8558000" />
       <workItem from="1585792546907" duration="2872000" />
       <workItem from="1585818785447" duration="14066000" />
-      <workItem from="1585906822091" duration="8854000" />
+      <workItem from="1585906822091" duration="9310000" />
+      <workItem from="1585965596019" duration="4505000" />
+      <workItem from="1585970127499" duration="5812000" />
+      <workItem from="1586055417582" duration="10542000" />
+      <workItem from="1586095408072" duration="2044000" />
+      <workItem from="1586139981138" duration="20725000" />
+      <workItem from="1586319847422" duration="14609000" />
+      <workItem from="1586357078626" duration="1196000" />
+      <workItem from="1586396817342" duration="16707000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>
@@ -538,10 +534,10 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="576" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1584322952890" />
-    <state x="1116" y="271" width="434" height="689" key="#xdebugger.XInspectDialog" timestamp="1585921987398">
+    <state x="1116" y="271" width="434" height="689" key="#xdebugger.XInspectDialog" timestamp="1586254990753">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="1116" y="271" width="434" height="689" key="#xdebugger.XInspectDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1585921987398" />
+    <state x="1116" y="271" width="434" height="689" key="#xdebugger.XInspectDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1586254990753" />
     <state x="342" y="267" key="#xdebugger.evaluate" timestamp="1582967752385">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -550,54 +546,54 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="529" y="128" key="CommitChangelistDialog2/32.21.1888.1059@32.21.1888.1059" timestamp="1582337612711" />
-    <state width="552" height="486" key="DebuggerActiveHint" timestamp="1585923219215">
+    <state width="553" height="486" key="DebuggerActiveHint" timestamp="1586424735973">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="552" height="486" key="DebuggerActiveHint/32.21.1888.1059@32.21.1888.1059" timestamp="1585923219215" />
+    <state width="553" height="486" key="DebuggerActiveHint/32.21.1888.1059@32.21.1888.1059" timestamp="1586424735973" />
     <state x="764" y="297" key="FileChooserDialogImpl" timestamp="1582952972185">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="764" y="297" key="FileChooserDialogImpl/32.21.1888.1059@32.21.1888.1059" timestamp="1582952972185" />
-    <state width="1846" height="280" key="GridCell.Tab.0.bottom" timestamp="1585922583585">
+    <state width="1846" height="179" key="GridCell.Tab.0.bottom" timestamp="1586431985853">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="280" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1585922583585" />
-    <state width="1846" height="280" key="GridCell.Tab.0.center" timestamp="1585922583585">
+    <state width="1846" height="179" key="GridCell.Tab.0.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1586431985853" />
+    <state width="1846" height="179" key="GridCell.Tab.0.center" timestamp="1586431985852">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="280" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1585922583585" />
-    <state width="1846" height="280" key="GridCell.Tab.0.left" timestamp="1585922583584">
+    <state width="1846" height="179" key="GridCell.Tab.0.center/32.21.1888.1059@32.21.1888.1059" timestamp="1586431985852" />
+    <state width="1846" height="179" key="GridCell.Tab.0.left" timestamp="1586431985852">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="280" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1585922583584" />
-    <state width="1846" height="280" key="GridCell.Tab.0.right" timestamp="1585922583585">
+    <state width="1846" height="179" key="GridCell.Tab.0.left/32.21.1888.1059@32.21.1888.1059" timestamp="1586431985852" />
+    <state width="1846" height="179" key="GridCell.Tab.0.right" timestamp="1586431985852">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="280" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1585922583585" />
-    <state width="1846" height="280" key="GridCell.Tab.1.bottom" timestamp="1585922606286">
+    <state width="1846" height="179" key="GridCell.Tab.0.right/32.21.1888.1059@32.21.1888.1059" timestamp="1586431985852" />
+    <state width="1846" height="212" key="GridCell.Tab.1.bottom" timestamp="1586425197150">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="280" key="GridCell.Tab.1.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1585922606286" />
-    <state width="1846" height="280" key="GridCell.Tab.1.center" timestamp="1585922606286">
+    <state width="1846" height="212" key="GridCell.Tab.1.bottom/32.21.1888.1059@32.21.1888.1059" timestamp="1586425197150" />
+    <state width="1846" height="212" key="GridCell.Tab.1.center" timestamp="1586425197150">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="280" key="GridCell.Tab.1.center/32.21.1888.1059@32.21.1888.1059" timestamp="1585922606286" />
-    <state width="1846" height="280" key="GridCell.Tab.1.left" timestamp="1585922606285">
+    <state width="1846" height="212" key="GridCell.Tab.1.center/32.21.1888.1059@32.21.1888.1059" timestamp="1586425197150" />
+    <state width="1846" height="212" key="GridCell.Tab.1.left" timestamp="1586425197150">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="280" key="GridCell.Tab.1.left/32.21.1888.1059@32.21.1888.1059" timestamp="1585922606285" />
-    <state width="1846" height="280" key="GridCell.Tab.1.right" timestamp="1585922606286">
+    <state width="1846" height="212" key="GridCell.Tab.1.left/32.21.1888.1059@32.21.1888.1059" timestamp="1586425197150" />
+    <state width="1846" height="212" key="GridCell.Tab.1.right" timestamp="1586425197150">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state width="1846" height="280" key="GridCell.Tab.1.right/32.21.1888.1059@32.21.1888.1059" timestamp="1585922606286" />
+    <state width="1846" height="212" key="GridCell.Tab.1.right/32.21.1888.1059@32.21.1888.1059" timestamp="1586425197150" />
     <state x="575" y="147" key="SettingsEditor" timestamp="1582710665445">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="575" y="147" key="SettingsEditor/32.21.1888.1059@32.21.1888.1059" timestamp="1582710665445" />
-    <state x="32" y="21" width="1888" height="1059" key="com.intellij.ide.util.TipDialog" timestamp="1585906839010">
+    <state x="660" y="329" width="698" height="447" key="com.intellij.ide.util.TipDialog" timestamp="1586396819020">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="32" y="21" width="1888" height="1059" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1585906839010" />
+    <state x="660" y="329" width="698" height="447" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1586396819020" />
     <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583137894754">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -618,10 +614,10 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="725" y="186" key="refactoring.ChangeSignatureDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1578291825410" />
-    <state x="639" y="246" width="672" height="677" key="run.anything.popup" timestamp="1585469586278">
+    <state x="639" y="246" width="672" height="677" key="run.anything.popup" timestamp="1586147664180">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
-    <state x="639" y="246" width="672" height="677" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1585469586278" />
+    <state x="639" y="246" width="672" height="677" key="run.anything.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1586147664180" />
     <state x="639" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1585455788412">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -632,39 +628,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/experiment/corra_v1/corra_v1_exp_serial.cpp</url>
-          <line>106</line>
-          <option name="timeStamp" value="6" />
+          <line>114</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/node/Node.cpp</url>
-          <line>32</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/experiment/corra_v1/corra_v1_exp_serial.cpp</url>
+          <line>135</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="this-&gt;nodeList.size()" language="ObjectiveC" />
-        <watch expression="this-&gt;nodeList" language="ObjectiveC" />
-        <watch expression="this-&gt;nodeList" language="ObjectiveC" />
-        <watch expression="this-&gt;nodeList[0]-&gt;getNodeID()" language="ObjectiveC" />
-        <watch expression="topo-&gt;getAdjList().size()" language="ObjectiveC" />
-        <watch expression="corraNodeList.size()" language="ObjectiveC" />
-        <watch expression="corraNodeList" language="ObjectiveC" />
-        <watch expression="nodeList" language="ObjectiveC" />
-        <watch expression="currentVertexID" language="ObjectiveC" />
-        <watch expression="this-&gt;adjList.size()" language="ObjectiveC" />
-        <watch expression="this-&gt;adjList[0].size()" language="ObjectiveC" />
-        <watch expression="this-&gt;adjList[0].size();" language="ObjectiveC" />
-        <watch expression="this-&gt;adjList[currentVertexID].size();" language="ObjectiveC" />
-        <watch expression="this-&gt;corra1NodeList[100]-&gt;getNodeID()" language="ObjectiveC" />
-        <watch expression="this-&gt;corra1NodeList[100]-&gt;getNodeID()" language="ObjectiveC" />
-        <watch expression="this-&gt;corra1NodeList" language="ObjectiveC" />
-        <watch expression="this-&gt;corra1NodeList.begin()" language="ObjectiveC" />
-        <watch expression="this-&gt;corra1NodeList.operator[](100)&#10;" language="ObjectiveC" />
-        <watch expression="this-&gt;corra1NodeList[0]&#10;&#10;" language="ObjectiveC" />
-        <watch expression="this-&gt;corra1NodeList[0]&#10;&#10;" language="ObjectiveC" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

@@ -9,6 +9,7 @@
 
 #include <set>
 #include <iostream>
+#include <fstream>
 #include "CORRANode.h"
 #include "../utils/CORRAUtils.h"
 
@@ -54,7 +55,7 @@ void CORRANode::addFarNeighbors(CORRANode *farNeighbor) {
     this->farNeighbors.insert(std::pair<int, CORRANode*>(farNeighbor->getNodeID(), farNeighbor));
 }
 
-void CORRANode::prepareLocality(int deltaNeighbor, int xTopoSize, int yTopoSize) {
+void CORRANode::prepareLocality(int deltaNeighbor, int xTopoSize) {
     this->locality.emplace_back();
     // first, add the grid neighbors in this->nearNeighbors to this->locality[0]
     for (std::pair<int, CORRANode*> neighbor : this->nearNeighbors) {
@@ -71,64 +72,64 @@ void CORRANode::prepareLocality(int deltaNeighbor, int xTopoSize, int yTopoSize)
 
 }
 
-void CORRANode::createLocality(int deltaNeighbor,int xBlockSize, int yBlockSize, int xTopoSize) {
-    // Discovery Neighbors
-    for (int i = 0; i < deltaNeighbor - 1; ++i) {       // Counting from 0, not 1
-//        std::cout << "i " << i << std::endl;
-        std::map<int, CORRANode*> higherNeighbors;
-        for (std::pair<int, CORRANode*> lowerNeighbor : this->locality[i]) {      // for each vertex on lower neighbor layer (current neighbor)
-            int size = lowerNeighbor.second->getLocality()[0].size();
-//            std::cout << "presize " << size << std::endl;
-            std::map<int, CORRANode*> localityOfLowerNeighbor (lowerNeighbor.second->getLocality()[0]);
-            for (std::pair<int, CORRANode*> neighbor : localityOfLowerNeighbor) {       // for each neighbor of each above vertex (new neighbor)
-                --size;
-                if (size < 0) break;
-//                std::cout << "size " << size << std::endl;
-//                std::cout << "check new in neighbor " << neighbor.first << " on lower neighbor " << lowerNeighbor.first << std::endl;
-//                if (added.count(neighbor.first)) continue;
-                if (this->locality[i].count(neighbor.first)) continue;      // 2 nodes in same layer of locality is connected
-                if (neighbor.first == this->nodeID) continue;       // neighbor of neighbor is self
-                if (higherNeighbors.count(neighbor.first)) continue;        // mutual neighbor
-                if ((i > 0) and (this->locality[i - 1].count(neighbor.first))) continue;        // neighbor is existed at inner layer neighbor
-                if (!higherNeighbors.count(neighbor.first)){        // if new higher neighbor layer is not include new neighbor
-                    if (CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSize) <= deltaNeighbor) {
-                        higherNeighbors.insert(neighbor);       // add new neighbor into new higher layer neighbor
-//                        std::cout << "add from neighbor " << neighbor.first << std::endl;
-//                        added.insert(neighbor.first);
+void CORRANode::createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize) {
+    std::map<int, CORRANode*> localityMap;
+    localityMap.insert(std::pair<int, CORRANode*>(this->nodeID, this));
+    for (std::pair<int, CORRANode*> neighbor : this->locality[0]) {
+        if (localityMap.find(neighbor.first) == localityMap.end()) {        // neu chua co trong locality List
+            localityMap.insert(neighbor);
+        }
+    }
+    // Extract Neighbors area
+    for (int radius = 1; radius < deltaNeighbor; ++radius) {
+        std::map<int, CORRANode*> higherNeighbors;       // vong hang xom ben ngoai
+        std::map<int, CORRANode*> lowerNeighbors = this->locality[radius - 1];      // vong trong, vong truoc do
+        for (std::pair<int, CORRANode*> lowerNeighbor : lowerNeighbors) {
+            std::map<int, CORRANode*> neighborsOfLowerNeighbor = lowerNeighbor.second->getLocality()[0];     // xet cac Node la neighbor cua neighbor
+            for (std::pair<int, CORRANode*> neighbor : neighborsOfLowerNeighbor) {
+                if (localityMap.count(neighbor.first)) continue;        // neu da co trong locality list thi bo qua
+                // con khong thi add
+                int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+                int neighborBlock = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
+                if (thisBlock != neighborBlock) {       // neu khac block
+                    int distance = CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSize);
+                    if (distance <= deltaNeighbor) {        // nhung van trong khoang deltaNeighbor
+//                        std::cout << "distance " << distance << std::endl;
+                        localityMap.insert(neighbor);       // thi add
+                        higherNeighbors.insert(neighbor);
+                        continue;
                     }
-                }
+                    continue;
+                }       // con cung block thi duong nhien add, vi chac chan thuoc locality
+                localityMap.insert(neighbor);
+                higherNeighbors.insert(neighbor);
             }
         }
         this->locality.push_back(higherNeighbors);
     }
-    int maxGridHop = CORRAUtils::getMaxHopinBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
-//    std::cout << "max grid hop " << maxGridHop << std::endl;
-    for (int i = deltaNeighbor - 1; i < maxGridHop - 2; ++i) {
-//        std::cout << "i " << i << std::endl;
-        std::map<int, CORRANode*> higherNeighbors;
-        for (std::pair<int, CORRANode*> lowerNeighbor : this->locality[i]) {
-            int size = lowerNeighbor.second->getLocality()[0].size();
-//            std::cout << "precheck size " << size << std::endl;
-            std::map<int, CORRANode*> localityOfLowerNeighbor (lowerNeighbor.second->getLocality()[0]);
-            for (std::pair<int, CORRANode*> neighbor : localityOfLowerNeighbor) {
-                --size;
-                if (size < 0) break;
-//                std::cout << "size " << size << std::endl;
-//                std::cout << "check new in block " << neighbor.first << " on lower neighbor " << lowerNeighbor.first << std::endl;
-//                if (added.count(neighbor.first)) continue;
-                if (neighbor.first == this->nodeID) continue;       // neighbor of neighbor is self
-                if (higherNeighbors.count(neighbor.first)) continue;        // mutual neighbor
-                if ((i > 0) and (this->locality[i - 1].count(neighbor.first))) continue;        // neighbor is existed at inner layer neighbor
-                if (!higherNeighbors.count(neighbor.first)){        // if new higher neighbor layer is not include new neighbor
-                    // Check block ID of this node and neighbor Node
-                    int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
-                    int neighborBlock = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
-                    if (thisBlock == neighborBlock) {      // if same block with this node, add to locality
+    // Extract Block \ Neighbors area
+    int maxGridHop = CORRAUtils::getMaxHopinBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);     // max hop Node co the dat den
+    for (int radius = deltaNeighbor; radius < maxGridHop; ++radius) {
+        std::map<int, CORRANode*> higherNeighbors;       // vong hang xom ben ngoai
+        std::map<int, CORRANode*> lowerNeighbors = this->locality[radius - 1];      // vong trong, vong truoc do
+        for (std::pair<int, CORRANode*> lowerNeighbor : lowerNeighbors) {
+            std::map<int, CORRANode*> neighborsOfLowerNeighbor = lowerNeighbor.second->getLocality()[0];     // xet cac Node la neighbor cua neighbor
+            for (std::pair<int, CORRANode*> neighbor : neighborsOfLowerNeighbor) {
+                if (localityMap.count(neighbor.first)) continue;        // neu da co trong locality list thi bo qua
+                // con khong thi add
+                int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+                int neighborBlock = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
+                if (thisBlock != neighborBlock) {       // neu khac block
+                    int distance = CORRAUtils::getGridHop(this->nodeID, neighbor.first, xTopoSize);
+                    if (distance <= deltaNeighbor) {        // nhung van trong khoang deltaNeighbor
+                        localityMap.insert(neighbor);       // thi add
                         higherNeighbors.insert(neighbor);
-//                        added.insert(neighbor.first);
-//                        std::cout << "add from block " << neighbor.first << std::endl;
+                        continue;
                     }
-                }
+                    continue;
+                }       // con cung block thi duong nhien add, vi chac chan thuoc locality
+                localityMap.insert(neighbor);
+                higherNeighbors.insert(neighbor);
             }
         }
         this->locality.push_back(higherNeighbors);
@@ -149,7 +150,7 @@ void CORRANode::findToBRn(int n) {
         // Find new bridge BRi via endpoint of BR_i-1, (add random link to the existed bridge to create a new bridge)
         std::vector<std::vector<std::pair<int, CORRANode*> > > temp (this->ownBridges);
         for (std::vector<std::pair<int, CORRANode*> > bridge : temp) {        // for each bridge in ownBridges list
-            if (bridge.size() < (i + 1)) {        // finding BRi, the size of lower bridge must be less than i.
+            if (bridge.size() == i) {        // finding BRi, the size of lower bridge must be less than i.
                 std::map<int, CORRANode*> tempFar (bridge.back().second->getFarNeighbors());
                 for (std::pair<int, CORRANode*> newEndPoint : tempFar) {       // ++ each far neighbor of current last end poind
                     std::vector<std::pair<int, CORRANode*> > newBridge = bridge;      // clone a new bridge
@@ -243,21 +244,32 @@ void CORRANode::updateLocalRT(int destNodeID, int nextNodeID, double latency) {
     this->localRT.insert(std::pair<int, std::pair<int, double> >(destNodeID, nextNode));
 }
 
-void CORRANode::broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize) {
+void CORRANode::broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+    std::vector<std::vector<std::pair<int, CORRANode*> > > tempOwnBridges = this->ownBridges;
+    for (const std::vector<std::pair<int, CORRANode*> >& bridge : tempOwnBridges) {
+        this->updateBridgeList(bridge, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+    }
     for (const std::map<int, CORRANode*>& localLayer : this->locality) {
         for (std::pair<int, CORRANode*> neighbor : localLayer) {
-            for (const std::vector<std::pair<int, CORRANode*> >& bridge : this->ownBridges) {
-                neighbor.second->updateBridgeList(bridge, xBlockSize, yBlockSize, xTopoSize);
+            for (const std::vector<std::pair<int, CORRANode*> >& bridge : tempOwnBridges) {
+                neighbor.second->updateBridgeList(bridge, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
             }
         }
     }
 }
 
-void CORRANode::updateBridgeList(std::vector<std::pair<int, CORRANode *> > bridge, int xBlockSize, int yBlockSize, int xTopoSize) {
+void CORRANode::updateBridgeList(std::vector<std::pair<int, CORRANode*> > bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     int destBlockID = CORRAUtils::getNodeBlock(bridge.back().first, xBlockSize, yBlockSize, xTopoSize);
-    if (this->bridgeList[destBlockID].empty()) {
-        this->bridgeList[destBlockID].emplace_back(bridge);
+    if (this->bridgeList[destBlockID].empty()) {        // if have no bridge to destBlockID
+        this->bridgeList[destBlockID].emplace_back(bridge);         // add the first bridge to bridge list
+        return;
     }
+    // else have 1 bridge to destBlockID, count the cost of the new bridge and the existed bridge (source and dest near center node)
+    int existedBridgeCost = CORRANode::getBridgeCost(this->bridgeList[destBlockID].front(), xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+    int newBridgeCost = CORRANode::getBridgeCost(bridge, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+    if (newBridgeCost >= existedBridgeCost) return;         // if the new bridge is more expensive than the existed bridge
+    this->bridgeList[destBlockID].pop_back();       // else delete the existed bridge and push back the new bridge
+    this->bridgeList[destBlockID].emplace_back(bridge);
 }
 
 std::map<int, std::pair<float, int> > CORRANode::getGlobalTraceMap() {
@@ -279,14 +291,39 @@ void CORRANode::updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, 
         if (this->bridgeList[blockID].empty()) {
             // SPR
             int centerDestNode = CORRAUtils::getCenterVertex(blockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
-            std::map<int, std::pair<float, int> > trace = corra1NodeList[centerDestNode]->getGlobalTraceMap();
-            int nextNodeID = trace[this->nodeID].first;
-            this->blockRT.insert(std::pair<int, int>(blockID, nextNodeID));
+            std::map<int, std::pair<float, int> > centerDestDijkstraTraceMap = corra1NodeList[centerDestNode]->getGlobalTraceMap();
+            int nextNodeID = centerDestDijkstraTraceMap[this->nodeID].second;
+            std::vector<int> br;
+            int current = nextNodeID;
+            br.push_back(-1);
+            while (current != centerDestNode) {
+                br.push_back(current);
+                current = centerDestDijkstraTraceMap[current].second;
+            }
+            br.push_back(current);
+            std::pair<int, std::vector<int> > next_bridge = std::pair<int, std::vector<int> > (nextNodeID, br);
+            this->blockRT.insert(std::pair<int, std::pair<int, std::vector<int> > >(blockID, next_bridge));
             continue;
         }       // else, has bridge
-        std::vector<std::pair<int, CORRANode*> > bridge = this->bridgeList[blockID][0];
-        int next = this->localRT[bridge[0].first].first;
-        this->blockRT.insert(std::pair<int, int>(blockID, next));
+        std::vector<std::pair<int, CORRANode*> > bridge = this->bridgeList[blockID].back();
+        int nextNodeID = -1;
+        for (int i = 0; i < bridge.size() - 1; ++i) {
+            if (bridge[i].first == this->nodeID) {
+                nextNodeID = bridge[i + 1].first;
+                break;
+            }
+        }
+        if (nextNodeID == -1) {
+            nextNodeID = this->localRT[bridge.front().first].first;
+        }
+        std::vector<int> br;
+        br.reserve(bridge.size() + 1);
+        br.push_back(-2);
+        for (auto it : bridge) {
+            br.push_back(it.first);
+        }
+        std::pair<int, std::vector<int> > next_bridge (nextNodeID, br);
+        this->blockRT.insert(std::pair<int, std::pair<int, std::vector<int> > >(blockID, next_bridge));
     }
 }
 
@@ -317,12 +354,29 @@ std::map<int, std::pair<int, double> > CORRANode::getLocalRT() {
     return this->localRT;
 }
 
-std::map<int, int> CORRANode::getBlockRT() {
+std::map<int, std::pair<int, std::vector<int> > > CORRANode::getBlockRT() {
     return this->blockRT;
 }
 
-void CORRANode::updateBlockRT(int destBlockID, int nextNodeID) {
-    this->blockRT.insert(std::pair<int, int>(destBlockID, nextNodeID));
+void CORRANode::updateBlockRT(int destBlockID, int nextNodeID, const std::vector<int>& bridge) {
+    std::pair<int, std::vector<int> > next_bridge = std::pair<int, std::vector<int> > (nextNodeID, bridge);
+    this->blockRT.insert(std::pair<int, std::pair<int, std::vector<int> > >(destBlockID, next_bridge));
+}
+
+int CORRANode::getBridgeCost(const std::vector<std::pair<int, CORRANode *> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+//    std::pair<int, CORRANode*> sourceBridge = bridge.front();
+//    int sourceBlockID = CORRAUtils::getNodeBlock(sourceBridge.first, xBlockSize, yBlockSize, xTopoSize);
+//    int sourceCenterNodeID = CORRAUtils::getCenterVertex(sourceBlockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+//    int sourceCost = CORRAUtils::getGridHop(sourceBridge.first, sourceCenterNodeID, xTopoSize);
+//
+//    std::pair<int, CORRANode*> destBridge = bridge.back();
+//    int destBlockID = CORRAUtils::getNodeBlock(destBridge.first, xBlockSize, yBlockSize, xTopoSize);
+//    int destCenterNodeID = CORRAUtils::getCenterVertex(destBlockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+//    int destCost = CORRAUtils::getGridHop(destBridge.first, destCenterNodeID, xTopoSize);
+//
+//    int totalCost = (int)(sourceCost + destCost + bridge.size() - 2);
+//    return totalCost;
+    return bridge.size();
 }
 
 CORRANode::~CORRANode() = default;

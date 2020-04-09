@@ -93,49 +93,54 @@ int main() {
             int sourceNodeID = sourceRecord.first;
             int destBlockID = record.first;
             int nextNodeID = record.second;
-            corra1NodeList[sourceNodeID]->updateBlockRT(destBlockID, nextNodeID);
+            corra1NodeList[sourceNodeID]->updateBlockRT(destBlockID, nextNodeID, std::vector<int>());
         }
     }
 
     // routing with all pairs
     for (int sourceNodeID = 0; sourceNodeID < topoSize - 1; ++sourceNodeID) {
         for (int destNodeID = sourceNodeID + 1; destNodeID < topoSize; ++destNodeID) {
+//            bool comui = false;
             std::vector<int> path;
             path.push_back(sourceNodeID);
             // true routing
-            if (destNodeID == 7){
-                std::cout << "check" << std::endl;
-            };
-            std::map<int, std::pair<int, double> > sourceLocalRT = corra1NodeList[sourceNodeID]->getLocalRT();
-            std::map<int, int> sourceBlockRT = corra1NodeList[sourceNodeID]->getBlockRT();
-            if (sourceLocalRT.find(destNodeID) != sourceLocalRT.end()) {        // routing in local
-                int nextNodeID = sourceLocalRT[destNodeID].first;
-//                std::cout << "find next: " << nextNodeID << std::endl;
-                while (nextNodeID != destNodeID) {
-                    path.push_back(nextNodeID);
-                    nextNodeID = corra1NodeList[nextNodeID]->getLocalRT()[destNodeID].first;
-//                    std::cout << "find next: " << nextNodeID << std::endl;
+            std::map<int, std::pair<int, double> > currentNodeLocalRT = corra1NodeList[sourceNodeID]->getLocalRT();
+            std::map<int, std::pair<int, std::vector<int> > > currentNodeBlockRT = corra1NodeList[sourceNodeID]->getBlockRT();
+            while (currentNodeLocalRT.find(destNodeID) == currentNodeLocalRT.end()) {       // neu destNodeID van chua nam trong local cua currentNodeID
+//                if (path.size() > 100) {
+//                    comui = true;
+//                    break;
+//                }
+                if (path.size() > 50) {
+                    std::cout << "in block" << std::endl;
                 }
-            } else {        // routing beyond local
                 int destBlockID = CORRAUtils::getNodeBlock(destNodeID, xBlockSize, yBlockSize, xTopoSize);
-                int nextNodeID = sourceBlockRT[destBlockID];
-//                std::cout << "find next: " << nextNodeID << std::endl;
-                int nextBlockID = CORRAUtils::getNodeBlock(nextNodeID, xBlockSize, yBlockSize, xTopoSize);
-                while (nextBlockID != destBlockID) {
-                    path.push_back(nextNodeID);
-                    nextNodeID = corra1NodeList[nextNodeID]->getBlockRT()[nextNodeID];
-//                    std::cout << "find next: " << nextNodeID << std::endl;
-                    nextBlockID = CORRAUtils::getNodeBlock(nextBlockID, xBlockSize, yBlockSize, xTopoSize);
+                int nextNodeID = currentNodeBlockRT[destBlockID].first;
+                if (nextNodeID == destNodeID) {
+                    path.push_back(destNodeID);
+                    break;
                 }
+                path.push_back(nextNodeID);
+                currentNodeLocalRT = corra1NodeList[nextNodeID]->getLocalRT();
+                currentNodeBlockRT = corra1NodeList[nextNodeID]->getBlockRT();
+            }       // con ko thi dinh tuyen trong locality
+//            if (comui) {
+//                std::cout << "miss " << sourceNodeID << " to " << destNodeID << std::endl;
+//                continue;
+//            }
+            int currentNodeID = path.back();
+            if (currentNodeID != destNodeID) {
+                int nextNodeID = currentNodeLocalRT[destNodeID].first;
                 while (nextNodeID != destNodeID) {
+                    if (path.size() > 50) {
+                        std::cout << "in local" << std::endl;
+                    }
                     path.push_back(nextNodeID);
                     nextNodeID = corra1NodeList[nextNodeID]->getLocalRT()[destNodeID].first;
-//                    std::cout << "find next: " << nextNodeID << std::endl;
                 }
-                // TODO: same block but not in local
+                path.push_back(destNodeID);
             }
             // add the last node
-            path.push_back(destNodeID);
             // add path to all-pair path
             std::pair<int, int> source_dest (sourceNodeID, destNodeID);
             allPaths.insert(std::pair<std::pair<int, int>, std::vector<int> >(source_dest, path));

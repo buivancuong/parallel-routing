@@ -14,8 +14,6 @@ CMakeFiles/main.dir/graph/smallworld/SmallWorld2DGrid.cpp.o: ../graph/smallworld
 CMakeFiles/main.dir/graph/smallworld/SmallWorld2DGrid.cpp.o: ../graph/smallworld/SmallWorld2DGrid.h
 
 CMakeFiles/main.dir/main.cpp.o: ../graph/Graph.h
-CMakeFiles/main.dir/main.cpp.o: ../graph/smallworld/GridGraph.h
-CMakeFiles/main.dir/main.cpp.o: ../graph/smallworld/SmallWorld2DGrid.h
 CMakeFiles/main.dir/main.cpp.o: ../main.cpp
 CMakeFiles/main.dir/main.cpp.o: ../utils/CORRAUtils.h
 
