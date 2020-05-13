@@ -18,25 +18,27 @@ private:
     std::vector<std::map<int, Node*> > locality;
     std::map<int, std::pair<int, double> > localRT;
     std::map<int, std::pair<double, int> > traceMap;        // <nodeID, <distance, prevNodeID> >
-    std::map<int, int> bridgeRT;        // <destBlockID, nextNodeID>
+    std::map<int, std::pair<int, std::vector<int> > > bridgeRT;        // <destBlockID, nextNodeID>
     std::map<int, std::vector<std::vector<std::pair<int, Node*> > > > bridgeList;        // B2B: <destBlockID, [bridge, bridge, ...]>, (bridge = [<int, Node>])
     std::vector<std::vector<std::pair<int, Node*> > > ownBridges;        // [bridge], bridge = [<int, Node>]
 
     void addOwnBridge(const std::vector<std::pair<int, Node*> >& newOwnBridge);
     static bool checkBridge(const std::vector<std::pair<int, Node*> >& bridge);
     static double getBridgeLatency(const std::vector<std::pair<int, Node*> >& bridge, int xTopoSize);
-    std::pair<int, Node*> getCenterNode(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
-    static int getBridgeCost(std::vector<std::pair<int, Node *> > bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+
+    static int getBridgeCost(const std::vector<std::pair<int, Node *> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 
 public:
     Node();
     explicit Node(int nodeID);
     ~Node();
 
+    std::pair<int, Node *> getCenterNode(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+
     void setCentered(bool centered);
     bool getCentered();
     std::map<int, std::pair<int, double> > getLocalRT();
-    std::map<int, int> getBlockRT();
+    std::map<int, std::pair<int, std::vector<int> > > getBlockRT();
 
     std::vector<std::map<int, Node*> > getLocality();
     std::map<int, std::vector<std::vector<std::pair<int, Node*> > > > getBridgeList();
@@ -48,7 +50,7 @@ public:
     std::vector<std::vector<std::pair<int, Node*> > > getOwnBridges();
     void updateBridgeList(std::vector<std::pair<int, Node*> > bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
     std::vector<std::pair<int, Node*> > localShortestPath(int destID);
-    void updateBlockRT(int destBlockID, int nextNodeID);
+    void updateBlockRT(int destBlockID, int nextNodeID, const std::vector<int>& bridge);
 
     // first, select neighbors in nearNeighbors and farNeighbors to put into first layer in locality
     void prepareLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSze);

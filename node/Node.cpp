@@ -7,6 +7,8 @@
 #define CABLE_LATENCY 1
 
 #include <algorithm>
+#include <random>
+#include <iterator>
 #include <iostream>
 #include "Node.h"
 #include "../utils/CORRAUtils.h"
@@ -120,9 +122,9 @@ void Node::createLocalRouting(int xTopoSize) {
     // Dijkstra Algorithm to construct localTraceMap and visited state
     // std::cout << "localTraceMap size " << this->traceMap.size() << std::endl;
     // std::cout << "locality list size " << localityList.size() << std::endl;
-    for (std::pair<int, Node*> node : localityList) {
-        // std::cout << "nodeID " << node.first << std::endl;
-    }
+//    for (std::pair<int, Node*> node : localityList) {
+//         std::cout << "nodeID " << node.first << std::endl;
+//    }
     for (int i = 0; i < this->traceMap.size(); ++i) {
         int currentNodeID = -1;
         // Check if all candidate is INFTY, and find new current Node
@@ -156,7 +158,6 @@ void Node::createLocalRouting(int xTopoSize) {
     }
 //    std::map<int, std::pair<double, int> > tempTraceMap (this->localTraceMap);
     for (std::pair<int, std::pair<double, int> > neighbor : this->traceMap) {
-        // std::cout << "vao trong " << neighbor.first << std::endl;
         if (neighbor.first != this->nodeID) {
             localityList[neighbor.first]->updateLocalRT(this->nodeID, neighbor.second.second, neighbor.second.first);
         }
@@ -177,8 +178,7 @@ void Node::findToBRn(int n) {
         // Find new bridge BRi via endpoint of BR_i-1, (add random link to the existed bridge to create a new bridge)
         std::vector<std::vector<std::pair<int, Node*> > > temp (this->ownBridges);
         for (std::vector<std::pair<int, Node*> > bridge : temp) {        // for each bridge in ownBridges list
-            if (bridge.size() < (i + 1)) {        // finding BRi, the size of lower bridge must be less than i.
-                // std::cout << "da vao day " << i << std::endl;
+            if (bridge.size() == i) {        // finding BRi, the size of lower bridge must be less than i.
                 std::map<int, Node*> tempFar (bridge.back().second->getFarNeighbors());
                 for (std::pair<int, Node*> newEndPoint : tempFar) {       // ++ each far neighbor of current last end poind
                     std::vector<std::pair<int, Node*> > newBridge = bridge;      // clone a new bridge
@@ -263,6 +263,9 @@ void Node::broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize, i
     }
     for (const std::map<int, Node*>& localLayer : this->locality) {
         for (std::pair<int, Node*> neighbor : localLayer) {
+            int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+            int neighborBlock = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
+            if (thisBlock != neighborBlock) continue;
             for (const std::vector<std::pair<int, Node*> >& bridge : this->ownBridges) {
                 neighbor.second->updateBridgeList(bridge, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
             }
@@ -271,66 +274,91 @@ void Node::broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize, i
 }
 
 void Node::updateBridgeList(std::vector<std::pair<int, Node*> > bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
-    int destBlockID = CORRAUtils::getNodeBlock(bridge.back().first, xBlockSize, yBlockSize, xTopoSize);
-    if (this->bridgeList[destBlockID].empty()) {        // if have no bridge to destBlockID
+    int openPointBridge = bridge.front().second->getNodeID();
+    if (this->traceMap.find(openPointBridge) == this->traceMap.end()) return;       // if the open point of the bridge is not on this->locality
+
+    int destBlockID = CORRAUtils::getNodeBlock(bridge.back().second->getNodeID(), xBlockSize, yBlockSize, xTopoSize);
+    std::vector<std::vector<std::pair<int, Node*> > > tempBridgeList (this->bridgeList[destBlockID]);
+    if (tempBridgeList.empty()) {        // if have no bridge to destBlockID
         this->bridgeList[destBlockID].emplace_back(bridge);         // add the first bridge to bridge list
         return;
     }
     // else have 1 bridge to destBlockID, count the cost of the new bridge and the existed bridge (source and dest near center node)
     int existedBridgeCost = Node::getBridgeCost(this->bridgeList[destBlockID].back(), xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     int newBridgeCost = Node::getBridgeCost(bridge, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
-    if (newBridgeCost >= existedBridgeCost) return;         // if the new bridge is more expensive than the existed bridge
+    if (newBridgeCost > existedBridgeCost) return;         // if the new bridge is more expensive than the existed bridge
+    if (newBridgeCost == existedBridgeCost) {
+        int newBridgeDistance = CORRAUtils::getGridHop(this->nodeID, bridge.front().second->getNodeID(), xTopoSize);
+        int existedBridgeDistance = CORRAUtils::getGridHop(this->nodeID, this->bridgeList[destBlockID].back().front().second->getNodeID(), xTopoSize);
+        if (newBridgeDistance > existedBridgeDistance) return;
+    }
     this->bridgeList[destBlockID].pop_back();       // else delete the existed bridge and push back the new bridge
     this->bridgeList[destBlockID].emplace_back(bridge);
 }
 
 void Node::handleMissingBridge(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
+    int centerNodeID = CORRAUtils::getCenterVertex(thisBlock, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+    if (this->nodeID != centerNodeID) return;
+
     std::map<int, bool> blockList;      // <blockID, isConnected> {true/false}
     bool isMissing = false;
-    for (const auto& block : this->bridgeList) {
-        blockList.insert(std::pair<int, bool>(block.first, !this->bridgeList[block.first].empty()));
-        if ((block.first < thisBlock) and this->bridgeList[block.first].empty()) isMissing = true;
+    int totalBlocks = CORRAUtils::getTotalBlocks(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+    for (int blockID = 0; blockID < totalBlocks; ++blockID) {
+        if (blockID == thisBlock) continue;
+        if (this->bridgeList.find(blockID) == this->bridgeList.end()) {
+            blockList.insert(std::pair<int, bool>(blockID, false));
+            isMissing = true;
+        } else {
+            blockList.insert(std::pair<int, bool>(blockID, true));
+        }
     }
-
-    if (!isMissing){
-        // std::cout << "Deo missing " << thisBlock << std::endl;
-        return;
+    if (isMissing) {
+        std::cout << "co missing" << std::endl;
     }
-    for (int blockID = 0; blockID < thisBlock; ++blockID) {         // explore each block to find not connected blocks
-        if (!blockList[blockID]) {     // If non connection between thisBlock and blockID < thisBlock
-            for (std::pair<int, bool> connectedBlock : blockList) {        // Query to each other medial connected blocks
-                if (connectedBlock.second) {        // using the endpoint of a bridge to that connected block (first bridge)
-                    for (std::vector<std::pair<int, Node*> > bridgeToMid : this->bridgeList[connectedBlock.first]) {      // for each bridge to the mid-block
-                        if (!bridgeToMid.back().second->getBridgeList()[blockID].empty()) {       // if the endpoint (at the mid-block) has one or more bridge to destBlock
-                            std::pair<int, Node*> endPointMid = bridgeToMid.back();      // the endpoint of the bridge to mid
-                            for (std::vector<std::pair<int, Node*> > bridgeToDest : endPointMid.second->getBridgeList()[blockID]) {       // for each bridge to dest (from the endpoint at mid)
-                                std::vector<std::pair<int, Node*> > fullBridge;      // declare full bridge
-                                // fullBridge is just declared, must append full bridgeToMid
-                                fullBridge.insert(fullBridge.end(), bridgeToMid.begin(), bridgeToMid.end());        // append bridgeToMid to fullBridge
-                                if (endPointMid.first != bridgeToDest[0].first) {       // if must routing from endpoint (of the bridge to mid) to the bridge to destBlock
-                                    std::vector<std::pair<int, Node*> > localPath = endPointMid.second->localShortestPath(bridgeToDest[0].first);     // create local Dijkstra shortest path from the endpoint to bridgeToDest
-                                    // endpoint of bridgeToMid is same as openpoint of localPath, must appent from localPath.begin() +1 (exclude first element)
-                                    fullBridge.insert(fullBridge.end(), localPath.begin() + 1, localPath.end());        // append local routing path between 2 bridge endpoints  to fullBridge
-                                    fullBridge.insert(fullBridge.end(), bridgeToDest.begin() + 1, bridgeToDest.end());      // append bridgeToDest to fullBridge
-                                } else {        // if bridge to destBlock has startpoint is endpoint of bridgeToMid
-                                    fullBridge.insert(fullBridge.end(), bridgeToDest.begin() + 1, bridgeToDest.end());
-                                }
-                                if (this->checkBridge(fullBridge)) {        // check the true bridge
-                                    this->updateBridgeList(fullBridge, xBlockSize, yBlockSize, xTopoSize, yTopoSize);      // this Node update fullBridge to own bridgeList
-                                    this->broadcastMissingBridge(fullBridge, xBlockSize, yBlockSize, xTopoSize, yTopoSize);        // this Node broadcast to each other Node in same block
+//    std::cout << "Here" << std::endl;
+    if (!isMissing) return;
 
-                                    int centerDestBlock = CORRAUtils::getCenterVertex(blockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);       // extract nodeID of centerNode at destBlock
-                                    std::pair<int, Node*> destCenterNode = this->getCenterNode(xBlockSize, yBlockSize, xTopoSize, yTopoSize);        // extract centerNode at destBlock
-                                    destCenterNode.second->updateBridgeList(fullBridge, xBlockSize, yBlockSize, xTopoSize, yTopoSize);      //      centerNode at destBlock update fullBridge to own bridgeList
-                                    destCenterNode.second->broadcastMissingBridge(fullBridge, xBlockSize, yBlockSize, xTopoSize, yTopoSize);        // centerNode at destBlock broadcast fullBridge to each other Nodes in same its block
-                                }
-                            }
-                        }
-                    }
-                }
+//    if (this->nodeID == 195) {
+//        std::cout << "stop" << std::endl;
+//    }
+
+    for (int blockID = 0; blockID < totalBlocks; ++blockID) {       // explore each block to find not connected blocks
+        if (thisBlock == blockID) continue;
+        if (blockList[blockID]) continue;       // If have existed bridge connection between thisBlock and blockID < thisBlock
+        // else, find the temporary mid block
+        std::vector<int> randomVector;      // random 1 middle connected block from this block
+        for (std::pair<int, bool> block : blockList) {
+            if (block.second) {         // only append connected blocks
+                randomVector.push_back(block.first);
             }
         }
+
+        while (!randomVector.empty()) {     // repeat until find out 1 middle bridge
+            std::srand((int) time(0));
+            int randomIter = std::rand() % (randomVector.size() - 1);
+            int randomMidBlock = randomVector[randomIter];
+            randomVector.erase(randomVector.begin() + randomIter);      // erase that blockID from randomVector for next random
+
+            std::vector<std::pair<int, Node*> > bridgeToMid (this->bridgeList[randomMidBlock].front());     // construct the middle bridgeToMid
+            std::pair<int, Node*> openPointMid (bridgeToMid.front());
+            int blockOfOpenPoint = CORRAUtils::getNodeBlock(openPointMid.second->getNodeID(), xBlockSize, yBlockSize, xTopoSize);
+            if (blockOfOpenPoint != thisBlock) continue;
+
+            std::pair<int, Node*> endPointMid (bridgeToMid.back());     // the end point of the bridgeToMid
+            std::vector<std::vector<std::pair<int, Node*> > > bridgeListToDest (endPointMid.second->getBridgeList()[blockID]);      // get bridgeListToDest of the endpoint one
+            if (bridgeListToDest.empty()) continue;     // if have no bridge to dest from the endpointMid one, continue with other random connected block
+            // else, continue find the true bridge for missing bridge
+            std::vector<std::pair<int, Node*> > bridgeToDest (bridgeListToDest.front());        // construct the bridgeToDest
+            bridgeToMid.push_back(std::pair<int, Node*>(-3, new Node));
+            bridgeToMid.push_back(bridgeToDest.back());     // add the endpoint of bridgeToDest follow into bridgeToMid for update bridge list
+            this->updateBridgeList(bridgeToMid, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+            this->broadcastMissingBridge(bridgeToMid, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+            std::cout << "complete handle missing bridge between " << thisBlock << " and " << blockID << std::endl;
+            break;
+        }
+        if (randomVector.empty()) std::cout << "co j do deo on" << std::endl;
+        if (this->bridgeList[blockID].empty()) std::cout << "van deo co cau" << std::endl;
     }
 }
 
@@ -360,9 +388,10 @@ std::vector<std::pair<int, Node*> > Node::localShortestPath(int destID) {
 
 void Node::broadcastMissingBridge(const std::vector<std::pair<int, Node*> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     for (const std::map<int, Node*>& localLayer : this->locality) {
+//        if (localLayer.empty()) return;
         for (std::pair<int, Node*> neighbor : localLayer) {
             int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
-            int neighborBlock = CORRAUtils::getNodeBlock(neighbor.first, xBlockSize, yBlockSize, xTopoSize);
+            int neighborBlock = CORRAUtils::getNodeBlock(neighbor.second->getNodeID(), xBlockSize, yBlockSize, xTopoSize);
             if (thisBlock == neighborBlock) {
                 neighbor.second->updateBridgeList(bridge, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
             }
@@ -370,7 +399,7 @@ void Node::broadcastMissingBridge(const std::vector<std::pair<int, Node*> >& bri
     }
 }
 
-std::pair<int, Node*> Node::getCenterNode(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+std::pair<int, Node *> Node::getCenterNode(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
     int thisBlock = CORRAUtils::getNodeBlock(this->nodeID, xBlockSize, yBlockSize, xTopoSize);
     int centerNodeID = CORRAUtils::getCenterVertex(thisBlock, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     for (const std::map<int, Node*>& localLayer : this->locality) {
@@ -388,39 +417,43 @@ void Node::updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int y
     for (int blockID = 0; blockID < numBlock; ++blockID) {
         // std::cout << "block " << blockID << std::endl;
         if (blockID == thisBlock) continue;     // only update Block Routing Table to each other blocks
-        if (this->bridgeList[blockID].empty()) {        // if still has no bridge to blockID (destBlock), must route to centerNode
-            int centerNodeID = CORRAUtils::getCenterVertex(thisBlock, xBlockSize, yBlockSize, xTopoSize, yTopoSize);     // extract nodeID of the centerNode of its blockID
-            // std::cout << "center " << centerNodeID << std::endl;
-//            std::vector<std::pair<int, Node*> > localPath = this->localShortestPath(centerNodeID);       //      extract local shortest path from this->nodeID to centerNode
-//            std::cout << "spr size " << localPath.size() << std::endl;
-            int next = this->localRT[centerNodeID].first;
-            this->bridgeRT.insert(std::pair<int, int>(blockID, next));        // go forward to centerNode via nextNode
-            // std::cout << "van deo co cau " << blockID << std::endl;
-            continue;       // continue with next blockID
-        }       // else, has bridge to blockID, next code segment will be executed.
-//        std::vector<std::vector<std::pair<int, Node*> > > fullBridgeList;      // declare list of full bridge from this->nodeID to destBlockID
-//        std::cout << "so cau " << this->bridgeList[blockID].size() << std::endl;
-//        std::vector<std::vector<std::pair<int, Node*> > > temp (this->bridgeList[blockID]);
-//        for (std::vector<std::pair<int, Node*> > bridge : temp) {       // for each bridge in bridge list to destBlockID
-//            std::vector<std::pair<int, Node*> > fullBridge;      // declare a full bridge from this->nodeID to destBlockID
-//            std::vector<std::pair<int, Node*> > localPath = this->localShortestPath(bridge.begin()->first);      // first, extract local shortest path from this->nodeID to beginpoint of the bridge
-//            fullBridge.insert(fullBridge.end(), localPath.begin(), localPath.end());        // append the local shortest path follow fullBridge
-//            fullBridge.insert(fullBridge.end(), bridge.begin() + 1, bridge.end());      // second, append the bridge follow to fullBridge (from iter +1 of bridge)
-//            fullBridgeList.push_back(fullBridge);       // append the found fullBridge to fullBridgeList
-//        }
-//        std::vector<std::pair<int, Node*> > bestBridge = fullBridgeList[0];      // find the best bridge for route to destination blockID
-//        for (const std::vector<std::pair<int, Node*> >& bridge : fullBridgeList) {
-////            std::cout << "Den day " << blockID << std::endl;
-//            if (bridge.size() < bestBridge.size()) {        // best bridge is the bridge that has smallest size
-//                bestBridge = bridge;
+//        if (this->bridgeList[blockID].empty()) {        // if still has no bridge to blockID (destBlock), must route to centerNode
+//            int centerNodeID = CORRAUtils::getCenterVertex(thisBlock, xBlockSize, yBlockSize, xTopoSize, yTopoSize);     // extract nodeID of the centerNode of its blockID
+//            int nextNodeID;
+//            std::vector<int> br;
+//            br.push_back(centerNodeID);
+//            int prevNodeID = this->traceMap[centerNodeID].second;
+//            while (prevNodeID != this->nodeID) {
+//                br.push_back(prevNodeID);
+//                prevNodeID = this->traceMap[prevNodeID].second;
 //            }
-//        }
-//        this->bridgeRT.insert(std::pair<int, int>(blockID, bestBridge[0].first));
-
+//            br.push_back(this->nodeID);
+//            br.push_back(-1);
+//            std::reverse(br.begin(), br.end());
+//            nextNodeID = br[2];
+//            std::pair<int, std::vector<int> > next_bridge = std::pair<int, std::vector<int> > (nextNodeID, br);
+//            this->bridgeRT.insert(std::pair<int, std::pair<int, std::vector<int> > >(blockID, next_bridge));        // go forward to centerNode via nextNode
+//            // std::cout << "van deo co cau " << blockID << std::endl;
+//            continue;       // continue with next blockID
+//        }       // else, has bridge to blockID, next code segment will be executed.
         std::vector<std::pair<int, Node*> > firstBridge = this->bridgeList[blockID].front();
-        // std::cout << "bridge size " << firstBridge.size() << std::endl;
-        int next = this->localRT[firstBridge.front().first].first;
-        this->bridgeRT.insert(std::pair<int, int>(blockID, next));
+        int nextNodeID = -1;
+        for (int i = 0; i < firstBridge.size() - 1; ++i) {
+            if (firstBridge[i].first == this->nodeID) {
+                nextNodeID = firstBridge[i + 1].first;
+                break;
+            }
+        }
+        if (nextNodeID == -1) {
+            nextNodeID = this->localRT[firstBridge.front().first].first;
+        }
+        std::vector<int> br;
+        br.push_back(-2);
+        for (auto it : firstBridge) {
+            br.push_back(it.first);
+        }
+        std::pair<int, std::vector<int> > next_bridge = std::pair<int, std::vector<int> > (nextNodeID, br);
+        this->bridgeRT.insert(std::pair<int, std::pair<int, std::vector<int> > >(blockID, next_bridge));
    }
 }
 
@@ -436,27 +469,29 @@ std::map<int, std::pair<int, double> > Node::getLocalRT() {
     return this->localRT;
 }
 
-std::map<int, int> Node::getBlockRT() {
+std::map<int, std::pair<int, std::vector<int> > > Node::getBlockRT() {
     return this->bridgeRT;
 }
 
-void Node::updateBlockRT(int destBlockID, int nextNodeID) {
-    this->bridgeRT.insert(std::pair<int, int>(destBlockID, nextNodeID));
+void Node::updateBlockRT(int destBlockID, int nextNodeID, const std::vector<int>& bridge) {
+    std::pair<int, std::vector<int> > next_bridge = std::pair<int, std::vector<int> > (nextNodeID, bridge);
+    this->bridgeRT.insert(std::pair<int, std::pair<int, std::vector<int> > >(destBlockID, next_bridge));
 }
 
-int Node::getBridgeCost(std::vector<std::pair<int, Node *> > bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
-    std::pair<int, Node*> sourceBridge = bridge.front();
-    int sourceBlockID = CORRAUtils::getNodeBlock(sourceBridge.first, xBlockSize, yBlockSize, xTopoSize);
-    int sourceCenterNodeID = CORRAUtils::getCenterVertex(sourceBlockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
-    int sourceCost = CORRAUtils::getGridHop(sourceBridge.first, sourceCenterNodeID, xTopoSize);
-
-    std::pair<int, Node*> destBridge = bridge.back();
-    int destBlockID = CORRAUtils::getNodeBlock(destBridge.first, xBlockSize, yBlockSize, xTopoSize);
-    int destCenterNodeID = CORRAUtils::getCenterVertex(destBlockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
-    int destCost = CORRAUtils::getGridHop(destBridge.first, destCenterNodeID, xTopoSize);
-
-    int totalCost = (int)(sourceCost + destCost + bridge.size() - 2);
-    return totalCost;
+int Node::getBridgeCost(const std::vector<std::pair<int, Node *> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize) {
+//    std::pair<int, Node*> sourceBridge = bridge.front();
+//    int sourceBlockID = CORRAUtils::getNodeBlock(sourceBridge.first, xBlockSize, yBlockSize, xTopoSize);
+//    int sourceCenterNodeID = CORRAUtils::getCenterVertex(sourceBlockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+//    int sourceCost = CORRAUtils::getGridHop(sourceBridge.first, sourceCenterNodeID, xTopoSize);
+//
+//    std::pair<int, Node*> destBridge = bridge.back();
+//    int destBlockID = CORRAUtils::getNodeBlock(destBridge.first, xBlockSize, yBlockSize, xTopoSize);
+//    int destCenterNodeID = CORRAUtils::getCenterVertex(destBlockID, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+//    int destCost = CORRAUtils::getGridHop(destBridge.first, destCenterNodeID, xTopoSize);
+//
+//    int totalCost = (int)(sourceCost + destCost + bridge.size() - 2);
+//    return totalCost;
+    return bridge.size();
 }
 
 Node::Node() = default;

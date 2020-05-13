@@ -17,7 +17,7 @@ int main() {
     int xTopoSize = 64;
     int yTopoSize = 64;
     int deltaNeighbor = 6;
-    std::vector<float> alphas = {1.6, 2};
+    std::vector<float> alphas = {2, 1.6};
 
     int xBlockSize, yBlockSize;
     if ((int) (log2(xTopoSize)) % 2 == 0) {
@@ -77,7 +77,7 @@ int main() {
     }
 
     for (std::pair<int, Node*> corraNode : corra2NodeList) {
-        corraNode.second->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize);
+        corraNode.second->broadcastLocalBridge(xBlockSize, yBlockSize, xTopoSize, yTopoSize);
     }
 
     for (std::pair<int, Node*> corraNode : corra2NodeList) {
@@ -107,9 +107,13 @@ int main() {
 
     blockTableFile.open(blockTableFileName.c_str(), std::ios::out);
     for (std::pair<int, Node*> corraNode : corra2NodeList) {
-        std::map<int, int> blockRT = corraNode.second->getBlockRT();
-        for (std::pair<int, int> destBlock : blockRT) {
-            std::string row (std::to_string(corraNode.first) + " " + std::to_string(destBlock.first) + " " + std::to_string(destBlock.second) + "\n");
+        std::map<int, std::pair<int, std::vector<int> > > blockRT = corraNode.second->getBlockRT();
+        for (std::pair<int, std::pair<int, std::vector<int> > > destBlock : blockRT) {
+            std::string row (std::to_string(corraNode.first) + " " + std::to_string(destBlock.first) + " " + std::to_string(destBlock.second.first));
+            for (int i : destBlock.second.second) {
+                row += (" " + std::to_string(i));
+            }
+            row += "\n";
             blockTableFile << row;
         }
     }

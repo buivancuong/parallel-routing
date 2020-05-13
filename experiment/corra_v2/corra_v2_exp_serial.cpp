@@ -15,15 +15,16 @@ int main() {
 
     std::map<int, std::vector<std::pair<int, int> > > localTableMap;
     std::map<int, std::vector<std::pair<int, int> > > blockTableMap;
-    std::map<std::pair<int, int>, std::vector<int> > allPath;       // < <source, dest>, [vector of path] >
+    std::map<std::pair<int, int>, std::vector<int> > allPaths;       // < <source, dest>, [vector of path] >
 
     std::fstream localTableFile;
     std::fstream blockTableFile;
     std::string lineString;
 
-    localTableFile.open("./../experiment/corra_v2/local_32x32r4", std::ios::in);
+    localTableFile.open("./../experiment/corra_v2/local_64x64r6", std::ios::in);
     while (!localTableFile.eof()) {
         std::getline(localTableFile, lineString);
+        if (lineString.empty()) break;
         std::vector<std::string> lineVector;
         std::istringstream istringstream(lineString);
         for (std::string string; istringstream >> string;) {
@@ -37,9 +38,10 @@ int main() {
     }
     localTableFile.close();
 
-    blockTableFile.open("./../experiment/corra_v2/block_32x32r4", std::ios::in);
+    blockTableFile.open("./../experiment/corra_v2/block_64x64r6", std::ios::in);
     while (!blockTableFile.eof()) {
         std::getline(blockTableFile, lineString);
+        if (lineString.empty()) break;
         std::vector<std::string> lineVector;
         std::istringstream istringstream(lineString);
         for (std::string string; istringstream >> string;) {
@@ -53,8 +55,8 @@ int main() {
     }
     blockTableFile.close();
 
-    int xTopoSize = 32;
-    int yTopoSize = 32;
+    int xTopoSize = 64;
+    int yTopoSize = 64;
     int topoSize = xTopoSize * yTopoSize;
     int xBlockSize, yBlockSize;
     if ((int) (log2(xTopoSize)) % 2 == 0) {
@@ -90,53 +92,75 @@ int main() {
             int sourceNodeID = sourceRecord.first;
             int destBlockID = record.first;
             int nextNodeID = record.second;
-            corra2NodeList[sourceNodeID]->updateBlockRT(destBlockID, nextNodeID);
+            corra2NodeList[sourceNodeID]->updateBlockRT(destBlockID, nextNodeID, std::vector<int>());
         }
     }
 
     // routing with all pair
     for (int sourceNodeID = 0; sourceNodeID < topoSize - 1; ++sourceNodeID) {
         for (int destNodeID = sourceNodeID + 1; destNodeID < topoSize; ++destNodeID) {
+//            bool comui = false;
+            if (destNodeID == 136) {
+                std::cout << "stop" << std::endl;
+            }
             std::vector<int> path;
             path.push_back(sourceNodeID);
-            // routing on here
-            std::map<int, std::pair<int, double> > sourceLocalRT = corra2NodeList[sourceNodeID]->getLocalRT();
-            std::map<int, int> sourceBlockRT = corra2NodeList[sourceNodeID]->getBlockRT();
-            if (sourceLocalRT.find(destNodeID) != sourceLocalRT.end()) {        // routing in local
-                int nextNodeID = sourceLocalRT[destNodeID].first;
-                while (nextNodeID != destNodeID) {
-                    path.push_back(nextNodeID);
-                    nextNodeID = corra2NodeList[nextNodeID]->getLocalRT()[destNodeID].first;
+            // true routing
+            std::map<int, std::pair<int, double> > currentNodeLocalRT = corra2NodeList[sourceNodeID]->getLocalRT();
+            std::map<int, std::pair<int, std::vector<int> > > currentNodeBlockRT = corra2NodeList[sourceNodeID]->getBlockRT();
+            while (currentNodeLocalRT.find(destNodeID) == currentNodeLocalRT.end()) {       // neu destNodeID van chua nam trong local cua currentNodeID
+//                if (path.size() > 100) {
+//                    comui = true;
+//                    break;
+//                }
+                if (path.size() > 50) {
+                    std::cout << "in block" << std::endl;
                 }
-            } else {        // routing beyond local
                 int destBlockID = CORRAUtils::getNodeBlock(destNodeID, xBlockSize, yBlockSize, xTopoSize);
-                int nextNodeID = sourceBlockRT[destBlockID];
-                int nextBlockID = CORRAUtils::getNodeBlock(nextNodeID, xBlockSize, yBlockSize, xTopoSize);
-                while (nextBlockID != destBlockID) {
-                    path.push_back(nextNodeID);
-                    nextNodeID = corra2NodeList[nextNodeID]->getBlockRT()[nextNodeID];
-                    nextBlockID = CORRAUtils::getNodeBlock(nextBlockID, xBlockSize, yBlockSize, xTopoSize);
+                int nextNodeID = currentNodeBlockRT[destBlockID].first;
+                if (nextNodeID == destNodeID) {
+                    path.push_back(destNodeID);
+                    break;
                 }
+                path.push_back(nextNodeID);
+                currentNodeLocalRT = corra2NodeList[nextNodeID]->getLocalRT();
+                currentNodeBlockRT = corra2NodeList[nextNodeID]->getBlockRT();
+            }       // con ko thi dinh tuyen trong locality
+//            if (comui) {
+//                std::cout << "miss " << sourceNodeID << " to " << destNodeID << std::endl;
+//                continue;
+//            }
+            int currentNodeID = path.back();
+            if (currentNodeID != destNodeID) {
+                int nextNodeID = currentNodeLocalRT[destNodeID].first;
                 while (nextNodeID != destNodeID) {
+                    if (path.size() > 50) {
+                        std::cout << "in local" << std::endl;
+                    }
                     path.push_back(nextNodeID);
                     nextNodeID = corra2NodeList[nextNodeID]->getLocalRT()[destNodeID].first;
                 }
+                path.push_back(destNodeID);
             }
             // add the last node
-            path.push_back(destNodeID);
             // add path to all-pair path
             std::pair<int, int> source_dest (sourceNodeID, destNodeID);
-            allPath.insert(std::pair<std::pair<int, int>, std::vector<int> >(source_dest, path));
+            allPaths.insert(std::pair<std::pair<int, int>, std::vector<int> >(source_dest, path));
+            std::cout << "path " << sourceNodeID << " to " << destNodeID << ": ";
+            for (int i : path) {
+                std::cout << i << " ";
+            }
+            std::cout << std::endl;
         }
     }
     // counting diameter and average-path-length
     int diameter = 0;
     int totalPathLength = 0;
-    for (std::pair<std::pair<int, int>, std::vector<int> > path : allPath) {
+    for (std::pair<std::pair<int, int>, std::vector<int> > path : allPaths) {
         if (path.second.size() > diameter) diameter = path.second.size();
         totalPathLength += path.second.size();
     }
-    auto averagePathLength = (double) (totalPathLength / allPath.size());
+    auto averagePathLength = (double) (totalPathLength / allPaths.size());
     std::cout << "Diameter: " << diameter << std::endl;
     std::cout << "Average Path Length: " << averagePathLength << std::endl;
 }

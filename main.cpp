@@ -41,11 +41,11 @@ int main() {
 //    std::cout << "Here" << std::endl;
 
 
-//    int gridHop = CORRAUtils::getGridHop(646, 579, xTopoSize);
+//    int gridHop = CORRAUtils::getGridHop(271, 14, xTopoSize);
 //    std::cout << gridHop << std::endl;
-    int nodeBlock = CORRAUtils::getNodeBlock(365, xBlockSize, yBlockSize, xTopoSize);
+    int nodeBlock = CORRAUtils::getNodeBlock(3592, xBlockSize, yBlockSize, xTopoSize);
     std::cout << nodeBlock << std::endl;
-//    int center = CORRAUtils::getCenterVertex(3624, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
+//    int center = CORRAUtils::getCenterVertex(0, xBlockSize, yBlockSize, xTopoSize, yTopoSize);
 //    std::cout << center << std::endl;
 
     return 0;
