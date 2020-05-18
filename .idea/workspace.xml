@@ -2,23 +2,23 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="parallel_routing" targetName="tz_exp_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v1_exp_serial" />
+      <config projectName="parallel_routing" targetName="corra_v2_parallel" />
+      <config projectName="parallel_routing" targetName="fat_tree_parallel" />
       <config projectName="parallel_routing" targetName="tz_exp_serial" />
-      <config projectName="parallel_routing" targetName="fat_tree_serial" />
-      <config projectName="parallel_routing" targetName="tz_serial" />
+      <config projectName="parallel_routing" targetName="corra_v2_exp_serial" />
+      <config projectName="parallel_routing" targetName="tz_parallel" />
+      <config projectName="parallel_routing" targetName="corra_v2_serial" />
+      <config projectName="parallel_routing" targetName="tz_exp_parallel" />
+      <config projectName="parallel_routing" targetName="corra_v1_exp_parallel" />
       <config projectName="parallel_routing" targetName="fat_tree_exp_parallel" />
       <config projectName="parallel_routing" targetName="corra_v2_exp_parallel" />
-      <config projectName="parallel_routing" targetName="fat_tree_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v2_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v1_exp_parallel" />
-      <config projectName="parallel_routing" targetName="tz_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v1_parallel" />
-      <config projectName="parallel_routing" targetName="fat_tree_exp_serial" />
-      <config projectName="parallel_routing" targetName="corra_v2_serial" />
+      <config projectName="parallel_routing" targetName="corra_v1_exp_serial" />
       <config projectName="parallel_routing" targetName="corra_v1_serial" />
+      <config projectName="parallel_routing" targetName="fat_tree_exp_serial" />
+      <config projectName="parallel_routing" targetName="corra_v1_parallel" />
       <config projectName="parallel_routing" targetName="main" />
-      <config projectName="parallel_routing" targetName="corra_v2_exp_serial" />
+      <config projectName="parallel_routing" targetName="fat_tree_serial" />
+      <config projectName="parallel_routing" targetName="tz_serial" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -27,7 +27,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="" />
+    <list default="true" id="06b59d62-38be-43bf-83a5-9a0f8f6b6e25" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
