@@ -1,1 +1,0 @@
-/usr/bin/c++   -pthread -g   -pthread CMakeFiles/fat_tree_exp_serial.dir/experiment/fat_tree/fat_tree_exp_serial.cpp.o CMakeFiles/fat_tree_exp_serial.dir/node/FatTreeNode.cpp.o CMakeFiles/fat_tree_exp_serial.dir/utils/FatTreeUtils.cpp.o  -o fat_tree_exp_serial 

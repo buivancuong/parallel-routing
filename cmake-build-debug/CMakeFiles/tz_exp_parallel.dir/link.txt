@@ -1,1 +1,0 @@
-/usr/bin/c++   -pthread -g   -pthread CMakeFiles/tz_exp_parallel.dir/experiment/tz/tz_exp_parallel.cpp.o CMakeFiles/tz_exp_parallel.dir/graph/Graph.cpp.o CMakeFiles/tz_exp_parallel.dir/node/TZNode.cpp.o  -o tz_exp_parallel 

@@ -1,1 +1,0 @@
-/usr/bin/c++   -pthread -g   -pthread CMakeFiles/fat_tree_parallel.dir/experiment/fat_tree/fat_tree_parallel.cpp.o CMakeFiles/fat_tree_parallel.dir/graph/Graph.cpp.o CMakeFiles/fat_tree_parallel.dir/graph/fattree/FatTree.cpp.o CMakeFiles/fat_tree_parallel.dir/node/FatTreeNode.cpp.o CMakeFiles/fat_tree_parallel.dir/utils/FatTreeUtils.cpp.o  -o fat_tree_parallel 
