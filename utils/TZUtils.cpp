@@ -3,7 +3,10 @@
 //
 
 #include <cstdlib>
+<<<<<<< HEAD
 #include <iostream>
+=======
+>>>>>>> graphlib
 #include "TZUtils.h"
 
 TZUtils::TZUtils() = default;
@@ -19,7 +22,11 @@ std::list<int> TZUtils::sampleTZ(std::list<int> potentialLandmarkW, float thresh
     for (int nodeID : potentialLandmarkW) {
         float random = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
         if (random < probability) {
+<<<<<<< HEAD
             std::cout << "new landmark " << nodeID << std::endl;
+=======
+            // std::cout << "new landmark " << nodeID << std::endl;
+>>>>>>> graphlib
             newLandmarks.push_back(nodeID);
         }
     }

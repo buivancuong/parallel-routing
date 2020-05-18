@@ -1,4 +1,21 @@
 /snap/clion/112/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing
--- Configuring done
--- Generating done
--- Build files have been written to: /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 18. Offending entry: <<<<<<< HEAD
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 23. Offending entry: >>>>>>> graphlib
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 96. Offending entry: <<<<<<< HEAD
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 101. Offending entry: >>>>>>> graphlib
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 170. Offending entry: <<<<<<< HEAD
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 175. Offending entry: >>>>>>> graphlib
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 249. Offending entry: <<<<<<< HEAD
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 253. Offending entry: >>>>>>> graphlib
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 304. Offending entry: <<<<<<< HEAD
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 308. Offending entry: >>>>>>> graphlib
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 372. Offending entry: <<<<<<< HEAD
+CMake Error: Parse error in cache file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeCache.txt on line 376. Offending entry: >>>>>>> graphlib
+CMake Error at CMakeLists.txt:9:
+  Parse error.  Expected a command name, got unquoted argument with text
+  "<<<<<<<".
+
+
+-- Configuring incomplete, errors occurred!
+See also "/media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+Cannot read project file /media/cuongbv/Data/Project/Research/InterNetwork/parallel-routing/cmake-build-debug/parallel_routing.cbp

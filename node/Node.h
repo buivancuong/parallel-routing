@@ -18,22 +18,40 @@ private:
     std::vector<std::map<int, Node*> > locality;
     std::map<int, std::pair<int, double> > localRT;
     std::map<int, std::pair<double, int> > traceMap;        // <nodeID, <distance, prevNodeID> >
+<<<<<<< HEAD
     std::map<int, int> bridgeRT;        // <destBlockID, nextNodeID>
+=======
+    std::map<int, std::pair<int, std::vector<int> > > bridgeRT;        // <destBlockID, nextNodeID>
+>>>>>>> graphlib
     std::map<int, std::vector<std::vector<std::pair<int, Node*> > > > bridgeList;        // B2B: <destBlockID, [bridge, bridge, ...]>, (bridge = [<int, Node>])
     std::vector<std::vector<std::pair<int, Node*> > > ownBridges;        // [bridge], bridge = [<int, Node>]
 
     void addOwnBridge(const std::vector<std::pair<int, Node*> >& newOwnBridge);
     static bool checkBridge(const std::vector<std::pair<int, Node*> >& bridge);
     static double getBridgeLatency(const std::vector<std::pair<int, Node*> >& bridge, int xTopoSize);
+<<<<<<< HEAD
     std::pair<int, Node*> getCenterNode(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+=======
+
+    static int getBridgeCost(const std::vector<std::pair<int, Node *> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+>>>>>>> graphlib
 
 public:
     Node();
     explicit Node(int nodeID);
     ~Node();
 
+<<<<<<< HEAD
     void setCentered(bool centered);
     bool getCentered();
+=======
+    std::pair<int, Node *> getCenterNode(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+
+    void setCentered(bool centered);
+    bool getCentered();
+    std::map<int, std::pair<int, double> > getLocalRT();
+    std::map<int, std::pair<int, std::vector<int> > > getBlockRT();
+>>>>>>> graphlib
 
     std::vector<std::map<int, Node*> > getLocality();
     std::map<int, std::vector<std::vector<std::pair<int, Node*> > > > getBridgeList();
@@ -43,6 +61,7 @@ public:
     void addNearNeighbors(Node *nearNeighbor);
     void addFarNeighbors(Node *farNeighbor);
     std::vector<std::vector<std::pair<int, Node*> > > getOwnBridges();
+<<<<<<< HEAD
     void updateBridgeList(std::vector<std::pair<int, Node*> > bridge, int xBlockSize, int yBlockSize, int xTopoSize);
     std::vector<std::pair<int, Node*> > localShortestPath(int destID);
 
@@ -54,16 +73,38 @@ public:
     void createLocalRouting(int xTopoSize);
     // this function supports update to own local routing table
     void updateLocalRT(int destNodeID, int nextNodeID, double latency);
+=======
+    void updateBridgeList(std::vector<std::pair<int, Node*> > bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+    std::vector<std::pair<int, Node*> > localShortestPath(int destID);
+    void updateBlockRT(int destBlockID, int nextNodeID, const std::vector<int>& bridge);
+
+    // first, select neighbors in nearNeighbors and farNeighbors to put into first layer in locality
+    void prepareLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSze);
+    // next, from first layer of locality, each Node create own locality by itself
+    void createLocality(int deltaNeighbor, int xBlockSize, int yBlockSize, int xTopoSize);
+    // next, after get correct locality, each Node update local routing table for the other Nodes in own locality
+    void createLocalRouting(int xTopoSize);
+    // this function supports update to own local routing table
+    void updateLocalRT(int destNodeID, int nextNodeID, double latency = 0);
+>>>>>>> graphlib
     // next, find all BR1 from this Node (random links), save bridge to @ownBridges
     void findBR1();
     // next, find all BR2, BR3, ..., BRn, from this Node, save bridge to @ownBridges
     void findToBRn(int n);
     // next, after get all BRn (from this Node), broadcast bridges in @ownBridges to each other Node in onw @locality
+<<<<<<< HEAD
     void broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize);
     // next, after received all bridges that has broadcasted from the other Node, check missing brides status 
     void handleMissingBridge(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
     // this function supports broadcasting the found missing bridge to each other Node in own @locality
     void broadcastMissingBridge(const std::vector<std::pair<int, Node*> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize);
+=======
+    void broadcastLocalBridge(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+    // next, after received all bridges that has broadcasted from the other Node, check missing brides status 
+    void handleMissingBridge(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+    // this function supports broadcasting the found missing bridge to each other Node in own @locality
+    void broadcastMissingBridge(const std::vector<std::pair<int, Node*> >& bridge, int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
+>>>>>>> graphlib
     // at last, from full bridges list in @bridgeList, each Node update own block routing table 
     void updateBlockTable(int xBlockSize, int yBlockSize, int xTopoSize, int yTopoSize);
 };

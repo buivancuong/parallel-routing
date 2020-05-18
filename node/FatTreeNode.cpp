@@ -14,7 +14,11 @@ FatTreeNode::FatTreeNode(int nodeID) {
 }
 
 FatTreeNode::FatTreeNode(int nodeID, int numCoreSwitch, int numPods, int numSwitchPerPod) {
+<<<<<<< HEAD
     std::cout << "Node " << nodeID << std::endl;
+=======
+    // std::cout << "Node " << nodeID << std::endl;
+>>>>>>> graphlib
     this->nodeID = nodeID;
     this->address[0] = 10;
     int* tempAddress = FatTreeUtils::nodeIDToAddress(nodeID, numCoreSwitch, numPods, numSwitchPerPod);
@@ -52,7 +56,11 @@ int FatTreeNode::getNodeID() {
 void FatTreeNode::buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod) {
     // if this node is Server, have no routing table
     if (this->layer == 3) return;
+<<<<<<< HEAD
     // if this node is root
+=======
+    // if this node is root: onlt Root downto Agg
+>>>>>>> graphlib
     if (this->layer == 0) {
         for (int pod = 0; pod < numPods; ++pod) {
             int aggOffset = this->address[2];
@@ -72,6 +80,7 @@ void FatTreeNode::buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod
     }
     // if this node is Edge
     if (this->address[2] < (int)(numPods / 2)) {
+<<<<<<< HEAD
         // Edge to Server
         for (int serverID = 2; serverID < (int)(numPods / 2) + 2; ++ serverID) {
             int server = numCoreSwitch + numPods * numSwitchPerPod + (int)(numPods * numPods / 4) * this->address[1] + (int)(numPods / 2) * this->address[2] + serverID - 2;
@@ -79,6 +88,15 @@ void FatTreeNode::buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod
             suffixArray[0] = 10;
             suffixArray[1] = this->address[2];
             suffixArray[2] = this->address[3];
+=======
+        // Edge downto Server
+        for (int serverID = 2; serverID < (int)(numPods / 2) + 2; ++serverID) {
+            int server = numCoreSwitch + numPods * numSwitchPerPod + (int)(numPods * numPods / 4) * this->address[1] + (int)(numPods / 2) * this->address[2] + serverID - 2;
+            int suffixArray[4];
+            suffixArray[0] = 10;
+            suffixArray[1] = this->address[1];
+            suffixArray[2] = this->address[2];
+>>>>>>> graphlib
             suffixArray[3] = serverID;
             std::vector<int> suffix;
             for (int i : suffixArray) {
@@ -86,11 +104,19 @@ void FatTreeNode::buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod
             }
             this->routingTable.emplace_back(std::pair<std::vector<int>, int>(suffix, server));
         }
+<<<<<<< HEAD
         // Edge to Agg
         for (int aggID = (int)(numPods / 2); aggID < numPods; ++ aggID) {
             int agg = numCoreSwitch + this->address[1] * (int)(numPods / 2) + this->address[2] - (int)(numPods / 2);
             int suffixArray[4];
             suffixArray[0] = 10;
+=======
+        // Edge upto Agg
+        for (int aggID = (int)(numPods / 2); aggID < numPods; ++aggID) {
+            int agg = numCoreSwitch + this->address[1] * (int)(numPods / 2) + this->address[2] - (int)(numPods / 2);
+            int suffixArray[4];
+            suffixArray[0] = 10;        // X.X.X.2/8
+>>>>>>> graphlib
             suffixArray[1] = -1;
             suffixArray[2] = -1;
             suffixArray[3] = aggID - (int)(numPods / 2) + 2;
@@ -102,11 +128,19 @@ void FatTreeNode::buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod
         }
         return;
     } else {        // if this node is Agg
+<<<<<<< HEAD
         // Agg to Edge
         for (int edgeID = 0; edgeID < (int)(numPods / 2); ++edgeID) {
             int edge = numCoreSwitch + numPods * (int)(numSwitchPerPod / 2) + this->address[1] * (int)(numPods / 2) + edgeID;
             int prefixArray[4];
             prefixArray[0] = 10;
+=======
+        // Agg downto Edge
+        for (int edgeID = 0; edgeID < (int)(numPods / 2); ++edgeID) {
+            int edge = numCoreSwitch + numPods * (int)(numSwitchPerPod / 2) + this->address[1] * (int)(numPods / 2) + edgeID;
+            int prefixArray[4];
+            prefixArray[0] = 10;        // 10.2.0.X/24
+>>>>>>> graphlib
             prefixArray[1] = this->address[1];
             prefixArray[2] = edgeID;
             prefixArray[3] = -1;
@@ -116,11 +150,19 @@ void FatTreeNode::buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod
             }
             this->routingTable.emplace_back(std::pair<std::vector<int>, int>(prefix, edge));
         }
+<<<<<<< HEAD
         // Agg to Core
         for (int serverSuffix = 2; serverSuffix < (int)(numPods / 2) + 2; ++serverSuffix) {
             int core = (this->address[2] - (int)(numPods / 2)) * (int)(numPods / 2) + serverSuffix - 2;
             int suffixArray[4];
             suffixArray[0] = -1;
+=======
+        // Agg upto Core
+        for (int serverSuffix = 2; serverSuffix < (int)(numPods / 2) + 2; ++serverSuffix) {
+            int core = (this->address[2] - (int)(numPods / 2)) * (int)(numPods / 2) + serverSuffix - 2;
+            int suffixArray[4];
+            suffixArray[0] = 10;        // X.X.X.2/8
+>>>>>>> graphlib
             suffixArray[1] = -1;
             suffixArray[2] = -1;
             suffixArray[3] = serverSuffix;
@@ -134,4 +176,15 @@ void FatTreeNode::buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod
     }
 }
 
+<<<<<<< HEAD
+=======
+std::vector<std::pair<std::vector<int>, int> > FatTreeNode::getRoutingTable() {
+    return this->routingTable;
+}
+
+void FatTreeNode::updateRoutingTable(const std::vector<int>& destMaskIPAddress, int nextNodeID) {
+    this->routingTable.emplace_back(destMaskIPAddress, nextNodeID);
+}
+
+>>>>>>> graphlib
 FatTreeNode::~FatTreeNode() = default;

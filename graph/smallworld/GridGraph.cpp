@@ -51,7 +51,11 @@ int GridGraph::getNumCol() {
 void GridGraph::generateFixedDegree(const std::vector<float> &alphas) {
     // for each value of alpha
     for (float alpha : alphas) {
+<<<<<<< HEAD
         std::cout << "alpha = " << alpha << std::endl;
+=======
+        // std::cout << "alpha = " << alpha << std::endl;
+>>>>>>> graphlib
         // create temporary list of all Nodes
         std::vector<int> vertexList;
         for (const auto &item : this->adjList) {
@@ -59,7 +63,11 @@ void GridGraph::generateFixedDegree(const std::vector<float> &alphas) {
         }
         // Per loop, get random 1 Node, create randomlink with alpha param for that Node
         while (!vertexList.empty()) {
+<<<<<<< HEAD
             std::cout << "leaf size " << vertexList.size() << std::endl;
+=======
+            // std::cout << "leaf size " << vertexList.size() << std::endl;
+>>>>>>> graphlib
             if (vertexList.size() == 2 and this->getGridHop(vertexList.front(), vertexList.back()) != 1) {
                 this->addEdge(vertexList[0], vertexList[1], this->getGridHop(vertexList[0], vertexList[1]));
                 break;
@@ -111,7 +119,11 @@ void GridGraph::generateFixedDegree(const std::vector<float> &alphas) {
             }
             if (!randomDest) continue;
             this->addEdge(randomSource, randomDest, (float)this->getGridHop(randomSource, randomDest));
+<<<<<<< HEAD
             std::cout << "add random link " << randomSource << " to " << randomDest << " weight " << (float)this->getGridHop(randomSource, randomDest) << std::endl;
+=======
+            // std::cout << "add random link " << randomSource << " to " << randomDest << " weight " << (float)this->getGridHop(randomSource, randomDest) << std::endl;
+>>>>>>> graphlib
             vertexList.erase(std::remove(vertexList.begin(), vertexList.end(), randomSource), vertexList.end());
             vertexList.erase(std::remove(vertexList.begin(), vertexList.end(), randomDest), vertexList.end());
         }

@@ -3,19 +3,39 @@
 //
 
 #include <iostream>
+<<<<<<< HEAD
+=======
+#include <chrono>
+#include <fstream>
+>>>>>>> graphlib
 #include "../../graph/fattree/FatTree.h"
 #include "../../node/FatTreeNode.h"
 
 int main() {
+<<<<<<< HEAD
     int paramK = 4;
     auto *fatTree = new FatTree(paramK);
     std::cout << "create fat tree topo " << fatTree->getNumVertices() << " node" << std::endl;
+=======
+    int paramK = 250;
+
+    auto begin = std::chrono::system_clock::now();
+    auto *fatTree = new FatTree(paramK);
+    auto doneTopo = std::chrono::system_clock::now();
+
+    // std::cout << "create fat tree topo " << fatTree->getNumVertices() << " node" << std::endl;
+>>>>>>> graphlib
     int numCoreSwitch = fatTree->getNumCoreSwitch();
     int numPods = fatTree->getNumPods();
     int numSwitchPerPod = fatTree->getNumSwitchPerPod();
     std::map<int, FatTreeNode*> fatTreeNodeList;
 
+<<<<<<< HEAD
     for (int i = 0; i < fatTree->getNumVertices(); ++i) {
+=======
+    int totalSwitch = numCoreSwitch + numPods * numSwitchPerPod;
+    for (int i = 0; i < totalSwitch; ++i) {
+>>>>>>> graphlib
         auto *fatTreeNode = new FatTreeNode(i, numCoreSwitch, numPods, numSwitchPerPod);
         fatTreeNodeList.insert(std::pair<int, FatTreeNode*>(i, fatTreeNode));
     }
@@ -23,7 +43,38 @@ int main() {
     for (std::pair<int, FatTreeNode*> fatTreeNode : fatTreeNodeList) {
         fatTreeNode.second->buildTable(numCoreSwitch, numPods, numSwitchPerPod);
     }
+<<<<<<< HEAD
     std::cout << "Done" << std::endl;
+=======
+
+    auto doneAlgo = std::chrono::system_clock::now();
+
+    std::fstream routingTableFile;
+    std::string localTableFileName ("./../experiment/fat_tree/k_" + std::to_string(paramK));
+    routingTableFile.open(localTableFileName.c_str(), std::ios::out);
+    /* Fat Tree routing table format:
+     * <sourceNodeID, addressMask, nextNodeID>
+     * nodeID & ipAddress is correspond to each other: nodeID ~ ipAddress
+     */
+    for (std::pair<int, FatTreeNode*> fatTreeNode : fatTreeNodeList) {
+        std::vector<std::pair<std::vector<int>, int> > routingTable = fatTreeNode.second->getRoutingTable();
+        for (std::pair<std::vector<int>, int> destNodeID : routingTable) {
+            std::string row (std::to_string(fatTreeNode.first) + " "
+                + std::to_string(destNodeID.first[0]) + "."
+                + std::to_string(destNodeID.first[1]) + "."
+                + std::to_string(destNodeID.first[2]) + "."
+                + std::to_string(destNodeID.first[3])
+                + " " + std::to_string(destNodeID.second) + "\n");
+            routingTableFile << row;
+        }
+    }
+    routingTableFile.close();
+
+    std::chrono::duration<double> elapsed_seconds1 = doneTopo - begin;
+    std::chrono::duration<double> elapsed_seconds2 = doneAlgo - doneTopo;
+    std::cout << "Create topo on " << elapsed_seconds1.count() << std::endl;
+    std::cout << "Done Algorithm on " << elapsed_seconds2.count() << std::endl;
+>>>>>>> graphlib
 
     return 0;
 }

@@ -85,6 +85,7 @@ std::map<int, std::pair<float, int> > Graph::Dijkstra(int sourceID, float nodeLa
     return trace;
 }
 
+<<<<<<< HEAD
 
 //std::map<int, std::pair<float, int> > Graph::Dijkstra(int sourceID) {
 //    auto start = std::chrono::system_clock::now();
@@ -142,4 +143,6 @@ std::map<int, std::pair<float, int> > Graph::Dijkstra(int sourceID, float nodeLa
 //    return trace;
 //}
 
+=======
+>>>>>>> graphlib
 Graph::~Graph() = default;

@@ -24,7 +24,13 @@ public:
 
     int getNodeID();
     int getLayer();
+<<<<<<< HEAD
     int* getAddress();
+=======
+    std::vector<std::pair<std::vector<int>, int> > getRoutingTable();
+    int* getAddress();
+    void updateRoutingTable(const std::vector<int>& destMaskIPAddress, int nextNodeID);
+>>>>>>> graphlib
 
     void buildTable(int numCoreSwitch, int numPods, int numSwitchPerPod);
 };
