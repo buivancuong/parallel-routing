@@ -3,14 +3,14 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="parallel_routing" targetName="corra_v1_serial" />
-      <config projectName="parallel_routing" targetName="fat_tree_serial" />
       <config projectName="parallel_routing" targetName="corra_v2_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v1_parallel" />
       <config projectName="parallel_routing" targetName="tz_serial" />
+      <config projectName="parallel_routing" targetName="corra_v1_parallel" />
       <config projectName="parallel_routing" targetName="tz_parallel" />
-      <config projectName="parallel_routing" targetName="fat_tree_parallel" />
+      <config projectName="parallel_routing" targetName="fat_tree_serial" />
       <config projectName="parallel_routing" targetName="corra_v2_serial" />
       <config projectName="parallel_routing" targetName="parallel_routing" />
+      <config projectName="parallel_routing" targetName="fat_tree_parallel" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -57,7 +57,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -84,47 +83,47 @@
     </option>
   </component>
   <component name="RunManager" selected="CMake Application.fat_tree_serial">
-    <configuration name="corra_v1_parallel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="corra_v1_parallel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="corra_v1_parallel">
+    <configuration name="corra_v1_parallel" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="corra_v1_parallel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="corra_v1_parallel">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="corra_v1_serial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="corra_v1_serial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="corra_v1_serial">
+    <configuration name="corra_v1_serial" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="corra_v1_serial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="corra_v1_serial">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="corra_v2_parallel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="corra_v2_parallel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="corra_v2_parallel">
+    <configuration name="corra_v2_parallel" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="corra_v2_parallel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="corra_v2_parallel">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="corra_v2_serial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="corra_v2_serial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="corra_v2_serial">
+    <configuration name="corra_v2_serial" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="corra_v2_serial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="corra_v2_serial">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fat_tree_parallel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="fat_tree_parallel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="fat_tree_parallel">
+    <configuration name="fat_tree_parallel" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="fat_tree_parallel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="fat_tree_parallel">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fat_tree_serial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="fat_tree_serial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="fat_tree_serial">
+    <configuration name="fat_tree_serial" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="fat_tree_serial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="fat_tree_serial">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="parallel_routing" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="parallel_routing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="parallel_routing">
+    <configuration name="parallel_routing" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="parallel_routing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="parallel_routing">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="tz_parallel" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="tz_parallel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="tz_parallel">
+    <configuration name="tz_parallel" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="tz_parallel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="tz_parallel">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="tz_serial" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="tz_serial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="tz_serial">
+    <configuration name="tz_serial" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="tz_serial" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="tz_serial">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -140,19 +139,6 @@
       <item itemvalue="CMake Application.tz_parallel" />
       <item itemvalue="CMake Application.tz_serial" />
     </list>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-    <option name="showServicesTree" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
@@ -362,13 +348,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
