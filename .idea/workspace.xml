@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated>
-      <config projectName="parallel_routing" targetName="corra_v2_parallel" />
-      <config projectName="parallel_routing" targetName="fat_tree_parallel" />
-      <config projectName="parallel_routing" targetName="tz_exp_serial" />
-      <config projectName="parallel_routing" targetName="corra_v2_exp_serial" />
-      <config projectName="parallel_routing" targetName="tz_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v2_serial" />
-      <config projectName="parallel_routing" targetName="tz_exp_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v1_exp_parallel" />
-      <config projectName="parallel_routing" targetName="fat_tree_exp_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v2_exp_parallel" />
-      <config projectName="parallel_routing" targetName="corra_v1_exp_serial" />
-      <config projectName="parallel_routing" targetName="corra_v1_serial" />
-      <config projectName="parallel_routing" targetName="fat_tree_exp_serial" />
-      <config projectName="parallel_routing" targetName="corra_v1_parallel" />
-      <config projectName="parallel_routing" targetName="main" />
-      <config projectName="parallel_routing" targetName="fat_tree_serial" />
-      <config projectName="parallel_routing" targetName="tz_serial" />
-    </generated>
+    <generated />
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
@@ -53,7 +35,6 @@
     <expand />
     <select />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -69,6 +50,8 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mongo" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
@@ -80,7 +63,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -95,7 +78,7 @@
       <command value="getBlockVertical" />
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.corra_v2_exp_serial">
+  <component name="RunManager" selected="CMake Application.corra_v1_exp_parallel">
     <configuration name="corra_v1_exp_parallel" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="parallel_routing" TARGET_NAME="corra_v1_exp_parallel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="parallel_routing" RUN_TARGET_NAME="corra_v1_exp_parallel">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -455,6 +438,8 @@
       <workItem from="1589693191942" duration="757000" />
       <workItem from="1589709526929" duration="5506000" />
       <workItem from="1589809446354" duration="677000" />
+      <workItem from="1593444547318" duration="250000" />
+      <workItem from="1593444849441" duration="298000" />
     </task>
     <task id="LOCAL-00001" summary="add vertice utilities">
       <created>1571875010354</created>
@@ -511,30 +496,18 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="575" y="181" width="800" height="707" key="#Plugins/32.21.1888.1059@32.21.1888.1059" timestamp="1589510768227" />
-    <state x="576" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584322952890">
-      <screen x="32" y="21" width="1888" height="1059" />
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593444932953">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="576" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1584322952890" />
+    <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1593444932953" />
     <state x="225" y="165" width="434" height="689" key="#xdebugger.XInspectDialog" timestamp="1587026995091">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="225" y="165" width="434" height="689" key="#xdebugger.XInspectDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1587026995091" />
-    <state x="342" y="267" key="#xdebugger.evaluate" timestamp="1582967752385">
-      <screen x="32" y="21" width="1888" height="1059" />
-    </state>
-    <state x="342" y="267" key="#xdebugger.evaluate/32.21.1888.1059@32.21.1888.1059" timestamp="1582967752385" />
-    <state x="529" y="128" key="CommitChangelistDialog2" timestamp="1582337612711">
-      <screen x="32" y="21" width="1888" height="1059" />
-    </state>
-    <state x="529" y="128" key="CommitChangelistDialog2/32.21.1888.1059@32.21.1888.1059" timestamp="1582337612711" />
     <state width="553" height="486" key="DebuggerActiveHint" timestamp="1587044236257">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state width="553" height="486" key="DebuggerActiveHint/32.21.1888.1059@32.21.1888.1059" timestamp="1587044236257" />
-    <state x="764" y="297" key="FileChooserDialogImpl" timestamp="1582952972185">
-      <screen x="32" y="21" width="1888" height="1059" />
-    </state>
-    <state x="764" y="297" key="FileChooserDialogImpl/32.21.1888.1059@32.21.1888.1059" timestamp="1582952972185" />
     <state width="1846" height="205" key="GridCell.Tab.0.bottom" timestamp="1589695571818">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
@@ -567,30 +540,14 @@
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state width="1846" height="205" key="GridCell.Tab.1.right/32.21.1888.1059@32.21.1888.1059" timestamp="1589695571818" />
-    <state x="575" y="147" key="SettingsEditor" timestamp="1582710665445">
-      <screen x="32" y="21" width="1888" height="1059" />
+    <state x="491" y="170" width="1157" height="709" key="SettingsEditor" timestamp="1593445146610">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="575" y="147" key="SettingsEditor/32.21.1888.1059@32.21.1888.1059" timestamp="1582710665445" />
+    <state x="491" y="170" width="1157" height="709" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1593445146610" />
     <state x="660" y="329" width="698" height="447" key="com.intellij.ide.util.TipDialog" timestamp="1586849357246">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
     <state x="660" y="329" width="698" height="447" key="com.intellij.ide.util.TipDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1586849357246" />
-    <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583137894754">
-      <screen x="32" y="21" width="1888" height="1059" />
-    </state>
-    <state x="645" y="212" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/32.21.1888.1059@32.21.1888.1059" timestamp="1583137894754" />
-    <state x="778" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582337669098">
-      <screen x="32" y="21" width="1888" height="1059" />
-    </state>
-    <state x="778" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/32.21.1888.1059@32.21.1888.1059" timestamp="1582337669098" />
-    <state x="741" y="413" width="710" height="389" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1582293218953">
-      <screen x="32" y="21" width="1888" height="1059" />
-    </state>
-    <state x="741" y="413" width="710" height="389" key="org.intellij.images.editor.actions.BackgroundImageDialog/32.21.1888.1059@32.21.1888.1059" timestamp="1582293218953" />
-    <state x="624" y="256" width="700" height="530" key="recent.locations.popup" timestamp="1581586048582">
-      <screen x="32" y="21" width="1888" height="1059" />
-    </state>
-    <state x="624" y="256" width="700" height="530" key="recent.locations.popup/32.21.1888.1059@32.21.1888.1059" timestamp="1581586048582" />
     <state x="639" y="246" width="672" height="677" key="run.anything.popup" timestamp="1588579812779">
       <screen x="32" y="21" width="1888" height="1059" />
     </state>
